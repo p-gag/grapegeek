@@ -36,7 +36,7 @@ Measured °Brix, pH, acidity, aroma/flavor descriptions. Focus on data-backed tr
 Harvest strategies, fermentation approaches, stability challenges. Cite winemaker experiences and enology research.
 
 ## 9. Example Styles & Uses
-Real wine types, blends, juice/table use. Cite specific wineries and their products.
+Real wine types, blends, juice/table use. Do research and cite winemaker stories, emotion and personal experience with these grapes with wine results. 
 
 ## 10. Open Questions & Conflicting Reports
 Disagreements or missing research. Contrast different sources and experiences.

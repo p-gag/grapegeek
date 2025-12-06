@@ -7,11 +7,12 @@ grapegeek/
 ├── prompts/                    # All prompt templates
 │   ├── general/               # General system prompts
 │   └── grapes/                # Grape-specific prompts
-│       ├── article_prompt.md  # Shared article generation template
+│       ├── technical_prompt.md # Technical article generation template
+│       ├── art_prompt.md      # Winemaking story generation template
 │       └── articles/          # Individual variety contexts
 ├── output/                    # Generated content
-│   ├── articles/              # Final grape articles
-│   └── citations/             # Citation databases
+│   ├── articles/              # Technical articles and winemaking stories
+│   └── citations/             # Citation databases  
 ├── templates/                 # Article templates
 ├── src/grapegeek/            # Source code
 └── main.py                   # Main entry point
@@ -25,7 +26,8 @@ grapegeek/
 - `tone_guidelines.md` - Writing style and tone instructions
 
 ### Grape-Specific Prompts (`prompts/grapes/`)
-- `article_prompt.md` - Shared prompt template loaded for all article generation
+- `technical_prompt.md` - Comprehensive technical article generation template
+- `art_prompt.md` - Winemaking story and human narrative template
 
 ### Individual Variety Context (`prompts/grapes/articles/`)
 Individual YAML frontmatter files for each grape variety:
