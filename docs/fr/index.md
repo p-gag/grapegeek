@@ -1,5 +1,8 @@
 # Bienvenue sur Grape Geek ! 🍇
 
+!!! warning "🚧 Site en construction 🚧"
+    Ce site est en développement actif. Du nouveau contenu sur les variétés de raisins hybrides sera ajouté régulièrement.
+
 **Grape Geek** est un projet dédié à mettre en lumière les variétés de raisins hybrides cultivées dans les climats froids du nord-est des États-Unis et de l'est du Canada. Ces raisins passent souvent inaperçus comparés à leurs cousins vinifera bien connus.
 
 ## Ce que vous trouverez ici

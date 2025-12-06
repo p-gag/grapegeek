@@ -1,5 +1,8 @@
 # Welcome to Grape Geek! 🍇
 
+!!! warning "🚧 Under Construction 🚧"
+    This site is under active development. New content about hybrid grape varieties will be added regularly.
+
 **Grape Geek** is a project dedicated to shining a light on hybrid grape varieties grown in the chilly climates of the northeast US and eastern Canada. These grapes often fly under the radar compared to their well-known vinifera cousins.
 
 ## What You'll Find Here
