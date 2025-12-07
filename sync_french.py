@@ -4,6 +4,7 @@ import os
 import hashlib
 import yaml
 import argparse
+from datetime import datetime
 from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -24,8 +25,13 @@ class FrenchSyncer:
         self.english_dir = self.base_path / "docs" / "varieties"
         self.french_dir = self.base_path / "docs" / "fr" / "varietes"
         
-        # Ensure French directory exists
+        # Main site directories
+        self.docs_dir = self.base_path / "docs"
+        self.french_docs_dir = self.base_path / "docs" / "fr"
+        
+        # Ensure French directories exist
         self.french_dir.mkdir(parents=True, exist_ok=True)
+        self.french_docs_dir.mkdir(parents=True, exist_ok=True)
     
     def compute_content_hash(self, file_path: Path) -> str:
         """Compute SHA256 hash of file content."""
@@ -84,6 +90,41 @@ English content:
 Provide the French translation:
 """
         
+        try:
+            response = self.client.responses.create(
+                model="gpt-5",
+                tools=[{"type": "web_search"}],
+                input=prompt
+            )
+            return response.output_text
+        except Exception as e:
+            return f"Error translating content: {str(e)}"
+    
+    def translate_site_content(self, english_content: str, filename: str) -> str:
+        """Translate general site content to French using OpenAI."""
+        if self.dry_run:
+            return f"[DRY RUN] French translation of {filename} would be generated here"
+        
+        prompt = f"""
+Translate the following English content to French for a Quebec wine growing website.
+
+Important guidelines:
+- Maintain the same markdown structure 
+- Use Quebec French where appropriate 
+- Keep a friendly, approachable tone
+- Preserve any technical terms related to viticulture
+- Keep all external URLs and social media links exactly as they are
+- Translate section names (like "Grape Varieties" → "Cépages")
+- For internal links, update paths for French site structure:
+  - varieties/index.md → varietes/index.md
+  - about.md → a-propos.md  
+  - ai-usage.md → usage-ia.md
+- Keep directory structure English (varieties/, not cépages/) but translate the display text
+
+English content:
+{english_content}
+"""
+
         try:
             response = self.client.responses.create(
                 model="gpt-5",
@@ -182,21 +223,76 @@ Vous trouverez ici des articles détaillés sur les variétés de raisins hybrid
         french_index.write_text(index_content, encoding='utf-8')
         return f"UPDATED - French index with {len(varieties_list)} varieties"
     
+    def sync_main_site_file(self, english_file: Path, french_filename: str) -> str:
+        """Sync a main site file to French."""
+        french_file = self.french_docs_dir / french_filename
+        
+        # Compute current English content hash
+        english_hash = self.compute_content_hash(english_file)
+        
+        # Check if French file exists and get stored hash
+        if french_file.exists():
+            french_frontmatter, _ = self.extract_frontmatter_and_content(french_file)
+            stored_hash = french_frontmatter.get("english_hash")
+            
+            if stored_hash == english_hash:
+                return "SKIP - No changes detected"
+        
+        # Read English content and translate
+        english_content = english_file.read_text(encoding='utf-8')
+        
+        if self.dry_run:
+            french_content = f"[DRY RUN] French translation of {english_file.name} would be generated here"
+        else:
+            # Use a simpler translation approach for site content
+            french_content = self.translate_site_content(english_content, english_file.name)
+        
+        # Create French frontmatter
+        french_frontmatter = {
+            "english_hash": english_hash,
+            "translated_date": datetime.now().strftime("%Y-%m-%d")
+        }
+        
+        # Save French file
+        if not self.dry_run:
+            self.create_french_file(french_frontmatter, french_content, french_file)
+            
+        action = "CREATE" if not french_file.exists() else "UPDATE"
+        return f"{action} - Content translated"
+
     def sync_all(self):
-        """Sync all English variety files to French."""
+        """Sync all English variety files and main site content to French."""
         print(f"🔄 Starting French sync {'(DRY RUN)' if self.dry_run else ''}")
-        print(f"📂 English source: {self.english_dir}")
-        print(f"📂 French target: {self.french_dir}")
+        print(f"📂 Varieties source: {self.english_dir}")
+        print(f"📂 Varieties target: {self.french_dir}")
+        print(f"📂 Main site source: {self.docs_dir}")
+        print(f"📂 Main site target: {self.french_docs_dir}")
         print("-" * 60)
         
-        # Find all English markdown files
+        # Sync main site files
+        main_site_files = [
+            ("index.md", "index.md"),
+            ("about.md", "a-propos.md"),
+            ("ai-usage.md", "usage-ia.md")
+        ]
+        
+        for english_name, french_name in main_site_files:
+            english_file = self.docs_dir / english_name
+            if english_file.exists():
+                print(f"📄 {english_name} → {french_name}")
+                action = self.sync_main_site_file(english_file, french_name)
+                print(f"   {action}")
+        
+        print()
+        
+        # Find all English variety files
         english_files = list(self.english_dir.glob("*.md"))
         
         if not english_files:
-            print("⚠️  No English files found")
+            print("⚠️  No English variety files found")
             return
         
-        # Process each file
+        # Process each variety file
         for english_file in english_files:
             action = self.sync_file(english_file)
             status_icon = {

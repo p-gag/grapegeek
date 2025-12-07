@@ -1,79 +1,87 @@
-# Usage de l'IA et Transparence
+---
+english_hash: 01aee47e5dcaadf693f34275a8b7293cb847f1626e4bb42856ce8bc587ce2907
+translated_date: '2025-12-07'
+---
 
-Cette page explique comment l'intelligence artificielle est utilisée sur ce site, ma philosophie derrière cette approche, et les avertissements importants dont vous devriez être conscients.
+# Utilisation de l’IA et transparence
 
-!!! warning "Divulgation de Contenu Généré par l'IA"
-    **Ce site entier est largement généré en utilisant des outils d'IA.** Tous les articles sur les variétés de raisins sont recherchés, écrits et traduits en utilisant l'intelligence artificielle. Bien que je travaille fort pour assurer l'exactitude grâce aux citations et à la recherche web, veuillez vérifier l'information de manière indépendante avant de prendre des décisions de culture ou d'affaires.
+Cette page explique comment l’intelligence artificielle est utilisée sur ce site, la philosophie qui la guide, ainsi que des avis importants dont vous devriez être au courant.
 
-!!! info "Avis de Qualité de Projet Personnel"
-    Ceci est un **projet personnel passionné** avec un investissement de temps minimal. La qualité du contenu peut varier, et les articles peuvent contenir des erreurs ou de l'information incomplète. Considérez ceci comme un point de départ pour votre propre recherche, pas comme des conseils agricoles définitifs.
+!!! warning "Divulgation de contenu généré par IA"
+    **Ce site est en grande partie généré à l’aide d’outils d’IA.** Tous les articles sur les cépages sont recherchés, rédigés et traduits à l’aide de l’intelligence artificielle. Même si je m’efforce d’assurer l’exactitude au moyen de citations et de recherche sur le web, veuillez vérifier l’information de façon indépendante avant de prendre des décisions de culture ou d’affaires.
 
-## Ma Philosophie sur l'IA
+!!! info "Avis de qualité — Projet personnel"
+    Il s’agit d’un **projet de passion personnel** auquel je consacre peu de temps. La qualité du contenu peut varier, et les articles peuvent contenir des erreurs ou des informations incomplètes. Voyez-le comme un point de départ pour vos propres recherches, pas comme un avis agricole définitif.
 
-Dans mon travail quotidien, j'utilise l'IA pour aider les employés à naviguer dans de grandes bases de connaissances internes inconnues des modèles d'IA. Cette expérience m'a enseigné que **les modèles d'IA ne performent pas bien pour retenir l'information sur les raisins hybrides parce que le sujet est trop spécialisé.** Quand vous demandez à l'IA au sujet d'une variété obscure, elle va certainement halluciner.
+## Ma philosophie en matière d’IA
 
-Au lieu de me fier à la "mémoire" de l'IA, j'utilise ces outils puissants pour **m'aventurer dans les coins sauvages d'internet** pour trouver des faits intéressants, des témoignages et des expériences réelles de vignerons et vinificateurs. L'objectif est la découverte et la connexion, pas l'invention.
+Dans mon travail de jour, j’utilise l’IA pour aider les employé·e·s à naviguer de vastes bases de connaissances internes que les modèles d’IA ne connaissent pas. Cette expérience m’a appris que **les modèles d’IA retiennent mal l’information sur les cépages hybrides, parce que le sujet est trop niché.** Quand on interroge l’IA sur un cépage obscur, elle finit presque assurément par halluciner.
 
-## Comment Ça Fonctionne : Le Processus d'IA à Trois Couches
+Plutôt que de miser sur la « mémoire » de l’IA, j’utilise ces outils puissants pour **m’aventurer dans les coins reculés du web**, afin de dénicher des faits intéressants, des témoignages et des expériences vécues par des producteurs et des vinificateurs. L’objectif, c’est la découverte et le lien, pas l’invention.
 
-### 1. 🛠️ Développement du Répertoire
-Je compte beaucoup sur l'IA pour aider à coder tout ce répertoire :
+## Comment ça marche : le processus d’IA en trois couches
+
+### 1. 🛠️ Développement du dépôt
+Je m’appuie fortement sur l’IA pour coder l’ensemble de ce dépôt :
 - Structure du site et navigation bilingue
 - Scripts de génération de contenu
-- Workflows de traduction
+- Flux de travail de traduction
 - Automatisation du déploiement
 
-**Outils utilisés :** Claude Code, GitHub Copilot
-**Mon rôle :** Décisions d'architecture, tests, raffinement
+**Outils utilisés :** Claude Code, GitHub Copilot  
+**Mon rôle :** décisions d’architecture, tests, mise au point
 
-### 2. 🔍 Recherche de Contenu et Rédaction
-Pour chaque article de variété de raisin :
-- L'IA recherche sur le web pour de l'information réelle sur la variété
-- Se concentre sur la recherche de témoignages, études et expériences de vignerons
+### 2. 🔍 Recherche et rédaction de contenu
+Pour chaque article de cépage :
+- L’IA parcourt le web pour trouver de l’information factuelle sur le cépage
+- Met l’accent sur les témoignages, les études et les expériences de producteurs
 - Assemble les trouvailles en un article cohérent, style magazine
-- Préserve toutes les citations et références pour vérification
+- Conserve toutes les citations et références pour vérification
 
-**Outils utilisés :** OpenAI GPT-5 avec capacités de recherche web
-**Mon rôle :** Sélection de variétés, révision de qualité, décisions de publication
+**Outils utilisés :** OpenAI GPT-5 avec capacités de recherche web  
+**Mon rôle :** sélection des cépages, relecture rapide, décisions de publication
 
 ### 3. 🌍 Traduction
-Les articles anglais sont traduits en français :
-- Utilise un système intelligent basé sur les hash pour traduire seulement le contenu modifié
-- Adapté pour les vignerons du Québec et de l'est du Canada
-- Préserve exactement les termes techniques et citations
-- Maintient le ton accessible et amical
 
-**Outils utilisés :** OpenAI GPT-5 avec contexte français québécois
-**Mon rôle :** Révision de traduction, appropriateness culturelle
+Mon idée de départ était de créer du contenu à la montréalaise — en tissant naturellement le français et l’anglais selon les sources et le contexte. Toutefois, c’était trop complexe pour le flux de travail actuel. Je pourrais y revenir plus tard. Pour l’instant, tout le contenu naît en anglais généré par IA.
 
-## Ce Que Cela Signifie Pour Vous
+Les articles en anglais sont traduits en français :
+- Utilise un système intelligent basé sur des hachages pour ne traduire que le contenu modifié
+- Adapté aux viticulteurs du Québec et de l’Est du Canada
+- Préserve exactement les termes techniques et les citations
+- Maintient un ton accessible et chaleureux
 
-**✅ Forces :**
-- Accès à l'information obscure de partout sur le web
-- Format cohérent et accessibilité
-- Citations fournies pour exploration supplémentaire
+**Outils utilisés :** OpenAI GPT-5 avec contexte de français québécois  
+**Mon rôle :** pas grand-chose pour l’instant
+
+## Ce que ça signifie pour vous
+
+**✅ Points forts :**
+- Accès à de l’information peu commune provenant de partout sur le web
+- Format cohérent et accessible
+- Citations fournies pour approfondir
 - Disponibilité bilingue
 
-**⚠️ Limitations :**
-- L'IA peut manquer des nuances que seuls des experts humains saisiraient
-- L'information n'est aussi bonne que ce qui est disponible en ligne
-- Qualité de projet personnel - pas édité professionnellement
-- Peut contenir des erreurs ou de l'information dépassée
+**⚠️ Limites :**
+- L’IA peut manquer des nuances qu’un·e expert·e humain·e remarquerait
+- L’information n’est aussi bonne que ce qui existe en ligne
+- Projet personnel — non révisé de façon professionnelle
+- Peut contenir des erreurs ou de l’information dépassée
 
-**🎯 Meilleure Pratique :**
-Utilisez ce site comme un **outil de découverte** pour trouver des variétés et sources intéressantes, puis suivez les citations pour vous connecter avec les vrais vignerons, chercheurs et publications mentionnés.
+**🎯 Bonne pratique :**
+Servez-vous de ce site comme **un outil de découverte** pour repérer des cépages et des sources intéressants, puis suivez les citations pour joindre directement les producteurs, chercheur·euse·s et publications mentionnés.
 
-## Détails Techniques
+## Détails techniques
 
-Pour les développeurs et ceux curieux de l'implémentation :
+Pour les développeurs et les personnes curieuses de l’implémentation :
 
-- **Code source :** [Répertoire GitHub](https://github.com/p-gag/grapegeek)
-- **Modèles d'IA :** OpenAI GPT-5 avec outils de recherche web
-- **Langages :** Python, MkDocs avec thème Material
+- **Code source :** [GitHub Repository](https://github.com/p-gag/grapegeek)
+- **Modèles d’IA :** OpenAI GPT-5 avec outils de recherche web
+- **Langages :** Python, MkDocs avec le thème Material
 - **Déploiement :** GitHub Pages avec domaine personnalisé
 
-Tout le workflow est conçu pour être transparent et reproductible. Vous pouvez voir exactement comment chaque article est généré en examinant le code et les prompts dans le répertoire.
+L’ensemble du flux de travail est conçu pour être transparent et reproductible. Vous pouvez voir exactement comment chaque article est généré en examinant le code et les invites dans le dépôt, y compris le [main system prompt](https://github.com/p-gag/grapegeek/blob/main/prompts/general/system_prompt.md) qui guide la génération du contenu sur les cépages.
 
 ---
 
-*Cette page de transparence reflète mon engagement envers un usage honnête de l'IA. Si vous avez des questions ou préoccupations sur du contenu, contactez-moi ou consultez le répertoire GitHub pour plus de détails.*
+*Cette page de transparence reflète mon engagement envers une utilisation honnête de l’IA. Si vous avez des questions ou des préoccupations au sujet d’un contenu, n’hésitez pas à me contacter ou à consulter le dépôt GitHub pour plus de détails.*

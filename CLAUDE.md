@@ -15,7 +15,7 @@ python main.py grape <variety_name> --type technical --publish
 # Generate winemaking stories for a grape variety  
 python main.py grape <variety_name> --type story
 
-# Sync all content to French site with smart change detection
+# Sync all content to French site with smart change detection (varieties + main site files)
 python sync_french.py
 
 # Dry run (show prompts without calling OpenAI)
@@ -122,7 +122,7 @@ trade_association_url: "URL"
 - Uses OpenAI Responses API with `gpt-5` model and Quebec French context
 - Only translates files that have changed since last sync (tracked via YAML frontmatter hashes)
 - Preserves technical terms, citations, and markdown formatting
-- Handles both technical articles and site pages
+- Handles both variety articles (`docs/varieties/` → `docs/fr/varietes/`) and main site files (`docs/index.md` → `docs/fr/index.md`, `docs/about.md` → `docs/fr/a-propos.md`)
 - Automatic YAML frontmatter management for change tracking
 
 ## Development Notes

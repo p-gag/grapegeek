@@ -1,31 +1,37 @@
-# Bienvenue sur Grape Geek ! 🍇
+---
+english_hash: 5530b2d8012edd9320f9d7cad4b83b83c0149678db7961d34476940091213966
+translated_date: '2025-12-07'
+---
 
-!!! warning "🚧 Site en construction 🚧"
-    Ce site est en développement actif. Du nouveau contenu sur les variétés de raisins hybrides sera ajouté régulièrement.
+# Bienvenue sur Grape Geek! 🍇
 
-**Grape Geek** est un projet dédié à mettre en lumière les variétés de raisins hybrides cultivées dans les climats froids du nord-est des États-Unis et de l'est du Canada. Ces raisins passent souvent inaperçus comparés à leurs cousins vinifera bien connus.
+!!! warning "🚧 En construction 🚧"
+    Ce site est en développement actif. Du nouveau contenu sur les cépages hybrides sera ajouté régulièrement. La version française a besoin d’un peu plus d’amour.
+
+**Grape Geek** est un projet qui vise à mettre en lumière les cépages hybrides cultivés dans les climats frisquets du nord-est des États-Unis et de l’est du Canada. Ces raisins passent souvent sous le radar comparativement à leurs cousines vinifera bien connues.
 
 ## Ce que vous trouverez ici
 
-- **[Variétés de Raisin](varietes/index.md)** - Articles détaillés sur les variétés de raisins hybrides, incluant l'information technique de culture et les histoires de vignerons
-- **[À Propos](about.md)** - Découvrez la philosophie et l'approche du projet
-- **[Usage de l'IA](usage-ia.md)** - Transparence sur l'utilisation de l'IA pour la recherche et création de contenu
+- **[Cépages](varietes/index.md)** - Articles détaillés sur les cépages hybrides avec des informations techniques de culture
+    - À venir (ou pas) : des histoires de producteurs et de vinificateurs, racontées dans leurs propres mots, avec attribution complète
+- **[À propos](a-propos.md)** - Pour en savoir plus sur la philosophie et l’approche du projet
+- **[Utilisation de l’IA](usage-ia.md)** - Transparence sur la façon dont l’IA est utilisée pour la recherche et la création de contenu
 
 ## Contenu récent
 
-Ce site présente du contenu soigneusement recherché avec citations, mettant l'accent sur les expériences réelles de vignerons, vinificateurs et chercheurs en viticulture de climat froid.
+Ce site est un travail en cours qui présente des recherches initiales avec citations et références. Même si j’ai mis beaucoup d’efforts dans l’attribution et la collecte d’expériences concrètes de producteurs, de vinificateurs et de chercheurs en viticulture de climat froid, il s’agit encore d’une première version imparfaite que je souhaite rendre plus rigoureuse avec le temps.
 
-## Contact
+## Restez en contact
 
-Suivez mon parcours viticole et mes expérimentations en viticulture de climat froid :
+Suivez mon aventure de culture de la vigne et mes expériences en viticulture de climat froid :
 
-- **Instagram :** [@phil.vigne](https://instagram.com/phil.vigne) - Mises à jour quotidiennes du vignoble et conseils de culture
-- **Facebook :** [La Vigne de Métis](https://www.facebook.com/philippe.gagnon.54) - Discussions communautaires et publications détaillées
-
----
-
-*Le contenu est recherché à partir de diverses sources sur le web, avec des citations fournies pour que vous puissiez explorer les ressources originales et vous connecter avec la communauté.*
+- **Instagram :** [@phil.vigne](https://instagram.com/phil.vigne)
+- **Facebook :** [La Vigne de Métis](https://www.facebook.com/philippe.gagnon.54)
 
 ---
 
-**[English](../index.md)** | **Français**
+*Le contenu est élaboré à partir de diverses sources sur le web, avec des citations fournies pour que vous puissiez explorer les ressources originales et entrer en contact avec la communauté.*
+
+---
+
+**Anglais** | **[Français](fr/index.md)**
