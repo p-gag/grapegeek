@@ -8,4 +8,8 @@ Vous trouverez ici des articles détaillés sur les variétés de raisins hybrid
 
 ## Variétés disponibles
 
+- **[Acadie Blanc](acadie_blanc.md)**
+- **[Itasca](itasca.md)**
+- **[Marquette](marquette.md)**
+
 *De nouveaux articles sur les variétés de raisin sont ajoutés régulièrement. Revenez consulter pour les mises à jour !*

@@ -89,8 +89,57 @@ class GrapeArticleGenerator(BaseGenerator):
         
         return self.save_content(output_file, content)
     
-    def generate_and_save(self, variety_name: str, article_type: str = "technical") -> Path:
-        """Generate an article and save it, returning the output file path."""
+    def publish_to_site(self, variety_name: str, content: str) -> Path:
+        """Publish technical article to MkDocs site and update index."""
+        # Create docs/varieties directory if it doesn't exist
+        site_varieties_dir = self.base_path / "docs" / "varieties"
+        site_varieties_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Save article to site
+        site_file = site_varieties_dir / f"{variety_name.lower()}.md"
+        site_file.write_text(content)
+        
+        # Update varieties index
+        self.update_varieties_index(variety_name)
+        
+        return site_file
+    
+    def update_varieties_index(self, variety_name: str):
+        """Update docs/varieties/index.md to include the new variety."""
+        index_file = self.base_path / "docs" / "varieties" / "index.md"
+        
+        if not index_file.exists():
+            return
+        
+        content = index_file.read_text()
+        
+        # Check if variety is already listed  
+        # Format: "Acadie Blanc" → "Acadie Blanc" (display) + "acadie_blanc.md" (file)
+        display_name = variety_name.replace('_', ' ').title()
+        file_name = variety_name.lower().replace(' ', '_')
+        variety_link = f"- **[{display_name}]({file_name}.md)**"
+        if variety_link in content or f"[{display_name}]" in content:
+            return  # Already listed
+        
+        # Find where to insert the new variety (after "## Available Varieties")
+        lines = content.split('\n')
+        insert_index = None
+        
+        for i, line in enumerate(lines):
+            if line.startswith("*New grape variety articles"):
+                insert_index = i
+                break
+        
+        if insert_index is not None:
+            # Insert new variety link before the "New grape variety articles" line
+            lines.insert(insert_index, variety_link)
+            lines.insert(insert_index + 1, "")  # Add blank line
+            
+            # Update the file
+            index_file.write_text('\n'.join(lines))
+
+    def generate_and_save(self, variety_name: str, article_type: str = "technical", publish: bool = False) -> Path:
+        """Generate an article and save it, optionally publishing to site."""
         if not self.dry_run:
             type_desc = "winemaking stories" if article_type == "story" else "technical article"
             print(f"Generating {type_desc} for {variety_name}...")
@@ -104,6 +153,11 @@ class GrapeArticleGenerator(BaseGenerator):
             print(f"Saving article...")
         
         output_file = self.save_article(variety_name, content, article_type)
+        
+        # Publish to site if requested (only for technical articles)
+        if publish and article_type == "technical" and not self.dry_run:
+            print(f"Publishing to MkDocs site...")
+            self.publish_to_site(variety_name, content)
         
         if not self.dry_run:
             print(f"Article saved to: {output_file}")

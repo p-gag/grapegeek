@@ -11,35 +11,35 @@ Each section must cite real URLs, papers, researchers, growers, wineries, or nur
 
 # ARTICLE STRUCTURE - Write ALL of these sections:
 
-## 1. Overview
+## Overview
 Concise summary of variety, color, hybrid type, and current regions of use. Cite breeding program or extension sources.
 
-## 2. Origin & Breeding  
+## Origin & Breeding  
 Breeder, year, parentage, and genetic background. Cite original breeder, VIVC, or academic papers.
 
-## 3. Climate Adaptation & Hardiness
+## Climate Adaptation & Hardiness
 Temperature minima (°C/°F), hardiness zones, cold tolerance. Cite university trials or grower experiences.
 
-## 4. Phenology
+## Phenology
 Timing of budbreak, bloom, veraison, harvest. Use relative ripening vs named peers. Cite GDD data if available.
 
-## 5. Growth Habit
+## Growth Habit
 Vine vigor, orientation, trellis needs, pruning. Cite breeder descriptions or nursery growing guides.
 
-## 6. Disease & Physiological Issues  
+## Disease & Physiological Issues  
 Main vulnerabilities, relative resistance vs peers. Distinguish humid vs dry sites. Cite research and grower reports.
 
-## 7. Fruit Composition & Sensory Profile
+## Fruit Composition & Sensory Profile
 Measured °Brix, pH, acidity, aroma/flavor descriptions. Focus on data-backed traits from wineries or research.
 
-## 8. Winemaking Approaches
+## Winemaking Approaches
 Harvest strategies, fermentation approaches, stability challenges. Cite winemaker experiences and enology research.
 
-## 9. Example Styles & Uses
+## Example Styles & Uses
 Real wine types, blends, juice/table use. Do research and cite winemaker stories, emotion and personal experience with these grapes with wine results. 
 
-## 10. Open Questions & Conflicting Reports
+## Open Questions & Conflicting Reports
 Disagreements or missing research. Contrast different sources and experiences.
 
-## 11. References
+## References
 List all sources used with full context and URLs.

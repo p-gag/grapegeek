@@ -18,6 +18,7 @@ def main():
     grape_parser.add_argument("--type", choices=["technical", "story"], default="technical", 
                              help="Type of article: 'technical' for comprehensive analysis, 'story' for winemaking stories")
     grape_parser.add_argument("--dry-run", action="store_true", help="Show prompts without calling OpenAI")
+    grape_parser.add_argument("--publish", action="store_true", help="Automatically publish article to MkDocs site")
     
     # Region research
     region_parser = subparsers.add_parser("region", help="Research grape varieties in a region")
@@ -40,12 +41,17 @@ def main():
             generator = GrapeArticleGenerator(dry_run=args.dry_run)
             
             # Generate and save article
-            output_file = generator.generate_and_save(args.variety, args.type)
+            output_file = generator.generate_and_save(args.variety, args.type, publish=args.publish)
             
             if not args.dry_run:
                 article_type = "winemaking stories" if args.type == "story" else "technical article"
                 print(f"✅ Successfully generated {article_type} for {args.variety}")
                 print(f"📄 Output: {output_file}")
+                
+                if args.publish and args.type == "technical":
+                    print(f"🌐 Article published to MkDocs site!")
+                elif args.publish and args.type == "story":
+                    print(f"ℹ️  Stories are not auto-published (technical articles only)")
             else:
                 print(f"📄 Dry run output: {output_file}")
             
