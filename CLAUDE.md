@@ -9,14 +9,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Generate a technical article for a grape variety
 python main.py grape <variety_name> --type technical
 
+# Generate and auto-publish a technical article to MkDocs site
+python main.py grape <variety_name> --type technical --publish
+
 # Generate winemaking stories for a grape variety  
 python main.py grape <variety_name> --type story
 
-# Research grape varieties in a region
-python main.py region <region_name>
-
-# Translate English content to French
-python french_generator.py output/articles/<english_file>.md --output-dir output/fr
+# Sync all content to French site with smart change detection
+python sync_french.py
 
 # Dry run (show prompts without calling OpenAI)
 python main.py grape <variety_name> --dry-run
@@ -89,12 +89,12 @@ The application uses a layered prompt system:
   - `index.md`: English homepage
   - `about.md`: English about page  
   - `varieties/index.md`: English grape varieties section
-  - `regions/index.md`: English regions section
+  - `ai-usage.md`: AI transparency page
 - `docs/fr/`: French site content
   - `index.md`: French homepage (Accueil)
-  - `about.md`: French about page (À propos)
+  - `a-propos.md`: French about page (À propos)
   - `varietes/index.md`: French grape varieties section
-  - `regions/index.md`: French regions section
+  - `usage-ia.md`: AI transparency page (French)
 
 ### Variety Context System
 Each grape variety can have a context file at `prompts/grapes/articles/{variety_name}.md` with YAML frontmatter:
@@ -118,19 +118,24 @@ trade_association_url: "URL"
 ```
 
 ### French Translation System
-- `french_generator.py`: Standalone script for translating English content to French
-- Uses OpenAI Responses API with `gpt-5` model and Quebec French focus
+- `sync_french.py`: Smart French synchronization script with hash-based change detection
+- Uses OpenAI Responses API with `gpt-5` model and Quebec French context
+- Only translates files that have changed since last sync (tracked via YAML frontmatter hashes)
 - Preserves technical terms, citations, and markdown formatting
-- Handles both technical articles and winemaking stories
-- Simple command-line interface: `python french_generator.py <english_file>`
+- Handles both technical articles and site pages
+- Automatic YAML frontmatter management for change tracking
 
 ## Development Notes
 
 ### Content Publishing Workflow
-1. **Generate English content**: Use `main.py` to create articles in `output/articles/`
-2. **Translate to French** (optional): Use `french_generator.py` to create French versions in `output/fr/`
-3. **Publish to site**: Manually copy relevant articles from `output/` to `docs/varieties/` and `docs/fr/varietes/`
-4. **Deploy**: Commit changes → GitHub Actions automatically builds and deploys MkDocs site
+1. **Generate and publish**: Use `main.py grape <variety> --type technical --publish` to auto-generate and publish to MkDocs site
+2. **Sync French content**: Run `python sync_french.py` to translate changed content to French site
+3. **Deploy**: Commit changes → GitHub Actions automatically builds and deploys MkDocs site
+
+**Auto-publish features:**
+- Technical articles automatically copied to `docs/varieties/` with proper YAML frontmatter
+- Varieties index page automatically updated with new entries
+- Only technical articles auto-publish; stories remain manual workflow
 
 ### Site Deployment
 - **Live site**: https://grapegeek.com (custom domain) and https://p-gag.github.io/grapegeek/

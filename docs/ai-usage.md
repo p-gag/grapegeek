@@ -34,9 +34,12 @@ For each grape variety article:
 - Preserves all citations and references for verification
 
 **Tools used:** OpenAI GPT-5 with web search capabilities
-**My role:** Variety selection, quality review, publication decisions
+**My role:** Variety selection, brief review, publication decisions
 
 ### 3. 🌍 Translation
+
+My original vision was to create content in true Montréal fashion—naturally weaving French and English together based on source materials and context. However, this proved too complex for the current workflow. I may revisit this bilingual approach in the future. For now, all content originates in AI-generated English.
+
 English articles are translated to French:
 - Uses smart hash-based system to only translate changed content
 - Adapted for Quebec and eastern Canadian wine growers
@@ -44,7 +47,7 @@ English articles are translated to French:
 - Maintains the accessible, friendly tone
 
 **Tools used:** OpenAI GPT-5 with Quebec French context
-**My role:** Translation review, cultural appropriateness
+**My role:** Not much for now
 
 ## What This Means for You
 
