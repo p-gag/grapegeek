@@ -1,5 +1,5 @@
 ---
-english_hash: 3d53ec0852c3eae61f6c1d0deb29266f15f1382d810068072b3483fce848a94e
+english_hash: b4b5e0834a72e84c84c918d5cc6dcf2fa03b4577125cd423aa02a5d8f3253781
 translated_date: '2025-12-07'
 ---
 
@@ -7,26 +7,26 @@ translated_date: '2025-12-07'
 
 Bienvenue sur **Grape Geek**! 🍇
 
-## À propos du projet
+## À propos de ce projet
 
-**Grape Geek** est mon projet dédié à mettre en lumière les cépages hybrides cultivés dans les climats froids du Nord-Est des États-Unis et de l’Est du Canada. Ces cépages passent souvent sous le radar comparativement à leurs cousins vinifera bien connus. Mon objectif est d’utiliser des outils d’IA et des recherches Web pour constituer un trésor d’**insights cités, testés au champ et appuyés par des vignerons/vinificateurs** sur ces variétés uniques.
+**Grape Geek** est mon projet consacré à mettre en lumière les cépages hybrides cultivés dans les climats froids du nord-est des États-Unis et de l’est du Canada. Ces cépages passent souvent sous le radar comparés à leurs cousins de Vitis vinifera, bien plus connus. Mon objectif est d’utiliser des outils d’IA et des recherches web pour rassembler une véritable mine d’enseignements **cités, éprouvés sur le terrain et appuyés par des vignerons** au sujet de ces cépages uniques.
 
 ### Comment j’utilise l’IA
 
-Ce site s’appuie largement sur l’IA pour la recherche et la génération de contenu, avec un accent sur la découverte plutôt que l’invention. J’utilise des outils d’IA pour aller fouiller dans les coins reculés du Web et y dénicher des témoignages et expériences réels de viticulteurs et de vinificateurs.
+Ce site recourt beaucoup à l’IA pour la recherche et la génération de contenu, avec un accent sur la découverte plutôt que sur l’invention. Je me sers d’outils d’IA pour explorer les recoins moins fréquentés du web et dénicher de vrais témoignages et retours d’expérience de producteurs et de vignerons.
 
-Pour une transparence complète sur mon usage de l’IA, les outils et leurs limites, consulte la page [Utilisation de l’IA](/ai-usage/).
+Pour une transparence complète sur ma façon d’utiliser l’IA, les outils employés et leurs limites, consultez la page [Usage de l’IA](/usage-ia/).
 
-### Mon point de vue personnel et mes biais
+### Ma perspective personnelle et mes biais
 
-Au-delà du biais évident en faveur des vinifera, je veux être transparent quant à mes propres penchants :
+Au-delà de mon biais évident en faveur des cépages non vinifera, je veux être transparent quant à mes penchants :
 
-**Accent sur la viticulture biologique :** J’ai une forte préférence pour la viticulture biologique. Ce n’est pas un jugement sur les pratiques non biologiques — j’ai énormément de respect pour toutes les personnes qui cultivent la vigne pour gagner leur vie, avec tous les risques que cela comporte, peu importe l’approche. Mon accent sur le bio s’inscrit dans un objectif à très long terme, sur plusieurs générations, d’adapter les vignes aux diverses maladies. J’ai la chance de ne pas faire cela pour gagner ma vie, ce qui me permet d’adopter cette vision à plus long terme.
+**Accent sur la viticulture biologique :** J’ai une forte préférence pour la viticulture biologique. Ce n’est pas un jugement des pratiques non bio — j’ai énormément de respect pour toutes les personnes qui cultivent la vigne pour gagner leur vie, avec tous les risques que ça comporte, peu importe leur approche. Mon intérêt pour le bio est ancré dans un objectif à très long terme, sur plusieurs générations : adapter les cépages à vin aux différentes maladies locales. J’ai le luxe de ne pas faire ça pour l’argent, ce qui me permet d’adopter cette vision à long terme.
 
-**Biais Québec (et Québec maritime en particulier) :** J’ai clairement un biais pro-Québec, et plus précisément pour le Québec maritime (oui, très niche), parce que c’est là où je vis. Cela dit, je m’efforce d’inclure d’autres régions du nord de l’Amérique du Nord, car beaucoup ont apporté — et apportent encore — des contributions majeures. Les cépages créés par les grands obtenteurs du nord des États-Unis ont été et demeurent essentiels au succès du Québec.
+**Biais Québec (et Québec maritime en particulier) :** J’ai un biais clair pour le Québec, et plus précisément pour le Québec maritime (oui, très pointu), parce que, après tout, c’est là où j’habite. Cela dit, je m’efforce d’inclure d’autres régions de l’Amérique du Nord, parce que beaucoup ont apporté — et apportent encore — des contributions majeures. Les cépages créés par les grands obtenteurs du nord des États‑Unis ont été et demeurent essentiels au succès du Québec.
 
 ### Ce que propose Grape Geek
 
-* **Focus sur les hybrides :** Je m’intéresse avant tout aux cépages hybrides qui s’épanouissent dans les régions froides. À la différence des cépages vinifera (pour lesquels il existe déjà une foule d’information), les hybrides sont moins documentés et réservent souvent des surprises.
-* **Décontracté mais transparent :** J’allie des sources rigoureuses et des citations à un ton convivial et accessible. L’idée est de rendre l’apprentissage sur ces cépages agréable pour tout le monde, des geeks du vin aux jardiniers curieux, tout en mettant de l’avant les ressources d’où proviennent les informations.
-* **Des faits et des histoires, sans conclusions forcées :** Certaines sections seront plus factuelles (informations techniques de culture, données climatiques), tandis que d’autres mettront l’accent sur les témoignages d’horticulteurs, de viticulteurs et de vinificateurs qui partagent leur expérience réelle. Comme l’univers des cépages hybrides est encore en pleine évolution, je privilégie la **mise en valeur d’expériences et de témoignages variés** plutôt que d’affirmer des vérités définitives.
+* **Accent sur les hybrides :** Je me consacre aux cépages hybrides qui s’épanouissent dans les régions froides. Contrairement aux cépages de Vitis vinifera (pour lesquels on trouve déjà beaucoup d’info), les hybrides sont moins documentés et souvent pleins de surprises.
+* **Décontracté mais transparent :** Je marie un sourçage rigoureux et des citations avec un ton amical et accessible. L’idée est de rendre l’apprentissage sur ces cépages agréable pour tout le monde, des mordus de vin aux jardiniers curieux, tout en mettant en valeur les ressources où j’ai trouvé l’information.
+* **Des faits et des histoires, sans conclusions forcées :** Certaines parties seront plus factuelles (informations techniques de culture, données climatiques), tandis que d’autres mettront l’accent sur les histoires de producteurs et de vignerons partageant leurs expériences réelles. Comme l’univers des cépages hybrides est encore en évolution, je privilégie **la mise de l’avant de différentes expériences et témoignages** plutôt que d’affirmer des vérités définitives.
