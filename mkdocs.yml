@@ -39,7 +39,7 @@ nav:
   - Home: index.md
   - About: about.md
   - Grape Varieties: varieties/index.md
-  - Regions: regions/index.md
+  - AI Usage: ai-usage.md
 
 # Extensions
 markdown_extensions:
@@ -74,4 +74,15 @@ extra:
       lang: fr
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername/grapegeek  # Replace with your GitHub repo
+      link: https://github.com/p-gag/grapegeek
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/phil.vigne
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/philippe.gagnon.54
+
+extra_css:
+  - stylesheets/ai-banner.css
+
+extra_javascript:
+  - javascripts/ai-banner.js
+  - javascripts/french-nav.js
