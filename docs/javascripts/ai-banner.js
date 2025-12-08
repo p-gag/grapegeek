@@ -2,17 +2,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Check if we're on a grape variety page
     const path = window.location.pathname;
-    const isEnglishVariety = path.includes('/varieties/') && !path.endsWith('/varieties/') && !path.endsWith('/varieties/index.html');
-    const isFrenchVariety = path.includes('/fr/varietes/') && !path.endsWith('/fr/varietes/') && !path.endsWith('/fr/varietes/index.html');
     
-    if (isEnglishVariety || isFrenchVariety) {
+    console.log('AI Banner Debug - Current path:', path);
+    
+    // Language detection: if path contains /fr/ then French, else English
+    const isFrench = path.includes('/fr/');
+    
+    // Check if we're on a variety page (not index)
+    const isVarietyPage = path.includes('/varieties/') && 
+                         !path.endsWith('/varieties/') && 
+                         !path.endsWith('/varieties/index.html');
+    
+    console.log('AI Banner Debug - Is variety page:', isVarietyPage, 'Is French:', isFrench);
+    
+    if (isVarietyPage) {
         // Create banner element
         const banner = document.createElement('div');
         banner.className = 'ai-warning-banner';
         
-        // Determine language and content
-        const isFrench = path.includes('/fr/');
-        const aiUsageLink = isFrench ? '/fr/usage-ia/' : '/ai-usage/';
+        // Set links based on language
+        const aiUsageLink = isFrench ? '/fr/ai-usage/' : '/ai-usage/';
         
         const bannerContent = isFrench ? 
             `<span class="ai-icon">🤖</span> <strong>Recherché avec l'IA.</strong> Vérifiez l'information de manière indépendante. <a href="${aiUsageLink}">Détails sur l'usage de l'IA</a>` :

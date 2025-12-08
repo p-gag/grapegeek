@@ -1,15 +1,16 @@
 site_name: Grape Geek
 site_description: A deep dive into hybrid grape varieties in cold climates
 site_author: Phil
-site_url: https://yoursite.com  # Replace with your actual domain
+site_url: https://grapegeek.com  # Replace with your actual domain
 
 # Repository
 repo_name: grapegeek
-repo_url: https://github.com/yourusername/grapegeek  # Replace with your GitHub repo
+repo_url: https://github.com/p-gag/grapegeek  # Replace with your GitHub repo
 
 # Theme
 theme:
   name: material
+  language: en
   palette:
     # Palette toggle for light mode
     - scheme: default
@@ -35,11 +36,12 @@ theme:
     - content.code.copy
 
 # Navigation
+# Note: Root redirects to /en/ or /fr/ via index.html
 nav:
-  - Home: index.md
-  - About: about.md
-  - Grape Varieties: varieties/index.md
-  - AI Usage: ai-usage.md
+  - Home: en/index.md
+  - About: en/about.md
+  - Grape Varieties: en/varieties/index.md
+  - AI Usage: en/ai-usage.md
 
 # Extensions
 markdown_extensions:
@@ -60,18 +62,31 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+          site_name: "Grape Geek"
+        - locale: fr
+          name: Français
+          build: true
+          site_name: "Grape Geek"
+          nav_translations:
+            Home: Accueil
+            About: À Propos
+            Grape Varieties: Cépages
+            AI Usage: Usage de l'IA
   - git-revision-date-localized:
       enable_creation_date: true
 
 # Extra
 extra:
-  alternate:
-    - name: English
-      link: /
-      lang: en
-    - name: Français  
-      link: /fr/
-      lang: fr
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/p-gag/grapegeek
@@ -84,5 +99,4 @@ extra_css:
   - stylesheets/ai-banner.css
 
 extra_javascript:
-  - javascripts/ai-banner.js
-  - javascripts/french-nav.js
+  - javascripts/ai-banner.js 

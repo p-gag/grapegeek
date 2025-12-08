@@ -1,0 +1,51 @@
+## Overview
+If you ask around Kamouraska’s windy shores about Roland, you’ll likely get a smile and a story. Locals describe it as a green, seeded, cold‑adapted white hybrid discovered in eastern Québec and now quietly finding its way into Bas‑Saint‑Laurent wines—most visibly at Ferme Le Raku, whose “Le Recul” bottlings give it a starring role as a varietal, in skin‑contact cuvées, and in blends. A Gaspé nursery even lists it for sale and tags it as hardy for Zone 3 sites. ([leplacoteux.com](https://leplacoteux.com/ferme-le-raku-ambassadrice-du-roland/))
+
+## Origin & Breeding
+The origin story gets told over farm fences. Journalist Maxime Paradis reports that horticulture instructor Roland Boisvert noticed a vigorous “semis spontané” in La Pocatière in 2001; it fruited in 2003 and was christened “Roland” in 2007. Boisvert’s takeaway was simple: it’s early and carries enough sugar that “you won’t need to add any.” A Québec nursery’s listing echoes that backstory, calling Roland the result of “spontaneous hybridization.” Formal parentage and registration remain unclear; in 2019 Paradis wrote it was “toujours pas homologué.” ([leplacoteux.com](https://leplacoteux.com/ferme-le-raku-ambassadrice-du-roland/))
+
+## Climate Adaptation & Hardiness
+On paper and on the ground, Roland is framed as a cold‑place grape. The Gaspé nursery markets it for Zone 3, a band that typically sees annual minima between roughly −40 °C and −34 °C. Yet the vineyards most associated with the grape sit in Saint‑Germain‑de‑Kamouraska (Bas‑Saint‑Laurent), a 4b area where the St. Lawrence can temper autumn frost—something Samuel Lavoie at Ferme Le Raku says helps him bring fruit across the finish line. Taken together, the sales listing, the zone maps, and the local microclimate anecdotes set the boundaries of where growers have tried it so far. ([pepio.org](https://www.pepio.org/fr/plant/2709?utm_source=openai))
+
+## Phenology
+Growers who’ve logged dates put Roland among the quick starters. On 3 August 2014, Denis Patry’s experimental vineyard noted Roland already in véraison alongside “super‑hâtifs” like Baltica and Madeleine Sylvaner; by 28 August 2013 he was measuring Roland between 17 and 21.5 °Brix. In another season, Patry’s first 2015 harvest of Roland came 12 September (21 °Brix, pH 3.15, ~2.5 kg/vine). Boisvert told Le Placoteux the grape “peut être récolté dès septembre.” Against neighbors, Patry’s late‑August notes list many varieties (Chardonnay, Riesling, Petite Perle) as not yet in véraison—placing Roland toward the early side in his site. He also mused that Roland seemed to perform better in a cool, humid summer (2013) than in 2014. ([lesplusbellesboutures.ca](https://www.lesplusbellesboutures.ca/blog/page/2?utm_source=openai))
+
+## Growth Habit
+Patry describes a vine that “apporte peu de travail,” thanks to robust canes and a naturally open canopy that “produit naturellement un palissage aéré et facile à manipuler.” He still notes a semi‑drooping habit “comme la plupart des hybrides de Vitis amurensis,” which may steer trellis choices and wire support, even if he doesn’t spell out a preferred system. ([lesplusbellesboutures.ca](https://www.lesplusbellesboutures.ca/blog/page/2?utm_source=openai))
+
+## Disease & Physiological Issues
+Two on‑the‑ground strands recur. First, Patry’s field notes: “bonne résistance aux maladies cryptogamiques tel l’oidium, mildiou et botrytis,” with little added work in the rows. Second, the nursery’s sales sheet, which broadly promises “great resistance to diseases.” Neither source offers formal ratings or replicated trials—just season‑by‑season observations—so growers tend to treat these as encouraging signals rather than guarantees, especially in humid river‑influenced sites. ([lesplusbellesboutures.ca](https://www.lesplusbellesboutures.ca/blog/page/2?utm_source=openai))
+
+## Fruit Composition & Sensory Profile
+Numbers and flavors often get mentioned in the same breath. Patry logged Roland at 17–21.5 °Brix in late August 2013 and 21 °Brix with pH 3.15 at a 12 September 2015 pick. Boisvert told Le Placoteux that its “taux de sucre” is what sets it apart among Québec rustics. On the palate, the nursery describes apricot‑and‑peach tones—an impression Patry also wrote down (“saveur d’abricot/pêche; légèrement acide, aucunement foxé”). In Ferme Le Raku’s cellar notes and retail sheets, tasters pick up marmalade, grapefruit‑skin, starfruit and melon, or orange‑blossom and candied orange in skin‑contact lots; one Québec food magazine found “pommes jaunes et abricots” with a mineral, saline wash. ([lesplusbellesboutures.ca](https://www.lesplusbellesboutures.ca/blog/category/%2A?utm_source=openai))
+
+## Winemaking Approaches
+Raku treats Roland as a chameleon. One cuvée ferments in stainless, then ages 60% for 10 months in old barrels and 40% in tank “pour conserver la fraîcheur et la salinité,” yielding a textured white with “tanins légers” from gentle skin work. Another is a 15‑day co‑fermented maceration (Roland with Pinot Gris and Müller‑Thurgau), aged mostly in old wood for 10 months. A third co‑elevates Roland with Chardonnay, half in neutral barrel, half in tank. In a different register, a local microbrewery macerates saison beer on Roland pomace, pointing to perfumed skins and a grape that gives—aromatically—even after pressing. ([laqv.ca](https://laqv.ca/products/roland?utm_source=openai))
+
+## Example Styles & Uses
+- Varietal white from Roland (Ferme Le Raku “Roland”). ([laqv.ca](https://laqv.ca/products/roland?utm_source=openai))
+- Skin‑contact “macération pelliculaire” co‑ferment (Roland/Pinot Gris/Müller‑Thurgau). ([laqv.ca](https://laqv.ca/products/roland-maceration?utm_source=openai))
+- White blend (Roland/Chardonnay “Roland Chardo”). ([laqv.ca](https://laqv.ca/products/roland-chardo?utm_source=openai))
+- Lift in an Ortega‑led white (10% Roland added “pour offrir fraîcheur et minéralité”). ([laqv.ca](https://laqv.ca/products/ortega?utm_source=openai))
+- Contribution to a light red/rosé‑style blend (Regent with macerated Roland/Ortega/Müller‑Thurgau). ([laqv.ca](https://laqv.ca/products/rouge-cool?utm_source=openai))
+- Grape must for beer macerations (Tête d’Allumette’s Raku series). ([boutique.tetedallumette.com](https://boutique.tetedallumette.com/products/raku-recolte-de-blanc?utm_source=openai))
+- Fresh eating and juice (nursery guidance). ([pepio.org](https://www.pepio.org/fr/plant/2709?utm_source=openai))
+
+## Open Questions & Conflicting Reports
+- What is Roland, taxonomically? A nursery labels it “Vitis vinifera ‘Roland’,” while Caribou magazine calls it a “cépage hybride” discovered as a spontaneous seedling. Without genetic testing, readers meet both labels in the wild. ([pepio.org](https://www.pepio.org/fr/plant/2709?utm_source=openai))
+- How hardy is “Zone 3” in practice? The sales sheet says Zone 3; federal maps put Kamouraska and La Pocatière in 4b, though Lavoie’s shore‑cooled site delays frost. Whether Roland’s true killing‑temperature (LT50) matches Zone‑3 expectations isn’t published yet. ([pepio.org](https://www.pepio.org/fr/plant/2709?utm_source=openai))
+- Disease resistance looks promising in field notes, but no extension bulletins or peer‑reviewed ratings have surfaced. Patry’s “peu de travail” remark and the nursery’s broad claim invite more comparative trials. ([lesplusbellesboutures.ca](https://www.lesplusbellesboutures.ca/blog/page/2?utm_source=openai))
+- Phenology shifts with season. Patry saw Roland véraison by August 3 in 2014 and suggested it behaved better in cool, humid 2013. He harvested September 12 in 2015; Boisvert says “dès septembre” in general. Those snapshots hint early ripening, but growing‑degree‑day requirements haven’t been documented publicly. ([lesplusbellesboutures.ca](https://www.lesplusbellesboutures.ca/blog/page/2?utm_source=openai))
+- Adoption beyond Bas‑Saint‑Laurent? Paradis wrote in 2019 that Roland was “toujours pas homologué” yet “se propage… dans toutes les régions du Québec.” Hard numbers—acreage, nurseries beyond Gaspésie, and winery counts—remain hard to find. ([leplacoteux.com](https://leplacoteux.com/ferme-le-raku-ambassadrice-du-roland/))
+
+## References
+- Ferme Le Raku: Ambassadrice du « Roland » (Le Placoteux, Oct 8, 2019) — discovery in 2001, first fruit 2003, naming 2007, early harvest and high sugars; site/microclimate; plantings at Le Raku. ([leplacoteux.com](https://leplacoteux.com/ferme-le-raku-ambassadrice-du-roland/))
+- Pépinière des Pionniers, “Vigne raisin ‘Roland’” — nursery listing; “spontaneous hybridization,” Zone 3 hardiness, apricot/peach note; table/juice/wine uses. ([pepio.org](https://www.pepio.org/fr/plant/2709?utm_source=openai))
+- LA QV agency product sheets for Ferme Le Raku (Roland; Macération Pelliculaire; Roland Chardo; Ortega) — fermentation/élevage details and tasting notes; blending percentages. ([laqv.ca](https://laqv.ca/products/roland?utm_source=openai))
+- Caribou magazine, “Cuvée Roland: vin naturel de Kamouraska” — hybrid origin anecdote (Roland Boisvert), aromatic profile, saline/mineral impressions. ([cariboumag.com](https://cariboumag.com/articles/a-boire-cuvee-roland-de-la-ferme-le-raku/?utm_source=openai))
+- Denis Patry, LesPlusBellesBoutures.ca — field logs: véraison timing (Aug 3, 2014), late‑August Brix (2013 & 2014), 2015 pick date with Brix/pH/yield, canopy/disease remarks. ([lesplusbellesboutures.ca](https://www.lesplusbellesboutures.ca/blog/page/2?utm_source=openai))
+- Natural Resources Canada plant hardiness tools and compiled zone lists (Kamouraska/La Pocatière 4b). ([planthardiness.gc.ca](https://www.planthardiness.gc.ca/?lang=en&m=22&prov=Quebec&val=S&wbdisable=true&utm_source=openai))
+- Tête d’Allumette Microbrasserie “Raku” series — beer macerations on Roland pomace. ([boutique.tetedallumette.com](https://boutique.tetedallumette.com/products/raku-wild-barriquee?utm_source=openai))
+- Côté Est restaurant “Nos producteurs” — short profile noting Roland as a local, spontaneously discovered hybrid grown at Ferme Le Raku. ([cote-est.ca](https://www.cote-est.ca/nos-producteurs/?utm_source=openai))
+
+If you want, I can keep digging for technical sheets (GDD targets, LT50, cluster morphology) or reach out to Québec extension folks to see if any unpublished trial notes exist.

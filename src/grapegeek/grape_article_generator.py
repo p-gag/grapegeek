@@ -92,7 +92,7 @@ class GrapeArticleGenerator(BaseGenerator):
     def publish_to_site(self, variety_name: str, content: str) -> Path:
         """Publish technical article to MkDocs site and update index."""
         # Create docs/varieties directory if it doesn't exist
-        site_varieties_dir = self.base_path / "docs" / "varieties"
+        site_varieties_dir = self.base_path / "docs" / "en" / "varieties"
         site_varieties_dir.mkdir(parents=True, exist_ok=True)
         
         # Save article to site

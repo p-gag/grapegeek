@@ -29,4 +29,4 @@ Follow my grape growing journey and cold-climate viticulture experiments:
 
 ---
 
-**English** | **[Français](fr/index.md)**
+**English** | **[Français](../fr/index.md)**

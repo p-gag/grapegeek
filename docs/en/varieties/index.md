@@ -10,8 +10,12 @@ Here you'll find detailed articles about hybrid grape varieties that thrive in c
 
 - **[Acadie Blanc](acadie_blanc.md)**
 
+- **[Itasca](itasca.md)**
+
 - **[Marquette](marquette.md)**
 
-- **[Itasca](itasca.md)**
+- **[Roland](roland.md)**
+
+- **[Solaris](solaris.md)**
 
 *New grape variety articles are added regularly. Check back for updates!*

@@ -22,11 +22,11 @@ class FrenchSyncer:
             self.client = None
         
         self.base_path = Path.cwd()
-        self.english_dir = self.base_path / "docs" / "varieties"
-        self.french_dir = self.base_path / "docs" / "fr" / "varietes"
+        self.english_dir = self.base_path / "docs" / "en" / "varieties"
+        self.french_dir = self.base_path / "docs" / "fr" / "varieties"
         
         # Main site directories
-        self.docs_dir = self.base_path / "docs"
+        self.docs_dir = self.base_path / "docs" / "en"
         self.french_docs_dir = self.base_path / "docs" / "fr"
         
         # Ensure French directories exist
@@ -115,11 +115,8 @@ Important guidelines:
 - Preserve any technical terms related to viticulture
 - Keep all external URLs and social media links exactly as they are
 - Translate section names (like "Grape Varieties" → "Cépages")
-- For internal links, update paths for French site structure:
-  - varieties/index.md → varietes/index.md
-  - about.md → a-propos.md  
-  - ai-usage.md → usage-ia.md
-- Keep directory structure English (varieties/, not cépages/) but translate the display text
+- Keep all internal links identical to English (same filenames and paths)
+- Translate section names and display text but keep URLs the same
 
 English content:
 {english_content}
@@ -135,53 +132,6 @@ English content:
         except Exception as e:
             return f"Error translating content: {str(e)}"
     
-    def sync_file(self, english_file: Path) -> str:
-        """Sync a single English file to French. Returns action taken."""
-        variety_name = english_file.stem  # Remove .md extension
-        french_file = self.french_dir / f"{variety_name}.md"
-        
-        # Skip index files
-        if english_file.name == "index.md":
-            return "SKIP - Index file"
-        
-        # Compute current English content hash
-        english_hash = self.compute_content_hash(english_file)
-        english_content = english_file.read_text(encoding='utf-8')
-        
-        # Check if French file exists and get its stored hash
-        if french_file.exists():
-            french_frontmatter, french_content = self.extract_frontmatter_and_content(french_file)
-            stored_hash = french_frontmatter.get('english_hash')
-            
-            if stored_hash == english_hash:
-                return "SKIP - Hash unchanged"
-            else:
-                # Content changed, need to retranslate
-                french_translation = self.translate_to_french(english_content, variety_name)
-                
-                # Update frontmatter with new hash
-                french_frontmatter['english_hash'] = english_hash
-                french_frontmatter['translated_from'] = str(english_file.relative_to(self.base_path))
-                
-                if not self.dry_run:
-                    self.create_french_file(french_frontmatter, french_translation, french_file)
-                
-                return "UPDATED - Content changed"
-        else:
-            # New file, translate it
-            french_translation = self.translate_to_french(english_content, variety_name)
-            
-            # Create frontmatter
-            frontmatter = {
-                'english_hash': english_hash,
-                'translated_from': str(english_file.relative_to(self.base_path)),
-                'variety': variety_name.replace('_', ' ').title()
-            }
-            
-            if not self.dry_run:
-                self.create_french_file(frontmatter, french_translation, french_file)
-            
-            return "NEW - File created"
     
     def update_french_index(self):
         """Update French varieties index with all available French articles."""
@@ -223,10 +173,8 @@ Vous trouverez ici des articles détaillés sur les variétés de raisins hybrid
         french_index.write_text(index_content, encoding='utf-8')
         return f"UPDATED - French index with {len(varieties_list)} varieties"
     
-    def sync_main_site_file(self, english_file: Path, french_filename: str) -> str:
-        """Sync a main site file to French."""
-        french_file = self.french_docs_dir / french_filename
-        
+    def sync_file_to_french(self, english_file: Path, french_file: Path, is_variety: bool = False) -> str:
+        """Sync any English file to French with identical structure."""
         # Compute current English content hash
         english_hash = self.compute_content_hash(english_file)
         
@@ -242,20 +190,30 @@ Vous trouverez ici des articles détaillés sur les variétés de raisins hybrid
         english_content = english_file.read_text(encoding='utf-8')
         
         if self.dry_run:
-            french_content = f"[DRY RUN] French translation of {english_file.name} would be generated here"
+            return f"[DRY RUN] French translation would be generated"
+        
+        # Translate content
+        if is_variety:
+            variety_name = english_file.stem
+            french_content = self.translate_to_french(english_content, variety_name)
         else:
-            # Use a simpler translation approach for site content
             french_content = self.translate_site_content(english_content, english_file.name)
         
         # Create French frontmatter
-        french_frontmatter = {
-            "english_hash": english_hash,
-            "translated_date": datetime.now().strftime("%Y-%m-%d")
-        }
+        if is_variety:
+            french_frontmatter = {
+                "english_hash": english_hash,
+                "translated_from": f"docs/varieties/{english_file.name}",
+                "variety": english_file.stem.replace('_', ' ').title()
+            }
+        else:
+            french_frontmatter = {
+                "english_hash": english_hash,
+                "translated_date": datetime.now().strftime("%Y-%m-%d")
+            }
         
         # Save French file
-        if not self.dry_run:
-            self.create_french_file(french_frontmatter, french_content, french_file)
+        self.create_french_file(french_frontmatter, french_content, french_file)
             
         action = "CREATE" if not french_file.exists() else "UPDATE"
         return f"{action} - Content translated"
@@ -263,52 +221,44 @@ Vous trouverez ici des articles détaillés sur les variétés de raisins hybrid
     def sync_all(self):
         """Sync all English variety files and main site content to French."""
         print(f"🔄 Starting French sync {'(DRY RUN)' if self.dry_run else ''}")
-        print(f"📂 Varieties source: {self.english_dir}")
-        print(f"📂 Varieties target: {self.french_dir}")
-        print(f"📂 Main site source: {self.docs_dir}")
-        print(f"📂 Main site target: {self.french_docs_dir}")
+        print(f"📂 English source: docs/en/")
+        print(f"📂 French target: docs/fr/")
+        print(f"📂 Varieties: en/varieties/ → fr/varieties/")
+        print(f"📂 Main site: en/*.md → fr/*.md")
         print("-" * 60)
         
-        # Sync main site files
-        main_site_files = [
-            ("index.md", "index.md"),
-            ("about.md", "a-propos.md"),
-            ("ai-usage.md", "usage-ia.md")
-        ]
+        # Sync all main site markdown files (identical structure)
+        main_site_files = [f for f in self.docs_dir.glob("*.md") if f.name != "README.md"]
         
-        for english_name, french_name in main_site_files:
-            english_file = self.docs_dir / english_name
-            if english_file.exists():
-                print(f"📄 {english_name} → {french_name}")
-                action = self.sync_main_site_file(english_file, french_name)
+        for english_file in main_site_files:
+            french_file = self.french_docs_dir / english_file.name
+            print(f"📄 {english_file.name}")
+            action = self.sync_file_to_french(english_file, french_file, is_variety=False)
+            print(f"   {action}")
+        
+        print()
+        
+        # Sync all variety files (identical structure)
+        variety_files = [f for f in self.english_dir.glob("*.md") if f.name != "index.md"]
+        
+        if not variety_files:
+            print("⚠️  No English variety files found")
+        else:
+            for english_file in variety_files:
+                french_file = self.french_dir / english_file.name
+                print(f"🍇 {english_file.name}")
+                action = self.sync_file_to_french(english_file, french_file, is_variety=True)
                 print(f"   {action}")
         
         print()
         
-        # Find all English variety files
-        english_files = list(self.english_dir.glob("*.md"))
-        
-        if not english_files:
-            print("⚠️  No English variety files found")
-            return
-        
-        # Process each variety file
-        for english_file in english_files:
-            action = self.sync_file(english_file)
-            status_icon = {
-                "SKIP - Index file": "⏭️ ",
-                "SKIP - Hash unchanged": "⏭️ ",
-                "UPDATED - Content changed": "🔄",
-                "NEW - File created": "✨"
-            }.get(action.split(" - ")[0], "❓")
-            
-            print(f"{status_icon} {english_file.name:<30} {action}")
-        
-        # Update French index
+        # Update French varieties index
         print("-" * 60)
-        index_action = self.update_french_index()
-        print(f"📑 index.md                     {index_action}")
-        
+        if not self.dry_run and variety_files:
+            index_action = self.update_french_index()
+            print(f"📑 index.md                     {index_action}")
+        else:
+            print(f"📑 index.md                     SKIP - Index update (dry run)")
         print("-" * 60)
         print("✅ French sync complete!")
 

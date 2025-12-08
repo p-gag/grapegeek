@@ -118,11 +118,13 @@ trade_association_url: "URL"
 ```
 
 ### French Translation System
-- `sync_french.py`: Smart French synchronization script with hash-based change detection
+- `sync_french.py`: Unified French synchronization script with hash-based change detection
 - Uses OpenAI Responses API with `gpt-5` model and Quebec French context
 - Only translates files that have changed since last sync (tracked via YAML frontmatter hashes)
 - Preserves technical terms, citations, and markdown formatting
-- Handles both variety articles (`docs/varieties/` → `docs/fr/varietes/`) and main site files (`docs/index.md` → `docs/fr/index.md`, `docs/about.md` → `docs/fr/a-propos.md`)
+- **Identical directory structure**: All files maintain the same names and paths (`docs/en/about.md` → `docs/fr/about.md`)
+- Auto-discovers all markdown files in main docs directory
+- Unified sync method for both variety articles and main site content
 - Automatic YAML frontmatter management for change tracking
 
 ## Development Notes
