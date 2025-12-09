@@ -13,5 +13,5 @@ Vous trouverez ici des articles détaillés sur les variétés de raisins hybrid
 - **[Marquette](marquette.md)**
 - **[Roland](roland.md)**
 - **[Solaris](solaris.md)**
-
-*De nouveaux articles sur les variétés de raisin sont ajoutés régulièrement. Revenez consulter pour les mises à jour !*
+    
+*De nouveaux articles sur les variétés de raisins sont ajoutés régulièrement. Revenez pour les mises à jour !*

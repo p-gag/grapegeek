@@ -134,44 +134,21 @@ English content:
     
     
     def update_french_index(self):
-        """Update French varieties index with all available French articles."""
+        """Update French varieties index using the centralized script."""
         if self.dry_run:
             return "SKIP - Index update (dry run)"
         
-        french_index = self.french_dir / "index.md"
+        # Import and use the centralized index generator
+        from update_varieties_index import generate_varieties_index, scan_varieties_directory
         
-        # Get all French variety files
-        french_files = [f for f in self.french_dir.glob("*.md") if f.name != "index.md"]
-        french_files.sort()
-        
-        # Build varieties list
-        varieties_list = []
-        for french_file in french_files:
-            variety_stem = french_file.stem
-            frontmatter, _ = self.extract_frontmatter_and_content(french_file)
-            display_name = frontmatter.get('variety', variety_stem.replace('_', ' ').title())
-            varieties_list.append(f"- **[{display_name}]({french_file.name})**")
-        
-        # Create index content
-        index_content = """# Variétés de Raisin
-
-Vous trouverez ici des articles détaillés sur les variétés de raisins hybrides qui prospèrent dans les climats froids. Chaque page de variété inclut :
-
-- **Information de culture** : Adaptation climatique, résistance aux maladies et détails de cultivation
-- **Histoires de vignerons** : Expériences réelles de vignerons et vinificateurs
-- **Citations et ressources** : Liens pour découvrir plus sur chaque variété
-
-## Variétés disponibles
-
-"""
-        
-        if varieties_list:
-            index_content += "\n".join(varieties_list) + "\n\n"
-        
-        index_content += "*De nouveaux articles sur les variétés de raisin sont ajoutés régulièrement. Revenez consulter pour les mises à jour !*"
-        
-        french_index.write_text(index_content, encoding='utf-8')
-        return f"UPDATED - French index with {len(varieties_list)} varieties"
+        try:
+            generate_varieties_index("fr")
+            
+            # Count varieties for reporting
+            variety_count = len(scan_varieties_directory("fr"))
+            return f"UPDATED - French index with {variety_count} varieties"
+        except Exception as e:
+            return f"ERROR - Failed to update French index: {e}"
     
     def sync_file_to_french(self, english_file: Path, french_file: Path, is_variety: bool = False) -> str:
         """Sync any English file to French with identical structure."""
