@@ -1,7 +1,7 @@
 # Welcome to Grape Geek! 🍇
 
 !!! warning "🚧 Under Construction 🚧"
-    This site is under active development. New content about hybrid grape varieties will be added regularly. La version française a besoin de plus d'amour.
+    This site is under active development. New content about hybrid grape varieties will be added regularly. La version française a besoin de plus d'amour. **Some content still lack reference**, the plan is to improve the process and revisit them all.
 
 **Grape Geek** is a project dedicated to shining a light on hybrid grape varieties grown in the chilly climates of the northeast US and eastern Canada. These grapes often fly under the radar compared to their well-known vinifera cousins.
 
@@ -25,8 +25,6 @@ Follow my grape growing journey and cold-climate viticulture experiments:
 
 ---
 
-*Content is researched using various sources across the web, with citations provided so you can explore the original resources and connect with the community.*
+*This content is researched from diverse web sources, with citations (not yet enough) so you can dive deeper and connect with the community. I’m always looking to improve, so feel free to send feedback through the social accounts above.*
 
 ---
-
-**English** | **[Français](../fr/index.md)**
