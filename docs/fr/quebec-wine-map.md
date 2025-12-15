@@ -1,9 +1,6 @@
 ---
 english_hash: 5cc2a0ab4d3197537289fa25011e1f054bf572ae1ba94fd4b60c40d0e9e83e26
 translated_date: '2025-12-15'
----
-
----
 title: Carte des producteurs de vin du Québec
 description: Carte interactive des producteurs de vin artisanaux au Québec avec filtres par cépages
 hide:
