@@ -1,0 +1,2593 @@
+{
+  "metadata": {
+    "source_url": "https://www.donneesquebec.ca/recherche/dataset/racj-alcool-fabricant/resource/6b143028-cb62-4f76-860c-6cf0eab8ea0b/download/racj-alcool-fabricant.json",
+    "fetch_date": "2025-12-14T19:20:39.668465",
+    "raw_record_count": 3679,
+    "wine_record_count": 170,
+    "filter_criteria": "TypePermis equals \"Production artisanale de vin\" AND Categories contains \"VIN\"",
+    "wine_permit_types": {
+      "Production artisanale de vin": 170
+    }
+  },
+  "wine_producers": [
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "AU JARDIN D'ÉMMANUEL",
+      "Titulaire": "JEAN BOURQUE, CHRISTIANE PAQUETTE",
+      "Neq": 3365979015,
+      "NoPermis": "AV111",
+      "Categories": [
+        "CID",
+        "MISP",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "153, RANG SAINTE-SOPHIE",
+      "CodeVille": "72032",
+      "Ville": "OKA",
+      "CodePostal": "J0N1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "AU VIGNOBLE D'ORFORD",
+      "Titulaire": "AU VIGNOBLE D'ORFORD S.E.P.",
+      "Neq": 3377513117,
+      "NoPermis": "AV100",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "318, CHEMIN BICE",
+      "CodeVille": "45115",
+      "Ville": "ORFORD",
+      "CodePostal": "J1X6X4"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "AUX VOLETS NOIRS",
+      "Titulaire": "AUX VOLETS NOIRS S.E.N.C.",
+      "Neq": 3369457182,
+      "NoPermis": "AV185",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "2313 CHEMIN DE LA RIVIÈRE-DES-ANGLAIS",
+      "CodeVille": "69030",
+      "Ville": "TRÈS-SAINT-SACREMENT",
+      "CodePostal": "J0S1G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CENTRE DE RECHERCHE AGROALIMENTAIRE DE MIRABEL",
+      "Titulaire": "CENTRE DE RECHERCHE AGROALIMENTAIRE DE MIRABEL",
+      "Neq": 1161387346,
+      "NoPermis": "AV144",
+      "Categories": [
+        "CID",
+        "MISP",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1500 ET 1600-A, CHEMIN D'OKA",
+      "CodeVille": "72032",
+      "Ville": "OKA",
+      "CodePostal": "J0N1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CHÂTEAU DE CARTES",
+      "Titulaire": "CHÂTEAU DE CARTES, VIGNOBLE ET CIDRERIE INC.",
+      "Neq": 1142126441,
+      "NoPermis": "AV113",
+      "Categories": [
+        "ASPO",
+        "ASRA",
+        "CID",
+        "LIQR",
+        "MISP",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1285, RUE BRUCE",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CHÂTEAU SAINTE-AGNÈS",
+      "Titulaire": "9462-8815 QUÉBEC INC.",
+      "Neq": 1177470938,
+      "NoPermis": "AV049",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "2565, CHEMIN SCENIC",
+      "CodeVille": "46058",
+      "Ville": "SUTTON",
+      "CodePostal": "J0E2K0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CHÂTEAU TAILLEFER LAFON",
+      "Titulaire": "9135-4530 QUÉBEC INC.",
+      "Neq": 1161851911,
+      "NoPermis": "AV055",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1500, MONTÉE CHAMPAGNE",
+      "CodeVille": "65005",
+      "Ville": "LAVAL",
+      "CodePostal": "H7X4H9"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CLOS LAMBERT INC.",
+      "Titulaire": "CLOS LAMBERT INC.",
+      "Neq": 1164592603,
+      "NoPermis": "AV090",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "690, ROUTE DE LA RIVIÈRE-ETCHEMIN",
+      "CodeVille": "25213",
+      "Ville": "LÉVIS",
+      "CodePostal": "G6Z2K9"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CLOS SAINTE-THÈCLE",
+      "Titulaire": "CLOS SAINTE-THÈCLE S.E.N.C",
+      "Neq": 3374396979,
+      "NoPermis": "AV097",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "171, RUE DU VIGNOBLE",
+      "CodeVille": "35050",
+      "Ville": "SAINTE-THÈCLE",
+      "CodePostal": "G0X3G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CLOS SANS FRONTIÈRE",
+      "Titulaire": "9376-6293 QUÉBEC INC.",
+      "Neq": 1173585390,
+      "NoPermis": "AV197",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "185, RANG SAINT-ANDRÉ",
+      "CodeVille": "68005",
+      "Ville": "SAINT-BERNARD-DE-LACOLLE",
+      "CodePostal": "J0J1V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CLOS SARAGNAT",
+      "Titulaire": "EXPLORAGE INC.",
+      "Neq": 1180826910,
+      "NoPermis": "AV064",
+      "Categories": [
+        "CID",
+        "PFR",
+        "VIN"
+      ],
+      "AdresseEtabl": "100, CHEMIN DE RICHFORD",
+      "CodeVille": "46010",
+      "Ville": "FRELIGHSBURG",
+      "CodePostal": "J0J1C0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CLOS SUR-VIVANT",
+      "Titulaire": "CLOS SUR-VIVANT S.E.N.C.",
+      "Neq": 3376217256,
+      "NoPermis": "AV199",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "9198, ROUTE 279",
+      "CodeVille": "19097",
+      "Ville": "SAINT-CHARLES-DE-BELLECHASSE",
+      "CodePostal": "G0R2T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CÔTE DE CHAMPLAIN",
+      "Titulaire": "9275-3698 QUÉBEC INC.",
+      "Neq": 1168807536,
+      "NoPermis": "AV171",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1033, 7E RANG",
+      "CodeVille": "48045",
+      "Ville": "SAINT-THÉODORE-D'ACTON",
+      "CodePostal": "J0H1Z0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "CÔTE ST-HERMAS VIGNOBLE ET GÎTE",
+      "Titulaire": "JEAN-PIERRE MINER",
+      "Neq": 2241315839,
+      "NoPermis": "AV134",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "3461, CHEMIN CHARLES LÉONARD",
+      "CodeVille": "74005",
+      "Ville": "MIRABEL",
+      "CodePostal": "J7N2Y7"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE & VINS GÉLINAS",
+      "Titulaire": "DOMAINE & VINS GÉLINAS INC.",
+      "Neq": 1143142504,
+      "NoPermis": "AV088",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "267, RANG SAINT-FRANÇOIS-DE-PIQUE-DUR",
+      "CodeVille": "51030",
+      "Ville": "SAINT-SÉVÈRE",
+      "CodePostal": "G0X3B0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE AMALGAMES",
+      "Titulaire": "9002-0413 QUÉBEC INC.",
+      "Neq": 1140109936,
+      "NoPermis": "AV142",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1292, RUE PRINCIPALE",
+      "CodeVille": "56065",
+      "Ville": "SAINT-BLAISE-SUR-RICHELIEU",
+      "CodePostal": "J0J1W0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE ARVI",
+      "Titulaire": "DOMAINE ARVI INC.",
+      "Neq": 1177066843,
+      "NoPermis": "AV106",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "7119, RANG DE L'HÊTRIÈRE EST",
+      "CodeVille": "19097",
+      "Ville": "SAINT-CHARLES-DE-BELLECHASSE",
+      "CodePostal": "G0R2T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE BEAUCHEMIN",
+      "Titulaire": "VIGNOBLE DOMAINE BEAUCHEMIN (2010) INC.",
+      "Neq": 1176084722,
+      "NoPermis": "AV136",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "380, RUE GÉRIN-LAJOIE",
+      "CodeVille": "51020",
+      "Ville": "YAMACHICHE",
+      "CodePostal": "G0X3L0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE BERGEVILLE",
+      "Titulaire": "LE DOMAINE BERGEVILLE INC.",
+      "Neq": 1177511855,
+      "NoPermis": "AV114",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "1030, CHEMIN SHERBROOKE",
+      "CodeVille": "45043",
+      "Ville": "HATLEY",
+      "CodePostal": "J0B2C0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE CAP-AUX-OIES",
+      "Titulaire": "JEANNE GILBERT",
+      "Neq": 2276076199,
+      "NoPermis": "AV213",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "34, CHEMIN DE CAP-AUX-OIES",
+      "CodeVille": "16048",
+      "Ville": "LES ÉBOULEMENTS",
+      "CodePostal": "G0A2M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE CAWOOD",
+      "Titulaire": "LOUIS CLAUDE TREMBLAY",
+      "Neq": 3374599416,
+      "NoPermis": "AV175",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "853, CHEMIN DE CAWOOD",
+      "CodeVille": "84050",
+      "Ville": "ALLEYN-ET-CAWOOD",
+      "CodePostal": "J0X1P0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE LA CASCADIÈRE",
+      "Titulaire": "DOMAINE DE LA CASCADIÈRE INC.",
+      "Neq": 1175492611,
+      "NoPermis": "AV206",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "7308, AVENUE ROYALE",
+      "CodeVille": "21035",
+      "Ville": "CHÂTEAU-RICHER",
+      "CodePostal": "G0A1N0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE LA VIGNE NOBLE",
+      "Titulaire": "FERME NANDO INC.",
+      "Neq": 1142114603,
+      "NoPermis": "AV214",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "211, CHEMIN DE LA RIVIÈRE",
+      "CodeVille": "38020",
+      "Ville": "LEMIEUX",
+      "CodePostal": "G0X1S0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE LAVOIE",
+      "Titulaire": "9054-2291 QUÉBEC INC.",
+      "Neq": 1147088414,
+      "NoPermis": "AV039",
+      "Categories": [
+        "CID",
+        "LIPF",
+        "LIQR",
+        "MIPF",
+        "MISP",
+        "MISR",
+        "PF",
+        "VIN"
+      ],
+      "AdresseEtabl": "100, RANG DE LA MONTAGNE ET 173, CHEMIN DE MARIEVILLE",
+      "CodeVille": "55037",
+      "Ville": "ROUGEMONT",
+      "CodePostal": "J0L1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE L'ESPIÈGLE",
+      "Titulaire": "DOMAINE DE L'ESPIÈGLE INC.",
+      "Neq": 1174723065,
+      "NoPermis": "AV180",
+      "Categories": [
+        "ASPO",
+        "ASRA",
+        "CID",
+        "MISP",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "4474 ET 4540, RUE PRINCIPALE",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE L'HEURE JUSTE",
+      "Titulaire": "10548928 CANADA INC.",
+      "Neq": 1175690727,
+      "NoPermis": "AV192",
+      "Categories": [
+        "ASRA",
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "750, CÔTE SAINT-CHARLES",
+      "CodeVille": "80037",
+      "Ville": "PAPINEAUVILLE",
+      "CodePostal": "J0V1R0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DE PONTIAC VILLAGE",
+      "Titulaire": "DOMAINE DE PONTIAC VILLAGE S.E.N.C.",
+      "Neq": 3368854876,
+      "NoPermis": "AV148",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1259, CHEMIN DU CIMETIÈRE",
+      "CodeVille": "82030",
+      "Ville": "PONTIAC",
+      "CodePostal": "J0X2V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DES 3 MOULINS",
+      "Titulaire": "PIO BÉGIN",
+      "Neq": 2263588388,
+      "NoPermis": "AV109",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1333, ROUTE 138",
+      "CodeVille": "34007",
+      "Ville": "NEUVILLE",
+      "CodePostal": "G0A2R0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DES CÔTES D'ARDOISES",
+      "Titulaire": "DOMAINE DES CÔTES D'ARDOISES (2010) INC.",
+      "Neq": 1166990029,
+      "NoPermis": "AV003",
+      "Categories": [
+        "CID",
+        "MISP",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "790 ET 879, RUE BRUCE",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DES FEUX FOLLETS",
+      "Titulaire": "DOMAINE DES FEUX FOLLETS INC.",
+      "Neq": 1179361291,
+      "NoPermis": "AV181",
+      "Categories": [
+        "ASRA",
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "82, BOULEVARD BLAIS EST",
+      "CodeVille": "18065",
+      "Ville": "BERTHIER-SUR-MER",
+      "CodePostal": "G0R1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DES MÉTÉORES",
+      "Titulaire": "DOMAINE DES MÉTÉORES  S.E.N.C.",
+      "Neq": 3374570300,
+      "NoPermis": "AV093",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "203, CHEMIN DU LAC-GROSLEAU",
+      "CodeVille": "80078",
+      "Ville": "RIPON",
+      "CodePostal": "J0V1V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DES SALAMANDRES",
+      "Titulaire": "DOMAINE DES SALAMANDRES (2010) INC.",
+      "Neq": 1166969155,
+      "NoPermis": "AV084",
+      "Categories": [
+        "LIPF",
+        "LIQR",
+        "MIPF",
+        "MISR",
+        "PF",
+        "VIN"
+      ],
+      "AdresseEtabl": "196 ET 200, CHEMIN DE COVEY HILL",
+      "CodeVille": "68010",
+      "Ville": "HEMMINGFORD",
+      "CodePostal": "J0L1H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DES SALANGES",
+      "Titulaire": "DOMAINE DES SALANGES INC.",
+      "Neq": 1162513601,
+      "NoPermis": "AV163",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "219, CHEMIN MASSÉ",
+      "CodeVille": "01023",
+      "Ville": "LES ÎLES-DE-LA-MADELEINE",
+      "CodePostal": "G4T0J4"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DESLANDES",
+      "Titulaire": "9345-9840 QUÉBEC INC",
+      "Neq": 1172074826,
+      "NoPermis": "AV194",
+      "Categories": [
+        "LIPF",
+        "MIPF",
+        "PFR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1119, ROUTE 139",
+      "CodeVille": "48045",
+      "Ville": "SAINT-THÉODORE-D'ACTON",
+      "CodePostal": "J0H1Z0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DU CLOS DE L'ISLE",
+      "Titulaire": "9487-0649 QUÉBEC INC.",
+      "Neq": 1178549201,
+      "NoPermis": "AV085",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "11100, CHEMIN DES COQUELICOTS",
+      "CodeVille": "38010",
+      "Ville": "BÉCANCOUR",
+      "CodePostal": "G9H4X3"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DU FLEUVE",
+      "Titulaire": "PAUL THOMAS",
+      "Neq": 2268565415,
+      "NoPermis": "AV117",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1164, ROUTE MARIE-VICTORIN",
+      "CodeVille": "59020",
+      "Ville": "VARENNES",
+      "CodePostal": "J3X0B8"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DU NIVAL INC.",
+      "Titulaire": "DOMAINE DU NIVAL INC.",
+      "Neq": 1168769272,
+      "NoPermis": "AV149",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "424, RANG DU BORD-DE-L'EAU OUEST",
+      "CodeVille": "54120",
+      "Ville": "SAINT-LOUIS",
+      "CodePostal": "J0G1K0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DU P'TIT BONHEUR",
+      "Titulaire": "9506-4812 QUÉBEC INC.",
+      "Neq": 1179391363,
+      "NoPermis": "AV121",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "434, CHEMIN PLOUFFE",
+      "CodeVille": "46080",
+      "Ville": "COWANSVILLE",
+      "CodePostal": "J2K3G6"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DU RIDGE",
+      "Titulaire": "VIGNOBLE SAINT-ARMAND INC.",
+      "Neq": 1148221493,
+      "NoPermis": "AV037",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "205, CHEMIN RIDGE",
+      "CodeVille": "46017",
+      "Ville": "SAINT-ARMAND",
+      "CodePostal": "J0J1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE DU RIDGE",
+      "Titulaire": "VIGNOBLE SAINT-ARMAND INC.",
+      "Neq": 1148221493,
+      "NoPermis": "EN818",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "124, CHEMIN GAGE",
+      "CodeVille": "46045",
+      "Ville": "STANBRIDGE EAST",
+      "CodePostal": "J0J2H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE GIROUARD",
+      "Titulaire": "MARTIN GIROUARD",
+      "Neq": 2271919138,
+      "NoPermis": "AV186",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "160, CHEMIN MUDGETT",
+      "CodeVille": "46058",
+      "Ville": "SUTTON",
+      "CodePostal": "J0E2K0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE L'ANGE-GARDIEN",
+      "Titulaire": "DOMAINE L'ANGE-GARDIEN VIGNOBLES ET VERGERS INC.",
+      "Neq": 1162197504,
+      "NoPermis": "AV071",
+      "Categories": [
+        "CID",
+        "MIPF",
+        "MISP",
+        "MISR",
+        "PF",
+        "VIN"
+      ],
+      "AdresseEtabl": "6869, AVENUE ROYAL",
+      "CodeVille": "21040",
+      "Ville": "L'ANGE-GARDIEN",
+      "CodePostal": "G0A2K0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE LES BROME",
+      "Titulaire": "DOMAINE LES BROME S.E.N.C",
+      "Neq": 3377103430,
+      "NoPermis": "AV059",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "259, CHEMIN DE BROME",
+      "CodeVille": "46075",
+      "Ville": "LAC-BROME",
+      "CodePostal": "J0E1S0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE MONT-VÉZEAU",
+      "Titulaire": "DOMAINE MONT-VÉZEAU (2020) SENC",
+      "Neq": 3375943761,
+      "NoPermis": "AV080",
+      "Categories": [
+        "PF",
+        "VIN"
+      ],
+      "AdresseEtabl": "365, ROUTE 321",
+      "CodeVille": "80078",
+      "Ville": "RIPON",
+      "CodePostal": "J0V1V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE OAK HILL",
+      "Titulaire": "DOMAINE OAK HILL S.E.N.C.",
+      "Neq": 3370567219,
+      "NoPermis": "AV176",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "455, CHEMIN CRACK",
+      "CodeVille": "42075",
+      "Ville": "MELBOURNE",
+      "CodePostal": "J0B1X0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE POLISSON",
+      "Titulaire": "DOMAINE POLISSON INC.",
+      "Neq": 1173624496,
+      "NoPermis": "AV187",
+      "Categories": [
+        "ASPO",
+        "ASRA",
+        "CID",
+        "MISP",
+        "VIN"
+      ],
+      "AdresseEtabl": "201, RANG DE L'ANNONCIATION",
+      "CodeVille": "72032",
+      "Ville": "OKA",
+      "CodePostal": "J0N1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE SAINT-BASILE",
+      "Titulaire": "DOMAINE SAINT-BASILE INC.",
+      "Neq": 1140261703,
+      "NoPermis": "AV083",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "23, RANG DES VINGT",
+      "CodeVille": "57020",
+      "Ville": "SAINT-BASILE-LE-GRAND",
+      "CodePostal": "J3N1M2"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE SMALL",
+      "Titulaire": "RICHARD SMALL",
+      "Neq": 2249676612,
+      "NoPermis": "AV159",
+      "Categories": [
+        "ASÉR",
+        "ASRA",
+        "ERA",
+        "LIQE",
+        "MISE",
+        "VIN"
+      ],
+      "AdresseEtabl": "261, RUE SAINT-PIERRE",
+      "CodeVille": "33017",
+      "Ville": "SAINTE-AGATHE-DE-LOTBINIÈRE",
+      "CodePostal": "G0S2A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE ST-JACQUES",
+      "Titulaire": "VIGNOBLE DU DOMAINE ST-JACQUES INC.",
+      "Neq": 1162035274,
+      "NoPermis": "AV079",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "615 et 693, ROUTE ÉDOUARD VII",
+      "CodeVille": "68040",
+      "Ville": "SAINT-JACQUES-LE-MINEUR",
+      "CodePostal": "J0J1Z0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "DOMAINE VINÉTERRA",
+      "Titulaire": "DOMAINE VINÉTERRA INC.",
+      "Neq": 1174374828,
+      "NoPermis": "AV174",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "815, CHEMIN PION",
+      "CodeVille": "57035",
+      "Ville": "MONT-SAINT-HILAIRE",
+      "CodePostal": "J3H0L4"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "ÉCOLE DU 3E RANG",
+      "Titulaire": "ÉCOLE DU 3E RANG, VIGNOBLE ET CIDRERIE SENC",
+      "Neq": 3365215691,
+      "NoPermis": "AV116",
+      "Categories": [
+        "CID",
+        "LIPF",
+        "LIQR",
+        "MISP",
+        "MISR",
+        "PF",
+        "VIN"
+      ],
+      "AdresseEtabl": "511, 3E RANG EST",
+      "CodeVille": "47040",
+      "Ville": "SAINT-JOACHIM-DE-SHEFFORD",
+      "CodePostal": "J0E2G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "FERME DE L'ÎLE MTL",
+      "Titulaire": "FERME DE L'ÎLE MTL INC.",
+      "Neq": 1177461432,
+      "NoPermis": "AV172",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1468, CHEMIN SAINT-FÉRÉOL",
+      "CodeVille": "71050",
+      "Ville": "LES CÈDRES",
+      "CodePostal": "J7T1N8"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "FERME HAYFIELD",
+      "Titulaire": "11797263 CANADA INC.",
+      "Neq": 1175099655,
+      "NoPermis": "AV217",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "377, CHEMIN DUTCH",
+      "CodeVille": "46017",
+      "Ville": "SAINT-ARMAND",
+      "CodePostal": "J0J1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "FERME LE RAKU",
+      "Titulaire": "FERME LE RAKU SENC",
+      "Neq": 3361038071,
+      "NoPermis": "AV151",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "80, ROUTE 132",
+      "CodeVille": "14045",
+      "Ville": "SAINT-GERMAIN-DE-KAMOURASKA",
+      "CodePostal": "G0L3G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "GRANGE HATLEY",
+      "Titulaire": "9213-0244 QUÉBEC INC.",
+      "Neq": 1166063413,
+      "NoPermis": "AV147",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "395, CHEMIN BACHAND",
+      "CodeVille": "45060",
+      "Ville": "SAINTE-CATHERINE-DE-HATLEY",
+      "CodePostal": "J0B1W0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA BONTÉ DIVIGNE",
+      "Titulaire": "VIGNOBLE LA BONTÉ DIVIGNE S.E.N.C.",
+      "Neq": 3380325871,
+      "NoPermis": "AV161",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "2090, CHEMIN DES DEUX-RIVIÈRES",
+      "CodeVille": "91025",
+      "Ville": "ROBERVAL",
+      "CodePostal": "G8H2M9"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA BULLERIE",
+      "Titulaire": "9341-7996 QUÉBEC INC.",
+      "Neq": 1171861348,
+      "NoPermis": "AV028",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "2007, CHEMIN PRINCIPAL",
+      "CodeVille": "72025",
+      "Ville": "SAINT-JOSEPH-DU-LAC",
+      "CodePostal": "J0N1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA CHARLOISE",
+      "Titulaire": "LES ENTREPRISES AGRO-ALIMENTAIRES, LA CHARLOISE SENC",
+      "Neq": 3346834339,
+      "NoPermis": "AV056",
+      "Categories": [
+        "LIPF",
+        "LIQR",
+        "MIPF",
+        "MISR",
+        "PF",
+        "VIN"
+      ],
+      "AdresseEtabl": "545, RANG SAINT-EUSTACHE",
+      "CodeVille": "33115",
+      "Ville": "LOTBINIÈRE",
+      "CodePostal": "G0S1S0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA CONSERVERIE",
+      "Titulaire": "LA CONSERVERIE INC.",
+      "Neq": 1173113235,
+      "NoPermis": "AV201",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1005A, RUE BRUCE",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA GRANGE DE L'ÎLE",
+      "Titulaire": "RESTO ETC. INC.",
+      "Neq": 1160037181,
+      "NoPermis": "AV177",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "517 CHEMIN DU CARREFOUR",
+      "CodeVille": "20025",
+      "Ville": "SAINT-PIERRE-DE-L'ÎLE-D'ORLÉANS",
+      "CodePostal": "G0A4E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA HALTE DES PÈLERINS INC.",
+      "Titulaire": "LA HALTE DES PÈLERINS INC.",
+      "Neq": 1143625276,
+      "NoPermis": "AV072",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "693, CHEMIN DU SANCTUAIRE",
+      "CodeVille": "43027",
+      "Ville": "SHERBROOKE",
+      "CodePostal": "J1H0E1"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA PETITE PAYSANNE",
+      "Titulaire": "151107 CANADA INC.",
+      "Neq": 1143454610,
+      "NoPermis": "AV103",
+      "Categories": [
+        "LIPF",
+        "MIPF",
+        "PF",
+        "VIN"
+      ],
+      "AdresseEtabl": "1099 & 1100, CHEMIN DE L'ACHIGAN EST",
+      "CodeVille": "75028",
+      "Ville": "SAINTE-SOPHIE",
+      "CodePostal": "J5J2P9"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LA SEIGNEURIE DE LIRET",
+      "Titulaire": "9157-9037 QUÉBEC INC.",
+      "Neq": 1163090930,
+      "NoPermis": "AV145",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "2378, CHEMIN ROYAL",
+      "CodeVille": "20010",
+      "Ville": "SAINTE-FAMILLE-DE-L'ÎLE-D'ORLÉANS",
+      "CodePostal": "G0A3P0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE 10-VIN",
+      "Titulaire": "VIGNOBLE LE 10VIN S.E.N.C.",
+      "Neq": 3376346030,
+      "NoPermis": "AV218",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "672, RANG MARIGOT",
+      "CodeVille": "33090",
+      "Ville": "SAINT-APOLLINAIRE",
+      "CodePostal": "G0S2E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE BOURG DES CÈDRES",
+      "Titulaire": "LE BOURG DES CÈDRES S.E.N.C.",
+      "Neq": 3367381095,
+      "NoPermis": "AV155",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "490, CHEMIN DU FLEUVE",
+      "CodeVille": "71050",
+      "Ville": "LES CÈDRES",
+      "CodePostal": "J7T1L4"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE CHAMP DUO INC.",
+      "Titulaire": "LE CHAMP DUO INC.",
+      "Neq": 1177819134,
+      "NoPermis": "AV211",
+      "Categories": [
+        "ASPF",
+        "ASRA",
+        "LIPF",
+        "LIQR",
+        "MIPF",
+        "MISR",
+        "PFR",
+        "VIN"
+      ],
+      "AdresseEtabl": "163, RUE LAURIER",
+      "CodeVille": "22005",
+      "Ville": "SAINTE-CATHERINE-DE-LA-JACQUES-CARTIER",
+      "CodePostal": "G3N0V5"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE CHÂTEAU DE LA GRANGE",
+      "Titulaire": "LE CHÂTEAU DE LA GRANGE INC.",
+      "Neq": 1165265910,
+      "NoPermis": "AV107",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "4310, CHEMIN DU CORDON",
+      "CodeVille": "59020",
+      "Ville": "VARENNES",
+      "CodePostal": "J3X1P9"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE CLOS DE L'ORME BLANC",
+      "Titulaire": "LE CLOS DE L'ORME BLANC INC.",
+      "Neq": 1170811344,
+      "NoPermis": "AV167",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1050, CHEMIN DUTCH",
+      "CodeVille": "46017",
+      "Ville": "SAINT-ARMAND",
+      "CodePostal": "J0J1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE DOMAINE DES DUCS SENC.",
+      "Titulaire": "LE DOMAINE DES DUCS S.E.N.C.",
+      "Neq": 3344596740,
+      "NoPermis": "AV042",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "440, ROUTE DE L'ÎLE DU COLLÈGE",
+      "CodeVille": "85030",
+      "Ville": "DUHAMEL-OUEST",
+      "CodePostal": "J9V1E7"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE FIEF DE LA RIVIÈRE",
+      "Titulaire": "LE FIEF DE LA RIVIÈRE SENC (TRANSFERT VIGNOBLE LE FIEF DE LA RIVIÈRE INC.)",
+      "Neq": 3365527806,
+      "NoPermis": "AV133",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "20280, BOULEVARD DES ACADIENS",
+      "CodeVille": "38010",
+      "Ville": "BÉCANCOUR",
+      "CodePostal": "G9H1M8"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE JARDIN DE LA ROSE DES VINS",
+      "Titulaire": "JARDIN DE LA ROSE DES VINS S.E.N.C.",
+      "Neq": 3367528901,
+      "NoPermis": "AV196",
+      "Categories": [
+        "ASRA",
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "47, RANG DES VINGT",
+      "CodeVille": "57020",
+      "Ville": "SAINT-BASILE-LE-GRAND",
+      "CodePostal": "J3N1M2"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE JARDIN DE LA SIMPLICITÉ",
+      "Titulaire": "CHAMBERLAND YAN",
+      "Neq": 2272599673,
+      "NoPermis": "AV195",
+      "Categories": [
+        "ASPF",
+        "ASRA",
+        "LIPF",
+        "MIPF",
+        "PFR",
+        "VIN"
+      ],
+      "AdresseEtabl": "314, RUE SAINT-ÉDOUARD",
+      "CodeVille": "16055",
+      "Ville": "SAINT-URBAIN",
+      "CodePostal": "G0A4K0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE MAS DES PATRIOTES",
+      "Titulaire": "LE MAS DES PATRIOTES INC.",
+      "Neq": 1166652918,
+      "NoPermis": "AV112",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1076, CHEMIN DES PATRIOTES OUEST",
+      "CodeVille": "56083",
+      "Ville": "SAINT-JEAN-SUR-RICHELIEU",
+      "CodePostal": "J2Y1H4"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE VIGNOBLE DE L'ISLE DE BACCHUS INC.",
+      "Titulaire": "LE VIGNOBLE DE L'ISLE DE BACCHUS INC.",
+      "Neq": 1147123534,
+      "NoPermis": "AV033",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "1335, CHEMIN ROYAL",
+      "CodeVille": "20025",
+      "Ville": "SAINT-PIERRE-DE-L'ÎLE-D'ORLÉANS",
+      "CodePostal": "G0A4E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE VIGNOBLE DE L'ISLE DE BACCHUS INC.",
+      "Titulaire": "LE VIGNOBLE DE L'ISLE DE BACCHUS INC.",
+      "Neq": 1147123534,
+      "NoPermis": "EN815",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1367, CHEMIN ROYAL, LOCAL 103",
+      "CodeVille": "20025",
+      "Ville": "SAINT-PIERRE-DE-L'ÎLE-D'ORLÉANS",
+      "CodePostal": "G0A4E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE VIGNOBLE LE CEP D'ARGENT INC.",
+      "Titulaire": "LE VIGNOBLE LE CEP D'ARGENT INC.",
+      "Neq": 1166509399,
+      "NoPermis": "AV006",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1257, CHEMIN DE LA RIVIERE",
+      "CodeVille": "45072",
+      "Ville": "MAGOG",
+      "CodePostal": "J1X3W5"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE VIGNOBLE LES VENTS D'ANGE",
+      "Titulaire": "LES GESTIONS CHOU-BEC INC.",
+      "Neq": 1145752458,
+      "NoPermis": "AV076",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "839, CHEMIN PRINCIPAL",
+      "CodeVille": "72025",
+      "Ville": "SAINT-JOSEPH-DU-LAC",
+      "CodePostal": "J0N1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LE VIGNOBLE PIGEON HILL",
+      "Titulaire": "LES CHAMPS ET VIGNOBLES DALE VISTA S.E.N.C.",
+      "Neq": 3367689646,
+      "NoPermis": "AV125",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "395, CHEMIN DES ÉRABLES",
+      "CodeVille": "46017",
+      "Ville": "SAINT-ARMAND",
+      "CodePostal": "J0J1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES ENTREPRISES CARONE",
+      "Titulaire": "LES ENTREPRISES CARONE S.E.N.C.",
+      "Neq": 3349394133,
+      "NoPermis": "AV062",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "75, RUE ROY",
+      "CodeVille": "52017",
+      "Ville": "LANORAIE",
+      "CodePostal": "J0K1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES ENTREPRISES RIPARIA INC.",
+      "Titulaire": "LES ENTREPRISES RIPARIA INC.",
+      "Neq": 1165093643,
+      "NoPermis": "AV104",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1440, 10E RANG",
+      "CodeVille": "50023",
+      "Ville": "SAINT-WENCESLAS",
+      "CodePostal": "G0Z1J0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES OUCHES",
+      "Titulaire": "9431-2089 QUÉBEC INC.",
+      "Neq": 1176058379,
+      "NoPermis": "AV208",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1811-1813, CHEMIN ROYAL",
+      "CodeVille": "20025",
+      "Ville": "SAINT-PIERRE-DE-L'ÎLE-D'ORLÉANS",
+      "CodePostal": "G0A4E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES SERRES FRANK ZYROMSKI",
+      "Titulaire": "FRANK ZYROMSKI",
+      "Neq": 1141720152,
+      "NoPermis": "AV184",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1853, CHEMIN LALIBERTÉ ET CADASTRE No 5 994 604",
+      "CodeVille": "79037",
+      "Ville": "RIVIÈRE-ROUGE",
+      "CodePostal": "J0T1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES SOEURS RACINES",
+      "Titulaire": "LES SOEURS RACINES INC.",
+      "Neq": 1176879089,
+      "NoPermis": "AV200",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "317, RANG DE L'ÉGLISE SUD",
+      "CodeVille": "46095",
+      "Ville": "SAINT-IGNACE-DE-STANBRIDGE",
+      "CodePostal": "J0J1Y0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES VIGNES DES BACCHANTES",
+      "Titulaire": "LES VIGNES DES BACCHANTES INC.",
+      "Neq": 1168480094,
+      "NoPermis": "AV157",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "653, CHEMIN BROWNLEE",
+      "CodeVille": "68015",
+      "Ville": "HEMMINGFORD",
+      "CodePostal": "J0L1H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES VINS DE LA MANSE",
+      "Titulaire": "LES VINS DE LA MANSE INC.",
+      "Neq": 1176177138,
+      "NoPermis": "AV173",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1425, 11E RANG",
+      "CodeVille": "47047",
+      "Ville": "ROXTON POND",
+      "CodePostal": "J0E1Z0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "LES VINS DE TRÈS-PRÉCIEUX-SANG",
+      "Titulaire": "LES VINS DE TRÈS-PRÉCIEUX-SANG INC.",
+      "Neq": 1176614221,
+      "NoPermis": "AV191",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "10150, CHEMIN DU SAINT-LAURENT",
+      "CodeVille": "38010",
+      "Ville": "BÉCANCOUR",
+      "CodePostal": "G9H3E8"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "MAISON AGRICOLE JOY HILL",
+      "Titulaire": "MAISON AGRICOLE JOY HILL INC.",
+      "Neq": 1172513401,
+      "NoPermis": "AV182",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "85, CHEMIN RICHFORD",
+      "CodeVille": "46010",
+      "Ville": "FRELIGHSBURG",
+      "CodePostal": "J0J1C0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "MAISON VITICOLE LAFONT",
+      "Titulaire": "VERGERS & SERRES ST-PAUL SENC.",
+      "Neq": 3342336230,
+      "NoPermis": "AV221",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "209, RUE PRINCIPALE EST",
+      "CodeVille": "55015",
+      "Ville": "SAINT-PAUL-D'ABBOTSFORD",
+      "CodePostal": "J0E1A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "MAURICE DUFOUR",
+      "Titulaire": "MAURICE DUFOUR",
+      "Neq": 2269935245,
+      "NoPermis": "AV139",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "1339, BOULEVARD MONSEIGNEUR DE LAVAL",
+      "CodeVille": "16013",
+      "Ville": "BAIE-SAINT-PAUL",
+      "CodePostal": "G3Z2X6"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "PINARD ET FILLES",
+      "Titulaire": "9281-1157 QUÉBEC INC.",
+      "Neq": 1169091411,
+      "NoPermis": "AV150",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1700, CHEMIN DES PÈRES",
+      "CodeVille": "45072",
+      "Ville": "MAGOG",
+      "CodePostal": "J1X5R9"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "TERRE-EAU",
+      "Titulaire": "TERRE-EAU INC.",
+      "Neq": 1145298205,
+      "NoPermis": "AV209",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "199, 4E RANG OUEST",
+      "CodeVille": "09070",
+      "Ville": "SAINT-JOSEPH-DE-LEPAGE",
+      "CodePostal": "G5H3K6"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE 30 ARPENTS",
+      "Titulaire": "JEAN-PIERRE BOSSÉ",
+      "Neq": 2266156639,
+      "NoPermis": "AV146",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "732, CHEMIN DES TRENTE",
+      "CodeVille": "55065",
+      "Ville": "SAINT-MATHIAS-SUR-RICHELIEU",
+      "CodePostal": "J3L6A2"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE AMOURASKA",
+      "Titulaire": "AMOURASKA INC.",
+      "Neq": 1173026023,
+      "NoPermis": "AV077",
+      "Categories": [
+        "LIPF",
+        "LIQR",
+        "MIPF",
+        "MISR",
+        "PFR",
+        "VIN"
+      ],
+      "AdresseEtabl": "568, RANG SAINT-CHARLES OUEST",
+      "CodeVille": "14035",
+      "Ville": "SAINT-ALEXANDRE-DE-KAMOURASKA",
+      "CodePostal": "G0L2G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE BOUCHE-ART",
+      "Titulaire": "ALAIN LAVOIE",
+      "Neq": 2266860370,
+      "NoPermis": "AV091",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "96, CHEMIN DE LA CHAPELLE",
+      "CodeVille": "60020",
+      "Ville": "SAINT-SULPICE",
+      "CodePostal": "J5W4C8"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE BRIGHAM",
+      "Titulaire": "VIGNOBLE BRIGHAM S.E.N.C.",
+      "Neq": 3376466754,
+      "NoPermis": "AV207",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1080, CHEMIN NORD",
+      "CodeVille": "46090",
+      "Ville": "BRIGHAM",
+      "CodePostal": "J2K4R7"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE BROMONT",
+      "Titulaire": "FRANÇOIS VAES",
+      "Neq": 2249267479,
+      "NoPermis": "AV098",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1095, CHEMIN NORD",
+      "CodeVille": "46090",
+      "Ville": "BRIGHAM",
+      "CodePostal": "J2K0P6"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CAMY",
+      "Titulaire": "VIGNOBLE CAMY INC.",
+      "Neq": 1167364828,
+      "NoPermis": "AV154",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "188, MONTÉE HENRYSBURG",
+      "CodeVille": "68005",
+      "Ville": "SAINT-BERNARD-DE-LACOLLE",
+      "CodePostal": "J0J1V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CARPE DIEM",
+      "Titulaire": "VIGNOBLE CARPE DIEM",
+      "Neq": 3375985929,
+      "NoPermis": "AV222",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "202, CH. DE SAINT-ANDRÉ",
+      "CodeVille": "80078",
+      "Ville": "RIPON",
+      "CodePostal": "J0V1V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CARPINTERI",
+      "Titulaire": "VIGNOBLE CARPINTERI INC.",
+      "Neq": 1143821370,
+      "NoPermis": "AV069",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "3141, CHEMIN DU PONT COUVERT",
+      "CodeVille": "08073",
+      "Ville": "SAINT-ULRIC",
+      "CodePostal": "G0J3H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CENTAURE",
+      "Titulaire": "VIGNOBLE CENTAURE S.E.N.C.",
+      "Neq": 3366974411,
+      "NoPermis": "AV115",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "3848, RUE PRINCIPALE",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CHAMBORDAIS ST-VINCENT INC.",
+      "Titulaire": "VIGNOBLE CHAMBORDAIS ST-VINCENT INC.",
+      "Neq": 1177020931,
+      "NoPermis": "AV216",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "850 ET 859, ROUTE DE LA POINTE",
+      "CodeVille": "91020",
+      "Ville": "CHAMBORD",
+      "CodePostal": "G0W1G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CHÂTEAU FONTAINE",
+      "Titulaire": "JEFO NUTRITION INC.",
+      "Neq": 1142856781,
+      "NoPermis": "AV063",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "5020, AVENUE JEFO et 4900, RUE MARTINEAU (J2R 1K3)",
+      "CodeVille": "54048",
+      "Ville": "SAINT-HYACINTHE",
+      "CodePostal": "J2R2E7"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CLOS DES CIGALES",
+      "Titulaire": "VIGNOBLE CLOS DES CIGALES INC.",
+      "Neq": 1176635564,
+      "NoPermis": "AV011",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "136, RANG GRAND SABREVOIS",
+      "CodeVille": "56060",
+      "Ville": "SAINTE-ANNE-DE-SABREVOIS",
+      "CodePostal": "J0J2G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CLOS STE-CROIX DE DUNHAM",
+      "Titulaire": "GESTION GODWIN INC.",
+      "Neq": 1141995986,
+      "NoPermis": "AV045",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "3734, RUE PRINCIPALE",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CLOS ST-JEAN",
+      "Titulaire": "VIGNOBLE CLOS ST-JEAN  S.E.P.",
+      "Neq": 3367746230,
+      "NoPermis": "AV202",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "190, CHEMIN SAINT-JEAN",
+      "CodeVille": "63005",
+      "Ville": "SAINTE-MARIE-SALOMÉ",
+      "CodePostal": "J0K2Z0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE COM'AUTREFOIS",
+      "Titulaire": "MICHEL COMEAU (SUCCESSION DE MICHEL COMEAU)",
+      "Neq": 2273082455,
+      "NoPermis": "AV193",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "737, RANG SAINT-FRANÇOIS OUEST",
+      "CodeVille": "32080",
+      "Ville": "NOTRE-DAME-DE-LOURDES",
+      "CodePostal": "G0S1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CORTELLINO",
+      "Titulaire": "VIGNOBLE CORTELLINO SENC",
+      "Neq": 3365585416,
+      "NoPermis": "AV132",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "468, RANG DOUBLE",
+      "CodeVille": "70005",
+      "Ville": "SAINT-URBAIN-PREMIER",
+      "CodePostal": "J0S1Y0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CÔTE DE VAUDREUIL",
+      "Titulaire": "VIGNOBLE CÔTE DE VAUDREUIL INC.",
+      "Neq": 1177550200,
+      "NoPermis": "AV087",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "2692, ROUTE HARWOOD",
+      "CodeVille": "71083",
+      "Ville": "VAUDREUIL-DORION",
+      "CodePostal": "J7V4G2"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE CÔTE DES LIMOUSINS",
+      "Titulaire": "9515-8879 QUÉBEC INC.",
+      "Neq": 1179813705,
+      "NoPermis": "AV089",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1960, BOULEVARD DAVID-BOUCHARD",
+      "CodeVille": "47047",
+      "Ville": "ROXTON POND",
+      "CodePostal": "J0E1Z0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE COTEAU DES ARTISANS",
+      "Titulaire": "KARINE LAMOUREUX, JOCELYN DESLANDES, MARIO DESLANDES - FIDUCIAIRES DE LA FIDUCIE DE LA RIVIÈRE NOIRE",
+      "Neq": 3370294004,
+      "NoPermis": "AV165",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1680, CHEMIN DE BÉTHANIE",
+      "CodeVille": "48005",
+      "Ville": "BÉTHANIE",
+      "CodePostal": "J0H1E1"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE COUCHEPAGANE",
+      "Titulaire": "BERTRAND TREMBLAY",
+      "Neq": 2265169294,
+      "NoPermis": "AV131",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "1328, RANG SAINTE-ANNE",
+      "CodeVille": "93012",
+      "Ville": "MÉTABETCHOUAN-LAC-À-LA-CROIX",
+      "CodePostal": "G8G1A3"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DE LA BAUGE",
+      "Titulaire": "9067-5588 QUÉBEC INC.",
+      "Neq": 1147954672,
+      "NoPermis": "AV012",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "155, AVENUE DES ÉRABLES",
+      "CodeVille": "46090",
+      "Ville": "BRIGHAM",
+      "CodePostal": "J2K4E1"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DE LA RIVIÈRE DU CHÊNE",
+      "Titulaire": "9124-5936 QUÉBEC INC.",
+      "Neq": 1161231817,
+      "NoPermis": "AV036",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "807, CHEMIN DE LA RIVIÈRE NORD",
+      "CodeVille": "72005",
+      "Ville": "SAINT-EUSTACHE",
+      "CodePostal": "J7R4K3"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DE L'ORPAILLEUR",
+      "Titulaire": "VIGNOBLE DE L'ORPAILLEUR INC.",
+      "Neq": 1144233559,
+      "NoPermis": "AV004",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1086, RUE BRUCE, ROUTE 202",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DE POMONE INC.",
+      "Titulaire": "VIGNOBLE DE POMONE INC.",
+      "Neq": 1172014269,
+      "NoPermis": "AV170",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "144, CHEMIN DE LA RIVIÈRE DELISLE SUD",
+      "CodeVille": "71040",
+      "Ville": "COTEAU-DU-LAC",
+      "CodePostal": "J0P1B0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DE STE-PETRONILLE",
+      "Titulaire": "CONSTRUCTION GDL INC.",
+      "Neq": 1144613578,
+      "NoPermis": "AV022",
+      "Categories": [
+        "ASRA",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "8705, CHEMIN ROYAL",
+      "CodeVille": "20030",
+      "Ville": "SAINTE-PÉTRONILLE",
+      "CodePostal": "G0A4C0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DES BATTURES SAINT-FULGENCE",
+      "Titulaire": "9456-4788 QUÉBEC INC.",
+      "Neq": 1177190072,
+      "NoPermis": "AV212",
+      "Categories": [
+        "ASRA",
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "204, RUE DU SAGUENAY",
+      "CodeVille": "94235",
+      "Ville": "SAINT-FULGENCE",
+      "CodePostal": "G0V1S0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE D'OKA",
+      "Titulaire": "VIGNOBLE D'OKA INC.",
+      "Neq": 1170476361,
+      "NoPermis": "AV105",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "300, RANG SAINT-AMBROISE",
+      "CodeVille": "72032",
+      "Ville": "OKA",
+      "CodePostal": "J0N1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DOMAINE BRESEE",
+      "Titulaire": "9076-3384 QUÉBEC INC.",
+      "Neq": 1148490650,
+      "NoPermis": "AV078",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "303, CHEMIN DRAPER",
+      "CodeVille": "46058",
+      "Ville": "SUTTON",
+      "CodePostal": "J0E2K0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DOMAINE DE L'ARDENNAIS",
+      "Titulaire": "VIGNOBLE L'ARDENNAIS S.E.N.C.",
+      "Neq": 3371901300,
+      "NoPermis": "AV025",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "158, CHEMIN RIDGE",
+      "CodeVille": "46045",
+      "Ville": "STANBRIDGE EAST",
+      "CodePostal": "J0J2H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DOMAINE DU SAULE S.E.N.C.",
+      "Titulaire": "VIGNOBLE DOMAINE DU SAULE S.E.N.C.",
+      "Neq": 3379912325,
+      "NoPermis": "AV188",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1218, ROUTE 161",
+      "CodeVille": "39135",
+      "Ville": "SAINT-VALÈRE",
+      "CodePostal": "G0P1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DU CHEMIN DE LA RIVIÈRE",
+      "Titulaire": "VIGNOBLE DU CHEMIN DE LA RIVIÈRE S.E.N.C.",
+      "Neq": 3361876223,
+      "NoPermis": "AV124",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1087, CHEMIN DE LA RIVIÈRE",
+      "CodeVille": "45072",
+      "Ville": "MAGOG",
+      "CodePostal": "J1X3W5"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DU FAUBOURG SENC",
+      "Titulaire": "VIGNOBLE DU FAUBOURG SENC",
+      "Neq": 3349197072,
+      "NoPermis": "AV051",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "479, RUE DES BOURGAULT",
+      "CodeVille": "17070",
+      "Ville": "SAINT-JEAN-PORT-JOLI",
+      "CodePostal": "G0R3G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DU MARATHONIEN",
+      "Titulaire": "VIGNOBLE DU MARATHONIEN INC.",
+      "Neq": 1169897726,
+      "NoPermis": "AV017",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "318, ROUTE 202",
+      "CodeVille": "69005",
+      "Ville": "HAVELOCK",
+      "CodePostal": "J0S2C0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DU MITAN",
+      "Titulaire": "MARCELLIN TURCOTTE",
+      "Neq": 2260820180,
+      "NoPermis": "AV074",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "2608, CHEMIN ROYAL",
+      "CodeVille": "20010",
+      "Ville": "SAINTE-FAMILLE-DE-L'ÎLE-D'ORLÉANS",
+      "CodePostal": "G0A3P0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DU MOUTON NOIR",
+      "Titulaire": "VIGNOBLE DU MOUTON NOIR (2022) INC.",
+      "Neq": 1178144920,
+      "NoPermis": "AV156",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "1482, CHEMIN DU RIVAGE",
+      "CodeVille": "57075",
+      "Ville": "SAINT-ANTOINE-SUR-RICHELIEU",
+      "CodePostal": "J0L1R0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DU RUISSEAU",
+      "Titulaire": "LE VIGNOBLE DU RUISSEAU INC.(TRANSFERT 9538-5357 QUÉBEC INC.)",
+      "Neq": 1165115164,
+      "NoPermis": "AV135",
+      "Categories": [
+        "ASÉR",
+        "ASPO",
+        "ASRA",
+        "CID",
+        "ERA",
+        "LIQE",
+        "LIQR",
+        "MISE",
+        "MISP",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "4500, RUE STROBL",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE DU VENT MAUDIT",
+      "Titulaire": "VIGNOBLE DU VENT MAUDIT INC.",
+      "Neq": 1178146180,
+      "NoPermis": "AV204",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "690 RANG SAINT-ESPRIT",
+      "CodeVille": "52040",
+      "Ville": "SAINTE-GENEVIÈVE-DE-BERTHIER",
+      "CodePostal": "J0K1A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE ÉMILE-AUGUSTE",
+      "Titulaire": "VIGNOBLE ÉMILE-AUGUSTE  S.E.N.C.",
+      "Neq": 3364578727,
+      "NoPermis": "AV143",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "60, MONTÉE GUAY",
+      "CodeVille": "68005",
+      "Ville": "SAINT-BERNARD-DE-LACOLLE",
+      "CodePostal": "J0J1V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE ET CIDRERIE COTEAU ST-PAUL",
+      "Titulaire": "VIGNOBLE ET CIDRERIE COTEAU ST-PAUL S.E.N.C.",
+      "Neq": 3377796621,
+      "NoPermis": "AV052",
+      "Categories": [
+        "CID",
+        "MISP",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1595, RUE PRINCIPALE EST",
+      "CodeVille": "55015",
+      "Ville": "SAINT-PAUL-D'ABBOTSFORD",
+      "CodePostal": "J0E1A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE GAGLIANO",
+      "Titulaire": "VIGNOBLE GAGLIANO INC.",
+      "Neq": 1143400472,
+      "NoPermis": "AV014",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1046, RUE BRUCE",
+      "CodeVille": "46050",
+      "Ville": "DUNHAM",
+      "CodePostal": "J0E1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE GAGLIANO",
+      "Titulaire": "VIGNOBLE GAGLIANO INC.",
+      "Neq": 1143400472,
+      "NoPermis": "EN801",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "7715 Henri-Bourassa Ouest",
+      "CodeVille": "66023",
+      "Ville": "MONTRÉAL",
+      "CodePostal": "H4S1P7"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE HEMMINGFORD",
+      "Titulaire": "VIGNOBLE HEMMINGFORD INC.",
+      "Neq": 1171913362,
+      "NoPermis": "AV205",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "758, CHEMIN WILLIAMS",
+      "CodeVille": "68015",
+      "Ville": "HEMMINGFORD",
+      "CodePostal": "J0L1H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE J.O. MONTPETIT & FILS",
+      "Titulaire": "9196-1052 QUÉBEC INC.",
+      "Neq": 1165122251,
+      "NoPermis": "AV096",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "396, CHEMIN SAINT-LOUIS",
+      "CodeVille": "70030",
+      "Ville": "SAINT-ÉTIENNE-DE-BEAUHARNOIS",
+      "CodePostal": "J0S1S0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE KOBLOTH",
+      "Titulaire": "VIGNOBLE KOBLOTH ET FILS INC.",
+      "Neq": 1168488196,
+      "NoPermis": "AV092",
+      "Categories": [
+        "ASRA",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "905 ET 925, GRAND BOULEVARD OUEST",
+      "CodeVille": "58037",
+      "Ville": "SAINT-BRUNO-DE-MONTARVILLE",
+      "CodePostal": "J3V0L8"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LA BELLE ALLIANCE",
+      "Titulaire": "FIDUCIE LA BELLE ALLIANCE - BROCK DAGENAIS, FRANÇOIS SYLVESTRE, CATHERINE CHOUINARD",
+      "Neq": 3370986260,
+      "NoPermis": "AV160",
+      "Categories": [
+        "ASRA",
+        "VIN"
+      ],
+      "AdresseEtabl": "220 ET 239, CHEMIN DE FULLFORD",
+      "CodeVille": "47035",
+      "Ville": "SHEFFORD",
+      "CodePostal": "J2M1B2"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LA CANTINA, VALLÉE D'OKA",
+      "Titulaire": "9408-7871 QUÉBEC INC.",
+      "Neq": 1175033167,
+      "NoPermis": "AV190",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1942, CHEMIN D'OKA",
+      "CodeVille": "72032",
+      "Ville": "OKA",
+      "CodePostal": "J0N1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LA GRANDE ALLÉE",
+      "Titulaire": "VIGNOBLE LA GRANDE ALLÉE S.E.N.C.",
+      "Neq": 3368141894,
+      "NoPermis": "AV153",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "812, CHEMIN PION",
+      "CodeVille": "57035",
+      "Ville": "MONT-SAINT-HILAIRE",
+      "CodePostal": "J3G4S6"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LA VALLÉE DES NUAGES",
+      "Titulaire": "VIGNOBLE LA VALLÉE DES NUAGES S.E.N.C",
+      "Neq": 3371631659,
+      "NoPermis": "AV183",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "35 CHEMIN GALLUP",
+      "CodeVille": "40047",
+      "Ville": "DANVILLE",
+      "CodePostal": "J0A1A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LANO D'OR",
+      "Titulaire": "9347-2066 QUÉBEC INC.",
+      "Neq": 1172136740,
+      "NoPermis": "AV141",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1000, GRANDE CÔTE OUEST",
+      "CodeVille": "52017",
+      "Ville": "LANORAIE",
+      "CodePostal": "J0K1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LE CHAT BOTTÉ",
+      "Titulaire": "NORMAND GUÉNETTE ET ISABELLE RICARD S.E.P.",
+      "Neq": 3365841058,
+      "NoPermis": "AV119",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "633, ROUTE 202 EST",
+      "CodeVille": "68015",
+      "Ville": "HEMMINGFORD",
+      "CodePostal": "J0L1H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LE DI-VIN",
+      "Titulaire": "9302-1459 QUÉBEC INC.",
+      "Neq": 1170048434,
+      "NoPermis": "AV198",
+      "Categories": [
+        "ERA",
+        "MISE",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "200, CHEMIN RIDGE",
+      "CodeVille": "46017",
+      "Ville": "SAINT-ARMAND",
+      "CodePostal": "J0J1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LE NORDET",
+      "Titulaire": "9076-8250 QUÉBEC INC.",
+      "Neq": 1148525059,
+      "NoPermis": "AV035",
+      "Categories": [
+        "ASPO",
+        "ASRA",
+        "CID",
+        "MISP",
+        "VIN"
+      ],
+      "AdresseEtabl": "991, CHEMIN DES ÎLES",
+      "CodeVille": "25213",
+      "Ville": "LÉVIS",
+      "CodePostal": "G6C1B5"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LEBLANC",
+      "Titulaire": "VIGNOBLE LEBLANC S.E.P.",
+      "Neq": 3372072705,
+      "NoPermis": "AV178",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1415, ROUTE 132",
+      "CodeVille": "69070",
+      "Ville": "SAINT-ANICET",
+      "CodePostal": "J0S1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES ARTISANS DU TERROIR",
+      "Titulaire": "VERGER R.C. GUERTIN (2011) INC.",
+      "Neq": 1167026286,
+      "NoPermis": "AV038",
+      "Categories": [
+        "CID",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1150, RANG DE LA MONTAGNE",
+      "CodeVille": "55015",
+      "Ville": "SAINT-PAUL-D'ABBOTSFORD",
+      "CodePostal": "J0E1A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES ARTISANS DU TERROIR",
+      "Titulaire": "VERGER R.C. GUERTIN (2011) INC.",
+      "Neq": 1167026286,
+      "NoPermis": "EN879",
+      "Categories": [
+        "CID",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "1280, LA GRANDE-CAROLINE",
+      "CodeVille": "55037",
+      "Ville": "ROUGEMONT",
+      "CodePostal": "J0L1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES ASSOIFFÉS",
+      "Titulaire": "VIGNOBLE LES ASSOIFFÉS S.E.N.C.",
+      "Neq": 3376170976,
+      "NoPermis": "AV215",
+      "Categories": [
+        "ASRA",
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "498, ROUTE 204 NORD",
+      "CodeVille": "29013",
+      "Ville": "SAINT-GÉDÉON-DE-BEAUCE",
+      "CodePostal": "G0M1T0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES COLLINES",
+      "Titulaire": "ACADÉMIE ÉQUESTRE DU SABLÉ LTÉE.",
+      "Neq": 1167170811,
+      "NoPermis": "AV179",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "415, CHEMIN CRÉGHEUR",
+      "CodeVille": "82030",
+      "Ville": "PONTIAC",
+      "CodePostal": "J0X2G0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES CÔTES DU GAVET",
+      "Titulaire": "9431-7617 QUÉBEC INC.",
+      "Neq": 1176079607,
+      "NoPermis": "AV066",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1690, CHEMIN DE L'AQUEDUC",
+      "CodeVille": "39025",
+      "Ville": "TINGWICK",
+      "CodePostal": "J0A1L0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES FARFELUS",
+      "Titulaire": "VIGNOBLE LES FARFELUS INC.",
+      "Neq": 1174452004,
+      "NoPermis": "AV158",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1123, CHEMIN AREL",
+      "CodeVille": "42075",
+      "Ville": "MELBOURNE",
+      "CodePostal": "J0B2B0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES GÉMEAUX",
+      "Titulaire": "GESTION GILLES EMOND (2008) INC.",
+      "Neq": 1140410342,
+      "NoPermis": "AV168",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "766, CHEMIN DE LA PREMIÈRE CONCESSION",
+      "CodeVille": "69045",
+      "Ville": "HINCHINBROOKE",
+      "CodePostal": "J0S1A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES MURMURES",
+      "Titulaire": "VIGNOBLE LES MURMURES S.E.N.C.",
+      "Neq": 3361208260,
+      "NoPermis": "AV075",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "2750, RUE NOISEUX",
+      "CodeVille": "57033",
+      "Ville": "SAINT-JEAN-BAPTISTE",
+      "CodePostal": "J0L2B0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES PERVENCHES",
+      "Titulaire": "LES PERVENCHES INC.",
+      "Neq": 1173611055,
+      "NoPermis": "AV021",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "150, CHEMIN BOULAIS",
+      "CodeVille": "46112",
+      "Ville": "FARNHAM",
+      "CodePostal": "J2N2P9"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES PETITS CAILLOUX",
+      "Titulaire": "MARTIN LAVERTU",
+      "Neq": 2262603667,
+      "NoPermis": "AV070",
+      "Categories": [
+        "ERA",
+        "LIQE",
+        "MISE",
+        "VIN"
+      ],
+      "AdresseEtabl": "625, RANG DE LA MONTAGNE",
+      "CodeVille": "55015",
+      "Ville": "SAINT-PAUL-D'ABBOTSFORD",
+      "CodePostal": "J0E1A0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE LES VALLONS DE WADLEIGH",
+      "Titulaire": "VIGNOBLE MBE INC.",
+      "Neq": 1165217846,
+      "NoPermis": "AV126",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "186, ROUTE 143",
+      "CodeVille": "42078",
+      "Ville": "ULVERTON",
+      "CodePostal": "J0B2B0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE MONDOR",
+      "Titulaire": "FERME MAURICE MONDOR INC.",
+      "Neq": 1142324541,
+      "NoPermis": "AV108",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "137, RANG SAINT-HENRI",
+      "CodeVille": "52017",
+      "Ville": "LANORAIE",
+      "CodePostal": "J0K1E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE MOROU",
+      "Titulaire": "9334-3994 QUÉBEC INC.",
+      "Neq": 1171487128,
+      "NoPermis": "AV015",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "238, CHEMIN LOUIS-CYR",
+      "CodeVille": "68035",
+      "Ville": "SAINT-CYPRIEN-DE-NAPIERVILLE",
+      "CodePostal": "J0J1L0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE PETIT CHARIOT ROUGE",
+      "Titulaire": "JENNIFER DALE",
+      "Neq": 2268448802,
+      "NoPermis": "AV164",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "165C, CHEMIN DE CALUMET OUEST",
+      "CodeVille": "84015",
+      "Ville": "CLARENDON",
+      "CodePostal": "J0X2Y0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE PICBOIS",
+      "Titulaire": "VIGNOBLE PICBOIS INC.",
+      "Neq": 1176345669,
+      "NoPermis": "AV203",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1470, CHEMIN GASPÉ",
+      "CodeVille": "46090",
+      "Ville": "BRIGHAM",
+      "CodePostal": "J2K4B4"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE PRÉMONT",
+      "Titulaire": "9247-5599 QUÉBEC INC.",
+      "Neq": 1167468942,
+      "NoPermis": "AV120",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "2030, RUE PAUL-LEMAY",
+      "CodeVille": "51055",
+      "Ville": "SAINTE-ANGÈLE-DE-PRÉMONT",
+      "CodePostal": "J0K1R0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE SAINTE-CATHERINE",
+      "Titulaire": "VIGNOBLE SAINTE-CATHERINE INC.",
+      "Neq": 1145498490,
+      "NoPermis": "AV210",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "480, CHEMIN DU RUISSEAU",
+      "CodeVille": "45060",
+      "Ville": "SAINTE-CATHERINE-DE-HATLEY",
+      "CodePostal": "J0B1W0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE SAINT-GABRIEL",
+      "Titulaire": "9177-2848 QUÉBEC INC.",
+      "Neq": 1164145824,
+      "NoPermis": "AV101",
+      "Categories": [
+        "LIQR",
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "2190, RANG SAINT-DAVID",
+      "CodeVille": "52085",
+      "Ville": "SAINT-GABRIEL-DE-BRANDON",
+      "CodePostal": "J0K2N0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE SAINT-PIERRE",
+      "Titulaire": "SAINT-PIERRE LE VIGNOBLE INC.",
+      "Neq": 1148772099,
+      "NoPermis": "AV169",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1015, CHEMIN ROYAL",
+      "CodeVille": "20025",
+      "Ville": "SAINT-PIERRE-DE-L'ÎLE-D'ORLÉANS",
+      "CodePostal": "G0A4E0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE SAINT-THOMAS (ANCIENNEMENT LE MERNOIS)",
+      "Titulaire": "9274-5678 QUÉBEC INC.",
+      "Neq": 1168767441,
+      "NoPermis": "AV073",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "1090 ET 1101, RANG SUD",
+      "CodeVille": "61027",
+      "Ville": "SAINT-THOMAS",
+      "CodePostal": "J0K3L0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE SOUFFLE DE VIE",
+      "Titulaire": "9130-3784 QUÉBEC INC.",
+      "Neq": 1174861162,
+      "NoPermis": "AV189",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "149, CHEMIN DE SENNEVILLE",
+      "CodeVille": "66127",
+      "Ville": "SENNEVILLE",
+      "CodePostal": "H9X3X3"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE SPIRIT LÉONARD",
+      "Titulaire": "VIGNOBLE SPIRIT LÉONARD S.E.N.C.",
+      "Neq": 3365720906,
+      "NoPermis": "AV127",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "592, MONTÉE DES PAYSANS",
+      "CodeVille": "78120",
+      "Ville": "LABELLE",
+      "CodePostal": "J0T1H0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE STE-ANGÉLIQUE",
+      "Titulaire": "VIGNOBLE STE-ANGÉLIQUE SENC",
+      "Neq": 3366516204,
+      "NoPermis": "AV130",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "472 ET 496, CÔTE SAINT-CHARLES",
+      "CodeVille": "80037",
+      "Ville": "PAPINEAUVILLE",
+      "CodePostal": "J0V1R0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VIGNOBLE SUGAR HILL",
+      "Titulaire": "GESTION ALIVAN INC.",
+      "Neq": 1149881998,
+      "NoPermis": "AV138",
+      "Categories": [
+        "MISR",
+        "VIN"
+      ],
+      "AdresseEtabl": "4, CHEMIN SUGAR HILL ET 89, CHEMIN DU MONT-ÉCHO",
+      "CodeVille": "46075",
+      "Ville": "LAC-BROME",
+      "CodePostal": "J0E1V0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VINETAGE",
+      "Titulaire": "DOMAINE PELCHAT LEMAÎTRE-AUGER INC.",
+      "Neq": 1168166529,
+      "NoPermis": "AV162",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "2477, CHEMIN PRINCIPAL",
+      "CodeVille": "72025",
+      "Ville": "SAINT-JOSEPH-DU-LAC",
+      "CodePostal": "J0N1M0"
+    },
+    {
+      "TypePermis": "Production artisanale de vin",
+      "RaisonSociale": "VITIS VITIS",
+      "Titulaire": "LISON BÉDARD",
+      "Neq": 2275273615,
+      "NoPermis": "AV220",
+      "Categories": [
+        "VIN"
+      ],
+      "AdresseEtabl": "2200, RANG DES 48",
+      "CodeVille": "54110",
+      "Ville": "SAINT-JUDE",
+      "CodePostal": "J0H1P0"
+    }
+  ]
+}

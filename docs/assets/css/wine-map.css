@@ -1,0 +1,349 @@
+/* Quebec Wine Map Styles */
+
+.wine-map-container {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+#wine-map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Filter Controls */
+.wine-map-filters {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    min-width: 250px;
+    max-width: 280px;
+    font-family: var(--md-text-font-family);
+    transition: transform 0.3s ease;
+}
+
+.wine-map-filters.collapsed {
+    transform: translateX(-240px);
+}
+
+.wine-map-filters.collapsed .filter-content {
+    display: none;
+}
+
+.wine-map-filters.collapsed .filter-toggle-btn {
+    right: -30px;
+}
+
+.wine-map-filters h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    background: white;
+    color: #333;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: var(--md-primary-fg-color);
+    box-shadow: 0 0 0 2px var(--md-primary-fg-color-alpha);
+}
+
+/* Filter toggle button */
+.filter-toggle-btn {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    background: var(--md-primary-fg-color);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.filter-toggle-btn:hover {
+    background: var(--md-primary-fg-color-dark, #7b1fa2);
+}
+
+/* Clear filters button */
+.clear-filters {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.clear-filters:hover {
+    background: #eeeeee;
+    border-color: #ccc;
+}
+
+/* Mobile filter toggle */
+.filter-toggle {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    background: var(--md-primary-fg-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Map Info Panel */
+.wine-map-info {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-size: 12px;
+    max-width: 200px;
+}
+
+/* Custom marker styles */
+.wine-marker {
+    background: #8b1538;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.wine-marker.has-website {
+    background: #2e7d32;
+}
+
+.wine-marker.multiple-wines {
+    background: #1565c0;
+}
+
+/* Popup styles */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.wine-popup {
+    font-family: var(--md-text-font-family);
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.wine-popup h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+}
+
+.wine-popup .wine-label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.wine-popup .location {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.wine-popup .website {
+    margin-bottom: 12px;
+}
+
+.wine-popup .website a {
+    color: var(--md-primary-fg-color);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.wine-popup .website a:hover {
+    text-decoration: underline;
+}
+
+.wine-popup .wines-section h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.wine-item {
+    margin-bottom: 10px;
+    padding: 8px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    border-left: 3px solid var(--md-primary-fg-color);
+}
+
+.wine-item:last-child {
+    margin-bottom: 0;
+}
+
+.wine-name {
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.wine-type {
+    display: inline-block;
+    background: var(--md-primary-fg-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.wine-cepages {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.wine-cepages .cepage {
+    background: #e8f5e8;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-right: 3px;
+    font-weight: 500;
+}
+
+.wine-cepages .cepage.highlighted {
+    background: #4caf50;
+    color: white;
+}
+
+.wine-description {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.3;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .wine-map-container {
+        height: 500px;
+        margin: 10px -20px; /* Full width on mobile */
+        border-radius: 0;
+    }
+    
+    .filter-toggle {
+        display: block;
+    }
+    
+    .wine-map-filters {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 10px;
+        right: 10px;
+        z-index: 1002;
+        background: white;
+        border-radius: 8px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .wine-map-filters.show {
+        display: block;
+    }
+    
+    .wine-popup {
+        min-width: 250px;
+        max-width: 280px;
+    }
+    
+    .wine-map-info {
+        bottom: 60px;
+        right: 5px;
+        font-size: 11px;
+        max-width: 150px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .wine-map-filters {
+        background: rgba(33, 37, 41, 0.95);
+        color: #fff;
+    }
+    
+    .filter-group label {
+        color: #ccc;
+    }
+    
+    .filter-group select {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #fff;
+    }
+    
+    .clear-filters {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #fff;
+    }
+    
+    .wine-map-info {
+        background: rgba(33, 37, 41, 0.95);
+        color: #fff;
+    }
+}

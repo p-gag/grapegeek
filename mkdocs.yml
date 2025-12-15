@@ -41,6 +41,7 @@ nav:
   - Home: en/index.md
   - About: en/about.md
   - Grape Varieties: en/varieties/index.md
+  - Quebec Wine Map: en/quebec-wine-map.md
   - AI Usage: en/ai-usage.md
 
 # Extensions
@@ -67,6 +68,8 @@ plugins:
       fallback_to_default: true
       reconfigure_material: true
       reconfigure_search: true
+      ignoreRoutes:
+        - assets/
       languages:
         - locale: en
           default: true
@@ -81,6 +84,7 @@ plugins:
             Home: Accueil
             About: À Propos
             Grape Varieties: Cépages
+            Quebec Wine Map: Carte des Vignobles
             AI Usage: Usage de l'IA
   - git-revision-date-localized:
       enable_creation_date: true
@@ -97,6 +101,8 @@ extra:
 
 extra_css:
   - stylesheets/ai-banner.css
+  - assets/css/wine-map.css
 
 extra_javascript:
-  - javascripts/ai-banner.js 
+  - javascripts/ai-banner.js
+  - assets/js/wine-map.js 
