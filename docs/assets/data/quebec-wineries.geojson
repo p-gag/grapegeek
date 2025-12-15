@@ -3,7 +3,7 @@
   "metadata": {
     "title": "Quebec Wine Producers",
     "description": "Artisanal wine producers in Quebec with cépages information",
-    "generated_date": "2025-12-14 23:53:44",
+    "generated_date": "2025-12-15 17:05:02",
     "source": "data/racj/racj-alcool-fabricant_enhanced copy.json",
     "total_producers": 170,
     "geocoded_successfully": 170,
@@ -31,12 +31,12 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "fortified",
-          "other",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Other",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -114,10 +114,10 @@
           "Vandal-Cliche"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -203,10 +203,10 @@
           "Prairie Star"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -320,12 +320,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling (rosé)",
-          "sparkling/fortified (piquette)",
-          "white",
-          "white (orange)"
+          "Fortified",
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -416,10 +416,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -504,11 +504,11 @@
           "Vidal"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -590,14 +590,14 @@
           "Frontenac Gris",
           "Radisson",
           "Riesling",
-          "Vandal-Cliche"
+          "Saint-Cliche"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -680,9 +680,9 @@
           "Sabrevois"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -769,10 +769,10 @@
           "Syrah"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 17,
         "wines": [
@@ -849,7 +849,7 @@
           "Muscat"
         ],
         "wine_types": [
-          "dessert"
+          "Dessert"
         ],
         "wine_count": 2,
         "wines": [
@@ -899,8 +899,8 @@
           "Radisson"
         ],
         "wine_types": [
-          "unknown",
-          "white"
+          "Other",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -996,10 +996,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "orange",
-          "red",
-          "rosé",
-          "white"
+          "Orange",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -1111,12 +1111,12 @@
           "Swenson White"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "sparkling",
-          "white",
-          "white (orange)"
+          "Dessert",
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 12,
         "wines": [
@@ -1204,9 +1204,9 @@
           "Swenson White"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -1301,11 +1301,11 @@
           "Somerset"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 19,
         "wines": [
@@ -1395,9 +1395,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -1496,9 +1496,7 @@
           "Vitis vinifera"
         ],
         "wine_types": [
-          "sparkling",
-          "sparkling (red)",
-          "sparkling (rosé)"
+          "Sparkling"
         ],
         "wine_count": 7,
         "wines": [
@@ -1603,9 +1601,9 @@
           "Seyval Blanc"
         ],
         "wine_types": [
-          "rosé",
-          "sparkling",
-          "white"
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -1687,8 +1685,8 @@
           "Seyval Blanc"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -1762,10 +1760,10 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "maceration",
-          "red",
-          "rosé",
-          "white"
+          "Orange",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -1877,12 +1875,12 @@
           "Éona"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 13,
         "wines": [
@@ -1982,10 +1980,10 @@
           "Riesling"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -2084,12 +2082,12 @@
           "Trollhaugen"
         ],
         "wine_types": [
-          "dessert",
-          "orange",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -2181,9 +2179,9 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 3,
         "wines": [
@@ -2249,10 +2247,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -2347,12 +2345,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 14,
         "wines": [
@@ -2440,10 +2438,10 @@
           "Somerset"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -2532,9 +2530,9 @@
           "Sabrevois"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -2617,9 +2615,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "white"
+          "Dessert",
+          "Fortified",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -2720,9 +2718,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "rosé",
-          "white"
+          "Dessert",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -2801,10 +2799,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -2896,8 +2894,8 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -2976,10 +2974,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "other",
-          "red",
-          "sparkling",
-          "white"
+          "Other",
+          "Red",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -3087,12 +3085,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 14,
         "wines": [
@@ -3187,12 +3185,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 16,
         "wines": [
@@ -3283,9 +3281,9 @@
           "Seyval Blanc"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -3376,11 +3374,11 @@
           "Vandal Blanc"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 13,
         "wines": [
@@ -3495,12 +3493,11 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "fortified",
-          "fruit (raspberry) / fortified",
-          "fruit (strawberry)",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Fruit Wine",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -3582,8 +3579,8 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -3669,10 +3666,10 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -3761,8 +3758,8 @@
           "Frontenac Noir"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 3,
         "wines": [
@@ -3821,11 +3818,11 @@
           "Maréchal Foch"
         ],
         "wine_types": [
-          "orange",
-          "red",
-          "rosé",
-          "unknown",
-          "white"
+          "Orange",
+          "Other",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -3909,10 +3906,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 14,
         "wines": [
@@ -4004,12 +4001,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "orange",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 12,
         "wines": [
@@ -4098,9 +4095,9 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "red",
-          "sparkling",
-          "white"
+          "Red",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -4232,9 +4229,9 @@
           "Roland"
         ],
         "wine_types": [
-          "red",
-          "sparkling",
-          "white"
+          "Red",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -4320,8 +4317,8 @@
           "Vidal"
         ],
         "wine_types": [
-          "rosé",
-          "white"
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -4400,10 +4397,10 @@
           "Vandal-Cliche"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -4481,12 +4478,12 @@
         "website": "https://www.labullerie.com",
         "cepages": [],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -4556,11 +4553,11 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -4636,8 +4633,8 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -4722,9 +4719,9 @@
           "Muscat"
         ],
         "wine_types": [
-          "red",
-          "sparkling",
-          "white"
+          "Red",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -4805,17 +4802,18 @@
           "Petite Pearl",
           "Prairie Star",
           "Sabrevois",
+          "Saint-Cliche",
           "Sainte-Croix",
           "Swenson White",
           "Vandal-Cliche"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 12,
         "wines": [
@@ -4928,9 +4926,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "sparkling",
-          "white"
+          "Red",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -5030,10 +5028,10 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -5116,8 +5114,8 @@
           "Marquette"
         ],
         "wine_types": [
-          "red",
-          "sparkling"
+          "Red",
+          "Sparkling"
         ],
         "wine_count": 6,
         "wines": [
@@ -5194,10 +5192,10 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -5277,7 +5275,7 @@
           "Seyval Blanc"
         ],
         "wine_types": [
-          "white"
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -5357,10 +5355,10 @@
           "Seyval Blanc"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -5441,12 +5439,12 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -5585,10 +5583,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -5675,13 +5673,13 @@
           "Éona"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "rosé/apéritif",
-          "sparkling",
-          "white"
+          "Apéritif",
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -5773,13 +5771,13 @@
           "Éona"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white",
-          "white (apéritif)"
+          "Apéritif",
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -5865,11 +5863,11 @@
           "Vidal"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -5961,9 +5959,9 @@
           "Swenson White"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -6044,9 +6042,9 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -6132,9 +6130,9 @@
           "Vee Blanc"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -6209,8 +6207,8 @@
           "Vitis riparia"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 3,
         "wines": [
@@ -6293,8 +6291,8 @@
           "Sauvignon Blanc"
         ],
         "wine_types": [
-          "red",
-          "rosé"
+          "Red",
+          "Rosé"
         ],
         "wine_count": 4,
         "wines": [
@@ -6371,14 +6369,14 @@
           "Gewürztraminer",
           "Melon de Bourgogne",
           "Pinot Noir",
-          "Vandal-Cliche"
+          "Saint-Cliche"
         ],
         "wine_types": [
-          "fortified",
-          "other",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Other",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -6461,10 +6459,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -6546,9 +6544,9 @@
           "Radisson"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -6620,18 +6618,16 @@
           "Petite Pearl",
           "Radisson",
           "Sabrevois",
+          "Saint-Cliche",
           "Sainte-Croix",
           "Seyval Blanc",
-          "Vandal-Cliche",
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "red (frizzante)",
-          "rosé",
-          "sparkling (rosé)",
-          "sparkling/low-alcohol",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -6730,10 +6726,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -6844,9 +6840,9 @@
           "Somerset"
         ],
         "wine_types": [
-          "rosé",
-          "sparkling",
-          "white"
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -6937,10 +6933,10 @@
           "Siegerrebe"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 37,
         "wines": [
@@ -7029,9 +7025,9 @@
           "Somerset"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 16,
         "wines": [
@@ -7156,10 +7152,10 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -7260,9 +7256,9 @@
           "Marquette"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 3,
         "wines": [
@@ -7325,9 +7321,9 @@
           "Pinot Noir"
         ],
         "wine_types": [
-          "red",
-          "sparkling",
-          "white"
+          "Red",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -7433,10 +7429,10 @@
           "Sangiovese"
         ],
         "wine_types": [
-          "fortified/dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -7518,9 +7514,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "rosé"
+          "Dessert",
+          "Fortified",
+          "Rosé"
         ],
         "wine_count": 3,
         "wines": [
@@ -7611,13 +7607,13 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "orange",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 13,
         "wines": [
@@ -7707,15 +7703,15 @@
           "Maréchal Foch",
           "Muscat",
           "Petite Pearl",
+          "Saint-Cliche",
           "Sainte-Croix",
           "Swenson White",
-          "Vandal-Cliche",
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -7805,9 +7801,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -7891,10 +7887,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -7983,8 +7979,8 @@
         "website": "https://comautrefois.ca/",
         "cepages": [],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 2,
         "wines": [
@@ -8057,11 +8053,11 @@
           "Sabrevois"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -8152,10 +8148,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "orange",
-          "red",
-          "rosé",
-          "white"
+          "Orange",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -8244,10 +8240,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "orange",
-          "red",
-          "rosé",
-          "white"
+          "Orange",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -8336,13 +8332,13 @@
           "Osceola Muscat",
           "Radisson",
           "Sainte-Croix",
-          "Vandal-Cliche"
+          "Vandal‑Cliche"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -8429,9 +8425,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -8532,12 +8528,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -8637,12 +8633,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -8743,11 +8739,11 @@
           "Vidal"
         ],
         "wine_types": [
-          "fortified",
-          "orange",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Orange",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -8842,11 +8838,11 @@
           "Vandal-Cliche"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -8928,12 +8924,12 @@
           "Marquette",
           "Radisson",
           "Roland",
-          "Vandal-Cliche"
+          "Vandal‑Cliche"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -9006,11 +9002,11 @@
           "Seyval Noir"
         ],
         "wine_types": [
-          "dessert",
-          "orange",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Orange",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -9094,11 +9090,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified/dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 10,
         "wines": [
@@ -9185,10 +9180,10 @@
           "Seyval Noir"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -9263,9 +9258,9 @@
         "website": "https://www.domainedusaule.com/",
         "cepages": [],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -9326,9 +9321,9 @@
           "Vidal"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "white"
+          "Fortified",
+          "Red",
+          "White"
         ],
         "wine_count": 3,
         "wines": [
@@ -9394,12 +9389,12 @@
           "Radisson"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -9487,10 +9482,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -9574,15 +9569,14 @@
           "Radisson",
           "Sainte-Croix",
           "TP1-1-12",
-          "Vandal-Cliche"
+          "Vandal‑Cliche"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "rosé/sparkling",
-          "white",
-          "white/sparkling"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -9669,9 +9663,9 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -9762,10 +9756,10 @@
           "Riesling"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 12,
         "wines": [
@@ -9851,9 +9845,9 @@
           "Swenson White"
         ],
         "wine_types": [
-          "rosé",
-          "sparkling",
-          "white"
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -9948,9 +9942,9 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -10052,11 +10046,11 @@
           "Swenson White"
         ],
         "wine_types": [
-          "fortified",
-          "orange",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Orange",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -10143,12 +10137,12 @@
           "Seyval Blanc"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 13,
         "wines": [
@@ -10238,12 +10232,12 @@
           "Seyval Blanc"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -10331,8 +10325,8 @@
           "Riesling"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -10410,15 +10404,15 @@
           "Maréchal Foch",
           "Prairie Star",
           "Sainte-Croix",
-          "Vandal-Cliche"
+          "Vandal‑Cliche"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -10504,12 +10498,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 16,
         "wines": [
@@ -10596,9 +10590,9 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -10689,11 +10683,11 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white",
-          "white (orange skin-contact)"
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 11,
         "wines": [
@@ -10778,10 +10772,10 @@
           "Éona"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -10867,9 +10861,9 @@
           "Petite Pearl"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "white"
+          "Fortified",
+          "Red",
+          "White"
         ],
         "wine_count": 3,
         "wines": [
@@ -10959,12 +10953,12 @@
           "Swenson White"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 16,
         "wines": [
@@ -11055,10 +11049,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -11137,10 +11131,10 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -11217,10 +11211,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -11310,12 +11304,12 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 19,
         "wines": [
@@ -11412,13 +11406,13 @@
           "Vidal"
         ],
         "wine_types": [
-          "aperitif/fortified",
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Apéritif",
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 13,
         "wines": [
@@ -11531,8 +11525,8 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "red",
-          "white"
+          "Red",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -11603,14 +11597,14 @@
           "Frontenac Noir",
           "Louise Swenson",
           "Muscat",
-          "Vandal-Cliche"
+          "Vandal‑Cliche"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 14,
         "wines": [
@@ -11692,10 +11686,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "white",
-          "white (orange)"
+          "Fortified",
+          "Orange",
+          "Red",
+          "White"
         ],
         "wine_count": 14,
         "wines": [
@@ -11776,10 +11770,10 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -11866,10 +11860,10 @@
           "Vandal-Cliche"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -11976,10 +11970,10 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -12059,11 +12053,11 @@
           "Vidal"
         ],
         "wine_types": [
-          "orange",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -12144,9 +12138,9 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "white"
+          "Dessert",
+          "Red",
+          "White"
         ],
         "wine_count": 4,
         "wines": [
@@ -12222,10 +12216,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 13,
         "wines": [
@@ -12311,10 +12305,10 @@
           "Petite Pearl"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 7,
         "wines": [
@@ -12399,10 +12393,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -12493,12 +12487,12 @@
           "Sabrevois"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -12587,9 +12581,9 @@
           "Seyval Noir"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "white"
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 6,
         "wines": [
@@ -12676,12 +12670,12 @@
           "Saint-Pépin"
         ],
         "wine_types": [
-          "dessert",
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Dessert",
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -12764,10 +12758,10 @@
           "Vidal"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 8,
         "wines": [
@@ -12858,12 +12852,12 @@
           "Swenson White"
         ],
         "wine_types": [
-          "fortified",
-          "orange",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 16,
         "wines": [
@@ -12943,10 +12937,10 @@
           "Pinot Noir"
         ],
         "wine_types": [
-          "dessert",
-          "red",
-          "rosé",
-          "white"
+          "Dessert",
+          "Red",
+          "Rosé",
+          "White"
         ],
         "wine_count": 5,
         "wines": [
@@ -13021,7 +13015,7 @@
         "website": null,
         "cepages": [],
         "wine_types": [
-          "red"
+          "Red"
         ],
         "wine_count": 1,
         "wines": [
@@ -13067,11 +13061,11 @@
           "Sainte-Croix"
         ],
         "wine_types": [
-          "red",
-          "rosé",
-          "sparkling",
-          "white",
-          "white (orange/skin-contact)"
+          "Orange",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 9,
         "wines": [
@@ -13158,11 +13152,11 @@
           "Vidal"
         ],
         "wine_types": [
-          "fortified",
-          "red",
-          "rosé",
-          "sparkling",
-          "white"
+          "Fortified",
+          "Red",
+          "Rosé",
+          "Sparkling",
+          "White"
         ],
         "wine_count": 14,
         "wines": [

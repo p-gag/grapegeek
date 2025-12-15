@@ -9,6 +9,7 @@
 
 - **[Grape Varieties](varieties/index.md)** - Detailed articles about hybrid grape varieties with technical growing information
     - Coming soon (or not): Grower and winemaker stories in their own words, with full attribution
+- **[Producer Map](producer-map.md)** - Interactive map of wine producers with grape variety filtering. Only Quebec for now.
 - **[About](about.md)** - Learn about the project philosophy and approach
 - **[AI Usage](ai-usage.md)** - Transparency about how AI is used for research and content creation
 

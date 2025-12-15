@@ -164,25 +164,6 @@ class QuebecWineMap {
             clearBtn.addEventListener('click', () => this.clearFilters());
         }
         
-        // Mobile filter toggle
-        const toggleBtn = document.getElementById('filter-toggle');
-        const filtersPanel = document.querySelector('.wine-map-filters');
-        
-        if (toggleBtn && filtersPanel) {
-            toggleBtn.addEventListener('click', () => {
-                filtersPanel.classList.toggle('show');
-            });
-        }
-        
-        // Desktop filter collapse toggle
-        const desktopToggleBtn = document.getElementById('filter-toggle-btn');
-        if (desktopToggleBtn && filtersPanel) {
-            desktopToggleBtn.addEventListener('click', () => {
-                filtersPanel.classList.toggle('collapsed');
-                // Update arrow direction
-                desktopToggleBtn.textContent = filtersPanel.classList.contains('collapsed') ? '▶' : '◀';
-            });
-        }
         
     }
     
@@ -198,11 +179,6 @@ class QuebecWineMap {
         this.applyFilters();
         this.updateMap();
         
-        // Hide mobile filters panel
-        const filtersPanel = document.querySelector('.wine-map-filters');
-        if (filtersPanel) {
-            filtersPanel.classList.remove('show');
-        }
     }
     
     applyFilters() {

@@ -1,0 +1,62 @@
+wine_type_mapping:
+  Red:
+    aliases:
+    - red
+    - red (frizzante)
+  
+  White:
+    aliases:
+    - white
+    - white (apéritif)
+  
+  Rosé:
+    aliases:
+    - rosé
+    - rosé/apéritif
+  
+  Orange:
+    aliases:
+    - orange
+    - white (orange skin-contact)
+    - white (orange)
+    - white (orange/skin-contact)
+    - maceration
+
+  Sparkling:
+    aliases:
+    - sparkling
+    - sparkling (red)
+    - sparkling (rosé)
+    - sparkling/fortified (piquette)
+    - sparkling/low-alcohol
+    - white/sparkling
+    - rosé/sparkling
+  
+  Fortified:
+    aliases:
+    - fortified
+    - fortified/dessert
+    - aperitif/fortified
+    - sparkling/fortified (piquette)
+    - fruit (raspberry) / fortified
+  
+  Dessert:
+    aliases:
+    - dessert
+    - fortified/dessert
+  
+  Fruit Wine:
+    aliases:
+    - fruit (strawberry)
+    - fruit (raspberry) / fortified
+  
+  Apéritif:
+    aliases:
+    - aperitif/fortified
+    - white (apéritif)
+    - rosé/apéritif
+  
+  Other:
+    aliases:
+    - other
+    - unknown
