@@ -1,11 +1,19 @@
 ---
 title: Quebec Wine Producers Map
 description: Interactive map of artisanal wine producers in Quebec with filtering by grape varieties (cépages)
+hide:
+  - toc
 ---
 
 # Quebec Wine Producers Map
 
-Discover Quebec's wine producers with our interactive map. Filter by grape varieties (cépages), wine types, and regions to find vineyards that match your interests.
+Discover Quebec's wine producers with our interactive map. Filter by grape varieties (cépages) and wine types to find vineyards that match your interests.
+
+!!! warning "Wine Tourism Notice"
+    These locations represent production facilities and may **not be open for public visits**. Many producers sell their wines at local markets or through distributors. Please contact wineries directly before visiting to confirm their tourism policies and opening hours.
+
+!!! info "Data Accuracy"
+    This map is generated from public RACJ permit data and enriched through automated research. It may contain errors or outdated information. Please verify details directly with producers.
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
@@ -44,12 +52,6 @@ Discover Quebec's wine producers with our interactive map. Filter by grape varie
                 </select>
             </div>
             
-            <div class="filter-group">
-                <label for="region-filter">Region</label>
-                <select id="region-filter">
-                    <option value="">All regions</option>
-                </select>
-            </div>
             
             <button id="clear-filters" class="clear-filters">Clear all filters</button>
         </div>
@@ -88,13 +90,6 @@ Use this map to:
 - Locate wineries growing specific grape varieties
 - Plan routes through wine regions
 - Contact producers directly
-
-### Major Regions
-
-- **Cantons-de-l'Est**: Historic wine region with established vineyards
-- **Montérégie**: Quebec's largest concentration of wineries
-- **Laurentides**: Emerging region with cold-climate viticulture  
-- **Lanaudière**: Growing number of producers
 
 ---
 

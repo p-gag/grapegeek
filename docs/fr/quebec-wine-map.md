@@ -1,16 +1,24 @@
 ---
-english_hash: 038b88438b223d5e90cfeea2ac721d247a07f8f69b3fa9eec9cb69138c9271c8
-translated_date: '2025-12-14'
+english_hash: 5cc2a0ab4d3197537289fa25011e1f054bf572ae1ba94fd4b60c40d0e9e83e26
+translated_date: '2025-12-15'
 ---
 
 ---
 title: Carte des producteurs de vin du Québec
-description: Carte interactive des producteurs de vin artisanaux au Québec avec filtrage par cépages
+description: Carte interactive des producteurs de vin artisanaux au Québec avec filtres par cépages
+hide:
+  - toc
 ---
 
 # Carte des producteurs de vin du Québec
 
-Découvrez les producteurs de vin du Québec grâce à notre carte interactive. Filtrez par cépages, types de vin et régions pour trouver les vignobles qui vous intéressent.
+Découvrez les producteurs de vin du Québec grâce à notre carte interactive. Filtrez par cépages et types de vin pour trouver les vignobles qui correspondent à vos intérêts.
+
+!!! warning "Avis sur l'œnotourisme"
+    Ces emplacements représentent des installations de production et peuvent **ne pas être ouverts au public**. Plusieurs producteurs vendent leurs vins dans des marchés locaux ou par l’entremise de distributeurs. Veuillez communiquer directement avec les vignobles avant de vous déplacer pour confirmer leurs politiques d’accueil et leurs heures d’ouverture.
+
+!!! info "Exactitude des données"
+    Cette carte est générée à partir des données publiques de permis de la RACJ et bonifiée par de la recherche automatisée. Elle peut contenir des erreurs ou de l’information périmée. Veuillez vérifier les détails directement auprès des producteurs.
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
@@ -19,17 +27,16 @@ Découvrez les producteurs de vin du Québec grâce à notre carte interactive. 
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
 
-<link rel="stylesheet" href="../assets/css/wine-map.css">
 
 <div class="wine-map-container">
-    <!-- Bascule des filtres (mobile) -->
-    <button id="filter-toggle" class="filter-toggle" aria-label="Afficher/masquer les filtres">
+    <!-- Mobile filter toggle -->
+    <button id="filter-toggle" class="filter-toggle" aria-label="Afficher/Masquer les filtres">
         🔍 Filtres
     </button>
     
-    <!-- Contrôles de filtre -->
+    <!-- Filter controls -->
     <div class="wine-map-filters" id="wine-map-filters">
-        <button class="filter-toggle-btn" id="filter-toggle-btn" aria-label="Afficher/masquer les filtres" title="Afficher/Masquer les filtres">
+        <button class="filter-toggle-btn" id="filter-toggle-btn" aria-label="Afficher/Masquer les filtres" title="Masquer/Afficher les filtres">
             ◀
         </button>
         
@@ -50,38 +57,32 @@ Découvrez les producteurs de vin du Québec grâce à notre carte interactive. 
                 </select>
             </div>
             
-            <div class="filter-group">
-                <label for="region-filter">Région</label>
-                <select id="region-filter">
-                    <option value="">Toutes les régions</option>
-                </select>
-            </div>
             
             <button id="clear-filters" class="clear-filters">Effacer tous les filtres</button>
         </div>
     </div>
     
-    <!-- La carte -->
+    <!-- The map -->
     <div id="wine-map"></div>
 </div>
 
 ## À propos de cette carte
 
-Cette carte interactive présente les **producteurs de vin** au Québec détenant un permis de production de la RACJ (Registre des titulaires de permis).
+Cette carte interactive présente des **producteurs de vin** au Québec titulaires d’un permis de production de la RACJ (Registre des titulaires de permis). 
 
 ### Fonctionnalités
 
-- **🍇 Filtrer par cépage** : Trouvez les producteurs qui cultivent des cépages précis comme Frontenac, Marquette ou Chardonnay
-- **📍 Explorer les régions** : Parcourez les régions viticoles du Québec, dont les Cantons-de-l'Est, la Montérégie et les Laurentides  
-- **🔗 Partager des liens** : URLs directes pour les cartes filtrées (p. ex., `/quebec-wine-map/?cepage=frontenac`)
-- **📱 Optimisée pour mobile** : Fonctionne très bien sur téléphones cellulaires et tablettes
-- **🌐 Infos producteurs** : Cliquez sur les marqueurs pour accéder aux sites Web et aux détails sur les vins
+- **🍇 Filtrer par cépage** : trouvez des producteurs qui cultivent des cépages précis comme Frontenac, Marquette ou Chardonnay
+- **📍 Explorer les régions** : parcourez les régions viticoles du Québec, dont les Cantons-de-l’Est, la Montérégie et les Laurentides  
+- **🔗 Partager des liens** : URL directes pour des cartes filtrées (p. ex., `/quebec-wine-map/?cepage=frontenac`)
+- **📱 Optimisée pour mobile** : fonctionne super bien sur téléphones et tablettes
+- **🌐 Infos sur les producteurs** : cliquez sur les marqueurs pour les sites web et les détails des vins
 
 ### Légende de la carte
 
-- **🟢 Vert** : Producteurs avec site Web
-- **🔵 Bleu** : Producteurs avec plusieurs vins (3+)  
-- **🔴 Rouge** : Producteurs réguliers
+- **🟢 Vert** : producteurs avec site web
+- **🔵 Bleu** : producteurs avec plusieurs vins (3+)  
+- **🔴 Rouge** : producteurs réguliers
 
 ### Filtres
 
@@ -90,26 +91,17 @@ Combinez les filtres par cépage, type de vin et région. Les filtres mettent l�
 ## Œnotourisme
 
 Utilisez cette carte pour :
-- Repérer les producteurs à proximité lors de vos déplacements au Québec
-- Localiser les vignobles qui cultivent des cépages spécifiques
+- Trouver des producteurs à proximité lors de vos déplacements au Québec
+- Repérer des vignobles qui cultivent des cépages spécifiques
 - Planifier des parcours à travers les régions viticoles
 - Contacter directement les producteurs
 
-### Régions principales
-
-- **Cantons-de-l'Est** : Région viticole historique avec des vignobles bien établis
-- **Montérégie** : La plus forte concentration de vignobles du Québec
-- **Laurentides** : Région émergente avec viticulture de climat froid  
-- **Lanaudière** : Nombre croissant de producteurs
-
 ---
 
-*Données : registre des permis de la RACJ, bonifiées par des recherches sur les producteurs. Carte © les contributeurs d’OpenStreetMap.*
+*Données : registre des permis de la RACJ, enrichies par la recherche sur les producteurs. Carte © contributeurs d’OpenStreetMap.*
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
         crossorigin=""></script>
 
 <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-
-<script src="../assets/js/wine-map.js"></script>

@@ -16,8 +16,7 @@ class QuebecWineMap {
         // Filter state
         this.filters = {
             cepage: '',
-            type: '',
-            region: ''
+            type: ''
         };
         
         // Initialize
@@ -103,7 +102,6 @@ class QuebecWineMap {
         // Collect all unique values
         const cepages = new Set();
         const types = new Set();
-        const regions = new Set();
         
         this.allFeatures.forEach(feature => {
             const props = feature.properties;
@@ -125,17 +123,11 @@ class QuebecWineMap {
                     }
                 });
             }
-            
-            // Regions
-            if (props.region && props.region.trim()) {
-                regions.add(props.region.trim());
-            }
         });
         
         // Populate select elements
         this.populateSelect('cepage-filter', Array.from(cepages).sort());
         this.populateSelect('type-filter', Array.from(types).sort());
-        this.populateSelect('region-filter', Array.from(regions).sort());
     }
     
     populateSelect(selectId, options) {
@@ -157,7 +149,7 @@ class QuebecWineMap {
     }
     
     setupFilters() {
-        const filterIds = ['cepage-filter', 'type-filter', 'region-filter'];
+        const filterIds = ['cepage-filter', 'type-filter'];
         
         filterIds.forEach(id => {
             const select = document.getElementById(id);
@@ -198,7 +190,6 @@ class QuebecWineMap {
         // Update filter state
         this.filters.cepage = document.getElementById('cepage-filter')?.value || '';
         this.filters.type = document.getElementById('type-filter')?.value || '';
-        this.filters.region = document.getElementById('region-filter')?.value || '';
         
         // Update URL
         this.updateURL();
@@ -232,12 +223,6 @@ class QuebecWineMap {
                 }
             }
             
-            // Region filter
-            if (this.filters.region) {
-                if (props.region !== this.filters.region) {
-                    return false;
-                }
-            }
             
             return true;
         });
@@ -285,11 +270,10 @@ class QuebecWineMap {
         
         // Create custom marker icon based on properties
         const hasWebsite = props.website;
-        const wineCount = props.wine_count || 0;
         
         const marker = L.circleMarker([lat, lon], {
             radius: hasWebsite ? 8 : 6,
-            fillColor: hasWebsite ? '#2e7d32' : (wineCount > 3 ? '#1565c0' : '#8b1538'),
+            fillColor: hasWebsite ? '#2e7d32' : '#8b1538',
             color: 'white',
             weight: 2,
             opacity: 1,
@@ -318,51 +302,36 @@ class QuebecWineMap {
         }
         
         // Location
-        html += `<div class="location">${props.city}, ${props.region}</div>`;
+        html += `<div class="location">${props.city}</div>`;
         
         // Website
         if (props.website) {
             html += `<div class="website"><a href="${props.website}" target="_blank" rel="noopener noreferrer">🌐 Visit website</a></div>`;
         }
         
-        // Wines
-        if (props.wines && props.wines.length > 0) {
-            html += `<div class="wines-section">`;
-            html += `<h4>Wines (${props.wine_count || props.wines.length})</h4>`;
+        // Grape Varieties Summary
+        if (props.cepages && props.cepages.length > 0) {
+            html += `<div class="cepages-section">`;
+            html += `<h4>Grape Varieties</h4>`;
+            html += `<div class="cepages-list">`;
             
-            props.wines.slice(0, 3).forEach(wine => {
-                html += `<div class="wine-item">`;
-                html += `<div class="wine-name">${wine.name || 'Unnamed wine'}</div>`;
-                
-                if (wine.type) {
-                    html += `<span class="wine-type">${wine.type}</span>`;
+            props.cepages.forEach((cepage, index) => {
+                const isHighlighted = this.filters.cepage && cepage === this.filters.cepage;
+                const className = isHighlighted ? 'cepage highlighted' : 'cepage';
+                html += `<span class="${className}">${cepage}</span>`;
+                if (index < props.cepages.length - 1) {
+                    html += `, `;
                 }
-                
-                if (wine.cepages && wine.cepages.length > 0) {
-                    html += `<div class="wine-cepages">`;
-                    wine.cepages.forEach(cepage => {
-                        const isHighlighted = this.filters.cepage && cepage === this.filters.cepage;
-                        const className = isHighlighted ? 'cepage highlighted' : 'cepage';
-                        html += `<span class="${className}">${cepage}</span>`;
-                    });
-                    html += `</div>`;
-                }
-                
-                if (wine.description) {
-                    const truncated = wine.description.length > 100 
-                        ? wine.description.substring(0, 100) + '...'
-                        : wine.description;
-                    html += `<div class="wine-description">${truncated}</div>`;
-                }
-                
-                html += `</div>`;
             });
             
-            if (props.wine_count > 3) {
-                html += `<div style="font-size: 12px; color: #666; font-style: italic;">... and ${props.wine_count - 3} more wines</div>`;
-            }
-            
             html += `</div>`;
+            html += `</div>`;
+        }
+        
+        // Wine Count
+        if (props.wine_count > 0) {
+            html += `<hr style="margin: 10px 0; border: 0; border-top: 1px solid #eee;">`;
+            html += `<div class="wine-count">${props.wine_count} wine${props.wine_count > 1 ? 's' : ''} found</div>`;
         }
         
         html += `</div>`;
@@ -386,16 +355,16 @@ class QuebecWineMap {
         info.innerHTML = `
             <div><strong>${shown}</strong> of <strong>${total}</strong> producers</div>
             <div style="font-size: 10px; color: #666; margin-top: 4px;">
-                🟢 Has website &nbsp; 🔵 Multiple wines
+                🟢 Has website &nbsp; 🔴 No website
             </div>
         `;
     }
     
     clearFilters() {
-        this.filters = { cepage: '', type: '', region: '' };
+        this.filters = { cepage: '', type: '' };
         
         // Reset form elements
-        ['cepage-filter', 'type-filter', 'region-filter'].forEach(id => {
+        ['cepage-filter', 'type-filter'].forEach(id => {
             const select = document.getElementById(id);
             if (select) select.value = '';
         });
@@ -420,12 +389,10 @@ class QuebecWineMap {
         
         this.filters.cepage = params.get('cepage') || '';
         this.filters.type = params.get('type') || '';
-        this.filters.region = params.get('region') || '';
         
         // Update form elements
         this.setSelectValue('cepage-filter', this.filters.cepage);
         this.setSelectValue('type-filter', this.filters.type);
-        this.setSelectValue('region-filter', this.filters.region);
     }
     
     setSelectValue(selectId, value) {
@@ -440,7 +407,6 @@ class QuebecWineMap {
         
         if (this.filters.cepage) params.set('cepage', this.filters.cepage);
         if (this.filters.type) params.set('type', this.filters.type);
-        if (this.filters.region) params.set('region', this.filters.region);
         
         const newURL = params.toString() 
             ? `${window.location.pathname}?${params.toString()}`
