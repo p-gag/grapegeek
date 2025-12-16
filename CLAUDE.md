@@ -23,6 +23,21 @@ python main.py grape <variety_name> --dry-run
 python main.py region <region_name> --dry-run
 ```
 
+### Quebec Wine Producer Discovery
+```bash
+# Fetch and filter Quebec wine producers from RACJ permits data
+python quebec_wine_producers.py
+
+# Enrich wine producers with website and wine label information
+python enrich_wine_producers.py --limit 10
+
+# Test enrichment with mock data (no API key needed)
+python enrich_wine_producers.py --limit 5  # Uses mock mode if no OPENAI_API_KEY
+
+# Process all producers (use carefully - 199 API calls)
+python enrich_wine_producers.py --limit 199
+```
+
 ### MkDocs Site Management
 ```bash
 # Install MkDocs dependencies
