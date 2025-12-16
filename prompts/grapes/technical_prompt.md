@@ -5,7 +5,7 @@ Write a COMPLETE magazine-style article with ALL 11 sections listed below.
 Use ONLY information found through web search - never invent citations.
 Each section must cite real URLs, papers, researchers, growers, wineries, or nurseries found via search.
 
-**MANDATORY:** Complete all 11 sections in the exact order shown. Do not skip any sections.
+**MANDATORY:** Complete all 11 sections in the exact order shown. Do not skip any sections. When no information found for a section, just write it in a concise way. Do not repeat information in between sections. In short, the size of the section should be proportional of the content found.
 
 ---
 

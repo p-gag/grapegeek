@@ -8,17 +8,6 @@ grape_variety_mapping:
     aliases:
     - adalmiina
     - adalmina
-  Assemblage Le 1535:
-    aliases:
-    - assemblage à base de cépages du "le 1535" (vandal, eona, acadie)
-  Assemblage Seyval-Vidal:
-    aliases:
-    - seyval vidal
-    - seyval-vidal
-    - seyval x vidal
-  Assemblage de 10 Cépages Hybrides:
-    aliases:
-    - assemblage de 10 cépages hybrides (non détaillés publiquement sur product page)
   Aurore:
     aliases:
     - aurore
@@ -26,6 +15,11 @@ grape_variety_mapping:
     aliases:
     - autres
     - autre(s) cépage(s)
+    - assemblage à base de cépages du "le 1535" (vandal, eona, acadie)    
+    - assemblage de 10 cépages hybrides (non détaillés publiquement sur product page)
+    - seyval vidal
+    - seyval-vidal
+    - seyval x vidal
   Auxerrois:
     aliases:
     - auxerrois

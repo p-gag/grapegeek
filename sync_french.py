@@ -163,8 +163,8 @@ English content:
             if stored_hash == english_hash:
                 return "SKIP - No changes detected"
         
-        # Read English content and translate
-        english_content = english_file.read_text(encoding='utf-8')
+        # Extract English frontmatter and content
+        english_frontmatter, english_content = self.extract_frontmatter_and_content(english_file)
         
         if self.dry_run:
             return f"[DRY RUN] French translation would be generated"
@@ -176,18 +176,21 @@ English content:
         else:
             french_content = self.translate_site_content(english_content, english_file.name)
         
-        # Create French frontmatter
+        # Create French frontmatter by merging with existing English frontmatter
+        french_frontmatter = english_frontmatter.copy() if english_frontmatter else {}
+        
+        # Add sync-specific metadata
         if is_variety:
-            french_frontmatter = {
+            french_frontmatter.update({
                 "english_hash": english_hash,
                 "translated_from": f"docs/varieties/{english_file.name}",
                 "variety": english_file.stem.replace('_', ' ').title()
-            }
+            })
         else:
-            french_frontmatter = {
+            french_frontmatter.update({
                 "english_hash": english_hash,
                 "translated_date": datetime.now().strftime("%Y-%m-%d")
-            }
+            })
         
         # Save French file
         self.create_french_file(french_frontmatter, french_content, french_file)

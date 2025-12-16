@@ -3,8 +3,8 @@
   "metadata": {
     "title": "Quebec Wine Producers",
     "description": "Artisanal wine producers in Quebec with cépages information",
-    "generated_date": "2025-12-15 17:05:02",
-    "source": "data/racj/racj-alcool-fabricant_enhanced copy.json",
+    "generated_date": "2025-12-16 18:35:46",
+    "source": "data/racj/racj-alcool-fabricant_enhanced.json",
     "total_producers": 170,
     "geocoded_successfully": 170,
     "geocoding_failed": 0
@@ -203,6 +203,7 @@
           "Prairie Star"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Rosé",
           "Sparkling",
@@ -247,7 +248,7 @@
             "cepages": [
               "Prairie Star"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2022"
           },
           {
@@ -258,7 +259,7 @@
               "Prairie Star",
               "Frontenac Blanc"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2024"
           }
         ]
@@ -1395,6 +1396,7 @@
           "Vidal"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Rosé",
           "White"
@@ -2438,6 +2440,7 @@
           "Somerset"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Rosé",
           "Sparkling",
@@ -2475,7 +2478,7 @@
               "Acadie blanc",
               "Somerset"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": null
           },
           {
@@ -2487,7 +2490,7 @@
               "Adalmiina",
               "Crescent"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2023"
           },
           {
@@ -4633,6 +4636,7 @@
           "Vidal"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "White"
         ],
@@ -5029,6 +5033,7 @@
         ],
         "wine_types": [
           "Dessert",
+          "Orange",
           "Red",
           "Rosé",
           "White"
@@ -5065,7 +5070,7 @@
               "Frontenac blanc",
               "Frontenac gris"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2021"
           },
           {
@@ -5760,7 +5765,7 @@
         "website": "https://www.isledebacchus.com/",
         "cepages": [
           "Acadie Blanc",
-          "Assemblage Le 1535",
+          "Autres Cépages",
           "Frontenac Noir",
           "Geisenheim",
           "Marquette",
@@ -6130,6 +6135,7 @@
           "Vee Blanc"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Rosé",
           "White"
@@ -6373,6 +6379,7 @@
         ],
         "wine_types": [
           "Fortified",
+          "Orange",
           "Other",
           "Rosé",
           "Sparkling",
@@ -6410,7 +6417,7 @@
               "Chardonnay",
               "Melon de Bourgogne"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2022"
           },
           {
@@ -6430,7 +6437,7 @@
             "cepages": [
               "Chardonnay"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2023"
           }
         ]
@@ -7321,6 +7328,7 @@
           "Pinot Noir"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Sparkling",
           "White"
@@ -7364,7 +7372,7 @@
             "cepages": [
               "Pinot Gris"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2021"
           },
           {
@@ -7709,6 +7717,7 @@
           "Vidal"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Rosé",
           "White"
@@ -9747,7 +9756,7 @@
         "address": "4500, RUE STROBL",
         "website": "https://levignobleduruisseau.com",
         "cepages": [
-          "Assemblage Seyval-Vidal",
+          "Autres Cépages",
           "Cabernet Sauvignon",
           "Chardonnay",
           "Gewürztraminer",
@@ -9834,7 +9843,7 @@
         "address": "690 RANG SAINT-ESPRIT",
         "website": "https://www.ventmaudit.com",
         "cepages": [
-          "Assemblage de 10 Cépages Hybrides",
+          "Autres Cépages",
           "Frontenac Gris",
           "Louise Swenson",
           "Montréal Blues",
@@ -10590,6 +10599,7 @@
           "Sainte-Croix"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Rosé",
           "White"
@@ -10627,7 +10637,7 @@
             "cepages": [
               "Frontenac Gris"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2017 (première sortie); autres millésimes disponibles (ex. 2021 listé chez revendeurs)"
           },
           {
@@ -10955,6 +10965,7 @@
         "wine_types": [
           "Dessert",
           "Fortified",
+          "Orange",
           "Red",
           "Rosé",
           "Sparkling",
@@ -10994,7 +11005,7 @@
             "cepages": [
               "Frontenac Blanc"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2023"
           },
           {
@@ -11770,6 +11781,7 @@
           "Saint-Pépin"
         ],
         "wine_types": [
+          "Orange",
           "Red",
           "Rosé",
           "Sparkling",
@@ -11817,7 +11829,7 @@
               "Saint-Pépin",
               "Frontenac blanc"
             ],
-            "type": "white",
+            "type": "Orange",
             "vintage": "2022"
           },
           {
