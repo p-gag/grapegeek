@@ -3,8 +3,12 @@
 import sys
 import argparse
 from pathlib import Path
-from src.grapegeek.grape_article_generator import GrapeArticleGenerator
-from src.grapegeek.region_researcher import RegionResearcher
+
+# Add current directory to path for relative imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from variety.articles import GrapeArticleGenerator
+from variety.research import RegionResearcher
 
 def main():
     parser = argparse.ArgumentParser(description="Generate magazine-style articles about cold-climate grape varieties")

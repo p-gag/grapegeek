@@ -1,8 +1,13 @@
 import unittest
 import tempfile
 import yaml
+import sys
 from pathlib import Path
-from src.grapegeek.base import BaseGenerator
+
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from shared.base import BaseGenerator
 
 
 class TestBaseGenerator(unittest.TestCase):

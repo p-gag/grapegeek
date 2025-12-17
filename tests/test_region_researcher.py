@@ -1,7 +1,12 @@
 import unittest
 import tempfile
+import sys
 from pathlib import Path
-from src.grapegeek.region_researcher import RegionResearcher
+
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from variety.research import RegionResearcher
 
 
 class TestRegionResearcher(unittest.TestCase):

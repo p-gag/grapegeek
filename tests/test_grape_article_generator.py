@@ -1,7 +1,12 @@
 import unittest
 import tempfile
+import sys
 from pathlib import Path
-from src.grapegeek.grape_article_generator import GrapeArticleGenerator
+
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from variety.articles import GrapeArticleGenerator
 
 
 class TestGrapeArticleGenerator(unittest.TestCase):

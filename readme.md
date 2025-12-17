@@ -6,20 +6,50 @@ This repository contains the source code and content generation system for the G
 
 ## Quick Start
 
-### Running the Application
+### Content Generation
 ```bash
 # Generate a technical article for a grape variety
-python main.py grape <variety_name> --type technical
+python variety/generate.py grape <variety_name> --type technical
 
 # Generate winemaking stories for a grape variety  
-python main.py grape <variety_name> --type story
+python variety/generate.py grape <variety_name> --type story
 
 # Research grape varieties in a region
-python main.py region <region_name>
+python variety/generate.py region <region_name>
 
 # Dry run (show prompts without calling OpenAI)
-python main.py grape <variety_name> --dry-run
-python main.py region <region_name> --dry-run
+python variety/generate.py grape <variety_name> --dry-run
+python variety/generate.py region <region_name> --dry-run
+```
+
+### Wine Producer Data Pipeline
+```bash
+# Run complete producer data pipeline (RACJ → enrichment → map)
+python producer/pipeline.py --full
+
+# Individual steps
+python producer/fetch_producers.py    # Fetch RACJ data
+python producer/enrich_data.py        # AI enrichment
+python producer/generate_map.py       # Generate GeoJSON map
+```
+
+### Data Normalization
+```bash
+# Normalize grape variety names
+python normalization/normalize.py --grapes
+
+# Run all normalization processes
+python normalization/normalize.py --all
+```
+
+### Site Management
+```bash
+# Build complete site (indexes + translations + MkDocs)
+python utils/build.py --all
+
+# Individual site operations
+python utils/update_indexes.py   # Update variety indexes
+python utils/sync_french.py      # Sync French translations
 ```
 
 ### Setup
@@ -32,13 +62,29 @@ cp .env.example .env
 # Edit .env to add your OPENAI_API_KEY
 ```
 
-## Project Files
+## Project Structure
 
-- **`about.md`** - Project description and philosophy (suitable for MkDocs documentation)
-- **`technical_documentation.md`** - Technical details for content generation process
+### 📁 **producer/** - Wine Producer Data Pipeline
+- RACJ data fetching, AI enrichment, GeoJSON map generation
+
+### 📁 **variety/** - Grape Variety Content
+- Article generation, region research, content creation
+
+### 📁 **normalization/** - Data Normalization  
+- Grape variety and wine type standardization
+
+### 📁 **utils/** - Site Management + Internationalization
+- French translation, index updates, site building
+
+### 📁 **shared/** - Common utilities
+- Shared functionality and development tools
+
+## Documentation
+
 - **`CLAUDE.md`** - Developer guidance for Claude Code
-- **`STRUCTURE.md`** - Directory structure and organization
+- **`README_NEW_STRUCTURE.md`** - Detailed structure documentation
+- See `docs/` for user-facing documentation
 
 ## Contributing
 
-This is a personal project focused on hybrid grapes in cold climates. See `about.md` for the project philosophy and approach.
+This is a personal project focused on hybrid grapes in cold climates. See `docs/en/about.md` for the project philosophy and approach.

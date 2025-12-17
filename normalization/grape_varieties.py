@@ -11,6 +11,7 @@ Analyzes grape varieties from enhanced wine producer data to:
 
 import json
 import yaml
+import sys
 from pathlib import Path
 from collections import Counter
 from typing import Dict, List, Any

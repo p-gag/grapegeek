@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import Dict, Any
-from .base import BaseGenerator
+from shared.base import BaseGenerator
 
 
 class GrapeArticleGenerator(BaseGenerator):

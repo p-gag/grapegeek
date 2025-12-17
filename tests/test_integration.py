@@ -74,7 +74,8 @@ known_varieties: ["Test Grape"]
             # Import and run main function
             sys.argv = ['main.py'] + args
             
-            from main import main
+            sys.path.insert(0, str(original_cwd))
+            from variety.generate import main
             main()
             
         finally:
