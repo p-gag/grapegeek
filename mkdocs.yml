@@ -11,6 +11,7 @@ repo_url: https://github.com/p-gag/grapegeek  # Replace with your GitHub repo
 theme:
   name: material
   language: en
+  logo: assets/logo.png
   palette:
     # Palette toggle for light mode
     - scheme: default
