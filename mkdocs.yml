@@ -84,7 +84,7 @@ plugins:
             Home: Accueil
             About: À Propos
             Grape Varieties: Cépages
-            Quebec Wine Map: Carte des Vignobles
+            Producer Map: Carte des Vignobles
             AI Usage: Usage de l'IA
   - git-revision-date-localized:
       enable_creation_date: true
