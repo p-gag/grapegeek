@@ -91,6 +91,9 @@ plugins:
 
 # Extra
 extra:
+  analytics:
+    provider: google
+    property: G-PG8SZ0458G
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/p-gag/grapegeek
