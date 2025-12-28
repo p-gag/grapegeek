@@ -3,11 +3,14 @@ wine_type_mapping:
     aliases:
     - red
     - red (frizzante)
+    - semi sweet red
+    - red blend
   
   White:
     aliases:
     - white
     - white (apéritif)
+    - White blend
   
   Rosé:
     aliases:
@@ -31,6 +34,10 @@ wine_type_mapping:
     - sparkling/low-alcohol
     - white/sparkling
     - rosé/sparkling
+    - sparkling  - rosé
+    - sparkling  - Red
+    - sparkling Red
+    - sparkling rosé
   
   Fortified:
     aliases:
@@ -44,19 +51,64 @@ wine_type_mapping:
     aliases:
     - dessert
     - fortified/dessert
+    - dessert wine
   
+  Ice Wine:
+    aliases:
+    - ice wine
+
   Fruit Wine:
     aliases:
     - fruit (strawberry)
     - fruit (raspberry) / fortified
-  
+    - hard cider
+    - blended fruit
+    - fortified cider
+    - fruit blend
+    - sparkling cider
+    - specialty & fruit wine
+    - fruit infused
+    - fruit
+    - cider
+
+  Mead: 
+    aliases:
+      - mead
+
   Apéritif:
     aliases:
-    - aperitif/fortified
-    - white (apéritif)
-    - rosé/apéritif
-  
+      - aperitif/fortified
+      - white (apéritif)
+      - rosé/apéritif 
+      - apéritif
+    
   Other:
     aliases:
-    - other
-    - unknown
+      - other
+      - unknown
+      - vineyard grapes
+      - sweet wine
+      - speciality
+      - speciality wines
+      - specialty
+      - specialty wine
+      - specialty wines
+      - flavored wine
+      - wine seltzer
+      - flavored
+      - piquette
+      - grape & fruit blend wine
+      - amaro
+      - blended
+      - blush
+      - varies
+      - chocolate wine
+      - spirit
+      - fruit-flavored
+      - seasonal
+      - liqueur
+      - blend
+      - sweet
+      - various
+      - mixed
+      

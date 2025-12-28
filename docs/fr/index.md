@@ -1,6 +1,8 @@
 ---
 english_hash: 3d0fa9cc005613d9d80cd2836050471215d44cc2f464e992030c77070583f6d9
 translated_date: '2025-12-15'
+hide:
+  - toc
 ---
 
 # Bienvenue sur Grape Geek! 🍇

@@ -1,0 +1,40 @@
+{
+  "fetch_date": "2025-12-26T11:16:18.706346",
+  "total_producers": 2602,
+  "sources": {
+    "quebec": {
+      "count": 170,
+      "metadata": {
+        "source_url": "https://www.donneesquebec.ca/recherche/dataset/racj-alcool-fabricant/resource/6b143028-cb62-4f76-860c-6cf0eab8ea0b/download/racj-alcool-fabricant.json",
+        "fetch_date": "2025-12-26T11:16:09.199220",
+        "raw_record_count": 1100,
+        "wine_record_count": 170,
+        "filter_criteria": "Production artisanale de vin with 'VIN' category",
+        "wine_permit_types": {
+          "Production artisanale de vin": 170
+        }
+      }
+    },
+    "us": {
+      "count": 2432,
+      "metadata": {
+        "source_url": "https://www.ttb.gov/media/81096/download",
+        "raw_record_count": 17854,
+        "northeastern_producers": 2432,
+        "excluded_non_wine": 981,
+        "filter_criteria": "Northeastern US states: ['Minnesota', 'Wisconsin', 'Michigan', 'Ohio', 'Pennsylvania', 'New York', 'Vermont', 'New Hampshire', 'Maine']",
+        "state_distribution": {
+          "Maine": 52,
+          "Michigan": 388,
+          "Minnesota": 131,
+          "New Hampshire": 59,
+          "New York": 650,
+          "Ohio": 413,
+          "Pennsylvania": 499,
+          "Vermont": 71,
+          "Wisconsin": 169
+        }
+      }
+    }
+  }
+}

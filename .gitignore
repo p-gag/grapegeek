@@ -60,3 +60,41 @@ site/
 logs/
 
 test-ignore/
+data-legacy/01_unified_producers.jsonl
+data-legacy/04_producer_search.jsonl
+data-legacy/05_wine_producers_final.jsonl
+data-legacy/07_wine_producers_enriched.jsonl
+data-legacy/09_wine_producers_normalized.jsonl
+data-legacy/enriched_final_producers_cache-4o.jsonl
+data-legacy/enriched_final_producers_cache.jsonl
+data-legacy/grape_varieties_enriched.jsonl
+data-legacy/grape_variety_mapping copy 2.yaml
+data-legacy/grape_variety_mapping copy 3.yaml
+data-legacy/grape_variety_mapping copy 4.yaml
+data-legacy/grape_variety_mapping copy 5.yaml
+data-legacy/grape_variety_mapping copy 6.yaml
+data-legacy/grape_variety_mapping copy 7.yaml
+data-legacy/grape_variety_mapping copy 8.yaml
+data-legacy/grape_variety_mapping copy.jsonl
+data-legacy/grape_variety_mapping copy.yaml
+data-legacy/grape_variety_mapping.yaml
+data-legacy/previous.jsonl
+data-legacy/producer_geolocations_cache.jsonl
+data-legacy/wine_type_mapping.yaml
+data-legacy/racj/racj-alcool-fabricant_enhanced.json
+data-legacy/racj/racj-alcool-fabricant_vin.json
+data-legacy/racj/racj-alcool-fabricant.json
+data-legacy/us/northeastern_wine_producers_categories_reference.jsonl
+data-legacy/us/northeastern_wine_producers_classified.jsonl
+data-legacy/us/northeastern_wine_producers.jsonl
+data-legacy/us/state_config.yaml
+data-legacy/us/ttb_wine_producers.csv
+legacy/00_quebec_fetch.py
+legacy/02_producer_classify.py
+legacy/03_producer_geolocate.py
+legacy/04_producer_search.py
+legacy/05_data_merge_final.py
+legacy/06_producer_enrich.py
+legacy/07_data_merge_enriched.py
+legacy/09_data_normalize_final.py
+legacy/README.md

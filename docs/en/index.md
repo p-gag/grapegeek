@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Welcome to Grape Geek! 🍇
 
 !!! warning "🚧 Under Construction 🚧"

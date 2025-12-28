@@ -23,19 +23,29 @@ python main.py grape <variety_name> --dry-run
 python main.py region <region_name> --dry-run
 ```
 
-### Quebec Wine Producer Discovery
+### Wine Producer Pipeline
 ```bash
-# Fetch and filter Quebec wine producers from RACJ permits data
-python quebec_wine_producers.py
+# 1. Fetch and unify Quebec + US producer data
+python src/01_producer_fetch.py
 
-# Enrich wine producers with website and wine label information
-python enrich_wine_producers.py --limit 10
+# 2. Add geolocation data (optional - can run independently)
+python src/03_producer_geolocate.py
 
-# Test enrichment with mock data (no API key needed)
-python enrich_wine_producers.py --limit 5  # Uses mock mode if no OPENAI_API_KEY
+# 3. Unified research: classify + search + enrich with early exits (saves 80% cost)
+python src/12_unified_producer_research.py --limit 10  # Test with limit
+python src/12_unified_producer_research.py --yes      # Full run
 
-# Process all producers (use carefully - 199 API calls)
-python enrich_wine_producers.py --limit 199
+# 4. Normalize grape varieties (run as needed when new varieties found)
+python src/08_variety_normalize.py
+
+# 5. Apply normalizations to create final dataset
+python src/09_data_normalize_final.py
+
+# 6. Generate map data and statistics
+python src/10_output_geojson.py
+python src/11_generate_stats.py --varieties  # Include variety list
+
+# ⚠️  WARNING: Never change GPT models without explicit approval
 ```
 
 ### MkDocs Site Management

@@ -12,4 +12,5 @@ dependencies = [
     "mkdocs-material>=9.7.0",
     "mkdocs-git-revision-date-localized-plugin",
     "mkdocs-static-i18n",
+    "markdownify>=1.2.2",
 ]

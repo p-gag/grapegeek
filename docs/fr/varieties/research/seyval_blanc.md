@@ -1,0 +1,100 @@
+---
+english_hash: f65daaed0cf6ed45d79d063d64a331483dd1c12f72ec029e3d2b7c7a4b3deee5
+translated_from: docs/varieties/research/seyval_blanc.md
+variety: Seyval Blanc
+---
+
+## Aperçu
+Seyval blanc (aussi appelé Seyve‑Villard 5‑276) est un hybride interspécifique français blanc qui est une vraie bête de somme dans les coins frais et humides du nord‑est des États‑Unis et de l’est du Canada depuis des décennies. Les producteurs s’y fient pour une maturation de début à mi‑saison et des récoltes fiables; les services d’extension le classent encore parmi les hybrides blancs les plus plantés de la région. À New York, la Finger Lakes Wine Alliance le qualifie tout simplement d’« early‑mid season…clean, bright citrus and green orchard fruit » et souligne qu’il sert souvent d’appui dans des assemblages pour l’acidité. ([fingerlakeswinealliance.com](https://fingerlakeswinealliance.com/varietals/seyval-blanc/?utm_source=openai))
+
+## Origine et sélection
+Seyval remonte au programme Seyve‑Villard à Saint‑Vallier, France, où Bertille Seyve (avec son beau‑père Victor Villard) a croisé Seibel 5656 avec Rayon d’Or (Seibel 4986) vers 1919–1921; le code de sélection de la variété est SV 5276. Plusieurs catalogues confirment cette parenté et ces dates, et des références internationales classent toujours le cépage sous son code de sélection. ([de.wikipedia.org](https://de.wikipedia.org/wiki/Seyval_Blanc?utm_source=openai))
+
+Seyval est ensuite devenu parent d’un certain nombre d’hybrides bien connus dans le Nord‑Est—Cayuga White (avec Schuyler) et Chardonel (avec Chardonnay) entre autres—le rattachant directement à l’histoire moderne du vin de climat froid de la région à Cornell’s Geneva station. ([fingerlakeswinealliance.com](https://fingerlakeswinealliance.com/trade/varietals/?utm_source=openai))
+
+## Adaptation climatique et rusticité
+Au Quebec, les producteurs classent souvent les cépages par « rusticité ». Dans ce cadre, « semi‑rustique » couvre environ −20 à −24 °C; un profil technique utilisé au Quebec place Seyval Blanc autour de −22 °C, tandis que les cultivars vraiment rustiques (famille Frontenac) sont catalogués près de −34 °C. Un survol récent de la viticulture au Quebec explique comment des sites descendant à −30 à −35 °C imposent des pratiques comme le buttage ou des toiles géotextiles pour les cultivars semi‑rustiques. Seyval apparaît dans la catégorie « needs protection » dans ces tableaux, et certains producteurs des Eastern Townships confirment qu’ils misent sur la sélection du site et la couverture neigeuse pour le faire passer l’hiver. ([mdpi.com](https://www.mdpi.com/2075-4450/12/8/750?utm_source=openai))
+
+Les pépinières qui desservent le Nord‑Est orientent Seyval vers les zones USDA 5–8, confirmant qu’il est rustique sans appartenir à la ligue « grand froid » des plus récentes sélections du Minnesota. ([doubleavineyards.com](https://doubleavineyards.com/seyval-blanc?utm_source=openai))
+
+## Phénologie
+Plusieurs points de données placent le calendrier de Seyval dans une fenêtre début‑à‑mi‑saison :
+- Les bulletins statewide Véraison to Harvest de Cornell notent régulièrement que « early‑season hybrids (Seyval blanc, Cayuga white)…have been harvested » à la mi‑septembre. ([americanvineyardmagazine.com](https://americanvineyardmagazine.com/new-york-version-to-grape-harvest-update-with-cornell-agritech/?utm_source=openai))
+- Un brevet du Minnesota qui a comparé La Crescent à Seyval sur plusieurs saisons a consigné une date moyenne de récolte de Seyval au 27 septembre (plage 16 sept.–6 oct.), avec 20,9 °Brix (18,6–23,2), pH 3,15 (2,91–3,41), TA 0,80–1,02 %. ([patents.justia.com](https://patents.justia.com/patent/PP14617?utm_source=openai))
+- Dans les Finger Lakes, les raisins pour le Pét‑Nat de Seyval blanc 2022 de Glenora sont entrés le 15 septembre (TA 7,73 g/L; pH 3,10), tandis qu’un vendeur de fruits de longue date sur Seneca indique un moût de Seyval typique près de 20 °Brix, pH ~3,11 avec une disponibilité fin septembre. ([glenora.com](https://www.glenora.com/product/Pet-Nat-Seyval-Blanc?utm_source=openai))
+
+Note pratique tirée de guides de vinification : certains producteurs signalent un débourrement hâtif et une fenêtre comprimée d’environ 100 jours jusqu’à maturité—bénédiction ou malédiction selon le site et le risque de gel. ([winemakermag.com](https://winemakermag.com/article/1090-seyval-blanc-varietal-focus-2?utm_source=openai))
+
+## Port de croissance
+Deux thèmes reviennent dans les notes de producteurs et les fiches de pépinières :
+- Sur‑fructification et grappes compactes. Double A Vineyards prévient que Seyval est « typically overly fruitful and require[s] some cluster thinning », et le guide commercial du Nebraska signale des « large compact clusters ». ([doubleavineyards.com](https://doubleavineyards.com/seyval-blanc?utm_source=openai))
+- Des choix de treillis pragmatiques. Double A suggère le Mid‑Wire Cordon (MWC) pour Seyval; sur des sites à vigueur plus élevée, des canopées divisées nées à New York comme le Geneva Double Curtain (GDC) sont souvent envisagées pour ouvrir les zones fructifères—le concept de GDC de Shaulis reste une référence régionale pour les hybrides à l’énergie débordante. ([doubleavineyards.com](https://doubleavineyards.com/seyval-blanc?utm_source=openai))
+
+En Nova Scotia, un guide régional décrit Seyval comme dressé, de vigueur faible à modérée—mais enclin à surporter—si bien que l’éclaircissage des fruits « to ensure adequate ripening » y fait partie des évidences. ([visitnovascotiawineries.com](https://www.visitnovascotiawineries.com/grape-varieties/?utm_source=openai))
+
+## Maladies et enjeux physiologiques
+Sur le papier, Seyval n’est pas étranger aux pulvérisations. Le tableau de susceptibilité variétale d’UMass positionne Seyval comme :
+- Très sensible (+++) à l’oïdium et à la pourriture grise (Botrytis) des grappes,
+- Modérément sensible (++) au mildiou et à la galle du collet,
+- Modérément sensible (++) à la phomopsis. ([umass.edu](https://www.umass.edu/agriculture-food-environment/fruit/ne-small-fruit-management-guide/grapes/diseases/table-55-relative-disease-susceptibility-chemical-sensitivity-for-selected))
+
+La fiche sur l’oïdium d’Ohio State mentionne explicitement Seyval parmi les cultivars « highly susceptible », soulignant l’importance du contrôle de la préfloraison jusqu’à la floraison. En contexte maritime en Nova Scotia, des grappes plus grosses et serrées font de Botrytis une préoccupation majeure; le conseil local est de garder des charges raisonnables et des canopées aérées. ([ohioline.osu.edu](https://ohioline.osu.edu/factsheet/plpath-fru-37?utm_source=openai))
+
+Côté physiologie, des sources françaises évoquent une sensibilité aux gelées de printemps et une certaine tendance à la coulure si la taille ne correspond pas à la fertilité de la vigne—des observations que des producteurs du Nord‑Est reprennent quand ils parlent d’équilibrer bourgeons et grappes pour éviter des vins « maigres » issus de fortes charges. ([fr.wikipedia.org](https://fr.wikipedia.org/wiki/Seyval_blanc?utm_source=openai))
+
+## Composition du fruit et profil sensoriel
+Pour celles et ceux qui aiment les chiffres, le tableau est étonnamment cohérent :
+- Des références multi‑annuelles (brevet La Crescent) montrent Seyval en moyenne à ~21 °Brix, pH ~3,15, TA ~0,8–1,0 % à la récolte dans des essais au Minnesota. ([patents.justia.com](https://patents.justia.com/patent/PP14617?utm_source=openai))
+- Une spécification de moût sur Seneca Lake indique 20,0 °Brix et pH 3,11 fin septembre. ([fulkersonwinery.com](https://www.fulkersonwinery.com/fruit/seyval-blanc/?utm_source=openai))
+- Des travaux multi‑états de Cornell regroupent Seyval avec des cultivars de début/mi‑saison qui affichent souvent un YAN plus élevé (150–250 mg N/L) à la récolte—un contexte pratique pour planifier les fermentations lors des années fraîches. ([portal.nifa.usda.gov](https://portal.nifa.usda.gov/web/crisprojectpages/0223782-multi-state-evaluation-of-winegrape-cultivars-and-clones.html?utm_source=openai))
+
+En bouche, les producteurs couvrent large : Johnson Estate, sur Lake Erie, décrit son Seyval d’estate comme « crisp…citrus and passion fruit », tandis que la Finger Lakes Wine Alliance met de l’avant « clean, bright citrus and green orchard fruit ». Un embouteillage des Finger Lakes récemment médaillé d’or chez Weis offrait des notes de fruits à noyau et de sorbet au citron à 12 % ABV et 0,7 % RS. ([johnsonwinery.com](https://www.johnsonwinery.com/product/Seyval-Blanc?utm_source=openai))
+
+## Approches en vinification
+Les choix techniques se divisent selon le style, et les producteurs ne s’entendent pas—ouvertement—sur la fermentation malolactique (MLF) :
+- Le programme de viticulture du Nebraska présente Seyval comme flexible : « made into a variety of wine styles, employing malolactic fermentation in oak or in stainless steel. » ([viticulture.unl.edu](https://viticulture.unl.edu/viticulture-research/?utm_source=openai))
+- À l’inverse, une chronique de longue date dans WineMaker Magazine met en garde : « Don’t allow [Seyval] to go through malolactic fermentation », privilégiant des fermentations fraîches et nettes, des soutirages fréquents et une stabilisation à froid pour garder le peps. ([winemakermag.com](https://winemakermag.com/article/478-making-seyval-blanc-tips-from-the-pros?utm_source=openai))
+
+Des producteurs de Hudson Valley et du Kansas montrent les deux approches dans le verre : Hudson‑Chatham a servi un Seyval d’estate passé en bois avec des accents crème‑vanille, tandis que Haven Pointe décrit un « gently oaked dry white…citrus, mineral and vanilla ». Pendant ce temps, le Seyval Pét‑Nat de Glenora propose une voie « fermenté en bouteille », sans dosage, axée sur des acidités tendues (TA 7,73 g/L; pH 3,10). ([timesunion.com](https://www.timesunion.com/upstate/article/Hudson-Valley-wines-revel-in-variety-of-grapes-12940442.php?utm_source=openai))
+
+Une twist de Lake Erie : Jeff Murphy, chez Johnson Estate, a essayé une micro‑cuvée de Seyval cueilli à la main qui a été « immediately frozen and then later, thawed » avant une fermentation en inox, visant à « preserve natural flavors and aromas ». ([johnsonwinery.com](https://www.johnsonwinery.com/product/Seyval-Blanc-HandPicked?utm_source=openai))
+
+## Exemples de styles et usages
+À travers le Nord‑Est et le Quebec, Seyval apparaît dans une gamme étonnante :
+- Effervescents en méthode traditionnelle et en pét‑nat dans les Finger Lakes (Glenora). ([glenora.com](https://www.glenora.com/product/Pet-Nat-Seyval-Blanc?utm_source=openai))
+- Embouteillages secs en inox de Lake Erie à Hammondsport (Johnson Estate; Weis), qui remportent parfois de grands prix d’État. ([johnsonwinery.com](https://www.johnsonwinery.com/product/Seyval-Blanc?utm_source=openai))
+- « Estate Seyval » doucement boisé en Hudson Valley, et des interprétations similaires plus à l’ouest. ([timesunion.com](https://www.timesunion.com/upstate/article/Hudson-Valley-wines-revel-in-variety-of-grapes-12940442.php?utm_source=openai))
+- Styles fortifiés : le « Cream Sherry » de Hunt Country est 100 % Seyval, muté à 18 % avec TA 6,2 g/L, pH 3,15 et 14 % RS—un OVNI qui fait partie de leur gamme depuis des années. ([huntwines.com](https://www.huntwines.com/Cream-Sherry?utm_source=openai))
+- Assemblages du Quebec : le blanc phare de L’Orpailleur marie souvent Seyval avec Vidal et Frontenac blanc, mettant en valeur la coupe agrumes/fleurs blanches de Seyval sur des sites à influence maritime. Un chroniqueur vin indépendant du Quebec a même distingué un Seyval en macération pelliculaire (« Julep ») de Vignoble Négondos comme un « world‑class…orange wine ». ([orpailleur.ca](https://orpailleur.ca/en/products/orpailleur-blanc?utm_source=openai))
+
+## Questions ouvertes et avis divergents
+- Les chiffres de rusticité flottent. Des tableaux du Quebec placent Seyval autour de −22 °C et clairement « non‑rustic », tandis que certaines anecdotes de producteurs aux États‑Unis le donnent fiable à des seuils plus froids. Dans le contexte viticole provincial (épisodes à −30 °C), la nuance est loin d’être académique. ([viticultuream.ca](https://www.viticultuream.ca/fr/tableaurusticite.html?utm_source=openai))
+- Les récits sur les maladies divergent. UMass et OSU qualifient Seyval de très sensible à l’oïdium et à Botrytis—mais certaines notes de vignoble louent une résistance « modérée » au mildiou et le disent « disease‑resistant ». La pression locale et la densité de canopée semblent expliquer ces visions opposées. ([umass.edu](https://www.umass.edu/agriculture-food-environment/fruit/ne-small-fruit-management-guide/grapes/diseases/table-55-relative-disease-susceptibility-chemical-sensitivity-for-selected))
+- MLF ou pas MLF? Un programme universitaire présente la MLF comme un outil stylistique légitime pour Seyval, tandis que des pros du fait‑maison la déconseillent pour préserver la fraîcheur. Des producteurs en Hudson Valley et au Midwest ont publiquement emprunté les deux voies. ([viticulture.unl.edu](https://viticulture.unl.edu/viticulture-research/?utm_source=openai))
+- Le rythme de maturation semble très dépendant du site. Un brevet du Minnesota fixe en moyenne la récolte autour du 27 septembre; des vendeurs de fruits sur Seneca Lake visent souvent la fin septembre; Glenora a cueilli à la mi‑septembre en 2022; Penn State a rapporté que certains producteurs de PA ont vendangé Seyval assez tôt pour des effervescents en 2025. À vous de décider si on parle de « précoce » ou « mi‑saison ». ([patents.justia.com](https://patents.justia.com/patent/PP14617?utm_source=openai))
+
+## Références
+- Finger Lakes Wine Alliance. “Seyval Blanc” varietal snapshot (early‑mid season; citrus, orchard fruit). https://fingerlakeswinealliance.com/varietals/seyval-blanc/ ([fingerlakeswinealliance.com](https://fingerlakeswinealliance.com/varietals/seyval-blanc/?utm_source=openai))
+- wein.plus Glossary. “Seyve‑Villard 5‑276 (Seyval Blanc)” pedigree and breeder credit. https://glossary.wein.plus/seyve-villard-5-276 ([glossary.wein.plus](https://glossary.wein.plus/seyve-villard-5-276?utm_source=openai))
+- Wikipedia (DE/EN). Entries for Seyval Blanc with breeder code, date, and parentage. https://de.wikipedia.org/wiki/Seyval_Blanc; https://en.wikipedia.org/wiki/Seyval_blanc ([de.wikipedia.org](https://de.wikipedia.org/wiki/Seyval_Blanc?utm_source=openai))
+- Cornell lineage notes (FLWA page; Cayuga White parentage). https://fingerlakeswinealliance.com/trade/varietals/ (Cayuga White section). ([fingerlakeswinealliance.com](https://fingerlakeswinealliance.com/trade/varietals/?utm_source=openai))
+- Wikipedia. “Chardonel” (Seyval x Chardonnay). https://en.wikipedia.org/wiki/Chardonel ([en.wikipedia.org](https://en.wikipedia.org/wiki/Chardonel?utm_source=openai))
+- Quebec cold viticulture context and rusticity classes. MDPI Insects (case study) and Viticulture A&M rusticity table. https://www.mdpi.com/2075-4450/12/8/750 ; https://www.viticultuream.ca/fr/tableaurusticite.html ([mdpi.com](https://www.mdpi.com/2075-4450/12/8/750?utm_source=openai))
+- Double A Vineyards. “Seyval Blanc” nursery page (over‑fruitfulness; MWC training; Zones 5–8). https://doubleavineyards.com/seyval-blanc ([doubleavineyards.com](https://doubleavineyards.com/seyval-blanc?utm_source=openai))
+- UMass Extension. “Relative Disease Susceptibility…” table (Seyval +++ PM/Botrytis; ++ downy/PH/CG). https://www.umass.edu/agriculture-food-environment/fruit/ne-small-fruit-management-guide/grapes/diseases/table-55-relative-disease-susceptibility-chemical-sensitivity-for-selected ([umass.edu](https://www.umass.edu/agriculture-food-environment/fruit/ne-small-fruit-management-guide/grapes/diseases/table-55-relative-disease-susceptibility-chemical-sensitivity-for-selected))
+- Ohio State Ohioline. “Powdery Mildew of Grape” (Seyval highly susceptible). https://ohioline.osu.edu/factsheet/plpath-fru-37 ([ohioline.osu.edu](https://ohioline.osu.edu/factsheet/plpath-fru-37?utm_source=openai))
+- Visit Nova Scotia Wineries. “Grape Varieties – Seyval” (upright habit, overbearing, Botrytis prone). https://www.visitnovascotiawineries.com/grape-varieties/ ([visitnovascotiawineries.com](https://www.visitnovascotiawineries.com/grape-varieties/?utm_source=openai))
+- Cornell CALS. Véraison to Harvest newsletter hub; American Vineyard reprint with Tim Martinson update noting early hybrid harvest. https://cals.cornell.edu/viticulture-enology/research-extension/veraison-harvest/newsletters ; https://americanvineyardmagazine.com/new-york-version-to-grape-harvest-update-with-cornell-agritech/ ([cals.cornell.edu](https://cals.cornell.edu/viticulture-enology/research-extension/veraison-harvest/newsletters?utm_source=openai))
+- US Patent (La Crescent). Side‑by‑side multi‑year harvest metrics including Seyval (Brix, pH, TA; average harvest date). https://patents.justia.com/patent/PP14617 ([patents.justia.com](https://patents.justia.com/patent/PP14617?utm_source=openai))
+- Glenora Wine Cellars. 2022 Seyval Blanc Pét‑Nat tech sheet (harvest 9/15; TA/pH/RS/ABV). https://www.glenora.com/product/Pet-Nat-Seyval-Blanc ([glenora.com](https://www.glenora.com/product/Pet-Nat-Seyval-Blanc?utm_source=openai))
+- Fulkerson Wine Cellars. Seyval Blanc fruit spec (20.0° Brix; pH 3.11; late Sept availability). https://www.fulkersonwinery.com/fruit/seyval-blanc/ ([fulkersonwinery.com](https://www.fulkersonwinery.com/fruit/seyval-blanc/?utm_source=openai))
+- Nebraska Extension (commercial guide). Training note and cluster compactness; UNL viticulture page on Seyval’s style/MLF flexibility. https://extensionpubs.unl.edu/publication/g2289/2017/html/view ; https://viticulture.unl.edu/viticulture-research/ ([extensionpubs.unl.edu](https://extensionpubs.unl.edu/publication/g2289/2017/html/view?utm_source=openai))
+- WineMaker Magazine. “Making Seyval Blanc: Tips from the Pros” (cool ferments; racking; “Don’t allow…MLF”). https://winemakermag.com/article/478-making-seyval-blanc-tips-from-the-pros ([winemakermag.com](https://winemakermag.com/article/478-making-seyval-blanc-tips-from-the-pros?utm_source=openai))
+- Hudson Valley Times Union. Oaked estate Seyval tasting note (Hudson‑Chatham). https://www.timesunion.com/upstate/article/Hudson-Valley-wines-revel-in-variety-of-grapes-12940442.php ([timesunion.com](https://www.timesunion.com/upstate/article/Hudson-Valley-wines-revel-in-variety-of-grapes-12940442.php?utm_source=openai))
+- Haven Pointe Winery. “Seyval Blanc” (gently oaked style). https://havenpointewinery.com/seyval-blanc/ ([havenpointewinery.com](https://havenpointewinery.com/seyval-blanc/?utm_source=openai))
+- Johnson Estate Winery. Standard Seyval and small “hand‑picked/frozen‑then‑thawed” lot (winemaker Jeff Murphy). https://www.johnsonwinery.com/product/Seyval-Blanc ; https://www.johnsonwinery.com/product/Seyval-Blanc-HandPicked ([johnsonwinery.com](https://www.johnsonwinery.com/product/Seyval-Blanc?utm_source=openai))
+- Hunt Country Vineyards. Cream Sherry tech sheet (100% Seyval; TA/pH/RS/ABV). https://www.huntwines.com/Cream-Sherry ([huntwines.com](https://www.huntwines.com/Cream-Sherry?utm_source=openai))
+- Vignoble de l’Orpailleur. “L’Orpailleur Blanc” (Vidal/Seyval/Frontenac blanc blend; notes, awards). https://orpailleur.ca/en/products/orpailleur-blanc ([orpailleur.ca](https://orpailleur.ca/en/products/orpailleur-blanc?utm_source=openai))
+- Brett Happens (Quebec wine blog). Négondos “Julep” Seyval orange wine mention. https://bretthappens.com/2017/06/21/barrels-worth/ ([bretthappens.com](https://bretthappens.com/2017/06/21/barrels-worth/?utm_source=openai))
+
+Note de la rédaction : Lorsque les sources divergent (p. ex., allégations de résistance aux maladies, recours à la MLF et seuils de froid), nous avons présenté les sources nommées et leur contexte pour que les lecteurs puissent pondérer leurs conditions locales et leurs objectifs.

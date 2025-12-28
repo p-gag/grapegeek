@@ -26,7 +26,7 @@ class GrapeVarietyNormalizer:
     """Normalizes grape variety names using frequency analysis and AI mapping."""
     
     def __init__(self, 
-                 input_file: str = "data/racj/racj-alcool-fabricant_enhanced.json",
+                 input_file: str = "data/unified_wine_producers_final2.jsonl",
                  output_file: str = "data/grape_variety_mapping.yaml"):
         self.input_file = Path(input_file)
         self.output_file = Path(output_file)
@@ -35,25 +35,44 @@ class GrapeVarietyNormalizer:
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         
     def extract_grape_varieties(self) -> Counter:
-        """Extract all grape varieties from enhanced producer data."""
-        print("🍇 Extracting grape varieties from enhanced data...")
+        """Extract all grape varieties from final2 producer data."""
+        print("🍇 Extracting grape varieties from final2 dataset...")
         
-        with open(self.input_file, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            producers = data.get('wine_producers', [])
+        if not self.input_file.exists():
+            print(f"❌ Input file not found: {self.input_file}")
+            return Counter()
         
         all_varieties = []
+        producer_count = 0
+        wine_count = 0
         
-        for producer in producers:
-            wines = producer.get('wines', [])
-            for wine in wines:
-                cepages = wine.get('cepages', [])
-                if isinstance(cepages, list):
-                    all_varieties.extend(cepages)
-                elif isinstance(cepages, str):
-                    # Handle comma-separated strings
-                    varieties = [v.strip() for v in cepages.split(',') if v.strip()]
-                    all_varieties.extend(varieties)
+        # Read JSONL file line by line
+        with open(self.input_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                    
+                try:
+                    producer = json.loads(line.strip())
+                    producer_count += 1
+                    
+                    # Get wines from enriched data
+                    wines = producer.get('wines', [])
+                    
+                    for wine in wines:
+                        wine_count += 1
+                        cepages = wine.get('cepages', [])
+                        
+                        if isinstance(cepages, list):
+                            all_varieties.extend(cepages)
+                        elif isinstance(cepages, str):
+                            # Handle comma-separated strings
+                            varieties = [v.strip() for v in cepages.split(',') if v.strip()]
+                            all_varieties.extend(varieties)
+                            
+                except json.JSONDecodeError as e:
+                    print(f"⚠️  Error parsing line: {e}")
+                    continue
         
         # Count frequencies (case insensitive)
         variety_counter = Counter()
@@ -63,7 +82,8 @@ class GrapeVarietyNormalizer:
                 normalized = variety.strip().lower()
                 variety_counter[normalized] += 1
         
-        print(f"📊 Found {len(variety_counter)} unique grape varieties")
+        print(f"📊 Processed {producer_count} producers, {wine_count} wines")
+        print(f"🍇 Found {len(variety_counter)} unique grape varieties")
         print(f"🔢 Total occurrences: {sum(variety_counter.values())}")
         
         return variety_counter
@@ -78,25 +98,73 @@ class GrapeVarietyNormalizer:
         return "\\n".join(varieties_with_freq)
     
     def load_existing_mapping(self) -> Dict[str, Any]:
-        """Load existing grape variety mapping if it exists."""
+        """Load existing grape variety mapping if it exists, merging duplicates."""
         if not self.output_file.exists():
             return {}
         
         try:
             with open(self.output_file, 'r', encoding='utf-8') as f:
                 data = yaml.safe_load(f)
-                return data.get('grape_variety_mapping', {})
+                raw_mapping = data.get('grape_variety_mapping', {})
+                
+            # Merge duplicates and normalize structure
+            return self.merge_duplicates(raw_mapping)
         except Exception as e:
             print(f"⚠️  Error loading existing mapping: {str(e)}")
             return {}
     
-    def find_unmapped_varieties(self, variety_counter: Counter, existing_mapping: Dict[str, Any]) -> Counter:
-        """Find varieties that don't have mappings yet."""
+    def merge_duplicates(self, mapping: Dict[str, Any]) -> Dict[str, Any]:
+        """Merge duplicate entries based on normalized keys."""
+        merged = {}
+        key_to_official = {}  # Maps normalized key to official name
+        
+        # First pass: identify official names and their normalized keys
+        for official_name, info in mapping.items():
+            if not isinstance(info, dict):
+                continue
+                
+            normalized_key = official_name.lower().strip()
+            
+            if normalized_key in key_to_official:
+                print(f"🔄 Merging duplicate: {official_name} -> {key_to_official[normalized_key]}")
+                # Merge aliases
+                existing_info = merged[key_to_official[normalized_key]]
+                existing_aliases = set(existing_info.get('aliases', []))
+                
+                new_aliases = info.get('aliases', [])
+                for alias in new_aliases:
+                    if isinstance(alias, str):
+                        existing_aliases.add(alias.lower())
+                
+                existing_info['aliases'] = sorted(list(existing_aliases))
+            else:
+                key_to_official[normalized_key] = official_name
+                # Clean aliases to ensure they're strings and lowercase
+                aliases = info.get('aliases', [])
+                clean_aliases = []
+                for alias in aliases:
+                    if isinstance(alias, str):
+                        clean_aliases.append(alias.lower())
+                
+                merged[official_name] = {
+                    'aliases': sorted(clean_aliases)
+                }
+        
+        return merged
+    
+    def find_unmapped_varieties(self, variety_counter: Counter, existing_mapping: Dict[str, Any], limit: int = 20) -> Counter:
+        """Find varieties that don't have mappings yet, limited to specified number."""
         # Create set of all existing aliases (lowercase)
         existing_aliases = set()
         for official_name, info in existing_mapping.items():
             aliases = info.get('aliases', [])
-            existing_aliases.update(alias.lower() for alias in aliases)
+            
+            # Safe processing with type checking for robustness
+            for alias in aliases:
+                if isinstance(alias, str):
+                    existing_aliases.add(alias.lower())
+                else:
+                    print(f"⚠️  Non-string alias found in {official_name}: {alias} (skipping)")
         
         # Find varieties not in existing mapping
         unmapped = Counter()
@@ -104,19 +172,27 @@ class GrapeVarietyNormalizer:
             if variety.lower() not in existing_aliases:
                 unmapped[variety] = count
         
+        # Limit to specified number, ordered by frequency
+        if limit and len(unmapped) > limit:
+            limited_unmapped = Counter()
+            for variety, count in unmapped.most_common(limit):
+                limited_unmapped[variety] = count
+            print(f"📊 Found {len(unmapped)} new varieties, processing top {limit} by frequency")
+            return limited_unmapped
+        
         print(f"📊 Found {len(unmapped)} new varieties to map (out of {len(variety_counter)} total)")
         return unmapped
     
     def generate_official_mapping(self, variety_counter: Counter) -> Dict[str, Any]:
-        """Use GPT-5 to create/update official name mapping iteratively."""
-        print("🤖 Generating official grape variety mapping with GPT-5...")
+        """Use GPT-4o to create/update official name mapping iteratively."""
+        print("🤖 Generating official grape variety mapping with GPT-4o...")
         
         # Load existing mapping
         existing_mapping = self.load_existing_mapping()
         print(f"📋 Loaded {len(existing_mapping)} existing varieties from mapping")
         
-        # Find unmapped varieties
-        unmapped_varieties = self.find_unmapped_varieties(variety_counter, existing_mapping)
+        # Find unmapped varieties (limit to 20 at a time)
+        unmapped_varieties = self.find_unmapped_varieties(variety_counter, existing_mapping, limit=20)
         
         if not unmapped_varieties:
             print("✅ All varieties already mapped!")
@@ -194,14 +270,25 @@ Return ONLY the complete YAML structure including both existing and new mappings
             return None
     
     def save_mapping(self, mapping: Dict[str, Any]) -> None:
-        """Save the grape variety mapping to YAML file."""
+        """Save the grape variety mapping to YAML file in alphabetical order."""
         print(f"💾 Saving grape variety mapping to {self.output_file}")
         
         # Ensure output directory exists
         self.output_file.parent.mkdir(parents=True, exist_ok=True)
         
+        # Sort the mapping alphabetically
+        grape_mapping = mapping.get('grape_variety_mapping', {})
+        sorted_mapping = {
+            'grape_variety_mapping': dict(sorted(grape_mapping.items()))
+        }
+        
+        # Also sort aliases within each variety
+        for variety_info in sorted_mapping['grape_variety_mapping'].values():
+            if 'aliases' in variety_info and isinstance(variety_info['aliases'], list):
+                variety_info['aliases'] = sorted(variety_info['aliases'])
+        
         with open(self.output_file, 'w', encoding='utf-8') as f:
-            yaml.dump(mapping, f, default_flow_style=False, allow_unicode=True, sort_keys=True)
+            yaml.dump(sorted_mapping, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
     
     def run(self) -> None:
         """Execute the complete grape variety normalization process."""

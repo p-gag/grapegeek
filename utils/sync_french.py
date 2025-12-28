@@ -138,15 +138,17 @@ English content:
         if self.dry_run:
             return "SKIP - Index update (dry run)"
         
-        # Import and use the centralized index generator
-        from update_varieties_index import generate_varieties_index, scan_varieties_directory
-        
+        # Try to import and use the centralized index generator
         try:
+            from update_varieties_index import generate_varieties_index, scan_varieties_directory
             generate_varieties_index("fr")
             
             # Count varieties for reporting
             variety_count = len(scan_varieties_directory("fr"))
             return f"UPDATED - French index with {variety_count} varieties"
+        except ImportError:
+            # Module doesn't exist, skip index update
+            return "SKIP - Index update module not found (update_varieties_index.py missing)"
         except Exception as e:
             return f"ERROR - Failed to update French index: {e}"
     
