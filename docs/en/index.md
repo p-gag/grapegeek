@@ -5,16 +5,16 @@ hide:
 
 # Welcome to Grape Geek! 🍇
 
-!!! warning "🚧 Under Construction 🚧"
-    This site is under active development. New content about hybrid grape varieties will be added regularly. La version française a besoin de plus d'amour. **Some content still lack reference**, the plan is to improve the process and revisit them all.
+!!! info "🚧 Under Active Development 🚧"
+    This site features a comprehensive grape variety database with VIVC integration and producer mapping across Quebec and northeastern US. New content and improvements are added regularly. La version française a besoin de plus d'amour. **Some content still lacks references** - the plan is to improve the process and revisit them all.
 
 **Grape Geek** is a project dedicated to shining a light on hybrid grape varieties grown in the chilly climates of the northeast US and eastern Canada. These grapes often fly under the radar compared to their well-known vinifera cousins.
 
 ## What You'll Find Here
 
-- **[Grape Varieties](varieties/index.md)** - Detailed articles about hybrid grape varieties with technical growing information
+- **[Grape Varieties](varieties/index.md)** - Comprehensive database of grape varieties with VIVC passport data, detailed articles, and producer mapping
     - Coming soon (or not): Grower and winemaker stories in their own words, with full attribution
-- **[Producer Map](producer-map.md)** - Interactive map of wine producers with grape variety filtering. Only Quebec for now.
+- **[Producer Map](producer-map.md)** - Interactive map of wine producers with grape variety filtering covering Quebec and northeastern US states.
 - **[About](about.md)** - Learn about the project philosophy and approach
 - **[AI Usage](ai-usage.md)** - Transparency about how AI is used for research and content creation
 

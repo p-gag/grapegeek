@@ -7,16 +7,16 @@ hide:
 
 # Bienvenue sur Grape Geek! 🍇
 
-!!! warning "🚧 En construction 🚧"
-    Ce site est en développement actif. Du nouveau contenu sur les cépages hybrides sera ajouté régulièrement. La version française a besoin de plus d'amour. **Certaines sections manquent encore de références**, l’objectif est d’améliorer le processus et de toutes les revisiter.
+!!! info "🚧 En développement actif 🚧"
+    Ce site présente une base de données complète des cépages avec intégration VIVC et cartographie des producteurs du Québec et du nord-est des États-Unis. Du nouveau contenu et des améliorations sont ajoutés régulièrement. La version française a besoin de plus d'amour. **Certaines sections manquent encore de références** - l'objectif est d'améliorer le processus et de toutes les revisiter.
 
 **Grape Geek** est un projet dédié à mettre en lumière les cépages hybrides cultivés dans les climats frisquets du nord-est des États‑Unis et de l’est du Canada. Ces raisins passent souvent sous le radar comparativement à leurs cousins vinifera plus connus.
 
 ## Ce que vous trouverez ici
 
-- **[Cépages](varieties/index.md)** - Articles détaillés sur des cépages hybrides avec de l’information technique de culture
+- **[Cépages](varieties/index.md)** - Base de données complète des cépages avec données VIVC, articles détaillés, et cartographie des producteurs
     - À venir (ou pas) : témoignages de producteurs et de vinificateurs, dans leurs propres mots, avec attribution complète
-- **[Carte des producteurs](producer-map.md)** - Carte interactive des producteurs de vin avec filtre par cépage. Seulement le Québec pour l’instant.
+- **[Carte des producteurs](producer-map.md)** - Carte interactive des producteurs de vin avec filtre par cépage couvrant le Québec et le nord-est des États-Unis.
 - **[À propos](about.md)** - Découvrez la philosophie et l’approche du projet
 - **[Utilisation de l’IA](ai-usage.md)** - Transparence sur la manière dont l’IA est utilisée pour la recherche et la création de contenu
 
