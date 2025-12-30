@@ -18,6 +18,11 @@ hide:
 - **[About](about.md)** - Learn about the project philosophy and approach
 - **[AI Usage](ai-usage.md)** - Transparency about how AI is used for research and content creation
 
+## 🥂 New Year's Special: Quebec Sparkling Wines
+
+!!! sparkles "Bonne Année! 🍾"
+    Ring in the New Year with Quebec's finest bubbles! Explore our comprehensive [**Quebec Sparkling Wine Catalog**](../quebec_sparkling_wines_catalog.html) featuring 86 Quebec sparkling wines with detailed producer information, tasting notes, and where to find them.
+
 ## Latest Content
 
 This site is a work in progress featuring initial research with citations and references. While I've put significant effort into attribution and sourcing real experiences from growers, winemakers, and researchers in cold-climate viticulture, this is still an imperfect first version that I hope to make more rigorous over time.

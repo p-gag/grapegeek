@@ -1,0 +1,3778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vins Mousseux du Québec - Catalogue</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .data-source {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+        .data-source a {
+            color: #ecf0f1;
+            text-decoration: underline;
+        }
+        .data-source a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .wines-grid { display: flex; flex-direction: column; gap: 2rem; }
+        .wine-card {
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,.1);
+            transition: transform 0.2s;
+        }
+        .wine-card:hover {
+            transform: translateY(-2px);
+        }
+        .wine-image {
+            width: 250px;
+            height: 300px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .wine-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .wine-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #e74c3c;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .wine-content {
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .5rem;
+        }
+        .wine-name { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            color: #2c3e50;
+        }
+        .producer-info { 
+            color: #7f8c8d; 
+            font-size: .9rem; 
+        }
+        .wine-details { 
+            display: flex; 
+            gap: .5rem; 
+            flex-wrap: wrap; 
+            margin: .5rem 0; 
+        }
+        .detail-item { 
+            padding: .25rem .6rem; 
+            border-radius: 999px; 
+            font-size: .75rem;
+            font-weight: 600;
+        }
+        .detail-item.style { 
+            background: #fff3cd; 
+            color: #856404;
+        }
+        .detail-item.method { 
+            background: #d4edda; 
+            color: #155724;
+        }
+        .detail-item.vintage { 
+            background: #e3f2fd; 
+            color: #1565c0;
+        }
+        .wine-description { 
+            color: #555; 
+            line-height: 1.5;
+            margin: .5rem 0;
+        }
+        .cepages-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+        .cepages-list { 
+            display: flex; 
+            gap: .5rem; 
+            flex-wrap: wrap; 
+        }
+        .cepage-tag { 
+            border: 1px solid #ddd; 
+            border-radius: 999px; 
+            padding: .2rem .5rem; 
+            font-size: .75rem;
+            background: #f8f9fa;
+        }
+        .retailers-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        .show-retailers-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .show-retailers-btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .popup-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .popup-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #f1f2f6;
+        }
+        
+        .popup-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+        
+        .popup-body {
+            padding: 1rem 2rem 2rem;
+        }
+        
+        .retailer-item {
+            padding: 1rem;
+            border: 2px solid #f1f2f6;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .retailer-item:hover {
+            border-color: #3498db;
+        }
+        
+        .retailer-name {
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .retailer-name:hover {
+            text-decoration: underline;
+        }
+        
+        .retailer-address {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .wine-card { flex-direction: column; }
+            .wine-image { width: 100%; height: 300px; }
+            .popup { padding: 1rem; }
+            .popup-content { max-height: 90vh; }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Vins Mousseux du Québec</h1>
+    <p>86 vins • Généré le 2025-12-30 13:37</p>
+    <div class="data-source">
+        Données issues de <a href="https://grapegeek.com" target="_blank">grapegeek.com</a> • 
+        Recherché avec IA - contient des erreurs et omissions
+    </div>
+</div>
+<div class="container">
+    <div class="wines-grid" id="winesContainer"></div>
+</div>
+
+<!-- Retailers Popup -->
+<div class="popup" id="retailersPopup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h3 id="popupWineName">Où acheter</h3>
+            <button class="popup-close" onclick="closeRetailersPopup()">×</button>
+        </div>
+        <div class="popup-body" id="popupRetailersContent">
+            <!-- Retailers will be populated here -->
+        </div>
+    </div>
+</div>
+<script>
+const allWines = [
+{
+"wine_name": "Mousseux",
+"producer_name": "CLOS LAMBERT INC.",
+"region": "Chaudière-Appalaches",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "Principales caractéristiques:\n\n1) Exclusivement constitué du cépage Okanagan Riesling\n    cultivé au vignoble Clos Lambert;\n\n2) Culture sans pesticides et sans engrais chimiques;\n\n3) Uniquement le jus provenant de la première pression a été utilisé;\n\n4) Fabriqué selon la méthode traditionnelle (champenoise), il a été\n     conçu uniquement par fermentation naturelle en bouteille;\n\n5) Aucune liqueur de titrage (aucun sucre), dosage zéro, ajoutée\n     lors du dégorgement;\n\n6) Sans agents de conservation, ce vin ne contient pas de sulfites;\n\n7) Dégustation : nez de fleurs de vigne, de nectarine, de tangerine, de\n     pomme, et de menthe blanche poivrée avec des parfums minéraux.\n\n     La bouche est identique, fraiche et rafraîchissante avec des accents\n     minéraux plus marqués. Bulles puissantes et persistantes.",
+"bottle_image_url": "https://static.wixstatic.com/media/4bb77c_c4f5e23d60824cfabef6f1d351e6be0c.jpg/v1/fill/w_338%2Ch_553%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/4bb77c_c4f5e23d60824cfabef6f1d351e6be0c.jpg",
+"cepages": [
+"Riesling"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Clos Lambert (direct)",
+"wine_url": "https://www.closlambert.com/mousseux",
+"physical_address": "690, route de la Rivière-Etchemin, Lévis, Québec, G6Z 2K9",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Commande (Vignoble) - livraison / retrait",
+"wine_url": "https://www.closlambert.com/copie-de-commander",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Convivio (listé comme point de vente)",
+"wine_url": null,
+"physical_address": "1015, rue du Basilic, Lévis (St-Jean-Chrysostôme)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Chope Gobeline (fournisseur officiel listé)",
+"wine_url": "https://www.lachopegobeline.com",
+"physical_address": "966, Boul. René-Lévesque O, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Le Marché de Noël allemand de Québec (fournisseur/événement saisonnier listé)",
+"wine_url": "https://www.hoteldeglace-canada.com",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace)",
+"wine_url": "https://www.vivino.com/fr/vignoble-clos-lambert-vin-mousseux-brut/w/9279544",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Les Bulles du Clos",
+"producer_name": "CLOS SANS FRONTIÈRE",
+"region": "Montérégie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2022",
+"quoted_description": "Jaune paille, ce mélange de chardonnay,  pinot noir et chenin blanc commence par une effervescence soutenue qui libère de jolis arômes fruités et de miel. Légèrement pétillante, la bouche est bien équilibrée et on y retrouve un agréable fruité avec une touche d'agrume. Servi rafraîchi, ce vin mousseux, bien sec, et doté d'une légère amertume en finale, étanchera votre soif de convivialité et accompagnera toutes vos entrées.",
+"bottle_image_url": "https://www.clossansfrontieres.com/cdn/shop/files/Les_Bulles_du_Clos_2022_-_avant_-_IMG_4944_v2.jpg?v=1766076840",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Clos sans frontières (boutique en ligne)",
+"wine_url": "https://www.clossansfrontieres.com/collections/les-vins/products/les-bulles-du-clos-2022",
+"physical_address": "185, rang Saint-André, Saint-Bernard-de-Lacolle, Québec",
+"product_code": null,
+"price": "$31.00"
+},
+{
+"retailer_name": "Archway Restaurant et Buvette",
+"wine_url": "https://archwaymtl.com",
+"physical_address": "3683 Wellington Street, Verdun, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Épicerie Les Récoltes",
+"wine_url": "https://lesrecoltes.com",
+"physical_address": "1895 Bélanger Street, Montréal, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Bière à Boire",
+"wine_url": "https://labiereaboire.com",
+"physical_address": "117 St Pierre Street, Local 107, Saint-Constant, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Fromagerie La Station",
+"wine_url": "https://www.fromagerielastation.com",
+"physical_address": "440 Hatley Road, Compton, Québec",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Vin Mousseux Rosé",
+"producer_name": "CHÂTEAU TAILLEFER LAFON",
+"region": "Laval",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2016",
+"quoted_description": "Nez qui s’ouvre sur des notes épicés et fruités. Fruit que on retrouve aisément en bouche. Ce mousseux rosé possède une agréable vivacité et une finale assez   persistante.",
+"bottle_image_url": "https://images.vivino.com/thumbs/axe3vOlEQfGZW0KSvBZNzg_150x200.jpg",
+"cepages": [
+"Pinot Noir",
+"Cabernet Franc"
+],
+"retailers": [
+{
+"retailer_name": "Château Taillefer Lafon (boutique)",
+"wine_url": "https://boutique.chateautailleferlafon.ca/products/vin-mousseux-rose-2016",
+"physical_address": "1500, Montée Champagne, Ste-Dorothée, Laval, Québec, H7X 4H9, Canada",
+"product_code": null,
+"price": "CAD $30.44"
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/collections/chateau-taillefer-lafon/products/brut-rose-vin-mousseux-rose-du-vignoble-chateau-taillefer-lafon",
+"physical_address": "Longueuil: 369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7, Canada",
+"product_code": null,
+"price": "CAD $37.00"
+},
+{
+"retailer_name": "Le CinqÀSept (boutique)",
+"wine_url": "https://lecinqasept.ca/products/vin-mousseau-rose-brut",
+"physical_address": "CINQÀSEPT, 5980 Boul. Monk, Montréal, QC H4E 3H6, Canada",
+"product_code": null,
+"price": "CAD $31.00"
+},
+{
+"retailer_name": "Vivino (marketplace listing)",
+"wine_url": "https://www.vivino.com/fr/chateau-taillefer-lafon-mousseux-rose-brut-quebec/w/6779914",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "PetNat blanc",
+"producer_name": "AUX VOLETS NOIRS",
+"region": "Montérégie",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2022",
+"quoted_description": "PetNat 2022 du Vignoble Les Volets Noirs en bref :\n\n  * Vin blanc vif et fruité effervescent \n  * Arômes: Pommes et agrumes\n  * Cépages: Frontenac Blanc\n  * Région: Vallée-du-Richelieu\n  * 12,8% alc./vol.\nMot du Vigneron:\nLes raisins ont été vendangés le 24 septembre 2022.\nNotre Pet Nat 2022 est élaboré à partir de la cuvée Frontenac Blanc; celle où on a fait\nune macération pelliculaire et semi-carbonique de 4 jours.\nOn a embouteillé le Pet Nat directement de la cuve encore en fermentation le 3\noctobre.\nLes bouteilles sont ensuite placées à l’envers pendant 4 mois pour que les lies se\ndéposent dans le goulot. On a dégorgé à la volée, une expérience salissante, mais ô\ncombien satisfaisante!\nNotre Pet Nat, c’est une légère effervescence et beaucoup de fruit…bref, un vin festif!\nComme pour tous nos vins, celui-ci est non filtré et sans sulfites ajoutées…que du raisin!\nTaux de sucre : 2,1 g/L",
+"bottle_image_url": "https://boiteavins.com/cdn/shop/files/petnat-blanc-2022-petillant-naturel-nature-du-vignoble-aux-volets-noirs-vin-du-quebec-la-boite-a-vins-35610185007302_5000x.jpg?v=1686852265",
+"cepages": [
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/copie-de-frontenac-noir-2022-vin-rouge-c-nature-du-vignoble-aux-volets-noirs",
+"physical_address": "Longueuil: 369-F Rue Saint-Jean, Longueuil, QC, J4H 2x7",
+"product_code": null,
+"price": "$33.00"
+},
+{
+"retailer_name": "Aux Volets Noirs (boutique du vignoble)",
+"wine_url": "https://auxvoletsnoirs.com/",
+"physical_address": "2313 Chemin de la Rivière-des-Anglais, Très-Saint-Sacrement, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Peluso Beaubien",
+"wine_url": null,
+"physical_address": "251 Rue Beaubien Est, Montréal, QC H2S 1R7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Le Cinq à Sept",
+"wine_url": null,
+"physical_address": "5980 Boulevard Monk, Montréal, QC H4E 3H6",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Domaine des 15 Lots",
+"wine_url": null,
+"physical_address": "4850 Rue Ontario Est, Montréal, QC H1V 1L7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "ÔBreton",
+"wine_url": null,
+"physical_address": "1201a Avenue du Mont-Royal Est, Montréal, QC H2J 1Y2",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Grange à Houblon",
+"wine_url": null,
+"physical_address": "222 Boulevard Poliquin, Sorel-Tracy, QC J3P 7Y9",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Brebis",
+"wine_url": null,
+"physical_address": "21 Avenue Fairmount O., Montréal, QC H2T 2L9",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Brut Rosé",
+"producer_name": "CHÂTEAU DE CARTES",
+"region": "DUNHAM",
+"style": "rosé",
+"method": "méthode traditionnelle. (fr.chatelaine.com)",
+"vintage": "2015. (nataliemaclean.com)",
+"quoted_description": "«Le Mousseux Rosé est un vin sec élaboré selon la méthode traditionnelle. Les grappes sont pressées entières afin d’extraire le moins de pigments possibles. La fermentation rapide est faite en cuve d’inox pour garder un caractère neutre. La deuxième fermentation en bouteille se fera sur latte durant 8 à 10 mois.» (fr.chatelaine.com)",
+"bottle_image_url": null,
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "SAQ",
+"wine_url": null,
+"physical_address": null,
+"product_code": "12357453 (ancien listing pour le Brut Rosé, vintage ancien). ([nataliemaclean.com](https://www.nataliemaclean.com/wine-reviews/chateau-de-cartes-brut-rose-2015/250080))",
+"price": "$29–$30 (ancien prix SAQ rapporté pour ce code). ([nataliemaclean.com](https://www.nataliemaclean.com/wine-reviews/chateau-de-cartes-brut-rose-2015/250080))"
+},
+{
+"retailer_name": "Veux-tu une bière (détaillant en ligne)",
+"wine_url": "https://veuxtuunebiere.com/products/mousseux-rose",
+"physical_address": "5178 Avenue du Parc, Montréal, Québec H2V 4G6. ([veuxtuunebiere.com](https://veuxtuunebiere.com/products/mousseux-rose))",
+"product_code": null,
+"price": "$28.50 (prix affiché sur la page produit). ([veuxtuunebiere.com](https://veuxtuunebiere.com/products/mousseux-rose))"
+},
+{
+"retailer_name": "La Champagnerie (liste de bar/restaurant)",
+"wine_url": "https://lachampagnerie.ca/en/nos-bulles/",
+"physical_address": null,
+"product_code": null,
+"price": "$60 (prix au verre/bouteille indiqué sur la carte pour Château de Cartes Brut Rosé 2015 dans leur listing). ([lachampagnerie.ca](https://lachampagnerie.ca/en/nos-bulles/?utm_source=openai))"
+}
+]
+},
+{
+"wine_name": "La rioule",
+"producer_name": "DOMAINE ARVI",
+"region": "Chaudière-Appalaches",
+"style": "rosé",
+"method": "pétillant naturel",
+"vintage": "2022",
+"quoted_description": "PÉTILLANT NATUREL ROSÉ\n2022\n\nCÉPAGE 70% DE RADISSON, 30% DE FRONTENAC BLANC. ÂGE DES VIGNES DE 11 À 17 ANS.\nDEGRÉ D’ALCOOL 9%\nFORMAT 750 ML\nNOMBRE DE BOUTEILLES 1452\nVINIFICATION COFERMENTATION NATURELLE, PRESSE DIRECTE DE RADISSON ET MACÉRATION DE 10 JOURS POUR LE FRONTENAC BLANC. REFERMENTATION EN BOUTEILLE AVEC LE MIEL DU DOMAINE.\nÉLEVAGE CUVE INOX SUR LIES FINES DURANT 9 MOIS.\n\nNos vins sont l’expression d’une année entière de travail, d’attention, d’implication et de minutie portés dans nos vignes.\nLes vendanges sont faites manuellement, les raisins triés à la main. Malgré les défis météorologiques quotidiens dans notre région, nous avons le souci de toujours récolter nos raisins à pleine maturité. Les fermentations sont faites naturellement et aucun intrant oenologique n’est utilisé dans les vins.",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/6564aecddcec1232ff946171/1713806985087-9JNYLYGUU6AM9K2EN9D0/la-rioule-1.jpg",
+"cepages": [
+"Radisson",
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Domaine Arvi (producteur)",
+"wine_url": "https://www.domainearvi.ca/boutique/p/la-rioule",
+"physical_address": "7119 RANG DE L’HÊTRIÈRE E, SAINT-CHARLES-DE-BELLECHASSE, QC G0R 2T0",
+"product_code": null,
+"price": "25.00 CAD"
+},
+{
+"retailer_name": "Les Minettes (boutique en ligne & Laval)",
+"wine_url": "https://lesminettes.ca/collections/domaine-arvi/products/la-rioule",
+"physical_address": "Les Minettes — 148 Bd Sainte-Rose, Laval, QC H7L 1L3",
+"product_code": null,
+"price": "33.00 CAD"
+},
+{
+"retailer_name": "Veux-tu une bière (Montréal)",
+"wine_url": "https://veuxtuunebiere.com/products/la-rioule-2022",
+"physical_address": "5178 Avenue du Parc, Montréal, QC H2V 4G6",
+"product_code": null,
+"price": "37.75 CAD"
+}
+]
+},
+{
+"wine_name": "Saint-Blaise",
+"producer_name": "DOMAINE AMALGAMES",
+"region": "Montérégie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2021",
+"quoted_description": "Un territoire effervescent, l’étincelle qu’il faut pour illuminer le moment\n\nUn mousseux brut, qui présente une texture tout en finesse, élaboré avec soin selon la méthode traditionnelle. Sa bulle est fine et délicate. Un parfait accord avec les grands moments de célébration, ou ceux d’enthousiasme spontané qui méritent une bulle, tout simplement!",
+"bottle_image_url": "https://domaineamalgames.ca/wp-content/uploads/2024/05/Domaine_Amalgames_Saint_Blaise_Devant-600x600.jpg",
+"cepages": [
+"Frontenac Blanc",
+"Louise Swenson"
+],
+"retailers": [
+{
+"retailer_name": "Domaine Amalgames (boutique du producteur)",
+"wine_url": "https://domaineamalgames.ca/produit/saint-blaise/",
+"physical_address": "1292, rue Principale, Saint-Blaise-sur-Richelieu, QC J0J 1W0",
+"product_code": null,
+"price": "$30.00"
+},
+{
+"retailer_name": "Veux-tu une bière (détaillant spécialisé, Montréal)",
+"wine_url": "https://veuxtuunebiere.com/products/saint-blaise",
+"physical_address": "5178 Avenue du Parc, Montréal, QC H2V 4G6",
+"product_code": null,
+"price": "$32.25"
+}
+]
+},
+{
+"wine_name": "PETNAT 2023 ORGANIC",
+"producer_name": "CLOS SANS FRONTIÈRE",
+"region": "Montérégie",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2023",
+"quoted_description": "Freshness and a gentle, fruity effervescence characterize this natural sparkling wine, elaborated with our just as natural approach. Free from any additive, it develops pleasant aromas of small red fruit with a hint of undergrowth. The Clos sans frontières PetNat 2023 is a refreshing and joyful wine, perfect for celebrating a promotion or any festive event with friends.",
+"bottle_image_url": "https://www.clossansfrontieres.com/cdn/shop/files/PetNat_2023_-_avant_-_IMG_4971.jpg?v=1752078691",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Clos sans frontières (producteur)",
+"wine_url": "https://www.clossansfrontieres.com/en/products/petnat-2023-bio",
+"physical_address": "Clos sans frontières, 185 rang Saint-André, Saint-Bernard-de-Lacolle, QC J0J 1V0",
+"product_code": null,
+"price": "$15.00"
+},
+{
+"retailer_name": "Archway Restaurant et Buvette",
+"wine_url": null,
+"physical_address": "3683 Wellington Street, Verdun, QC",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Épicerie Les Récoltes",
+"wine_url": null,
+"physical_address": "1895 Bélanger Street, Montréal, QC",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Fromagerie La Station",
+"wine_url": null,
+"physical_address": "440 Hatley Road, Compton, QC",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Bière à Boire",
+"wine_url": null,
+"physical_address": "117 St Pierre Street, Local 107, Saint-Constant, QC",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Le blanc",
+"producer_name": "DOMAINE BERGEVILLE",
+"region": "Estrie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2023",
+"quoted_description": "Dans le verre, la robe jaune pâle laisse transparaître des bulles tenaces. Le nez diffuse des arômes de pommes, de miel et d’oranges sanguines. En bouche, les bulles sont persistantes et crémeuses, et les arômes de poires, de pêches blanches et de noix torréfiées appellent le repas. L’acidité est franche, mais bien équilibrée par le léger dosage.",
+"bottle_image_url": "https://domainebergeville.ca/wp-content/uploads/2023/02/Blanc-2021-1.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Domaine Bergeville (boutique en ligne)",
+"wine_url": "https://domainebergeville.ca/produit/le-blanc/",
+"physical_address": "1030 Chemin Sherbrooke, Canton de Hatley, Québec J0B 2C0",
+"product_code": null,
+"price": "34,00 $"
+},
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/13374562",
+"physical_address": null,
+"product_code": "13374562",
+"price": "33,50 $"
+}
+]
+},
+{
+"wine_name": "Gris pomme",
+"producer_name": "DOMAINE ARVI",
+"region": "Chaudière-Appalaches",
+"style": "autre",
+"method": "col fondo",
+"vintage": "2022/2023",
+"quoted_description": "VIN PÉTILLANT AROMATISÉ À LA POMME\n\nCÉPAGE 80% FRONTENAC GRIS, 20% POMMES SAUVAGES DU DOMAINE. ÂGE DES VIGNES 13 À 19 ANS.\nDEGRÉ D’ALCOOL 8%\nFORMAT 750 ML\nNOMBRE DE BOUTEILLES 2460\nVINIFICATION FERMENTATION NATURELLE, MACÉRATION DE 5 JOURS POUR LE FRONTENAC GRIS, REFERMENTATION EN BOUTEILLE AVEC LE MIEL DU DOMAINE.\nÉLEVAGE CUVE INOX 10 MOIS PUIS 4 MOIS EN OEUF BÉTON.\nNos vins sont l’expression d’une année entière de travail, d’attention, d’implication et de minutie portés dans nos vignes.\nLes vendanges sont faites manuellement, les raisins triés à la main. Malgré les défis météorologiques quotidiens dans notre région, nous avons le souci de toujours récolter nos raisins à pleine maturité. Les fermentations sont faites naturellement et aucun intrant oenologique n’est utilisé dans les vins.",
+"bottle_image_url": "https://veuxtuunebiere.com/cdn/shop/files/veux-tu-une-biere-guide-arvi-gris-pomme.png?v=1756319649",
+"cepages": [
+"Frontenac Gris",
+"Fruit"
+],
+"retailers": [
+{
+"retailer_name": "Domaine Arvi (boutique)",
+"wine_url": "https://www.domainearvi.ca/boutique/p/mi-amore-miina-jly8x-lxwh2-fwzd6-elrgp-kzed2-ax4dx",
+"physical_address": "7119 Rang de l'Hêtrière E, Saint-Charles-de-Bellechasse, QC G0R 2T0",
+"product_code": null,
+"price": "20,00 $"
+},
+{
+"retailer_name": "Veux-tu une bière",
+"wine_url": "https://veuxtuunebiere.com/products/gros-pomme",
+"physical_address": "5178 Avenue du Parc, Montréal, QC H2V 4G6",
+"product_code": null,
+"price": "30,25 $"
+},
+{
+"retailer_name": "La Cave de Mamie",
+"wine_url": null,
+"physical_address": "322 Rue Beaubien E, Montréal, QC H2S 1R8",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Le Vinologue",
+"wine_url": null,
+"physical_address": "4301 Rue Ontario E, Montréal, QC H1V 1K5",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "LES minettes",
+"wine_url": null,
+"physical_address": "148 Bd Sainte-Rose, Laval, QC H7L 1L3",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "le rosé 2023",
+"producer_name": "DOMAINE BERGEVILLE",
+"region": "Estrie",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2023",
+"quoted_description": "Dans le verre, la robe est rose, légèrement orangée. Au nez, l’aromatique rappelle la fraise des champs, la groseille et la betterave. La bouche s’ouvre sur une explosion de bulles portées par des notes de framboise mûre et de sucre d’orge. La légère perception de sucre résiduel en fin de bouche vient tempérer la légère amertume et appelle la gourmandise.",
+"bottle_image_url": "https://domainebergeville.ca/wp-content/uploads/2022/01/Le-rose%CC%81.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Domaine Bergeville (boutique en ligne)",
+"wine_url": "https://domainebergeville.ca/produit/le-rose-2023/",
+"physical_address": "1030, chemin Sherbrooke, Hatley, Québec",
+"product_code": null,
+"price": "34.00 $ (prix boutique, page produit)"
+},
+{
+"retailer_name": "SAQ (succursale / en ligne)",
+"wine_url": "https://www.saq.com/fr/13374597",
+"physical_address": null,
+"product_code": "13374597",
+"price": "33.50 $ (page SAQ pour Domaine Bergeville Le Rosé Brut)"
+},
+{
+"retailer_name": "La Boîte à Vins (épicerie fine / boutique Longueuil)",
+"wine_url": "https://boiteavins.com/",
+"physical_address": "369‑F, rue Saint‑Jean, Vieux‑Longueuil, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Fromagerie Hamel (détaillant cité sur la liste de points de vente)",
+"wine_url": "http://www.fromageriehamel.com/",
+"physical_address": "220, rue Jean‑Talon E, Montréal, QC H2R 1S7",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Cueillette",
+"producer_name": "DOMAINE DE CAP-AUX-OIES",
+"region": "Capitale-Nationale",
+"style": "autre",
+"method": "inconnu",
+"vintage": "NV",
+"quoted_description": "",
+"bottle_image_url": null,
+"cepages": [
+"Marquette"
+],
+"retailers": []
+},
+{
+"wine_name": "Mousseux. (domainecapauxoies.com)",
+"producer_name": "DOMAINE DE CAP-AUX-OIES",
+"region": "Capitale-Nationale. (fr.wikipedia.org)",
+"style": "autre",
+"method": "inconnu",
+"vintage": "",
+"quoted_description": "Mousseux\nÀ venir à l'automne 2025... (domainecapauxoies.com)",
+"bottle_image_url": null,
+"cepages": [],
+"retailers": []
+},
+{
+"wine_name": "Canonique",
+"producer_name": "DOMAINE BERGEVILLE",
+"region": "Estrie",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2022",
+"quoted_description": "Dégustation : mousseux biologique rosé extra sec, arômes de framboises, canneberges, pommes rouges et sucre d'orge. (lemarettes.com)",
+"bottle_image_url": null,
+"cepages": [
+"Frontenac Gris",
+"Frontenac Blanc",
+"Acadie Blanc",
+"Saint-Pépin",
+"Frontenac Noir",
+"Radisson",
+"Sabrevois",
+"Pinot Family (Unspecified)"
+],
+"retailers": [
+{
+"retailer_name": "Les Minettes",
+"wine_url": "https://lesminettes.ca/products/canonique-2022",
+"physical_address": null,
+"product_code": null,
+"price": "38.00 $CAD",
+"source": "([lesminettes.ca](https://lesminettes.ca/products/canonique-2022))"
+},
+{
+"retailer_name": "Lémarettes",
+"wine_url": "https://www.lemarettes.com/product-page/canonique",
+"physical_address": "607, boul. A‑Paquette, Mont‑Laurier",
+"product_code": null,
+"price": "39.00 $CAD",
+"source": "([lemarettes.com](https://www.lemarettes.com/product-page/canonique))"
+},
+{
+"retailer_name": "Boires",
+"wine_url": "https://www.boires.ca/produits/canonique/",
+"physical_address": "6422 Saint‑Laurent, Local 102, Montréal, QC H2S 3C4",
+"product_code": null,
+"price": null,
+"source": "([boires.ca](https://www.boires.ca/produits/canonique/))"
+},
+{
+"retailer_name": "Vivino (listing / marketplace)",
+"wine_url": "https://www.vivino.com/domaine-bergeville-canonique-rose/w/6785308",
+"physical_address": null,
+"product_code": null,
+"price": null,
+"source": "([vivino.com](https://www.vivino.com/domaine-bergeville-canonique-rose/w/6785308))"
+}
+]
+},
+{
+"wine_name": "Temps Double",
+"producer_name": "DOMAINE DE L'HEURE JUSTE",
+"region": "Outaouais",
+"style": "rosé",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Temps Double, c’est le tout premier pétillant naturel du Domaine de l’Heure Juste, et quel coup d’essai! Une bulle vive, joyeuse, parfaitement maîtrisée… qu’on vide sans même s’en rendre compte! Cette cuvée est née d’un assemblage audacieux de deux millésimes, 2023 et 2024, et donne comme résultat une bulle équilibrée, fruitée, d’une belle fraîcheur et d’une grande buvabilité! Une première cuvée pétillante qui donne déjà hâte à la prochaine :)",
+"bottle_image_url": "https://lesminettes.ca/cdn/shop/files/Temps-double-2024_Domaine-heure-juste.jpg?v=1752016382&width=2000",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Les Minettes (boutique en ligne)",
+"wine_url": "https://lesminettes.ca/products/temps-double-2024",
+"physical_address": "148, boul. Sainte-Rose, Laval, Québec H7L 1L3",
+"product_code": null,
+"price": "$35.00"
+},
+{
+"retailer_name": "Domaine de l'Heure Juste (vente directe - boutique)",
+"wine_url": null,
+"physical_address": "750 Côte Saint-Charles, Papineauville, QC J0V 1R0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Le Petit Bar à Vin (événement / dégustation — a présenté le producteur)",
+"wine_url": "https://www.petitbaravin.com/event-details-registration/rencontre-avec-le-vigneron-domaine-de-lheure-juste",
+"physical_address": "168 Chemin Old Chelsea, Chelsea, QC J9B 1J3",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Blanc Mousseux",
+"producer_name": "DOMAINE DE LAVOIE",
+"region": "Montérégie",
+"style": "blanc",
+"method": "inconnu",
+"vintage": "NV",
+"quoted_description": "Robe à la couleur de blé doré, on lui dénote un nez délicat qui exhale des arômes de fleurs et de pamplemousse. Le tout est également agrémenté par des effluves de fruits exotiques, d’ananas et d’agrumes. Prenez plaisir à savourer ces fines perles qui expriment une agréable fraîcheur. Il offre une bouche explosive et possède une vive acidité.",
+"bottle_image_url": "https://de-lavoie.com/wp-content/uploads/2013/10/BlancMousseaux2-600x468.jpg",
+"cepages": [
+"Frontenac Gris",
+"Vidal",
+"Éona",
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Domaine de Lavoie (boutique en ligne)",
+"wine_url": "https://de-lavoie.com/product/blanc-mousseux/",
+"physical_address": "100, rang de la Montagne, Rougemont, QC J0L 1M0",
+"product_code": null,
+"price": "15.44 CAD"
+},
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/12358237",
+"physical_address": null,
+"product_code": "12358237",
+"price": "18.55 CAD"
+},
+{
+"retailer_name": "La Maison du Rôti (boutique en ligne / magasin Montréal)",
+"wine_url": "https://maisonduroti.com/products/domaine-de-lavoie-blanc-mousseux-brut-750-ml",
+"physical_address": "1969, av. Mont‑Royal Est, Montréal, QC",
+"product_code": null,
+"price": "25.35 CAD"
+},
+{
+"retailer_name": "Aliments du Québec (liste de points de vente)",
+"wine_url": "https://alimentsduquebec.com/en/certified-products/products/blanc-mousseux",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Les Moraines",
+"producer_name": "DOMAINE DE L'ESPIÈGLE",
+"region": "Estrie",
+"style": "blanc",
+"method": "col fondo",
+"vintage": "2024",
+"quoted_description": "Cette cuvée est l'alter ego de nos Lieux Frais; même cépage, mais vinifié en col fondo au lieu de la méthode traditionnelle. Fraîche, crémeuse et portée par une bulle délicate, elle charme par sa finesse et sa simplicité.",
+"bottle_image_url": "https://freight.cargo.site/t/original/i/c9140295bd7302d0141354f9d081a54dc7a5a8684789cd68bce82284586924b6/Les-Moraines.jpg",
+"cepages": [
+"Chardonnay",
+"Pinot Meunier",
+"Pinot Noir"
+],
+"retailers": [
+{
+"retailer_name": "Domaine l'Espiègle (boutique du producteur)",
+"wine_url": "https://lespiegle.ca/Les-Moraines-2024",
+"physical_address": "4474 et 4540, Rue Principale, Dunham, QC J0E 1M0, Canada",
+"product_code": null,
+"price": "203$ CAD + taxes (case of 6 bottles; ≈33.83$ CAD per bottle before taxes). Order via producer boutique (pickup in Dunham; producer notes they cannot legally ship alcohol in Quebec)."
+}
+]
+},
+{
+"wine_name": "Ringuet & Drocourt",
+"producer_name": "DOMAINE DES CÔTES D'ARDOISES",
+"region": "Estrie",
+"style": "blanc",
+"method": "inconnu",
+"vintage": "2022",
+"quoted_description": "Nommé en l’honneur du propriétaire et du maitre de chai, cet assemblage d’Acadie blanc et de Vidal à la bulle fine vous séduira… Ce premier mousseux blanc du Domaine est bien sec et frais. Il présente un nez de pêche blanche et de brioche. Sa bouche est longue et savoureuse, on y retrouve de belles notes de miel et de poire.",
+"bottle_image_url": "https://cotesdardoise.com/wp-content/uploads/2024/07/Capture-decran-2024-07-16-084633.png",
+"cepages": [
+"Acadie Blanc",
+"Vidal"
+],
+"retailers": [
+{
+"retailer_name": "Domaine des Côtes d'Ardoise (vignoble)",
+"wine_url": "https://cotesdardoise.com/product/ringuet-drocourt/",
+"physical_address": "879, rue Bruce (Route 202), Dunham, Québec J0E 1M0, Canada",
+"product_code": null,
+"price": "25.22 CAD"
+},
+{
+"retailer_name": "La Table Vintage (Vintage Associés) - vente en ligne",
+"wine_url": "https://vintageassocies.com/products/ringuet-drocourt",
+"physical_address": null,
+"product_code": null,
+"price": "34.30 CAD"
+}
+]
+},
+{
+"wine_name": "Bulles d'Ardoises",
+"producer_name": "DOMAINE DES CÔTES D'ARDOISES",
+"region": "Estrie",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "",
+"bottle_image_url": "https://boiteavins.com/cdn/shop/products/bulles-d-ardoises-vin-effervescent-du-domaine-cotes-d-ardoise-vin-du-quebec-la-boite-a-vins-34217282502854_5000x.jpg?v=1662052038",
+"cepages": [
+"Frontenac Gris"
+],
+"retailers": [
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/collections/all/products/bulles-dardoises-vin-effervescent-du-domaine-cotes-dardoise",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": "23.00 $ CAD"
+},
+{
+"retailer_name": "Domaine des Côtes d'Ardoise (achat au vignoble)",
+"wine_url": "https://cotesdardoise.com",
+"physical_address": "879 Rue Bruce (Route 202), Dunham, QC J0E 1M0",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "L'ÉCHOUAGE PÉTILLANT",
+"producer_name": "DOMAINE DES FEUX FOLLETS",
+"region": "Chaudière-Appalaches",
+"style": "rosé",
+"method": "pétillant naturel",
+"vintage": "NV",
+"quoted_description": "Rien ne sert de se presser.\nAttendons la marée.\nC’est du rosé. Pétillant!\n\n* * *\n\nRosé de presse. Grappes entières pressé à 1 bar. Levures indigènes. Mise en bouteille avec un sucre résiduelle de 12 g/L. Rosé aux notes de fraise pour profitez des beaux jours de soleil au parc. Bel équilibre entre le fruit et l’acidité. Certifié biologique.\n\nMise en bouteille sans collage, ni filtration et aucun sulfite ajouté. (domainefeuxfollets.com)",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/60da28a569878d058fca4706/d807b5e4-3564-4053-bf7c-e748034f7c30/IMG_7626.jpeg",
+"cepages": [
+"Radisson"
+],
+"retailers": [
+{
+"retailer_name": "Domaine des Feux Follets (au domaine - vente directe)",
+"wine_url": "https://www.domainefeuxfollets.com/nos-vins/project-one-s796e-zs9rg-hgcb6-sf26w-daft8-7h72t ([domainefeuxfollets.com](https://www.domainefeuxfollets.com/nos-vins/project-one-s796e-zs9rg-hgcb6-sf26w-daft8-7h72t))",
+"physical_address": "82 Bd Blais E, Berthier-sur-Mer, QC G0R 1E0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Comptoir St-Jo (vente en ligne / boutique)",
+"wine_url": "https://www.comptoirstjo.com/boutique/vins/vignerons/domaine-des-feux-follets ([comptoirstjo.com](https://www.comptoirstjo.com/boutique/vins/vignerons/domaine-des-feux-follets?utm_source=openai))",
+"physical_address": "1000 boul. Saint-Joseph, Lachine, QC H8S 2M6",
+"product_code": null,
+"price": "36,00 $ CAD (liste en ligne; état du stock indiqué sur la page)"
+}
+]
+},
+{
+"wine_name": "Le Chant de la Sirène",
+"producer_name": "DOMAINE DES FEUX FOLLETS",
+"region": "Chaudière-Appalaches",
+"style": "blanc",
+"method": "pétillant naturel (veuxtuunebiere.com)",
+"vintage": "2024",
+"quoted_description": "Vin blanc pétillant. L’union de la poire et des fleurs d'arbres fruitiers sont au rendez-vous dans la coupe. Une bulle versatile, autant pour commencer la soirée festive que pour accompagner la tarte tatin ou les fromages au dessert. Certifié bio. (domainefeuxfollets.com)",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/60da28a569878d058fca4706/fb68d0f0-7bfc-4027-92b8-851a51c1a5e9/DSC_1202.jpeg",
+"cepages": [
+"Acadie Blanc",
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Domaine des Feux Follets (producteur)",
+"wine_url": "https://www.domainefeuxfollets.com/nos-vins/project-one-s796e-zs9rg-hgcb6-h2564-783a3",
+"physical_address": "82 Bd Blais E, Berthier-sur-Mer, QC G0R 1E0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Veux-tu une bière?",
+"wine_url": "https://veuxtuunebiere.com/products/le-chant-de-la-sirene",
+"physical_address": "5178 Avenue du Parc, Montréal, Québec H2V 4G6",
+"product_code": null,
+"price": "$36.25"
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/le-chant-de-la-sirene-2022-vin-blanc-petillant-biologique-du-domaine-des-feux-follets",
+"physical_address": "369‑F Rue Saint‑Jean, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": "$36.00"
+},
+{
+"retailer_name": "Les Minettes",
+"wine_url": "https://lesminettes.ca/products/le-chant-de-la-sirene-2022",
+"physical_address": null,
+"product_code": null,
+"price": "$29.00"
+}
+]
+},
+{
+"wine_name": "Bain de Minuit",
+"producer_name": "DOMAINE DES FEUX FOLLETS",
+"region": "Chaudière-Appalaches",
+"style": "rosé",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Plonge léger.\nÇa rafraîchit les idées.\nC’est un Pét-Nat.\n\nNez fruité, petits fruits rouges, réglisse rouge.\nBouche rafraichissante avec des belles notes de groseille, fraise des champs.\nAccords avec un bord de piscine ou un plateau apéritifs variés.\n\nFrontenac gris\nNon collé. Non filtré. Pet-nat\n\n750 ml\n10% alc./vol.",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/60da28a569878d058fca4706/cb2b3228-8b4d-44d2-af3d-11d3ee6df556/_MG_3429.jpg",
+"cepages": [
+"Frontenac Gris"
+],
+"retailers": [
+{
+"retailer_name": "Domaine des Feux Follets (producteur)",
+"wine_url": "https://www.domainefeuxfollets.com/nos-vins/project-one-s796e",
+"physical_address": "82 Bd Blais E, Berthier-sur-Mer, QC G0R 1E0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/bain-de-minuit-pet-nat-rose-du-domaine-des-feux-follets",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": "$31.00"
+},
+{
+"retailer_name": "Veux-tu une bière",
+"wine_url": "https://veuxtuunebiere.com/products/bain-de-minuit",
+"physical_address": "5178 Avenue du Parc, Montréal, QC H2V 4G6",
+"product_code": null,
+"price": "$31.50"
+}
+]
+},
+{
+"wine_name": "Pareil, pas pareil",
+"producer_name": "DOMAINE DU NIVAL INC.",
+"region": "Montérégie",
+"style": "blanc",
+"method": "col fondo",
+"vintage": "2024",
+"quoted_description": "Pour la première fois de notre histoire, on s'est lancés dans le négoce l'automne dernier, forts d'une offre qu'on ne pouvait refuser. On s'est fait proposer une jolie quantité de Vidal certifié bio et cultivé au vignoble Les Bacchantes à Hemmingford par notre collègue vigneronne Geneviève Thisdel (elle-même derrière les vins En roue libre). L'offre était trop belle et on a dit oui, avec toutefois l'envie de faire quelque chose de complètement différent. C'est ainsi qu'est née la cuvée Pareil, pas pareil 2024! Oui c'est du Vidal, mais il ne vient pas de chez nous et offre un profil aromatique bien différent de ce à quoi on est habitués. Et oui c'est un mousseux, mais cette fois travaillé en méthode col fondo plutôt qu'en méthode ancestrale. Alors oui, c'est un deuxième mousseux à base de Vidal, mais c'est complètement différent de notre cuvée Ces petits imprévus 2024. Et en plus, on a décidé de mettre ce vin en canettes plutôt qu'en bouteille! C'est donc une jolie bulle, super aromatique, gourmande et juste assez rafraichissante, le tout dans de jolies canettes de 355 mL et à prix doux.",
+"bottle_image_url": "https://www.nival.ca/cdn/shop/files/pareil-pas-pareil_2000x.png?v=1749309070",
+"cepages": [
+"Vidal"
+],
+"retailers": [
+{
+"retailer_name": "Domaine du Nival (boutique en ligne)",
+"wine_url": "https://www.nival.ca/products/pareil-pas-pareil-2024",
+"physical_address": "424, Rang du Bord-de-l'Eau Ouest, Saint-Louis, Québec",
+"product_code": null,
+"price": "12.60$ CAD"
+},
+{
+"retailer_name": "Les Minettes (détaillant - boutique & en ligne)",
+"wine_url": "https://lesminettes.ca/products/pareil-pas-pareil-2024",
+"physical_address": "148, boul. Sainte-Rose, Laval (Québec) H7L 1L3",
+"product_code": null,
+"price": "12.00$ CAD"
+}
+]
+},
+{
+"wine_name": "PetNat Foch",
+"producer_name": "DOMAINE DU RIDGE",
+"region": "Estrie … (Cantons-de-l'Est) ․ (fr.wikipedia.org)",
+"style": "rouge ․ (domaineduridge.com)",
+"method": "pétillant naturel (pét-nat) ․ (domaineduridge.com)",
+"vintage": "2022 ․ (domaineduridge.com)",
+"quoted_description": "Cette bouteille a commencé son histoire il y a 2 vendanges quand Samuel, le Maître de chai, et moi nous sommes aventurés à faire un pétillant naturel rouge. Franc succès? Et bien, disons qu’on a appris. Vous auriez éclaté de rire à me voir ouvrir une bouteille de test, BOOM! Jamais vu un geyser aussi puissant.\nCette année, c’est réussi! Des raisins cueillis à la main de notre meilleure parcelle, une fermentation douce et lente arrêtée par le froid au bon moment et repartie dans cette bouteille, on y est.\n\nCe Maréchal Foch aux arômes de cassis et framboise est soutenu par une belle petite bulle fine. (domaineduridge.com)",
+"bottle_image_url": "https://domaineduridge.com/wp-content/uploads/pet-nat-foch.jpg ․",
+"cepages": [
+"Maréchal Foch"
+],
+"retailers": [
+{
+"retailer_name": "La Boîte à Vins (La Boîte à Vin)",
+"wine_url": "https://boiteavins.com/products/copie-de-petnat-orange-2022-vin-orange-effervescent-du-domaine-du-ridge",
+"physical_address": "369, rue Saint-Jean, Longueuil (adresse listée par Domaine du Ridge).",
+"product_code": null,
+"price": "$32.00",
+"source": "([boiteavins.com](https://boiteavins.com/products/copie-de-petnat-orange-2022-vin-orange-effervescent-du-domaine-du-ridge))"
+},
+{
+"retailer_name": "Domaine du Ridge (boutique / vignoble)",
+"wine_url": "https://domaineduridge.com/les-petites-cuvees/",
+"physical_address": "205, chemin Ridge, Saint-Armand, QC  J0J 1T0",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+},
+{
+"retailer_name": "Le Vinologue",
+"wine_url": null,
+"physical_address": "4301, rue Ontario Est, Montréal",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+},
+{
+"retailer_name": "Peluso Beaubien",
+"wine_url": null,
+"physical_address": "251, Beaubien Est, Montréal",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+},
+{
+"retailer_name": "Hellvis Candy Shop",
+"wine_url": null,
+"physical_address": "3409, rue Ontario Est, Montréal",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+},
+{
+"retailer_name": "Épicerie Basta",
+"wine_url": null,
+"physical_address": "505, rue Rachel Est, Montréal",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+},
+{
+"retailer_name": "Boucherie aux saveurs des Sévelin",
+"wine_url": null,
+"physical_address": "1575, boul. Jacques-Cartier Est",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+},
+{
+"retailer_name": "Ferme Guyon",
+"wine_url": null,
+"physical_address": "1001, rue Patrick Farrar, Chambly",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+},
+{
+"retailer_name": "Boucherie Face de Boeuf (Sherbrooke)",
+"wine_url": null,
+"physical_address": "4250, chemin St-Roch Sud, Sherbrooke",
+"product_code": null,
+"price": null,
+"source": "([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/))"
+}
+]
+},
+{
+"wine_name": "L'Aube",
+"producer_name": "DOMAINE MONT-VÉZEAU",
+"region": "Outaouais",
+"style": "rosé",
+"method": "autre",
+"vintage": "",
+"quoted_description": "Vin rosé sec 11.5% (moins de 2gr/L). Issu d'un heureux assemblage de Frontenac Gris, Sabrevoix, St-Croix et de Radisson. Fraîcheur en bouche, idéal à l'apéro et brillera en accompagnant vos plats favoris (même les viandes rouges!)",
+"bottle_image_url": "https://static.wixstatic.com/media/a5637d_bb6d06286a274a749cf5b743ba4d558c~mv2.png/v1/fill/w_980%2Ch_1492%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/a5637d_bb6d06286a274a749cf5b743ba4d558c~mv2.png",
+"cepages": [
+"Marquette",
+"Frontenac Noir"
+],
+"retailers": [
+{
+"retailer_name": "Domaine Mont-Vézeau (boutique du producteur)",
+"wine_url": "https://www.domainemontvezeau.com/product-page/l-aube",
+"physical_address": "365 QC-321, Ripon, QC J0V 1V0, Canada",
+"product_code": null,
+"price": "24,35 C$"
+},
+{
+"retailer_name": "Marché Outaouais (liste de producteurs / point de vente régional)",
+"wine_url": "https://www.marcheoutaouais.com/producteurs/vezeau",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Vidal Brut",
+"producer_name": "DOMAINE DU RIDGE",
+"region": "Montérégie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2020",
+"quoted_description": "Il y a déjà plus de 2 ans, Samuel concoctait ce nouveau produit. Cette année-là, la vendange d’une de nos parcelles de vidal était plutôt faible en sucre et haute en acidité; des raisins presque verts!\n\nLorsque certains y voient un problème, d’autres y voient des solutions. Une première fermentation en cuve, une deuxième en bouteille et un peu de patience nous donne la chance de savourer cette bulle bien travaillée.\n\nNez minéral et citronné. En bouche, les bulles sont délicates et vivifiantes accompagnées de notes herbacées. La finale présente une légère amertume et une salinité rafraîchissante.\n\nDegré d’alcool 10 % · Format 750 ml · Taux de sucre 2 g/L · Cépage: Vidal. (domaineduridge.com)",
+"bottle_image_url": "https://boiteavins.com/cdn/shop/files/vidal-brut-2022-vin-blanc-effervescent-du-domaine-du-ridge-vin-du-quebec-la-boite-a-vins-35679595921606_5000x.jpg?v=1688680520",
+"cepages": [
+"Vidal"
+],
+"retailers": [
+{
+"retailer_name": "Domaine du Ridge (boutique du vignoble)",
+"wine_url": "https://domaineduridge.com/produit/les-petites-cuvees-vidal-brut/ ([domaineduridge.com](https://domaineduridge.com/produit/les-petites-cuvees-vidal-brut/))",
+"physical_address": "205, chemin Ridge, Saint-Armand, Québec J0J 1T0",
+"product_code": null,
+"price": "25,01 $ + tx"
+},
+{
+"retailer_name": "La Boîte à Vins (boutique en ligne)",
+"wine_url": "https://boiteavins.com/products/copie-de-seyval-vidal-2022-vin-blanc-du-domaine-du-ridge ([boiteavins.com](https://boiteavins.com/products/copie-de-seyval-vidal-2022-vin-blanc-du-domaine-du-ridge))",
+"physical_address": "369, rue Saint-Jean, Longueuil, QC (magasin La Boîte à Vins)",
+"product_code": null,
+"price": "32,00 $ (page produit; disponibilité: hors saison / bientôt de retour)"
+},
+{
+"retailer_name": "Sélection - épiceries fines listées par le producteur (exemples)",
+"wine_url": null,
+"physical_address": "Peluso Beaubien — 251, boul. Beaubien Est, Montréal; Hellvis Candy Shop — 3409, rue Ontario Est, Montréal; Épicerie Basta — 505, rue Rachel Est, Montréal. ([domaineduridge.com](https://domaineduridge.com/les-petites-cuvees/?utm_source=openai))",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Frizzante 2024",
+"producer_name": "DOMAINE OAK HILL",
+"region": "Estrie",
+"style": "rouge",
+"method": "méthode traditionnelle",
+"vintage": "2024",
+"quoted_description": "Au printemps suivant, trois cuvées énergiques font leur sortie avec le bien-aimé Perle rose, ainsi que le premier Pet’nat’ du domaine et un Frizzante de Frontenac Noir. (domaineoakhill.vin)",
+"bottle_image_url": "https://winealign-production.s3.amazonaws.com/wine_bottles/0042/4890/Frizzante-Domaine-Oak-Hill_copy_web.jpg",
+"cepages": [
+"Frontenac Noir"
+],
+"retailers": [
+{
+"retailer_name": "Domaine Oak Hill (vente au domaine / info)",
+"wine_url": "https://www.domaineoakhill.vin/nos-vins/2024",
+"physical_address": "455, chemin Crack, Melbourne, QC J0B 1X0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Les Minettes (boutique en ligne & Vieux Sainte‑Rose, Laval)",
+"wine_url": "https://lesminettes.ca/products/frizzante-2024",
+"physical_address": "148, boulevard Sainte-Rose, Laval, QC H7L 1L3",
+"product_code": null,
+"price": "34.50 CAD"
+},
+{
+"retailer_name": "WineAlign (fiche produit / achat possible via producteur)",
+"wine_url": "https://www.winealign.com/wines/170299-Domaine-Oak-Hill-Frontenac-Noir-Frizzante",
+"physical_address": null,
+"product_code": null,
+"price": "31.49 CAD (listé)"
+}
+]
+},
+{
+"wine_name": "Pétillant naturel 2024",
+"producer_name": "DOMAINE OAK HILL",
+"region": "Estrie",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Voici le tout premier millésime de la cuvée Pétillant Naturel du Domaine Oak Hill… et le moins qu’on puisse dire, c’est que c’est une réussite éclatante ✨ Cette bulle fine, enveloppante et gourmande a carrément conquis toute l’équipe dès la première gorgée. Issue d’une courte macération de frontenac blanc sur marcs de saint-pépin, la crescent et brianna, elle offre une belle complexité aromatique et une finale tout en fraîcheur. Une cuvée franchement délicieuse — parfaite pour l’apéro, un pique-nique ou un brunch en bonne compagnie. (lesminettes.ca)",
+"bottle_image_url": "https://lesminettes.ca/cdn/shop/files/Pet-Nat-Domaine-Oak-Hill.jpg?v=1749247233&width=2000",
+"cepages": [
+"Frontenac Blanc",
+"Saint-Pépin",
+"La Crescent",
+"Brianna"
+],
+"retailers": [
+{
+"retailer_name": "Les Minettes (boutique & boutique en ligne)",
+"wine_url": "https://lesminettes.ca/products/petillant-naturel-2024",
+"physical_address": "148, boulevard Sainte‑Rose, Laval, Québec H7L 1L3",
+"product_code": null,
+"price": "$34.50"
+},
+{
+"retailer_name": "Domaine Oak Hill — contact / boutique (producteur)",
+"wine_url": "https://www.domaineoakhill.vin/nos-vins/2024",
+"physical_address": "455, chemin Crack, Melbourne, Québec J0B 1X0",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Bulles",
+"producer_name": "DOMAINE POLISSON",
+"region": "Laurentides",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2021",
+"quoted_description": "Ok... ici pas le choix de mettre la main sur le tout premier vin mousseux du Domaine Polisson! La délicieuse cuvée Bulle 2021, avec sa couleur légèrement rosé et sa bulle fine, pourrait presque être qualifiée de blanc de noir!\n\n(Source: product page du détaillant reproduisant la description du producteur). (lesminettes.ca)",
+"bottle_image_url": "https://images.vivino.com/thumbs/QZxVckhVRo-ZNJRu_wXqsA_150x200.jpg",
+"cepages": [
+"Pinot Noir",
+"Gamay",
+"Chenin Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Les Minettes (boutique gourmande)",
+"wine_url": "https://lesminettes.ca/products/bulles-2021-domaine-polisson",
+"physical_address": "148 boulevard Sainte-Rose, Laval, QC H7L 1L3",
+"product_code": null,
+"price": "$32.00 CAD"
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace)",
+"wine_url": "https://www.vivino.com/en/domaine-polisson-bulles/w/11971774",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "RIESLING MOUSSEUX NATUREL",
+"producer_name": "DOMAINE VINÉTERRA",
+"region": "Montérégie",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2023",
+"quoted_description": "Vin sec pétillant naturel aux arômes d’agrûmes, de fleur blanche, de poire et de brioche. Fraîcheur en bouche. Servir à 4°C\n\nAttention à l’ouverture, bouteille sous pression (3 bar). Ouvrir lentement, petit à petit et directement au dessus d’une coupe de vin. Présence de lie. (vineterra.ca)",
+"bottle_image_url": null,
+"cepages": [
+"Riesling"
+],
+"retailers": [
+{
+"retailer_name": "Domaine Vinéterra (boutique en ligne)",
+"wine_url": "https://vineterra.ca/boutique/riesling-mousseux-naturel/",
+"physical_address": "815 chemin Pion, Mont‑Saint‑Hilaire, QC J3H 0L4, Canada",
+"product_code": "UGS 4238593-1-2-1-1-1-1",
+"price": "$21.50"
+}
+]
+},
+{
+"wine_name": "Lavinia",
+"producer_name": "LA BULLERIE",
+"region": "SAINT-JOSEPH-DU-LAC",
+"style": "blanc",
+"method": "autre",
+"vintage": "2020",
+"quoted_description": "Vin doux à bulles fines arborant une robe dorée. Minéral avec de légers arômes de pomme et de lavande. Un vin respectueux du terroir québécois.\nIntéressant en apéritif.",
+"bottle_image_url": "https://www.labullerie.com/wp-content/uploads/2022/04/1R4A9864.jpg",
+"cepages": [
+"Vandal-Cliche",
+"Frontenac Gris"
+],
+"retailers": [
+{
+"retailer_name": "La Bullerie (boutique du domaine)",
+"wine_url": "https://www.labullerie.com/boutique-en-ligne/",
+"physical_address": "2007 chemin Principal, Saint-Joseph-du-Lac, Québec J0N 1M0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Lamoureux – St-Joseph-du-Lac",
+"wine_url": null,
+"physical_address": "3765 Chemin d'Oka, Saint-Joseph-du-Lac, QC J0N 1M0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Mayrand Anjou",
+"wine_url": null,
+"physical_address": "9701 Boulevard Louis-H. La Fontaine, Anjou, QC",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Scarlett",
+"producer_name": "LA BULLERIE",
+"region": "Laurentides",
+"style": "rouge",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "Vin mousseux exhibant une robe rouge-violacé d’où émanent des notes de fruits rouges et de cassis. Tel un bonbon, il possède une agréable fraîcheur.",
+"bottle_image_url": "https://www.labullerie.com/wp-content/uploads/vins/scarlett.png",
+"cepages": [
+"Frontenac Noir",
+"Maréchal Foch",
+"Sainte-Croix"
+],
+"retailers": [
+{
+"retailer_name": "La Bullerie (boutique / producteur)",
+"wine_url": "https://www.labullerie.com/boutique/",
+"physical_address": "2007 chemin Principal, Saint-Joseph-du-Lac, Québec, J0N 1M0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Lamoureux - St-Joseph-du-Lac",
+"wine_url": null,
+"physical_address": "3765 Chemin Oka, Saint-Joseph-du-Lac, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Maxi et cie - Saint-Jérôme",
+"wine_url": null,
+"physical_address": "900 Boul. Grignon, Saint-Jérôme, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Mayrand - Anjou",
+"wine_url": "https://www.mayrand.ca",
+"physical_address": "9701 Boulevard Louis-H. La Fontaine, Anjou, Québec",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Peluso (Beaubien) - dépanneur / détaillant Montréal",
+"wine_url": null,
+"physical_address": "251 Beaubien E., Montréal, Québec",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Bulles blanc",
+"producer_name": "LA GRANGE DE L'ÎLE",
+"region": "Capitale-Nationale. (quebec.ca)",
+"style": "blanc",
+"method": "inconnu",
+"vintage": "NV (annoncé comme nouveauté 2024)",
+"quoted_description": "Nouveauté pour 2024 !\n\nNous produisons des vins pétillants en blanc, en rose et en rouge.\n\nBulles blanc",
+"bottle_image_url": "https://static.wixstatic.com/media/1f69a4_9588c19057a14b859c745ba19c8c1dc1~mv2.png/v1/fill/w_179%2Ch_269%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/1f69a4_9588c19057a14b859c745ba19c8c1dc1~mv2.png",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "La Grange de l'Île (boutique / espace dégustation)",
+"wine_url": "https://www.lagrangedelile.com/vignoble",
+"physical_address": "517 Chemin du Carrefour, Saint-Pierre-de-l'Île-d'Orléans, Québec G0A 4E0. ([lagrangedelile.com](https://www.lagrangedelile.com/en?utm_source=openai))",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Bulles rosé",
+"producer_name": "LA GRANGE DE L'ÎLE",
+"region": "Capitale-Nationale",
+"style": "rosé",
+"method": "inconnu",
+"vintage": "NV",
+"quoted_description": "Nouveauté pour 2024 !\n\nNous produisons des vins pétillants en blanc, en rose et en rouge.",
+"bottle_image_url": "https://static.wixstatic.com/media/1f69a4_5ced6a1897774726af6690a1a3fa37c2~mv2.png/v1/fill/w_179%2Ch_269%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/1f69a4_5ced6a1897774726af6690a1a3fa37c2~mv2.png",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "La Grange de l'Île — Boutique / Espace dégustation",
+"wine_url": "https://www.lagrangedelile.com/vignoble",
+"physical_address": "517 Chemin du Carrefour, Saint-Pierre-de-l'Île-d'Orléans, QC G0A 4E0, Canada",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins (revendeur / collection en ligne du producteur)",
+"wine_url": "https://boiteavins.com/collections/vignoble-la-grange",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Mousse des vents",
+"producer_name": "LA SEIGNEURIE DE LIRET",
+"region": "Capitale-Nationale (en.wikipedia.org)",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2019",
+"quoted_description": "Mousse des vents est un vin mousseux rosé de méthode traditionnelle qui rappelle l’effervescence du vent à travers les branches des vignes. Généreux en bulles il offre un savoureux assemblage de Frontenac blanc, de Vidal et de Baco noir qui apporte la couleur du fruit rouge. C’est un produit qui se déguste lentement pour profiter pleinement de chaque bonne occasion. (seigneuriedeliret.com)",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5a8b0ad1a803bb0ee46f449e/1522283629936-PU39EBGZVKZ73OXYD4KA/mousse-des-vents.jpg",
+"cepages": [
+"Frontenac Blanc",
+"Vidal",
+"Baco Noir"
+],
+"retailers": [
+{
+"retailer_name": "La Seigneurie de Liret (producteur)",
+"wine_url": "https://www.seigneuriedeliret.com/fr/accueil/ ([seigneuriedeliret.com](https://www.seigneuriedeliret.com/fr/accueil/))",
+"physical_address": "2378 Chemin Royal, Sainte-Famille, Île d'Orléans, Québec G0A 3P0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins (La Boite a Vins / Boiteavins.com)",
+"wine_url": "https://boiteavins.com/products/mousse-des-vents-mousseux-rose-du-la-seigneurie-de-liret ([boiteavins.com](https://boiteavins.com/products/mousse-des-vents-mousseux-rose-du-la-seigneurie-de-liret))",
+"physical_address": "Longueuil: 369-F Rue Saint-Jean, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": "$36.00 CAD"
+},
+{
+"retailer_name": "Les Minettes (boutique gourmande)",
+"wine_url": "https://lesminettes.ca/products/mousse-des-vents-2018 ([lesminettes.ca](https://lesminettes.ca/products/mousse-des-vents-2018))",
+"physical_address": "148 boul. Sainte-Rose, Laval, QC H7L 1L3",
+"product_code": null,
+"price": "$38.50 CAD"
+}
+]
+},
+{
+"wine_name": "Le Prodige",
+"producer_name": "LA HALTE DES PÈLERINS INC.",
+"region": "Estrie",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2019",
+"quoted_description": "D’une belle couleur ambrée et rosée, ce vin mousseux de méthode champenoise traditionnelle au nez discret offre une bouche enveloppante de fruits et de fleurs, des bulles fines, un bel équilibre et une bonne longueur en bouche. (haltedespelerins.com)",
+"bottle_image_url": "https://www.olalavert.com/cdn/shop/files/PEL7217-LeProdige.webp?v=1749665839&width=800",
+"cepages": [
+"Frontenac Noir",
+"Frontenac Gris",
+"Frontenac Blanc",
+"Unknown"
+],
+"retailers": [
+{
+"retailer_name": "La Halte des Pèlerins (producteur)",
+"wine_url": "https://haltedespelerins.com/vins/le-prodige",
+"physical_address": "693, chemin du Sanctuaire, Sherbrooke, QC J1H 0E1",
+"product_code": "1537",
+"price": "30.44 $ CAD"
+},
+{
+"retailer_name": "ÖlalaVert",
+"wine_url": "https://www.olalavert.com/products/pel7217-la-halte-des-pelerins-le-prodige",
+"physical_address": "745 Chemin Lakeside, Foster (Lac-Brome), QC J0E 1R0",
+"product_code": "PEL7217",
+"price": "38.10 $ CAD (listed; page shows currently unavailable)"
+}
+]
+},
+{
+"wine_name": "Nuage Effervescent",
+"producer_name": "LA SEIGNEURIE DE LIRET",
+"region": "Capitale-Nationale",
+"style": "blanc",
+"method": "méthode traditionnelle (vinquebec.com)",
+"vintage": "NV",
+"quoted_description": "Nuage effervescent est un vin dont le nom évoque la vue du ciel et les bulles qui valent leur pesant d’or. (seigneuriedeliret.com)",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5a8b0ad1a803bb0ee46f449e/1522283651060-ZJGCXSATXKWU06Y1Q65T/nuage-effervescent.jpg",
+"cepages": [
+"Chardonnay",
+"Pinot Noir",
+"Pinot Meunier"
+],
+"retailers": [
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/15551104",
+"physical_address": null,
+"product_code": "15551104",
+"price": "41,75 $ (SAQ en ligne) ([saq.com](https://www.saq.com/fr/15551104))"
+},
+{
+"retailer_name": "La Boîte à Vins (boutique en ligne / Montréal)",
+"wine_url": "https://boiteavins.com/products/nuage-effervescent-mousseux-du-la-seigneurie-de-liret",
+"physical_address": "La Boîte à Vins — 3641 Rue Dandurand, Montréal, QC H1X 1N5, Canada",
+"product_code": null,
+"price": null,
+"source": "Produit listé sur la boutique en ligne de La Boîte à Vins. ([boiteavins.com](https://boiteavins.com/products/nuage-effervescent-mousseux-du-la-seigneurie-de-liret?utm_source=openai))"
+},
+{
+"retailer_name": "Beau Dégât (boutique en ligne / Montréal)",
+"wine_url": "https://beaudegat.ca/products/laseigneuriedeliret-1",
+"physical_address": "Beau Dégât — 1239 Rue Charlevoix, Montréal, QC H3K 2Z7, Canada",
+"product_code": null,
+"price": "44,98 $ (prix affiché sur la fiche produit) ([beaudegat.ca](https://beaudegat.ca/products/laseigneuriedeliret-1))"
+}
+]
+},
+{
+"wine_name": "Tosca",
+"producer_name": "LA BULLERIE",
+"region": "Laurentides (fr.wikipedia.org)",
+"style": "rosé",
+"method": "inconnu",
+"vintage": "2021",
+"quoted_description": "Vin demi-sec effervescent à robe rouge-clair. Subtile amertume, notes de fraises et de framboises. Surprenant et polyvalent. (labullerie.com)",
+"bottle_image_url": "https://www.labullerie.com/wp-content/uploads/vins/tosca_new.png",
+"cepages": [
+"Frontenac Noir",
+"Maréchal Foch"
+],
+"retailers": [
+{
+"retailer_name": "La Bullerie (domaine / boutique)",
+"wine_url": "https://labullerie.com/boutique-et-degustation/ ([labullerie.com](https://labullerie.com/faq/))",
+"physical_address": "2007 chemin Principal, Saint-Joseph-du-Lac, QC J0N 1M0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Lamoureux – St-Joseph-du-Lac",
+"wine_url": null,
+"physical_address": "3765 Chemin d'Oka, Saint-Joseph-du-Lac, QC J0N 1M0 ([labullerie.com](https://labullerie.com/points-de-vente/))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Euro Marché Fleury (Montréal)",
+"wine_url": null,
+"physical_address": "224 Rue Fleury O., Montréal, QC H3L 1T7 ([labullerie.com](https://labullerie.com/points-de-vente/))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vivino (marketplace — fiche produit)",
+"wine_url": "https://www.vivino.com/en/la-bullerie-tosca-rose-effervescent/w/8675104 ([vivino.com](https://www.vivino.com/en/la-bullerie-tosca-rose-effervescent/w/8675104))",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Frontenac Blanc",
+"producer_name": "LE CHAMP DUO INC.",
+"region": "SAINTE-CATHERINE-DE-LA-JACQUES-CARTIER",
+"style": "blanc",
+"method": "inconnu",
+"vintage": "2024",
+"quoted_description": "",
+"bottle_image_url": null,
+"cepages": [
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Délices Céleste",
+"wine_url": "https://www.delicesceleste.com/product-page/vignoble-le-champ-duo",
+"physical_address": "161, rue Racine, Québec, Québec G2B 1E4",
+"product_code": null,
+"price": "13,00 C$ (page listée «Prix À partir de 13,00C$»)"
+},
+{
+"retailer_name": "Le Champ Duo (producteur — vente directe)",
+"wine_url": null,
+"physical_address": "163, rue Laurier, Sainte‑Catherine‑de‑la‑Jacques‑Cartier, Québec G3N 0V5",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Marquette — Cuvée St-Laurent",
+"producer_name": "LE CHAMP DUO INC.",
+"region": "Capitale-Nationale",
+"style": "rouge",
+"method": "inconnu",
+"vintage": "2024",
+"quoted_description": "",
+"bottle_image_url": null,
+"cepages": [
+"Marquette"
+],
+"retailers": [
+{
+"retailer_name": "Délices Céleste",
+"wine_url": "https://www.delicesceleste.com/product-page/vignoble-le-champ-duo",
+"physical_address": "161, rue Racine, Québec, QC G2B 1E4 (boutique Délices Céleste)",
+"product_code": null,
+"price": "À partir de 13,00 C$ (indiqué sur la fiche produit)"
+},
+{
+"retailer_name": "Vente à la propriété / au vignoble (Le Champ Duo)",
+"wine_url": null,
+"physical_address": "163, rue Laurier, Sainte-Catherine-de-la-Jacques-Cartier, QC G3N 0V5",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Globulles",
+"producer_name": "LE FIEF DE LA RIVIÈRE",
+"region": "BÉCANCOUR",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "Vin rosé mousseux qui se démarque grâce à une belle expression aromatique et gustative sur des notes de grenade et de fraise des bois. (lefiefdelariviere.ca)",
+"bottle_image_url": "https://www.lefiefdelariviere.ca/wp-content/uploads/2025/05/globulles-rose-mousseux-fief-de-la-riviere-79x300.png",
+"cepages": [
+"Radisson",
+"Sabrevois"
+],
+"retailers": [
+{
+"retailer_name": "Le Fief de la Rivière (boutique en ligne / caveau)",
+"wine_url": "https://www.lefiefdelariviere.ca/produit/globulles",
+"physical_address": "20280, Boulevard des Acadiens, Bécancour, QC G9H 1M8",
+"product_code": null,
+"price": "26,00$ Taxes inc."
+},
+{
+"retailer_name": "Metro Plus St-Grégoire (Bécancour)",
+"wine_url": null,
+"physical_address": "4900, avenue Fardel, Bécancour, QC G9H 1V7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Fromagerie L’Ancêtre (Bécancour)",
+"wine_url": null,
+"physical_address": "1615, boulevard de Port Royal, Bécancour, QC G9H 1X7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Les Campagnards Marché Urbain (Drummondville)",
+"wine_url": null,
+"physical_address": "206, rue Saint-Damase, Drummondville, QC J2B 6H7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Supermarché Clément (Nicolet)",
+"wine_url": null,
+"physical_address": "2000, boulevard Louis Fréchette, Nicolet, QC J3T 1M9",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Le Petit Marché (Nicolet)",
+"wine_url": null,
+"physical_address": "3080, boulevard Louis Fréchette, Nicolet, QC J3T 1N1",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Des Chenaux (Trois-Rivières)",
+"wine_url": null,
+"physical_address": "6600, rue des Alpes, Trois-Rivières, QC G9C 0K8",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Extra Marché Paquette (Trois-Rivières)",
+"wine_url": null,
+"physical_address": "3925, boulevard des Forges, Trois-Rivières, QC G8Y 1V9",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Dépanneur Vision Vidéo (Trois-Rivières)",
+"wine_url": null,
+"physical_address": "10301, chemin Sainte-Marguerite, Trois-Rivières, QC G9B 6M6",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Marché Centre-Ville (Chicoutimi)",
+"wine_url": null,
+"physical_address": "31, rue Jacques-Cartier Ouest, Chicoutimi, QC G7J 1E7",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Le Brut de Bacchus",
+"producer_name": "LE VIGNOBLE DE L'ISLE DE BACCHUS INC.",
+"region": "Capitale-Nationale",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2020",
+"quoted_description": "Vin mousseux méthode\n\ntraditionnelle\n\nCelui-ci est le premier du vignoble: Boyer/Primeau.\n\nVin mousseux réalisé à partir de la Méthode Traditionnelle, ce vin composé de Vidal et Geisenheim, frontenac a été mis en bouteille la première fois en 2017.\n\n750ml\n\n31,32$ + taxes\n\nMillésime 2020 dégorgé en décembre 2023",
+"bottle_image_url": "https://static.wixstatic.com/media/64416f_7045e3765f91460598b6ac952ff70b9f~mv2.png/v1/crop/x_0%2Cy_20%2Cw_500%2Ch_457/fill/w_380%2Ch_525%2Cal_c%2Clg_1%2Cq_85%2Cenc_avif%2Cquality_auto/imgi_3_Capture%20d%E2%80%99%C3%A9cran%2C%20le%202020-09-15%20%C3%A0%2016_56_21-fi25672258x422.png",
+"cepages": [
+"Vidal",
+"Geisenheim (GM-31857)",
+"Frontenac Noir"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Isle de Bacchus",
+"wine_url": "https://www.isledebacchus.com/nos-vins",
+"physical_address": "1335 Chemin Royal, Saint-Pierre-de-l'Île-d'Orléans, QC G0A 4E0",
+"product_code": null,
+"price": "31,32$ + taxes"
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/le-brut-de-bacchus-vin-effervescant-du-vignoble-lisle-de-bacchus",
+"physical_address": "Longueuil: 369-F Rue Saint-Jean, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": "$35.00"
+}
+]
+},
+{
+"wine_name": "Sélection Brut Nature",
+"producer_name": "LE VIGNOBLE LE CEP D'ARGENT INC.",
+"region": "Estrie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2021",
+"quoted_description": "Vinifiée et élaborée selon la méthode traditionnelle par notre vigneron, la Sélection Brut Nature ne contient aucun sucre résiduel. (cepdargent.com)",
+"bottle_image_url": "https://www.cepdargent.com/wp-content/uploads/brut-nature-2021-273x410.jpg",
+"cepages": [
+"Seyval Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Le Vignoble Le Cep d'Argent - Boutique en ligne",
+"wine_url": "https://www.cepdargent.com/shop/selection-brut-nature/ ([cepdargent.com](https://www.cepdargent.com/shop/selection-brut-nature/))",
+"physical_address": "1257, Chemin de la Rivière, Magog, QC J1X 3W5 ([cepdargent.com](https://www.cepdargent.com/shop/selection-brut-nature/))",
+"product_code": null,
+"price": "$29.75 CAD + taxes ([cepdargent.com](https://www.cepdargent.com/shop/selection-brut-nature/))"
+},
+{
+"retailer_name": "La Boîte à Vins (détaillant en ligne / boutique Montréal)",
+"wine_url": "https://boiteavins.com/products/brut-nature-vin-effervescent-du-cep-dargent ([boiteavins.com](https://boiteavins.com/products/brut-nature-vin-effervescent-du-cep-dargent))",
+"physical_address": "3641 Rue Dandurand, Montréal, QC H1X 1N5 ([mapquest.com](https://www.mapquest.com/ca/quebec/la-boite-a-vins-456088100?utm_source=openai))",
+"product_code": null,
+"price": "$32.00 CAD (liste) ([boiteavins.com](https://boiteavins.com/products/brut-nature-vin-effervescent-du-cep-dargent))"
+}
+]
+},
+{
+"wine_name": "Delphinium Pétillant Naturel BIO",
+"producer_name": "LE MAS DES PATRIOTES",
+"region": "Montérégie",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Vendange et tri manuels, égrappage et foulage, pressurage pneumatique. Début de fermentation alcoolique et malolactique en cuve inox thermorégulée. Fin de fermentation en bouteille pour obtenir une légère effervescence.\n\nNotes de dégustation :\nVin pétillant rafraîchissant et gouleyant. Arômes fins de fruits exotiques avec dominance ananas. Bulles fines qui procurent une effervescence agréable.\n\nAccords mets et vin :\nVin frais et festif qui convient parfaitement à l’apéro et qui est sublimé par des plats tels qu’un poisson fumé, un gravlax ou des salades estivales.",
+"bottle_image_url": null,
+"cepages": [
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Le Mas des Patriotes (producteur)",
+"wine_url": "https://www.lemasdespatriotes.com/bulles-et-roses/",
+"physical_address": "1076, chemin des Patriotes Ouest, Saint-Jean-sur-Richelieu, Québec J2Y 1H4",
+"product_code": null,
+"price": "29,75 $ (affiché sur la fiche producteur)"
+},
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/15535905",
+"physical_address": null,
+"product_code": "15535905",
+"price": "29,75 $ (SAQ.com listing)"
+},
+{
+"retailer_name": "La Bière à Boire / La Bière à Boire - Le Mas des Patriotes (retailer)",
+"wine_url": "https://labiereaboire.com/le-mas-des-patriotes-delphinium",
+"physical_address": "117 Rue Saint Pierre #107, Saint-Constant, Québec J5A 0M3",
+"product_code": "UPC/Model shown: 827924112127 (retailer listing)",
+"price": "31,99 $ (retailer listing)"
+},
+{
+"retailer_name": "La Boîte à Vins (revendeur)",
+"wine_url": "https://boiteavins.com/search?q=Delphinium",
+"physical_address": null,
+"product_code": null,
+"price": "varie (revendeur — page produit listé / disponibilité variable)"
+}
+]
+},
+{
+"wine_name": "Le Brut de Bacchus",
+"producer_name": "LE VIGNOBLE DE L'ISLE DE BACCHUS INC.",
+"region": "Capitale-Nationale",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "Vin Blanc Mousseux de Méthode Traditionnelle - 12.5% alc/vol\nCelui-ci est le premier du vignoble: Boyer/Primeau. Par la méthode traditionnelle ce vin composé de Vidal et Geisenheim a été mis en bouteille en 2019. Dégorgement 2022 Ses bulles fines et longues en bouche, nous apportent des arômes de pommettes et d'abricots sur une bouche ronde et fraîche avec une belle longueur en bouche. Suggestion accord-mets : Accompagne très bien les huitres et les fromages. Servir à 8°C Mettre au froid avant la consommation.",
+"bottle_image_url": "https://labiereaboire.com/image/cache/catalog/bieres/827924033170-512x600.jpg",
+"cepages": [
+"Vidal",
+"Geisenheim (GM-31857)"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Isle de Bacchus (détaillant / producteur)",
+"wine_url": "https://www.isledebacchus.com",
+"physical_address": "1335 Chemin Royal, Saint-Pierre-de-l'Île-d'Orléans, QC G0A 4E0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Bière à Boire",
+"wine_url": "https://labiereaboire.com/isle-de-bacchus-mousseux",
+"physical_address": "117 Rue St-Pierre, Local 107, Saint-Constant, QC J5A 0M3",
+"product_code": "827924033170",
+"price": "39.99 CAD"
+},
+{
+"retailer_name": "La Boîte à Vins (boutique en ligne)",
+"wine_url": "https://boiteavins.com/products/le-brut-de-bacchus-vin-effervescant-du-vignoble-lisle-de-bacchus",
+"physical_address": "Adresse légale: 245 Rue Duvernay Suite 100, Beloeil, QC J3G 2M3",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Saucette",
+"producer_name": "LES SOEURS RACINES",
+"region": "Estrie",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Des bulles de Frontenac gris, c’est oui !! La belle bulle fait fondre les acidités mordantes et rend ce Frontenac croquant, mais sans grimace !\n\nLe Frontenac gris dans sa plus belle expression.\n\nMillésime : 2024\n\nRaisins : Frontenac Gris\n\nPlantation : 2019.\nVinification : PÉTILLANT NATUREL. Macération carbonique de 7 jours, fermentation en cuve inox et mise en bouteille avec un taux de sucre résiduel, durant une journée pluvieuse de vendanges. Lors de l’embouteillage, il reste quelques grammes de sucre dans les vins c’est ce qui créera la bulle. Les vins ont été dégorgés en avril 2025.\n\nSans sulfites ajoutés.\n\nÉlevage : 6 mois sur lattes avant dégorgement.\n\nDégorgement : Avril 2025.",
+"bottle_image_url": "https://soeursracines.com/cdn/shop/files/SOEURSRACINES_20250619_audreyevebeauchamp_0043_export2.jpg?v=1750372347&width=1445",
+"cepages": [
+"Frontenac Gris"
+],
+"retailers": [
+{
+"retailer_name": "Les Soeurs Racines (producteur)",
+"wine_url": "https://soeursracines.com/products/2024-saucette",
+"physical_address": "317 Rang de l'église sud, Saint-Ignace-de-Stanbridge, J0J 1Y0, QC",
+"product_code": null,
+"price": "$33.00 CAD"
+},
+{
+"retailer_name": "Comptoir St-Jo (boutique en ligne / magasin)",
+"wine_url": "https://www.comptoirstjo.com/boutique/p/soeursracinessaucette",
+"physical_address": "1000 boul. Saint-Joseph, Lachine, QC H8S 2M6",
+"product_code": null,
+"price": "$50.00 CAD"
+},
+{
+"retailer_name": "Les Mal-Aimés (restaurant — carte à boire)",
+"wine_url": "https://www.mal-aimes.ca/carte-alcool",
+"physical_address": "429 route 253, Cookshire-Eaton, QC",
+"product_code": null,
+"price": "$86.00 CAD"
+},
+{
+"retailer_name": "Bagel St-Lo (bar / boutique)",
+"wine_url": "https://www.bagelstlo.com/boissons-du-moment",
+"physical_address": "5411 rue de Verdun, Verdun, QC H4H 1K6",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Nuage en forme de grappe",
+"producer_name": "LES VINS DE TRÈS-PRÉCIEUX-SANG",
+"region": "Centre-du-Québec",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2024",
+"quoted_description": "Non dosé (brut nature), ce mousseux rosé dévoile une bulle fine, des arômes délicats de fruits des champs, et une acidité douce, qui le rend accessible et ultra agréable à boire. Une bulle festive, légère et idéale pour accompagner vos apéros ou célébrer les beaux jours. (lesminettes.ca)",
+"bottle_image_url": "https://lesminettes.ca/cdn/shop/files/nuage-en-forme-de-grappe-2024.jpg",
+"cepages": [
+"Unknown"
+],
+"retailers": [
+{
+"retailer_name": "Les Minettes",
+"wine_url": "https://lesminettes.ca/products/nuage-en-forme-de-grappe-2024",
+"physical_address": "148, boul. Sainte-Rose, Laval, Québec H7L 1L3",
+"product_code": null,
+"price": "30.00 CAD"
+},
+{
+"retailer_name": "Racines boréales",
+"wine_url": "https://racinesboreales.ca/products/nuage-en-forme-de-grappe-vin-mousseux-rose",
+"physical_address": "4317 rue Ontario Est, Montréal, QC H1V 1K5",
+"product_code": null,
+"price": "29.99 CAD"
+},
+{
+"retailer_name": "Veux-tu une bière",
+"wine_url": "https://veuxtuunebiere.com/products/nuage-en-forme-de-grappe",
+"physical_address": "5178 Avenue du Parc, Montréal, Québec H2V 4G6",
+"product_code": null,
+"price": "34.00 CAD"
+}
+]
+},
+{
+"wine_name": "Méthode Traditionnelle",
+"producer_name": "MAURICE DUFOUR",
+"region": "BAIE-SAINT-PAUL",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2022",
+"quoted_description": "Cette délicieuse bulle des amis de Charlevoyou est issue du mariage de cépages blancs et rouges, voulant laisser place à un vin mousseux d'inspiration blanc de noir. Belle réussite!",
+"bottle_image_url": "https://lesminettes.ca/cdn/shop/files/methode-traditionnelle-2022-charlevoyou.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Les Minettes (boutique en ligne)",
+"wine_url": "https://lesminettes.ca/products/methode-traditionnelle",
+"physical_address": "Boutique Vieux Sainte‑Rose / Les Minettes (voir site) — adresse variable selon point de vente (commande en ligne / cueillette locale)",
+"product_code": null,
+"price": "39.00 CAD"
+},
+{
+"retailer_name": "Famille Migneron (producteur / boutique)",
+"wine_url": "https://famillemigneron.com/nos-vins/",
+"physical_address": "Famille Migneron de Charlevoix — 1339, boulevard Monseigneur‑De Laval, Baie‑Saint‑Paul, QC  G3Z 2X6",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Point de vente listés par le producteur (sélection de restaurants / boutiques au Québec)",
+"wine_url": "https://famillemigneron.com/nos-vins/",
+"physical_address": "Exemples : Bleu et Persillé (Plateau, Montréal), Les Minettes (Vieux Sainte‑Rose), Le Bercail (Charlevoix) — voir la liste complète sur la page \"Nos Vins\" du producteur.",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Papillon",
+"producer_name": "MAISON AGRICOLE JOY HILL",
+"region": "Estrie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "null",
+"quoted_description": "Pressurage direct, fermentation indigène et élevage en cuve d'inox pendant 4 mois\n\nPrise de mousse en méthode traditionnelle non dégorgée et non dosée (col fondo)\n\nVin blanc mousseux à la bulle gourmande et aux notes pâtissières",
+"bottle_image_url": "https://maisonjoyhill.com/cdn/shop/files/JOYHILL_20250516_aebeauchamp_0126-min_3335x5000_6de2c15e-317a-4d78-bb4b-56483c71ad74.jpg?v=1747712570&width=1946",
+"cepages": [
+"Grüner Veltliner"
+],
+"retailers": [
+{
+"retailer_name": "Maison agricole Joy Hill (producteur)",
+"wine_url": "https://maisonjoyhill.com/products/caisse-joy-hill-papillon-2024",
+"physical_address": "85, chemin Richford, Frelighsburg, Québec J0J 1C0",
+"product_code": null,
+"price": "$336.00 (caisse de 12 bouteilles) / vente principalement en caisse et en points de cueillette"
+},
+{
+"retailer_name": "Veux-tu une bière (boutique en ligne, Montréal)",
+"wine_url": "https://veuxtuunebiere.com/products/papillon",
+"physical_address": "5178 Avenue du Parc, Montréal, Québec H2V 4G6",
+"product_code": null,
+"price": "$37.75 (prix affiché unitaire, taxes incluses)"
+}
+]
+},
+{
+"wine_name": "Blanc de Noirs",
+"producer_name": "PINARD ET FILLES",
+"region": "Estrie",
+"style": "blanc",
+"method": "autre",
+"vintage": "2023",
+"quoted_description": "100% Pinot Noir - 11.3 % alc./vol\n\nPresses directes de pinot noir, fermentation et élevage sur lies de 18 mois en barriques bourguignonnes de 228L. D’une belle rondeur, ce blanc de Noirs, à la légère teinte œil-de-perdrix, nous rappelle toute l’élégance et la versatilité du pinot noir.\n\nMise en bouteille sans collage ni filtration, sans soufre ajouté.",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5f9832e0547de053c2357706/1606842314727-B9GPO6UUADMESX8ZTSA6/BlancdeNoirs.jpg",
+"cepages": [
+"Pinot Noir",
+"Pinot Meunier"
+],
+"retailers": [
+{
+"retailer_name": "Grape Witches (Toronto) - Grape Witch Imports",
+"wine_url": "https://grapewitches.com/products/pinard-filles-blanc-de-noirs",
+"physical_address": "1247 Dundas St W, Toronto, Ontario (Dundas shop)",
+"product_code": "WINE-GWI-PINARD-ET-FILLES-BLANC-DE-NOIRS (shop SKU)",
+"price": "75 CAD"
+},
+{
+"retailer_name": "Wine Chateau (online, USA)",
+"wine_url": "https://winechateau.com/products/blanc-de-noirs-quebec-white-2019",
+"physical_address": null,
+"product_code": "ZRS200329-19",
+"price": "50.97 USD (listed for 2019 vintage; sold out at time of scraping)"
+},
+{
+"retailer_name": "Zev Rovine Selections (distributeur - États-Unis)",
+"wine_url": "https://www.zrswines.com/our-producers/pinard-et-filles",
+"physical_address": "119 Ingraham St, Suite 202, Brooklyn, NY 11237",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vin Papillon (Montréal) — établissement listé dans la distribution officielle",
+"wine_url": "https://vinpapillon.com/",
+"physical_address": "2519 Rue Notre-Dame Ouest, Montréal, QC H3J 1N4",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "K-Pop",
+"producer_name": "VIGNOBLE CHÂTEAU FONTAINE",
+"region": "Montérégie",
+"style": "rosé",
+"method": "pétillant naturel",
+"vintage": "2023",
+"quoted_description": "Un rosé pétillant unique aux saveurs de confiture de fraise et de poivre fruité, élaboré à partir de Foch et De Chaunac.",
+"bottle_image_url": "https://boiteavins.com/cdn/shop/files/k-pop-2022-vin-rose-mousseux-sommelier-nordiq-x-vignoble-chateau-fontaine-vin-du-quebec-la-boite-a-vins-35640202657990_5000x.jpg?v=1687644610",
+"cepages": [
+"Maréchal Foch",
+"De Chaunac"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Château Fontaine (producteur)",
+"wine_url": "https://vignoblechateaufontaine.ca/nos-vins/",
+"physical_address": "4900 rue Martineau, Saint-Hyacinthe, QC, J2S 7B8",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/copie-de-champ-gauche-5ans-cidre-de-sommelier-nordiq-x-cidrerie-milton",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7",
+"product_code": null,
+"price": "$31.00"
+},
+{
+"retailer_name": "Le Frigo de Bacchus",
+"wine_url": "https://www.lefrigodebacchus.com/fr/Produit-22036-Vignoble-Chateau-Fontaine-Nordiq-Soir-de-funk-K-Pop-2023-750ml",
+"physical_address": "5411, 9e avenue, Montréal, QC, H1Y 2J7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace)",
+"wine_url": "https://www.vivino.com/fr/vignoble-chateau-fontaine-nordiq-soir-de-funk-k-pop/w/12756076",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Eurodance 2022",
+"producer_name": "VIGNOBLE CHÂTEAU FONTAINE",
+"region": "Montérégie. (vignoblechateaufontaine.ca)",
+"style": "rosé",
+"method": "inconnu",
+"vintage": "2022",
+"quoted_description": "Un rosé pétillant d’exception, vibrant de convivialité et de gourmandise. Chaque bulle, délicate et persistante, ajoute une touche de fraîcheur équilibrant à merveille la générosité de ce vin. (vignoblechateaufontaine.ca)",
+"bottle_image_url": "https://vignoblechateaufontaine.ca/wp-content/uploads/2024/06/Nordiq_Soirdefunk_Eurodanse2022.png",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Vignoble Château Fontaine (boutique en ligne & vignoble)",
+"wine_url": "https://vignoblechateaufontaine.ca/nos-vins/eurodance-2022/ ([vignoblechateaufontaine.ca](https://vignoblechateaufontaine.ca/nos-vins/eurodance-2022/))",
+"physical_address": "4900 rue Martineau, Saint-Hyacinthe, QC, J2S 7B8. ([vignoblechateaufontaine.ca](https://vignoblechateaufontaine.ca/contact/))",
+"product_code": null,
+"price": "CAD $20.00 (site product page). ([vignoblechateaufontaine.ca](https://vignoblechateaufontaine.ca/nos-vins/eurodance-2022/))"
+},
+{
+"retailer_name": "Sommelier Nordiq (collaboration / listing)",
+"wine_url": "https://vinnordiq.com/vins/eurodance/ ([vinnordiq.com](https://vinnordiq.com/vins/eurodance/))",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace listing)",
+"wine_url": "https://www.vivino.com/fr/vignoble-chateau-fontaine-nordiq-soir-de-funk-eurodance/w/12756083 ([vivino.com](https://www.vivino.com/fr/vignoble-chateau-fontaine-nordiq-soir-de-funk-eurodance/w/12756083))",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Air de fête rosé pétillant",
+"producer_name": "VIGNOBLE CLOS ST-JEAN",
+"region": "Lanaudière (fr.wikipedia.org)",
+"style": "rosé",
+"method": "pétillant naturel (tetesauvent.ca)",
+"vintage": "2024 (tetesauvent.ca)",
+"quoted_description": "Ce pétillant naturel aux bulles caressantes nous offre des instants de bonheur. D’une robe framboise éclatante, ce rosé séduit par sa souplesse et sa fraîcheur. Il s’ouvre sur des arômes de petits fruits rouges acidulés, tels que la canneberge et la framboise. En bouche, la fraise et la framboise dominent dès la première gorgée, puis une subtile touche florale en finale apporte de la complexité. Son acidité vive, alliée à de fines bulles, confère à l’ensemble fraîcheur et élégance. Sa persistance aromatique invite irrésistiblement à en reprendre une gorgée. (tetesauvent.ca)",
+"bottle_image_url": "https://tetesauvent.ca/cdn/shop/files/IMG_3977_2000x2667.jpg?v=1759416025",
+"cepages": [
+"Frontenac Blanc",
+"Vidal",
+"Seyval Blanc",
+"Petite Pearl"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Têtes au vent (boutique en ligne)",
+"wine_url": "https://tetesauvent.ca/products/air-de-fete-rose-petillant ([tetesauvent.ca](https://tetesauvent.ca/products/air-de-fete-rose-petillant))",
+"physical_address": "190 chemin St‑Jean, Sainte‑Marie‑Salomé, Québec J0K 2Z0 ([tetesauvent.ca](https://tetesauvent.ca/products/air-de-fete-rose-petillant))",
+"product_code": null,
+"price": "$29.00 CAD ([tetesauvent.ca](https://tetesauvent.ca/products/air-de-fete-rose-petillant))"
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace listing)",
+"wine_url": "https://www.vivino.com/fr/vignoble-tetes-au-vent-air-de-fete-rose-petillant/w/13678447 ([vivino.com](https://www.vivino.com/fr/vignoble-tetes-au-vent-air-de-fete-rose-petillant/w/13678447?utm_source=openai))",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Bulles rouge",
+"producer_name": "LA GRANGE DE L'ÎLE",
+"region": "Capitale-Nationale",
+"style": "rouge",
+"method": "inconnu",
+"vintage": "2024",
+"quoted_description": "Nouveauté pour 2024 ! Nous produisons des vins pétillants en blanc, en rose et en rouge. (lagrangedelile.com)",
+"bottle_image_url": "https://static.wixstatic.com/media/1f69a4_5ced6a1897774726af6690a1a3fa37c2~mv2.png/v1/fill/w_179%2Ch_269%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/1f69a4_5ced6a1897774726af6690a1a3fa37c2~mv2.png",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "La Grange de l'Île (boutique / vignoble)",
+"wine_url": "https://www.lagrangedelile.com/vignoble",
+"physical_address": "517 Chemin du Carrefour, Saint-Pierre-de-l'Île-d'Orléans, QC G0A 4E0, Canada",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins (page collection du producteur)",
+"wine_url": "https://boiteavins.com/collections/vignoble-la-grange",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Air de fête rouge pétillant",
+"producer_name": "VIGNOBLE CLOS ST-JEAN",
+"region": "Lanaudière",
+"style": "rouge",
+"method": "pétillant naturel",
+"vintage": "2023",
+"quoted_description": "Ce pétillant naturel aux bulles caressantes nous plonge dans un instant magique, où le moment présent devient une fête… même si l’on n’a rien à fêter. Millésime : 2023 Cépages : Frontenac noir, Frontenac blanc et Marquette Vendange : Manuelle avec tri minutieux au champ Vinification : Égrappé et foulé suivi d’une macération pré-fermentaire à froid d’une durée de 11 jours. Fermentation sur levures indigènes. Mis en bouteille sans collage ni filtration, après 6 mois d’élevage en cuve inox, avec un faible ajout de sucre et levures pour obtenir une légère effervescence. Non dégorgé, sans sulfites ajoutés.  Un léger dépôt peut se produire en bouteille. Élevage : 6 mois sur lies en cuve d’acier inoxydable.",
+"bottle_image_url": "https://tetesauvent.ca/cdn/shop/files/IMG-6190_2000x2667.heic?v=1697655834",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Vignoble Têtes au vent (producteur) - boutique en ligne / vente au vignoble",
+"wine_url": "https://tetesauvent.ca/products/vin-air-de-fete-pet-nat",
+"physical_address": "190 chemin St-Jean, Sainte-Marie-Salomé, Québec, J0K 2Z0",
+"product_code": null,
+"price": "28.00 CAD"
+},
+{
+"retailer_name": "Racines boréales (épicerie fine) - en ligne & boutique (Montréal)",
+"wine_url": "https://racinesboreales.ca/products/vignoble-tetes-au-vent-air-de-fete-vin-rouge-petillant",
+"physical_address": "4317 rue Ontario Est, Montréal, Québec H1V 1K5",
+"product_code": null,
+"price": "32.50 CAD"
+},
+{
+"retailer_name": "Le Fermentor (bar / restaurant — vente au verre ou bouteille)",
+"wine_url": "https://www.lefermentor.com/menus",
+"physical_address": null,
+"product_code": null,
+"price": "Bouteille signalée à 65$ (vente au restaurant/menu)."
+}
+]
+},
+{
+"wine_name": "Les Bulles de la Côte",
+"producer_name": "VIGNOBLE CÔTE DE VAUDREUIL",
+"region": "Montérégie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2022",
+"quoted_description": "Élaboré selon la méthode traditionnelle, il allie finesse et richesse tant dans les arômes qu’en bouche. Les bulles sont fines et persistante dans le verre. Un mousseux agréable, élaboré à partir de Frontenac Gris et de Prairie-Star.",
+"bottle_image_url": "https://static.wixstatic.com/media/8a9e33_ee26e2138fd641cea7a9186c6736f625~mv2.png/v1/crop/x_297%2Cy_0%2Cw_931%2Ch_2601/fill/w_116%2Ch_324%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Les%20Bulles%20HR.png",
+"cepages": [
+"Frontenac Gris",
+"Prairie Star"
+],
+"retailers": [
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/14543698",
+"physical_address": null,
+"product_code": "14543698",
+"price": "30.75 CAD"
+},
+{
+"retailer_name": "Vintage & Associés (La Table Vintage) / Boutique en ligne",
+"wine_url": "https://vintageassocies.com/products/les-bulles-de-la-cote",
+"physical_address": null,
+"product_code": "SAQ 14543698",
+"price": "30.75 CAD"
+},
+{
+"retailer_name": "Vignoble Côte de Vaudreuil (direct / product page)",
+"wine_url": "https://www.cotedevaudreuil.com/les-vins",
+"physical_address": "2692, route Harwood, Vaudreuil-Dorion, QC J7V 4G2",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Lys Bulle",
+"producer_name": "VIGNOBLE CORTELLINO",
+"region": "Montérégie",
+"style": "blanc",
+"method": "inconnu",
+"vintage": "NV",
+"quoted_description": "Le Lys Bulle a été élaboré à partir du St-Croix et du Frontenac gris. De couleur ambrée, ce vin mousseux laisse percevoir des arômes de fraise et de bonbon. En bouche, ce vin nous offre une légère sucrosité et une finale tout en fraicheur.",
+"bottle_image_url": "https://boiteavins.com/products/lys-bulle-vin-mousseux-du-vignoble-cortellino",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/lys-bulle-vin-mousseux-du-vignoble-cortellino",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7",
+"product_code": null,
+"price": "$23.00"
+},
+{
+"retailer_name": "Vignoble Cortellino - Boutique (producteur)",
+"wine_url": null,
+"physical_address": "468, rang Double, Saint-Urbain-Premier, Québec, J0S 1Y0",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Pet Nat",
+"producer_name": "VIGNOBLE COUCHEPAGANE",
+"region": "Saguenay–Lac-Saint-Jean (fr.wikipedia.org)",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Ce pétillant naturel très aromatique aux notes poirées est élaboré avec la méthode ancestrale sur levures indigènes. À déguster en apéro ou au dessert. (racinesboreales.ca)",
+"bottle_image_url": "https://i.pinimg.com/736x/b8/63/93/b86393303daacf2567b08ee5b1366f68.jpg",
+"cepages": [
+"Vandal-Cliche"
+],
+"retailers": [
+{
+"retailer_name": "Racines boréales",
+"wine_url": "https://racinesboreales.ca/products/pet-nat",
+"physical_address": "4317 rue Ontario Est, Montréal QC H1V 1K5",
+"product_code": null,
+"price": "CA$26.00"
+},
+{
+"retailer_name": "La QV (laqv.ca) - fiche licenciés",
+"wine_url": "https://laqv.ca/products/pet-nat",
+"physical_address": null,
+"product_code": null,
+"price": "CA$19.00 (prix licenciés)"
+},
+{
+"retailer_name": "Vignoble Couchepagane (achat au vignoble / boutique en ligne)",
+"wine_url": "https://couchepagane.com/ (boutique en ligne link)",
+"physical_address": "1328, Rang Sainte-Anne, Métabetchouan–Lac-à-la-Croix, QC G8G 1A3",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Part des Anges (resto - vend en bouteille sur la carte)",
+"wine_url": "https://www.lapartdesanges.ca/carte-des-vins",
+"physical_address": "5425 Rue Chapleau, Montréal, QC H2G 2E3",
+"product_code": null,
+"price": "CA$60 (carte des vins - bouteille signalée) ([lapartdesanges.ca](https://www.lapartdesanges.ca/carte-des-vins?utm_source=openai))"
+}
+]
+},
+{
+"wine_name": "l'Orpailleur Brut",
+"producer_name": "VIGNOBLE DE L'ORPAILLEUR",
+"region": "Montérégie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "Golden color, fine and persistent bubbles. The mouth is supple and well balanced with a nice freshness. Its notes of cooked apples, pear, tarte tatin and biscuit make these bubbles most seductive.",
+"bottle_image_url": "https://orpailleur.ca/cdn/shop/products/Shopify_Brut.png?v=1666115462&width=1445",
+"cepages": [
+"Seyval Blanc",
+"Vidal"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble de l'Orpailleur (boutique en ligne / au vignoble)",
+"wine_url": "https://orpailleur.ca/en/products/orpailleur-brut",
+"physical_address": "Vignoble de l'Orpailleur, 1086 rue Bruce, Dunham, QC J0E 1M0",
+"product_code": null,
+"price": "$24.35 (750 ml — site du producteur; disponibilités/prix variables; magnum 1.5 L listed $46.97)"
+},
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/en/12685625",
+"physical_address": null,
+"product_code": "12685625",
+"price": "$31.50 (SAQ online price)"
+}
+]
+},
+{
+"wine_name": "Le Brut",
+"producer_name": "VIGNOBLE DE STE-PETRONILLE",
+"region": "Capitale-Nationale",
+"style": "blanc. (saq.com)",
+"method": "méthode traditionnelle. (vs-p.ca)",
+"vintage": "2021. (vs-p.ca)",
+"quoted_description": "Robe de couleur jaune or, bulle fine et persistante. Nez très aromatique de pomme mûre, de tilleul, de citron confit et de brioche. En bouche, le mousseux est sec et rafraîchissant, et ses bulles font exploser les saveurs de fruit à chair blanche. La finale est très longue et mielleuse. (vs-p.ca)",
+"bottle_image_url": "https://vs-p.ca/wp-content/uploads/2025/03/BRUT-2026.svg.",
+"cepages": [
+"Acadie Blanc",
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Ste‑Pétronille (boutique du producteur)",
+"wine_url": "https://vs-p.ca/product/brut/. ([vs-p.ca](https://vs-p.ca/product/brut/))",
+"physical_address": "8705 Chemin Royal, Sainte-Pétronille, QC G0A 4C0. ([vs-p.ca](https://vs-p.ca/en/find-us/?utm_source=openai))",
+"product_code": null,
+"price": "29.00 $ (vente boutique affichée). ([vs-p.ca](https://vs-p.ca/en/store/?utm_source=openai))"
+},
+{
+"retailer_name": "SAQ (Société des alcools du Québec)",
+"wine_url": "https://www.saq.com/en/14378936. ([saq.com](https://www.saq.com/en/14378936?utm_source=openai))",
+"physical_address": null,
+"product_code": "14378936. ([saq.com](https://www.saq.com/en/14378936?utm_source=openai))",
+"price": "33.50 $ (prix SAQ en ligne). ([saq.com](https://www.saq.com/en/14378936?utm_source=openai))"
+},
+{
+"retailer_name": "Comptoir Sainte‑Cécile (épicerie fine / point de vente listé par le producteur)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null,
+"note": "Listé comme point de vente sur la page «Nous trouver» du producteur. Vérifier disponibilité en contactant le magasin ou le producteur. ([vs-p.ca](https://vs-p.ca/en/find-us/?utm_source=openai))"
+},
+{
+"retailer_name": "William J. Walter (St‑Roch) (épicerie fine / point de vente listé par le producteur)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null,
+"note": "Listé comme point de vente sur la page «Nous trouver» du producteur. Vérifier disponibilité en contactant le magasin ou le producteur. ([vs-p.ca](https://vs-p.ca/en/find-us/?utm_source=openai))"
+}
+]
+},
+{
+"wine_name": "Berthe",
+"producer_name": "VIGNOBLE DOMAINE DE L'ARDENNAIS",
+"region": "Estrie",
+"style": "rouge",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Notes de fraises des champs et framboises, belle fraîcheur, bulles fines. (vignoblelardennais.ca)",
+"bottle_image_url": "https://img1.wsimg.com/isteam/ip/069d6519-a008-43d0-9fbb-22c2d4d4b310/blob-2160130.png",
+"cepages": [
+"Chancellor"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble l'Ardennais (producteur)",
+"wine_url": "https://vignoblelardennais.ca/produits",
+"physical_address": "158 Chemin Ridge, Stanbridge East, Quebec J0J 2H0, Canada",
+"product_code": null,
+"price": "25$ CAD"
+},
+{
+"retailer_name": "La Boîte à Vins (détaillant en ligne / magasin)",
+"wine_url": "https://boiteavins.com/products/berthe-vin-mousseux-du-vignoble-lardennais",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7, Canada",
+"product_code": null,
+"price": "25$ CAD"
+}
+]
+},
+{
+"wine_name": "Cuvée du Champenois Brut (static.wixstatic.com)",
+"producer_name": "VIGNOBLE DU CHEMIN DE LA RIVIÈRE",
+"region": "Estrie",
+"style": "blanc",
+"method": "méthode traditionnelle (easterntownships.org)",
+"vintage": "2015 (static.wixstatic.com)",
+"quoted_description": "Nous offrons un vin blanc, vin rouge, vin rosé, un vin mousseux et un vin fortifié élevé en fût de chêne. (vignoblechdelariviere.com)",
+"bottle_image_url": "https://static.wixstatic.com/media/2ac082_7ef581b78208462db8e5f8495c390736~mv2.jpg/v1/fill/w_698%2Ch_1042%2Cal_c%2Cq_85%2Cenc_avif%2Cquality_auto/2ac082_7ef581b78208462db8e5f8495c390736~mv2.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Vignoble du Chemin de la Rivière (boutique sur place)",
+"wine_url": "https://www.vignoblechdelariviere.com/vins ([vignoblechdelariviere.com](https://www.vignoblechdelariviere.com/vins))",
+"physical_address": "1087, chemin de la Rivière, Magog, Québec J1X 3W5 ([vignoblechdelariviere.com](https://www.vignoblechdelariviere.com/nous-joindre?utm_source=openai))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Marché public des Collines (kiosque, Sainte‑Catherine‑de‑Hatley) — vendeur régulier",
+"wine_url": null,
+"physical_address": "Marché public des Collines, 25, chemin de la Montagne, Sainte‑Catherine‑de‑Hatley, J0B 1W0 ([createursdesaveurs.com](https://createursdesaveurs.com/createurs/marche-public-des-collines-de-sainte-catherine-de-hatley/?utm_source=openai))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace)",
+"wine_url": "https://www.vivino.com/fr/vignoble-chemin-de-la-riviere-cuvee-du-champenois-brut/w/13667968 ([vivino.com](https://www.vivino.com/fr/vignoble-chemin-de-la-riviere-cuvee-du-champenois-brut/w/13667968))",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Vin Mousseux Méthode Traditionnel",
+"producer_name": "VIGNOBLE DU FAUBOURG SENC",
+"region": "SAINT-JEAN-PORT-JOLI",
+"style": "rosé",
+"method": "méthode traditionnelle. (vignobledufaubourg.com)",
+"vintage": "NV",
+"quoted_description": "Vin apéritif\n\nCouleur: rosé\n\nNez: Framboise\n\nBouche: Très belle équilibre, longue finale sur le fruit rouge.\n\nAccord: *Vin de soif*, un vin d’été, saumon, salade d’été, sushi. (vignobledufaubourg.com)",
+"bottle_image_url": null,
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Marché GS (Saint-Jean-Port-Joli)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA (Saint-Jean-Port-Joli)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Boulangerie Sibuet (Saint-Jean-Port-Joli)",
+"wine_url": null,
+"physical_address": "Boulangerie Sibuet — adresse locale Saint-Jean-Port-Joli (non spécifiée sur la fiche produit).",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Dépanneur Ginard (Saint-Jean-Port-Joli)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Marché Richelieu (St-Aubert)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Marché des Aulnaies (Saint-Roch-Des-Aulnaies)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Épicerie du quartier (La Pocatière)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Charcuterie de la gare (Chicoutimi)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Épicerie européenne (Québec)",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Monde des Bières (St‑Nicolas)",
+"wine_url": "https://lemondedesbieres.com/ (boutique — voir contact/points de vente)",
+"physical_address": "Monde des Bières — 1810, route des Rivières, local 108, Lévis (Saint‑Nicolas), QC G7A 2P6. ([lemondedesbieres.com](https://lemondedesbieres.com/en/contact-us?utm_source=openai))",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Bulle blanc de blancs 36 mois",
+"producer_name": "VIGNOBLE DU RUISSEAU",
+"region": "Estrie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "",
+"bottle_image_url": "https://levignobleduruisseau.com/wp-content/uploads/2024/11/BDB-36-mois-300x300.png",
+"cepages": [
+"Chardonnay"
+],
+"retailers": [
+{
+"retailer_name": "Le Vignoble du Ruisseau - Boutique en ligne",
+"wine_url": "https://levignobleduruisseau.com/shop/",
+"physical_address": "4500, rue Strobl, Dunham, Québec, J0E 1M0",
+"product_code": null,
+"price": "38,00 $"
+},
+{
+"retailer_name": "Le Vignoble du Ruisseau - Boutique (sur place)",
+"wine_url": "https://levignobleduruisseau.com/shop/",
+"physical_address": "4500, rue Strobl, Dunham, Québec, J0E 1M0",
+"product_code": null,
+"price": "38,00 $"
+}
+]
+},
+{
+"wine_name": "La Bulle Rosée",
+"producer_name": "VIGNOBLE DU RUISSEAU",
+"region": "Estrie",
+"style": "rosé",
+"method": "inconnu",
+"vintage": "NV",
+"quoted_description": "",
+"bottle_image_url": "https://images.vivino.com/thumbs/xSkgo_NgQoOMzMIwqt-9Fw_150x200.jpg",
+"cepages": [
+"Pinot Noir"
+],
+"retailers": [
+{
+"retailer_name": "Le Vignoble du Ruisseau (boutique)",
+"wine_url": "https://levignobleduruisseau.com/",
+"physical_address": "4500, Rue Strobl, Dunham, Québec J0E 1M0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vivino (marketplace listing)",
+"wine_url": "https://www.vivino.com/en/le-vignoble-du-ruisseau-la-bulle-rosee/w/9445482",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins (collection page — Vignoble du Ruisseau)",
+"wine_url": "https://boiteavins.com/collections/vignoble-du-ruisseau",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "P'TIT MAUDIT",
+"producer_name": "VIGNOBLE DU VENT MAUDIT",
+"region": "Lanaudière",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Un 100% raisins de table composé à 70% de Somerset et 30% de Montréal Blues, avec une belle teinte cuivrée. On est sur des arômes de poire en sirop, de cotton candy et de bonbons à la pêche. Malgré le nez fruité, le corps est bien sec avec juste assez de texture pour équilibrer le tout. (ventmaudit.com)",
+"bottle_image_url": "https://static.wixstatic.com/media/4cff05_00ed7f0f7d654e4385c04856e1550098~mv2.jpg/v1/fill/w_980%2Ch_980%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/4cff05_00ed7f0f7d654e4385c04856e1550098~mv2.jpg",
+"cepages": [
+"Somerset",
+"Montréal Blues"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble du Vent Maudit (vente directe)",
+"wine_url": "https://www.ventmaudit.com/product-page/demi-caisse-de-party ([ventmaudit.com](https://www.ventmaudit.com/product-page/demi-caisse-de-party))",
+"physical_address": "690 RANG SAINT-ESPRIT, SAINTE-GENEVIÈVE-DE-BERTHIER, Québec J0K 1A0 ([ventmaudit.com](https://www.ventmaudit.com/contact?utm_source=openai))",
+"product_code": null,
+"price": "27,00 C$ ([ventmaudit.com](https://www.ventmaudit.com/product-page/demi-caisse-de-party))"
+},
+{
+"retailer_name": "Les Minettes (boutique en ligne / Laval)",
+"wine_url": "https://lesminettes.ca/products/le-p-tit-maudit-2023 ([lesminettes.ca](https://lesminettes.ca/products/le-p-tit-maudit-2023))",
+"physical_address": "148, boul. Sainte-Rose, Laval, Québec H7L 1L3 ([lesminettes.ca](https://lesminettes.ca/?utm_source=openai))",
+"product_code": null,
+"price": "$27.00 CAD (page shows 2023 item at this price) ([lesminettes.ca](https://lesminettes.ca/products/le-p-tit-maudit-2023))"
+},
+{
+"retailer_name": "La Supérette du Diner (Québec) — mentionnée comme point de vente",
+"wine_url": null,
+"physical_address": "411 Rue Saint-Vallier O, Québec, QC G1K 1K7 ([labauge.com](https://labauge.com/commerce/superette-du-diner/?utm_source=openai))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "William J. Walter - St-Roch (Québec) — mentionné comme point de vente",
+"wine_url": null,
+"physical_address": "165 Rue Saint-Joseph Est, Québec, QC G1K 3A8 ([williamjwalter.com](https://williamjwalter.com/succursale/nouvo-saint-roch?utm_source=openai))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Autres points de vente listés par le producteur (ex. Arhoma, Peluso, Pascal Le Boucher, Veux-tu une bière?, Les Petites Bonneville, Aux 2 Clochers, etc.)",
+"wine_url": "Liste publiée sur la page \"Nos vins\" du producteur (points de vente détaillés). ([ventmaudit.com](https://www.ventmaudit.com/vins))",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Le Mondançois",
+"producer_name": "VIGNOBLE J.O. MONTPETIT & FILS",
+"region": "Montérégie",
+"style": "rosé",
+"method": "inconnu",
+"vintage": "NV",
+"quoted_description": "Notre vin mousseux, le Mondançois, provient de l’assemblage des cépages Ste-Croix et Prairie Star. Avec un beau rappel de fraise et de mûre, le Mondançois est le produit idéal pour vos réceptions. Notre mousseux accompagne parfaitement les grillades ainsi que les pâtes.",
+"bottle_image_url": "https://vignoblejomontpetitetfils.com/wp-content/uploads/2015/02/mondancois.jpg",
+"cepages": [
+"Sainte-Croix",
+"Prairie Star"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble J.O. Montpetit & Fils (boutique en ligne / vignoble)",
+"wine_url": "https://vignoblejomontpetitetfils.com/produit/le-mondancois/",
+"physical_address": "396, chemin Saint-Louis, Saint-Étienne-de-Beauharnois, Québec, J0S 1S0",
+"product_code": null,
+"price": "21.00$"
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace)",
+"wine_url": "https://www.vivino.com/fr/vignoble-jo-montpetit-and-fils-mondancois-sparkling/w/12805156",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Delectable (fiche produit / communauté)",
+"wine_url": "https://delectable.com/wine/j-o-montpetit-and-fils/mondancois-prairie-star-st-croix",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Petite Grange (point de vente local cité)",
+"wine_url": null,
+"physical_address": "415, chemin Larocque, Salaberry-de-Valleyfield, Québec J6T 4C6",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Local du Gourmet (point de vente local cité)",
+"wine_url": null,
+"physical_address": "123, rue Champlain, Salaberry-de-Valleyfield, Québec (adresse listée publiquement)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Le Sacré Pain (point de vente local cité)",
+"wine_url": null,
+"physical_address": "265A, boulevard St-Joseph, Sainte-Martine, Québec J0S 1V0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Boucherie Christian Houle (point de vente local cité)",
+"wine_url": null,
+"physical_address": "315, boulevard de Maple Grove, Beauharnois, Québec J6N 1M2",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Donna Livia White / Donna Livia Rosé",
+"producer_name": "VIGNOBLE GAGLIANO",
+"region": "MONTRÉAL",
+"style": "blanc/rosé",
+"method": "méthode traditionnelle",
+"vintage": "2018/2015",
+"quoted_description": "Donna Livia White: Ce vin mousseux semi brut est nommé en l’honneur de la plus grande fierté de son créateur, sa fille Livia. Méthode traditionnelle, fermentation en bouteille 11 mois. Robe claire, jaune pale avec reflet doré, bulles persistant et fines. Bouquets intense de fruits confits, miel, toast beurrée. Belle attaque, belle fraicheur et belle rondeur en bouche. Belle longueur que nous rappelle les notes de miel.\n\nDonna Livia Rosé: Méthode traditionnelle, fermentation en bouteille 11 mois. Rosé soutenu et stable, mousse fine, belle persistance. Bulles légèrement grossières. Nez discret et fermé demande à s’ouvrir avec l’aération. Saveur framboise, belle longueur..",
+"bottle_image_url": "https://vignoblegagliano.com/wp-content/uploads/2022/09/Donna-Livia-White-600x900.png",
+"cepages": [
+"Frontenac Blanc",
+"Frontenac Gris",
+"Pionnier",
+"Sabrevois"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Gagliano (producteur/boutique)",
+"wine_url": "https://vignoblegagliano.com/product/endonna-livia-whitefrdonna-livia-blanc/ , https://vignoblegagliano.com/product/endonna-livia-rosefrdonna-livia-rose/",
+"physical_address": "1046 Rue Bruce, Dunham, QC J0E 1M0",
+"product_code": null,
+"price": "24.00$ (Donna Livia White) / 25.00$ (Donna Livia Rosé)"
+},
+{
+"retailer_name": "SAQ (Donna Livia White)",
+"wine_url": "https://www.saq.com/en/11633129",
+"physical_address": null,
+"product_code": "11633129",
+"price": "$25.60 (SAQ listed price for Donna Livia White)"
+},
+{
+"retailer_name": "SAQ (Donna Livia Rosé)",
+"wine_url": "https://www.saq.com/fr/11633073",
+"physical_address": null,
+"product_code": "11633073",
+"price": "$25.15 (SAQ listed price for Donna Livia Rosé)"
+},
+{
+"retailer_name": "Metro (épicerie en ligne)",
+"wine_url": "https://www.metro.ca/en/online-grocery/aisles/beer-wine/wines-cocktails-coolers/sparkling-wine/quebec-sparkling-white-wine/p/827924014087",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Maturin (détaillant en ligne)",
+"wine_url": "https://www.maturin.ca/produit/vignoble-gagliano/donna-livia-mousseux-blanc/3945/",
+"physical_address": null,
+"product_code": "3945",
+"price": "24.92$ (Donna Livia White on Maturin)"
+},
+{
+"retailer_name": "La Maison du Rôti (online) - Donna Livia Rosé",
+"wine_url": "https://maisonduroti.com/products/vignoble-gagliano-romanza-2016-vin-rose-mousseux-750ml",
+"physical_address": null,
+"product_code": null,
+"price": "26.10$"
+},
+{
+"retailer_name": "Artgang Montréal (online) - Donna Livia Rosé",
+"wine_url": "https://artgangmontreal.com/products/vin-rose-mousseux-donna-livia-rose",
+"physical_address": null,
+"product_code": null,
+"price": "22.00$"
+}
+]
+},
+{
+"wine_name": "G Sparkling",
+"producer_name": "VIGNOBLE GAGLIANO",
+"region": "Estrie. (fr.wikipedia.org)",
+"style": "blanc",
+"method": "inconnu",
+"vintage": "2019",
+"quoted_description": "Sparkling white wine golden yellow in color, the long-lasting bubbles offer a smooth feel to the palette. The aromas, like the taste, is enriched with notes of fruit jam, white flowers and a long-lasting honey finish.\n\nType of Vines : Frontenac Gris and Frontenac Blanc\n\nHarmonization : Serve as an aperitif or pair with salmon tartar and sushi\n\nAlcohol : 12.5%\n\nServing Temperature : 7%\n\nCategory Sparkling. (vignoblegagliano.com)",
+"bottle_image_url": "https://www.montrealdutyfree.ca/cdn/shop/files/939072.jpg?v=1761743300&width=1500",
+"cepages": [
+"Frontenac Gris",
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Gagliano (boutique du producteur)",
+"wine_url": "https://vignoblegagliano.com/product/eng-sparklingfrg-mousseux/ ([vignoblegagliano.com](https://vignoblegagliano.com/product/eng-sparklingfrg-mousseux/?utm_source=openai))",
+"physical_address": "1046 Rue Bruce, Dunham, QC J0E 1M0. ([vignoblegagliano.com](https://vignoblegagliano.com/product/eng-sparklingfrg-mousseux/?utm_source=openai))",
+"product_code": null,
+"price": "20.00$ CAD (site product listing). ([vignoblegagliano.com](https://vignoblegagliano.com/product/eng-sparklingfrg-mousseux/?utm_source=openai))"
+},
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/en/15067611 ([saq.com](https://www.saq.com/en/15067611?utm_source=openai))",
+"physical_address": null,
+"product_code": "15067611. ([saq.com](https://www.saq.com/en/15067611?utm_source=openai))",
+"price": "19.75$ CAD (SAQ online price). ([saq.com](https://www.saq.com/en/15067611?utm_source=openai))"
+},
+{
+"retailer_name": "Montreal Duty Free (YUL) - boutique en ligne duty-free",
+"wine_url": "https://www.montrealdutyfree.ca/products/939072 ([montrealdutyfree.ca](https://www.montrealdutyfree.ca/products/939072))",
+"physical_address": "Montréal–Trudeau International Airport (duty-free retail). ([montrealdutyfree.ca](https://www.montrealdutyfree.ca/products/939072))",
+"product_code": null,
+"price": "18.75$ CAD (site sale price). ([montrealdutyfree.ca](https://www.montrealdutyfree.ca/products/939072))"
+},
+{
+"retailer_name": "Divin Paradis (distributeur / catalogue professionnel)",
+"wine_url": "https://divinparadis.kork.ca/qc/fr/?switch_view=list ([divinparadis.kork.ca](https://divinparadis.kork.ca/qc/fr/?switch_view=list&utm_source=openai))",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Belette !",
+"producer_name": "VIGNOBLE LA BELLE ALLIANCE",
+"region": "Estrie (labellealliance.ca)",
+"style": "rosé",
+"method": "autre (pétillant forcé / forced carbonation) (images.squarespace-cdn.com)",
+"vintage": "2023",
+"quoted_description": "PÉTILLANT FORCÉ\n2023 VIN ROSÉ\n100% Cultivé, Récolté et Vinifié au Domaine\nFAIT AVEC LES CÉPAGES\nFrontenac Blanc & Petite Perle\nLa Belle Alliance\n239 Ch. de Fulford\nCantons-de-l'Est\nShefford (Québec)\n11% alc./vol. 750 mL (images.squarespace-cdn.com)",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5c2e16087e3c3aa466ace74c/a14b1d36-e4a0-441a-bb88-beebdf915202/La%2BBelle%2BAlliance%2B-%2BBelette%2B-%2BFront%2B.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "La Belle Alliance (boutique en ligne / vente sur place)",
+"wine_url": "https://www.labellealliance.ca/vinsdeterroir ([labellealliance.ca](https://www.labellealliance.ca/vinsdeterroir))",
+"physical_address": "239 Chemin de Fulford, Shefford, QC J2M 1B2 ([labellealliance.ca](https://www.labellealliance.ca/vinsdeterroir))",
+"product_code": null,
+"price": "CA$45.00 ([labellealliance.ca](https://www.labellealliance.ca/vinsdeterroir))"
+}
+]
+},
+{
+"wine_name": "Biquette !",
+"producer_name": "VIGNOBLE LA BELLE ALLIANCE",
+"region": "Estrie (haltesgourmandes.ca)",
+"style": "rosé",
+"method": "autre (images.squarespace-cdn.com)",
+"vintage": "2023",
+"quoted_description": "PÉTILLANT FORCÉ\n2023 VIN ROSÉ\n\n100% Cultivé, Récolté et Vinifié au Domaine\n\nFAIT AVEC LE CÉPAGE\nFrontenac Gris\n\nProduit du Québec 12% alc./vol. 750 ml. (images.squarespace-cdn.com)",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5c2e16087e3c3aa466ace74c/d983f64c-710b-4ab2-924c-94324aa6d118/La%2BBelle%2BAlliance%2B-%2BBiquette%2B-%2BFront.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Vignoble La Belle Alliance (boutique en ligne et sur place)",
+"wine_url": "https://www.labellealliance.ca/vinsdeterroir ([labellealliance.ca](https://www.labellealliance.ca/vinsdeterroir))",
+"physical_address": "239 Chemin de Fulford, Shefford, QC J2M 1B2 ([labellealliance.ca](https://www.labellealliance.ca/vinsdeterroir))",
+"product_code": null,
+"price": "CA$45.00 ([labellealliance.ca](https://www.labellealliance.ca/vinsdeterroir))"
+}
+]
+},
+{
+"wine_name": "PetNat Chardonnay",
+"producer_name": "VIGNOBLE LE CHAT BOTTÉ",
+"region": "Montérégie",
+"style": "blanc",
+"method": "pétillant naturel",
+"vintage": "2024",
+"quoted_description": "Ce pétillant naturel 100% Chardonnay est certifié biologique et a été produit selon la méthode ancestrale. Sans sulfites, son effervescence naturelle nous donne une bulle fine, vive te rafraîchissante mettant en valeur les notes minérales qu'exprime notre terroir.",
+"bottle_image_url": "https://www.vignoblelechatbotte.com/mt-content/uploads/2024/06/petnat-chardonnay.jpg",
+"cepages": [
+"Chardonnay"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Le Chat Botté (boutique)",
+"wine_url": "https://www.vignoblelechatbotte.com",
+"physical_address": "633, route 202 Est, Hemmingford, QC, J0L 1H0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/petnat-chardonnay-2023-biologique-vin-blanc-du-vignoble-le-chat-botte",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7",
+"product_code": null,
+"price": "$33.00"
+}
+]
+},
+{
+"wine_name": "Blanc de Blanc",
+"producer_name": "VIGNOBLE LA CANTINA, VALLÉE D'OKA",
+"region": "Laurentides",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "Quelle belle découverte que ce vin mousseux élaboré chez nous! Issu à 100 % de chardonnay et élaboré selon la méthode traditionnelle, il n’a rien à envier aux cuvées européennes du même style. Bulles fines, élevage à point, c’est l’apéro parfait ou le complément idéal pour les bouchées de fruits de mer.",
+"bottle_image_url": "https://brouehahacom-1.azureedge.net/img/product/Cantina_-_Blanc_de_Blanc-B.jpg?fv=40414059C03FE512ADAFBE20A8631576",
+"cepages": [
+"Chardonnay"
+],
+"retailers": [
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/15300680",
+"physical_address": null,
+"product_code": "15300680",
+"price": "38.25 $ CAD"
+},
+{
+"retailer_name": "Vignoble La Cantina (boutique)",
+"wine_url": "https://vignoblelacantina.ca/produit/la-cantina-blanc-de-blanc/",
+"physical_address": "1942, chemin d'Oka, Oka, Québec J0N 1E0",
+"product_code": null,
+"price": "32.50 $ CAD (site boutique)"
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/blanc-de-blanc-vin-blanc-du-vignoble-la-cantina",
+"physical_address": "Longueuil: 369-F Rue Saint-Jean, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": "38.00 $ CAD"
+},
+{
+"retailer_name": "Gio’s Le Marché",
+"wine_url": "https://marche-gios.com/products/la-cantina-blanc-de-blanc",
+"physical_address": "7 Av. de l'Église, Saint-Sauveur, QC J0R 1R0",
+"product_code": null,
+"price": "38.25 $ CAD"
+},
+{
+"retailer_name": "Broue Ha Ha (détaillant en ligne)",
+"wine_url": "https://brouehaha.com/en/la-cantina-blanc-de-blanc-chene-blancdeblanc",
+"physical_address": "867, boulevard Saint-René Ouest, Gatineau, QC J8T 7X6",
+"product_code": null,
+"price": "43.99 $ CAD"
+}
+]
+},
+{
+"wine_name": "Coquette !",
+"producer_name": "VIGNOBLE LA BELLE ALLIANCE",
+"region": "Estrie",
+"style": "autre",
+"method": "inconnu",
+"vintage": "2023",
+"quoted_description": "Coquette ! vin mousseux 2023",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5c2e16087e3c3aa466ace74c/51b098ec-cc32-4060-aa3c-e6c857f8942f/La%2BBelle%2BAlliance%2B-%2BCoquette%2B-%2BFront.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Vignoble La Belle Alliance (boutique en ligne)",
+"wine_url": "https://www.labellealliance.ca/vinsdeterroir",
+"physical_address": "239 Chemin de Fulford, Shefford, QC J2M 1B2, Canada",
+"product_code": null,
+"price": "CA$45.00"
+},
+{
+"retailer_name": "Vignoble La Belle Alliance (achat en boutique)",
+"wine_url": "https://www.labellealliance.ca/vinsdeterroir",
+"physical_address": "239 Chemin de Fulford, Shefford, QC J2M 1B2, Canada (boutique du vignoble)",
+"product_code": null,
+"price": "CA$45.00"
+},
+{
+"retailer_name": "La Boîte à Vins (revendeur listant le producteur)",
+"wine_url": "https://boiteavins.com/collections/la-belle-alliance",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "PetNat Rosé",
+"producer_name": "VIGNOBLE LE CHAT BOTTÉ",
+"region": "Montérégie",
+"style": "rosé",
+"method": "pétillant naturel",
+"vintage": "2023",
+"quoted_description": "Fruit d'un assemblage équilibré de cépages rouges et gris vinifiés sans macération et sans sulfites ajoutés, ce vin pétillant naturel rosé offre des notes gourmandes de fraises des champs, de fruits rouges et d'agrumes. Produit selon la méthode ancestrale, son effervescence naturelle nous donne une bulle fine, vive et rafraîchissante. Idéal pour l'apéro!",
+"bottle_image_url": "https://www.vignoblelechatbotte.com/mt-content/uploads/2023/09/petnat-rose.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/15243460",
+"physical_address": null,
+"product_code": "15243460",
+"price": "29,10 $"
+},
+{
+"retailer_name": "La Bière à Boire",
+"wine_url": "https://labiereaboire.com/chat-botte-petnat-rose-2023",
+"physical_address": "117 Rue Saint Pierre #107, Saint-Constant, Québec J5A 0M3",
+"product_code": "Modèle : 827924119287",
+"price": "31,99 $"
+},
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/collections/vignoble-le-chat-botte",
+"physical_address": "Longueuil boutique — 369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7 (si achat en boutique; disponibilité variable)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vignoble Le Chat Botté (achat au domaine / site du producteur)",
+"wine_url": "https://www.vignoblelechatbotte.com",
+"physical_address": "633, route 202, Hemmingford, Québec J0L 1H0",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Pet Nat Blanc (cotesdugavet.com)",
+"producer_name": "VIGNOBLE LES CÔTES DU GAVET",
+"region": "Centre-du-Québec. (fr.wikipedia.org)",
+"style": "blanc (cotesdugavet.com)",
+"method": "pétillant naturel (cotesdugavet.com)",
+"vintage": "NV (no vintage indicated on producer page / label) (cotesdugavet.com)",
+"quoted_description": "Pétillants naturel blanc\nPet Nat Blanc. (cotesdugavet.com)",
+"bottle_image_url": "https://cotesdugavet.com/wp-content/uploads/2025/06/CotesGavet-Mock-Up-06-Pet-Nat-Blanc-bg.jpg",
+"cepages": [
+"Frontenac Blanc",
+"Louise Swenson"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Les Côtes du Gavet (boutique sur place)",
+"wine_url": "https://cotesdugavet.com/vins/ ([cotesdugavet.com](https://cotesdugavet.com/vins/))",
+"physical_address": "1690, Chemin de l'Aqueduc, Tingwick (Québec) J0A 1L0. ([cotesdugavet.com](https://cotesdugavet.com/nous-joindre/?utm_source=openai))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Marché Public des Bois-Francs (point de vente indiqué par le producteur)",
+"wine_url": null,
+"physical_address": "1, boul. Jutras Ouest, Victoriaville (Québec). ([cotesdugavet.com](https://cotesdugavet.com/vins/))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Magasin général (Sainte-Élisabeth de Warwick) (point de vente indiqué par le producteur)",
+"wine_url": null,
+"physical_address": "222, rue Principale, Sainte-Élisabeth de Warwick (Québec). ([cotesdugavet.com](https://cotesdugavet.com/vins/))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Desrochers Warwick (point de vente indiqué par le producteur)",
+"wine_url": null,
+"physical_address": "10, rue du Centre Sportif, Warwick (Québec). ([cotesdugavet.com](https://cotesdugavet.com/vins/))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Bières et Saveurs (Marché Quartier Notre-Dame) — détaillant partenaire",
+"wine_url": "https://bieresetsaveurs.net/ (boutique en ligne du détaillant — produit exact non listé publiquement) ([bieresetsaveurs.net](https://bieresetsaveurs.net/))",
+"physical_address": "102, Boulevard Bois-Francs Nord, Victoriaville (Québec). ([bieresetsaveurs.net](https://bieresetsaveurs.net/))",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Bistro Plaisirs & Saveurs (restaurant — point de vente indiqué par le producteur)",
+"wine_url": null,
+"physical_address": "155, rue Saint-Jean-Baptiste, Victoriaville (Québec). ([cotesdugavet.com](https://cotesdugavet.com/vins/))",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Pétillant",
+"producer_name": "VIGNOBLE LES CÔTES DU GAVET",
+"region": "Centre-du-Québec",
+"style": "rosé",
+"method": "pétillant naturel",
+"vintage": "",
+"quoted_description": "",
+"bottle_image_url": null,
+"cepages": [
+"Frontenac Blanc",
+"Frontenac Noir",
+"Louise Swenson",
+"Sabrevois",
+"Petite Pearl",
+"Crimson Pearl"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Les Côtes du Gavet (boutique)",
+"wine_url": "https://cotesdugavet.com/vins/",
+"physical_address": "1690, Chemin de l'Aqueduc, Tingwick, QC J0A 1L0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Marché Public des Bois-Francs",
+"wine_url": null,
+"physical_address": "1, boul. Jutras Ouest, Victoriaville (Québec)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Magasin général (Sainte-Élisabeth de Warwick)",
+"wine_url": null,
+"physical_address": "222, rue Principale, Sainte-Élisabeth de Warwick (Québec)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "IGA Desrochers Warwick",
+"wine_url": null,
+"physical_address": "10, rue du Centre Sportif, Warwick (Québec)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Bières et Saveurs Victoriaville",
+"wine_url": null,
+"physical_address": "102, boulevard Bois-Francs Nord, Victoriaville (Québec)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Bistro Plaisirs & Saveurs",
+"wine_url": null,
+"physical_address": "155, rue Saint-Jean-Baptiste, Victoriaville (Québec)",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Vins (revendeur en ligne - collection Côtes du Gavet)",
+"wine_url": "https://boiteavins.com/collections/vignoble-les-cotes-du-gavet",
+"physical_address": "Longueuil: 369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Constellation Rosé",
+"producer_name": "VIGNOBLE LES GÉMEAUX",
+"region": "Montérégie",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2021",
+"quoted_description": "Les trains de bulles fines donnent à ce mousseux traditionnel éclat, vivacité dessinant une robe rosée qui appelle au plaisir. Nées sous une constellation de plaisir, ces bulles fines transportent fraicheur et arôme de pommes verte.",
+"bottle_image_url": "https://boiteavins.com/cdn/shop/files/constellation-rose-2021-vin-rose-mousseux-du-vignoble-les-gemeaux-vin-du-quebec-la-boite-a-vins-35726906556614_5000x.jpg?v=1689957080",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/collections/vignoble-les-gemeaux/products/copie-de-constellation-blanc-vin-blanc-mousseux-du-vignoble-les-gemeaux",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7, Canada",
+"product_code": null,
+"price": "25.00 CAD (page listing)"
+},
+{
+"retailer_name": "Vignoble Les Gémeaux (producteur)",
+"wine_url": "https://www.vignoblegemeaux.ca/",
+"physical_address": "766 chemin de la Première concession, Hinchinbrooke, Québec J0S 1A0, Canada",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Les Bulles d'Armand Guindon",
+"producer_name": "VIGNOBLE SAINT-GABRIEL",
+"region": "Lanaudière. (vignoblesaintgabriel.com)",
+"style": "rosé. (lapressetouristique.ca)",
+"method": "autre (gazéifié — procédé suisse, non issue d'une seconde fermentation en bouteille ni d'une mise en bouteille en fermentation primaire). (lapressetouristique.ca)",
+"vintage": "2023. (lapressetouristique.ca)",
+"quoted_description": "Les Bulles d’Armand Guindon, un mousseux sec (2g sucre) aux bulles très fines, à prendre en apéro avec canapés de canard et pour accompagner tous vos événements festifs. (vignoblesaintgabriel.com)",
+"bottle_image_url": "https://s3-ca-central-1.amazonaws.com/medialo/wp-media-folder-la-presse-touristique/wp-content/uploads/sites/17/2025/01/LesBullesArmandGuindon_Credit_Genevieve_Quessy.jpg",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Vignoble Saint-Gabriel (domaine) ",
+"wine_url": "https://vignoblesaintgabriel.com/les-bulles-darmand-guindon",
+"physical_address": "2190 rang St‑David, Saint‑Gabriel‑de‑Brandon, QC J0K 2N0",
+"product_code": null,
+"price": "26,90$ + tx. ([vignoblesaintgabriel.com](https://vignoblesaintgabriel.com/les-bulles-darmand-guindon))"
+},
+{
+"retailer_name": "Aux Délices du Gourmet (point de vente mentionné par le producteur)",
+"wine_url": null,
+"physical_address": "190 rue de la Visitation, Saint‑Charles‑Borromée, QC J6E 4N5",
+"product_code": null,
+"price": null,
+"note": "Listing point de vente fourni par Vignoble Saint‑Gabriel; adresse confirmée par annuaires locaux."
+},
+{
+"retailer_name": "Metro Plus Beaumier (point de vente mentionné par le producteur)",
+"wine_url": null,
+"physical_address": "160 rue Saint‑Gabriel, Saint‑Gabriel‑de‑Brandon, QC J0K 2N0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Marché de solidarité régionale de Brandon (point de vente / marché local mentionné par le producteur)",
+"wine_url": null,
+"physical_address": "5111‑C Chemin du Lac, Saint‑Gabriel‑de‑Brandon, QC J0K 2N0",
+"product_code": null,
+"price": null,
+"note": "Marché régional listé comme point de vente par le vignoble."
+},
+{
+"retailer_name": "Au Poivre Noir (point de vente mentionné par le producteur)",
+"wine_url": null,
+"physical_address": "440 Rue Principale, Saint‑Léonard‑d'Aston, QC J0C 1M0",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Allegro",
+"producer_name": "VIGNOBLE SAINT-PIERRE",
+"region": "Capitale-Nationale",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2022",
+"quoted_description": "Élaboré selon la méthode traditionnelle à partir d’un assemblage d’Acadie Blanc, de Frontenac Blanc et de Vidal. Allégro possède une robe jaune légèrement soutenue aux reflets jaunes. Le nez, encore floral, est enrobé par des notes beurrées et de pâtisserie. La bouche est ample et sur la fraîcheur, avec des bulles et une mousse fines.\n\n« Le champagne est nécessaire en temps de défaite, et obligatoire en temps de victoire. »\nWinston Churchill",
+"bottle_image_url": "https://saintpierrelevignoble.com/wp-content/uploads/2023/11/Allegro_2022_1200x1200_mod-600x600.jpg",
+"cepages": [
+"Acadie Blanc",
+"Frontenac Blanc",
+"Vidal"
+],
+"retailers": [
+{
+"retailer_name": "Saint Pierre Le Vignoble (boutique officielle)",
+"wine_url": "https://saintpierrelevignoble.com/en/produit/allegro-2018/",
+"physical_address": "1007 Chemin Royal, Saint-Pierre-de-l'Île-d'Orléans, Québec, G0A 4E0",
+"product_code": null,
+"price": "$29.95"
+},
+{
+"retailer_name": "Vivino (fiche produit / marketplace)",
+"wine_url": "https://www.vivino.com/US/en/le-vignoble-saint-pierre-allegro-brut/w/12679799",
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Méthode Traditionnelle",
+"producer_name": "VIGNOBLE LES VALLONS DE WADLEIGH",
+"region": "Estrie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "NV",
+"quoted_description": "Vin mousseux élaboré selon la méthode traditionnelle à partir de Frontenac blanc, sans dosage, brut nature.",
+"bottle_image_url": "https://vintageassocies.com/cdn/shop/files/Les_Vallons_de_Wadleigh_Methode_Brut_Traditionnelle.webp?v=1752761170",
+"cepages": [
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/15490735",
+"physical_address": null,
+"product_code": "15490735",
+"price": "29.15 CAD"
+},
+{
+"retailer_name": "Vintage & Associés / La Table Vintage (boutique en ligne)",
+"wine_url": "https://vintageassocies.com/products/methode-traditionnelle-saq",
+"physical_address": null,
+"product_code": "15490735",
+"price": "29.15 CAD"
+},
+{
+"retailer_name": "La Bière à Boire (détaillant)",
+"wine_url": "https://labiereaboire.com/vallons-de-wadleigh-vin-mousseux",
+"physical_address": "117 Rue Saint Pierre #107, Saint-Constant, Québec J5A 0M3, Canada",
+"product_code": null,
+"price": "30.99 CAD"
+},
+{
+"retailer_name": "La Pantry / La Pantry de Knowlton",
+"wine_url": "https://lapantrydeknowlton.com/products/vin-mousseaux-methode-traditionnelle",
+"physical_address": "281 Chemin Knowlton, Knowlton, Québec J0E 1V0, Canada",
+"product_code": null,
+"price": "35.00 CAD"
+}
+]
+},
+{
+"wine_name": "La vie en bulles",
+"producer_name": "VIGNOBLE STE-ANGÉLIQUE",
+"region": "Outaouais",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2020",
+"quoted_description": "Ce vin mousseux de méthode traditionnelle sans dosage (Brut nature) fait place à des arômes d’agrumes, de brioche et de pomme verte. En bouche, de fines bulles apportent une belle fraîcheur.",
+"bottle_image_url": "https://www.ste-angelique.ca/images/lavieenbulles.jpg",
+"cepages": [
+"Frontenac Gris",
+"Saint-Pépin"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Ste-Angélique (producteur)",
+"wine_url": "https://www.ste-angelique.ca/Produits.html",
+"physical_address": "496 Côte St-Charles, Papineauville, Québec J0V 1R0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "La Boîte à Grains (revendeur)",
+"wine_url": "https://laboiteagrains.com/products/vin-mousseux-la-vie-en-bulles-vignoble-ste-angelique",
+"physical_address": null,
+"product_code": null,
+"price": "33.99 CAD"
+},
+{
+"retailer_name": "La Boîte à Vins (Longueuil)",
+"wine_url": "https://boiteavins.com/collections/vignoble-ste-angelique",
+"physical_address": "369‑F Rue Saint‑Jean, Longueuil, QC J4H 2X7",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Metro Tanguay (Papineauville)",
+"wine_url": null,
+"physical_address": "377 Rue Papineau, Papineauville, QC J0V 1R0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "ChocoMotive (Montebello)",
+"wine_url": "https://chocomotive.ca",
+"physical_address": "502 Rue Notre‑Dame, Montebello, QC J0V 1L0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Broue Ha Ha (Gatineau)",
+"wine_url": "https://brouehaha.com",
+"physical_address": "867 Boul. Saint‑René O, Gatineau, QC J8T 7X6",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Le Marché de l'Outaouais (Gatineau)",
+"wine_url": "https://www.marcheoutaouais.com/",
+"physical_address": "71 Rue Eddy, Gatineau, QC J8X 2W1",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Gourmet Sauvage (Mont‑Blanc)",
+"wine_url": "https://gourmetsauvage.ca/",
+"physical_address": "743 Rue de la Pisciculture, Mont‑Blanc, QC J0T 2G0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Les Minettes (Vieux Sainte‑Rose, Laval)",
+"wine_url": "https://lesminettes.ca/",
+"physical_address": "148 Boulevard Sainte‑Rose, Laval, QC H7L 1L3",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "La Brunante",
+"producer_name": "VIGNOBLE STE-ANGÉLIQUE",
+"region": "Outaouais (petitenationoutaouais.com)",
+"style": "rosé",
+"method": "méthode traditionnelle (ste-angelique.ca)",
+"vintage": "2020",
+"quoted_description": "Ce vin mousseux rosé de méthode traditionnelle sans dosage (Brut nature) fait place à des arômes de petits fruits rouges. En bouche, de fines bulles apportent une belle fraîcheur. (ste-angelique.ca)",
+"bottle_image_url": "https://boiteavins.com/cdn/shop/products/la-brunante-2020-vin-rose-effervescent-du-vignoble-ste-angelique-vin-du-quebec-la-boite-a-vins-34658663628998_5000x.jpg?v=1669744514",
+"cepages": [
+"Sainte-Croix",
+"Radisson",
+"Pionnier",
+"Sabrevois",
+"Maréchal Foch",
+"Léon Millot"
+],
+"retailers": [
+{
+"retailer_name": "La Boîte à Vins",
+"wine_url": "https://boiteavins.com/products/copie-de-la-vie-en-bulles-2019-vin-blanc-mousse-du-vignoble-ste-angelique ([boiteavins.com](https://boiteavins.com/products/copie-de-la-vie-en-bulles-2019-vin-blanc-mousse-du-vignoble-ste-angelique))",
+"physical_address": "369-F Rue Saint-Jean, Longueuil, QC, J4H 2X7 (boutique La Boîte à Vins) ([boiteavins.com](https://boiteavins.com/products/copie-de-la-vie-en-bulles-2019-vin-blanc-mousse-du-vignoble-ste-angelique))",
+"product_code": null,
+"price": "41.00 CAD ([boiteavins.com](https://boiteavins.com/products/copie-de-la-vie-en-bulles-2019-vin-blanc-mousse-du-vignoble-ste-angelique))"
+},
+{
+"retailer_name": "Le Marché de l'Outaouais",
+"wine_url": "https://www.marcheoutaouais.com/produits/la-brunante-brut-nature-rose-11-mousseux (référence mentionnée dans revue) ([vinquebec.com](https://www.vinquebec.com/revues/la-brunante-brut-nature-rose-2020-2/?utm_source=openai))",
+"physical_address": "71 Rue Eddy, Gatineau, QC, J8X 2W1 (Boutique / point de cueillette) ([info.marcheoutaouais.com](https://info.marcheoutaouais.com/contact/?utm_source=openai))",
+"product_code": null,
+"price": "≈30.00 CAD (mentionné dans critique / signalé comme prix avant taxes) ([vinquebec.com](https://www.vinquebec.com/revues/la-brunante-brut-nature-rose-2020-2/?utm_source=openai))"
+}
+]
+},
+{
+"wine_name": "PELECHACZ 2011 — Cuvée Exceptionnelle",
+"producer_name": "VIGNOBLE SUGAR HILL",
+"region": "LAC-BROME",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2011",
+"quoted_description": "Cette cuvée, brut nature, est exceptionnelle car elle a été élevée 145 mois sur lies en bouteille au cours de sa fermentation secondaire. Ce long contact avec les lies garantit sa complexité aromatique et l’extrême finesse de ses bulles. Ce vin effervescent s’est mérité une médaille d’or au concours de la Coupe des Nations à Québec en Mai 2024.",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5f7f52009f1f8055bc384c04/72490121-8c0b-489b-9b5f-cdd526e024cc/01.png",
+"cepages": [],
+"retailers": [
+{
+"retailer_name": "Vignoble Sugar Hill (domaine)",
+"wine_url": "https://www.vignoble-sugarhill.com/nos-vins",
+"physical_address": "4 chemin Sugar Hill, Lac-Brome (Knowlton), QC J0E 1V0",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Chez Potier (épicerie fine)",
+"wine_url": null,
+"physical_address": "630 Rue Wellington, Montréal, QC H3C 0X9",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Boucherie Grinder (épicerie fine / boutique)",
+"wine_url": "https://www.boucheriegrinder.ca/",
+"physical_address": "1654 Rue Notre-Dame Ouest, Montréal, QC H3J 1M1",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Bleu & Persillé (épicerie fine / fromagerie)",
+"wine_url": null,
+"physical_address": "1475 Avenue du Mont-Royal Est, Montréal, QC H2J 1Z1",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Espace Houblon (épicerie fine / bières & vins)",
+"wine_url": "https://espacehoublon.ca/",
+"physical_address": "168 Rue Fleury O, Montréal, QC H3L 1T5",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Boutique Daniel St‑Onge (épicerie fine / café-boutique)",
+"wine_url": null,
+"physical_address": "195 Rue Victoria, Salaberry-de-Valleyfield, QC J6T 1A8",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Épicerie J.A. Moisan (épicerie fine, Québec)",
+"wine_url": "https://jamoisan.com/",
+"physical_address": "685 Rue Saint-Jean, Québec, QC G1R 1P7",
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "La Majestè 2019",
+"producer_name": "VIGNOBLE SUGAR HILL",
+"region": "LAC-BROME",
+"style": "rosé",
+"method": "méthode traditionnelle",
+"vintage": "2019",
+"quoted_description": "Vignoble Sugar Hill reprend le même cépage, Radisson, qui connaît un vif engouement en vin rosé tranquille pour présenter sa première version en vin rosé mousseux. La Majesté 2019 est élevé plusieurs mois sur lies en bouteille au cours de sa fermentation secondaire. Un élevage patient et minutieux se traduit en un vin mousseux unique aux bulles de qualité supérieure avec une finesse extraordinaire.",
+"bottle_image_url": "https://images.squarespace-cdn.com/content/v1/5f7f52009f1f8055bc384c04/1f3ce54c-42c2-49e7-82e4-1e039188ff30/02%2B-%2BLa%2BMajest%C3%A9%2B2019.png",
+"cepages": [
+"Radisson"
+],
+"retailers": [
+{
+"retailer_name": "Vignoble Sugar Hill - Boutique (achat direct)",
+"wine_url": "https://www.vignoble-sugarhill.com/nos-vins",
+"physical_address": "4, Chemin Sugar Hill, Knowlton (Lac-Brome), QC J0E 1V0, Canada",
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Vignoble Sugar Hill - Commandes / contact",
+"wine_url": "https://www.vignoble-sugarhill.com/nous-joindre",
+"physical_address": null,
+"product_code": null,
+"price": null
+},
+{
+"retailer_name": "Restaurants et épiceries fines (distributeurs locaux) — contactez le producteur pour points de vente exacts",
+"wine_url": null,
+"physical_address": null,
+"product_code": null,
+"price": null
+}
+]
+},
+{
+"wine_name": "Bouquet",
+"producer_name": "VIGNOBLE LES ARTISANS DU TERROIR",
+"region": "Montérégie",
+"style": "blanc",
+"method": "méthode traditionnelle",
+"vintage": "2020",
+"quoted_description": "",
+"bottle_image_url": "https://static.wixstatic.com/media/c3a5a4_5bbe0c6479f84bcb887feff66e6727a4~mv2.png/v1/fill/w_940%2Ch_440%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/15254388-1_1701364986_edited.png",
+"cepages": [
+"Vidal",
+"Frontenac Blanc"
+],
+"retailers": [
+{
+"retailer_name": "SAQ",
+"wine_url": "https://www.saq.com/fr/15254388",
+"physical_address": null,
+"product_code": "15254388",
+"price": "35,00 $"
+},
+{
+"retailer_name": "Vignoble Les Artisans du Terroir - Boutique (producteur)",
+"wine_url": "https://www.artisansduterroir.ca/",
+"physical_address": "1150, rang de la Montagne, Saint-Paul-d'Abbotsford, Québec J0E 1A0",
+"product_code": null,
+"price": null
+}
+]
+}
+];
+
+function escapeHtml(text) {
+    if (!text) return '';
+    return text.toString().replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderWineCard(wine) {
+    const hasImage = wine.bottle_image_url;
+    const imageHtml = hasImage 
+        ? `<img src="${escapeHtml(wine.bottle_image_url)}" alt="${escapeHtml(wine.wine_name)}" onerror="this.style.display='none'">`
+        : '<div style="color: #bbb; font-size: 4rem;">🍾</div>';
+    
+    let detailsHtml = '';
+    if (wine.style) detailsHtml += `<span class="detail-item style">${escapeHtml(wine.style)}</span>`;
+    if (wine.method) detailsHtml += `<span class="detail-item method">${escapeHtml(wine.method)}</span>`;
+    if (wine.vintage) detailsHtml += `<span class="detail-item vintage">${escapeHtml(wine.vintage)}</span>`;
+    
+    const descriptionHtml = wine.quoted_description ? 
+        `<div class="wine-description">${escapeHtml(wine.quoted_description.substring(0, 300))}${wine.quoted_description.length > 300 ? '...' : ''}</div>` : '';
+    
+    let cepagesHtml = '';
+    if (wine.cepages && wine.cepages.length > 0) {
+        const cepagesList = wine.cepages.map(c => `<span class="cepage-tag">${escapeHtml(c)}</span>`).join('');
+        cepagesHtml = `
+            <div class="cepages-title">Cépages:</div>
+            <div class="cepages-list">${cepagesList}</div>
+        `;
+    }
+    
+    const retailerCount = wine.retailers ? wine.retailers.length : 0;
+    const retailersHtml = retailerCount > 0 ? 
+        `<div class="retailers-section">
+            <button class="show-retailers-btn" data-wine-id="${wine.wine_name}" onclick="showRetailers('${escapeHtml(wine.wine_name)}')">
+                ${retailerCount} points de vente
+            </button>
+        </div>` : '';
+    
+    return `
+    <div class="wine-card">
+        <div class="wine-image">
+            ${imageHtml}
+        </div>
+        <div class="wine-content">
+            <div class="wine-name">${escapeHtml(wine.wine_name)}</div>
+            <div class="producer-info">${escapeHtml(wine.producer_name)}</div>
+            <div class="producer-info">📍 ${escapeHtml(wine.region)}</div>
+            <div class="wine-details">
+                ${detailsHtml}
+            </div>
+            ${descriptionHtml}
+            ${cepagesHtml}
+            ${retailersHtml}
+        </div>
+    </div>`;
+}
+
+function showRetailers(wineName) {
+    const wine = allWines.find(w => w.wine_name === wineName);
+    if (!wine) return;
+    
+    const popup = document.getElementById('retailersPopup');
+    const wineNameEl = document.getElementById('popupWineName');
+    const content = document.getElementById('popupRetailersContent');
+    
+    wineNameEl.textContent = `Où acheter "${wine.wine_name}"`;
+    
+    if (!wine.retailers || wine.retailers.length === 0) {
+        content.innerHTML = '<p>Aucun point de vente répertorié pour ce vin.</p>';
+    } else {
+        content.innerHTML = wine.retailers.map(retailer => `
+            <div class="retailer-item">
+                ${retailer.wine_url ? 
+                    `<a href="${escapeHtml(retailer.wine_url)}" target="_blank" class="retailer-name">${escapeHtml(retailer.retailer_name || 'Nom inconnu')}</a>` :
+                    `<div class="retailer-name" style="color: #2c3e50; cursor: default;">${escapeHtml(retailer.retailer_name || 'Nom inconnu')}</div>`
+                }
+                ${retailer.physical_address ? `<div class="retailer-address">📍 ${escapeHtml(retailer.physical_address)}</div>` : ''}
+            </div>
+        `).join('');
+    }
+    
+    popup.style.display = 'flex';
+}
+
+function closeRetailersPopup() {
+    document.getElementById('retailersPopup').style.display = 'none';
+}
+
+document.getElementById('winesContainer').innerHTML = allWines.map(renderWineCard).join('');
+
+// Close popup when clicking outside
+document.getElementById('retailersPopup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeRetailersPopup();
+    }
+});
+</script>
+</body>
+</html>

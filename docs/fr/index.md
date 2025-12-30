@@ -17,8 +17,13 @@ hide:
 - **[Cépages](varieties/index.md)** - Base de données complète des cépages avec données VIVC, articles détaillés, et cartographie des producteurs
     - À venir (ou pas) : témoignages de producteurs et de vinificateurs, dans leurs propres mots, avec attribution complète
 - **[Carte des producteurs](producer-map.md)** - Carte interactive des producteurs de vin avec filtre par cépage couvrant le Québec et le nord-est des États-Unis.
-- **[À propos](about.md)** - Découvrez la philosophie et l’approche du projet
-- **[Utilisation de l’IA](ai-usage.md)** - Transparence sur la manière dont l’IA est utilisée pour la recherche et la création de contenu
+- **[À propos](about.md)** - Découvrez la philosophie et l'approche du projet
+- **[Utilisation de l'IA](ai-usage.md)** - Transparence sur la manière dont l'IA est utilisée pour la recherche et la création de contenu
+
+## 🥂 Spécial Nouvelle Année : Vins Mousseux du Québec
+
+!!! sparkles "Bonne Année! 🍾"
+    Célébrez la Nouvelle Année avec les meilleures bulles du Québec! Explorez notre [**Catalogue des Vins Mousseux du Québec**](../quebec_sparkling_wines_catalog.html) présentant 86 vins mousseux québécois avec informations détaillées des producteurs, notes de dégustation, et où les trouver.
 
 ## Contenu récent
 
