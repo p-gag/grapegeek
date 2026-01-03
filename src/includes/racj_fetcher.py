@@ -52,7 +52,7 @@ class WineProducersMetadata(TypedDict):
     wine_permit_types: Dict[str, int]
 
 
-def fetch_quebec_producers(data_dir: str = "data/racj") -> Dict[str, Any]:
+def fetch_quebec_producers(data_dir: str = "data/can/racj") -> Dict[str, Any]:
     """Fetch Quebec wine producers from RACJ data.
     
     Args:
@@ -78,7 +78,7 @@ def fetch_quebec_producers(data_dir: str = "data/racj") -> Dict[str, Any]:
 class QuebecWineProducersFetcher:
     """Fetches and processes Quebec wine producers from RACJ permits data."""
     
-    def __init__(self, data_dir: str = "data/racj"):
+    def __init__(self, data_dir: str = "data/can/racj"):
         self.data_dir = Path(data_dir)
         self.data_dir.mkdir(parents=True, exist_ok=True)
         

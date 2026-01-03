@@ -2,19 +2,35 @@
 """
 Unified Producer Data Fetch
 
-Downloads and normalizes both Quebec (RACJ) and US (TTB) wine producer data 
-into a unified format, then outputs a sorted JSONL file for version control.
+Downloads and normalizes Quebec (RACJ), US (TTB), and Canadian province wine 
+producer data into a unified format.
 
-This replaces the previous separate 00_quebec_fetch.py and combined fetch logic,
-using modular fetchers for clean separation of concerns.
+PURPOSE: Data Unification - Combines multiple data sources into standardized format
+
+PREREQUISITES:
+uv run src/canada_province_winery_researcher.py --province "NB,NL,NS,PE" --previous-list data/can/canada_province_wineries.jsonl --yes --threads 4
 
 INPUTS:
-- Quebec RACJ API: https://racj.ca/api/vins (live API call)
-- US TTB Data: data/us/ttb_wine_producers.csv (pre-downloaded CSV file)
+- Quebec RACJ API: https://racj.ca/api/vins (downloaded during execution)
+- US TTB data: Downloaded during execution via ttb_fetcher
+- data/can/canada_province_wineries.jsonl (from Canadian province research)
 
 OUTPUTS:
-- data/01_unified_producers.jsonl (unified producer records in JSONL format)
+- data/01_unified_producers.jsonl (unified producer records)
 - data/01_unified_producers_metadata.json (fetch metadata and statistics)
+
+DEPENDENCIES:
+- Internet connection for Quebec RACJ API and US TTB data
+- includes.racj_fetcher, includes.ttb_fetcher, includes.canada_province_fetcher
+
+USAGE:
+uv run src/01_producer_fetch.py
+
+FUNCTIONALITY:
+- Downloads Quebec and US data live during execution
+- Fetches existing Canadian province research data
+- Normalizes all sources to common schema
+- Provides detailed statistics on data quality and coverage
 """
 
 import json
@@ -27,6 +43,7 @@ from datetime import datetime
 sys.path.append(str(Path(__file__).parent))
 from includes.racj_fetcher import fetch_quebec_producers
 from includes.ttb_fetcher import fetch_us_producers
+from includes.canada_province_fetcher import fetch_canada_province_producers
 
 
 def save_unified_data(unified_data: List[Dict], metadata: Dict[str, Any]) -> Path:
@@ -53,7 +70,7 @@ def save_unified_data(unified_data: List[Dict], metadata: Dict[str, Any]) -> Pat
     return output_file
 
 
-def analyze_unified_dataset(quebec_data: Dict, us_data: Dict, unified_producers: List[Dict]):
+def analyze_unified_dataset(quebec_data: Dict, us_data: Dict, canada_data: Dict, unified_producers: List[Dict]):
     """Print analysis of the unified dataset."""
     print(f"\n📊 Unified Dataset Summary")
     print("=" * 50)
@@ -61,10 +78,12 @@ def analyze_unified_dataset(quebec_data: Dict, us_data: Dict, unified_producers:
     # By source
     quebec_count = len(quebec_data['producers'])
     us_count = len(us_data['producers'])
+    canada_count = len(canada_data['producers'])
     
     print(f"By Source:")
     print(f"   Quebec (RACJ): {quebec_count:,}")
     print(f"   US (TTB): {us_count:,}")
+    print(f"   Canada Provinces: {canada_count:,}")
     print(f"   Total: {len(unified_producers):,}")
     
     # By state/province
@@ -113,9 +132,20 @@ def main():
     else:
         print(f"   Loaded {len(us_producers)} US producers")
     
+    # Fetch Canada province data
+    print("📥 Fetching Canada Province winery data...")
+    canada_data = fetch_canada_province_producers()
+    canada_producers = canada_data['producers']
+    
+    if canada_data.get('metadata', {}).get('error'):
+        print(f"   ❌ Canada fetch failed: {canada_data['metadata']['error']}")
+        canada_producers = []
+    else:
+        print(f"   Loaded {len(canada_producers)} Canada producers")
+    
     # Combine datasets
     print("🔄 Combining and sorting datasets...")
-    unified_producers = quebec_producers + us_producers
+    unified_producers = quebec_producers + us_producers + canada_producers
     
     # Sort by source then by business name for consistent ordering
     unified_producers.sort(key=lambda x: (
@@ -123,7 +153,7 @@ def main():
         x.get('business_name', '').lower()
     ))
     
-    print(f"   Combined {len(quebec_producers)} Quebec + {len(us_producers)} US = {len(unified_producers)} total producers")
+    print(f"   Combined {len(quebec_producers)} Quebec + {len(us_producers)} US + {len(canada_producers)} Canada = {len(unified_producers)} total producers")
     
     # Create combined metadata
     combined_metadata = {
@@ -137,6 +167,10 @@ def main():
             'us': {
                 'count': len(us_producers), 
                 'metadata': us_data.get('metadata', {})
+            },
+            'canada_provinces': {
+                'count': len(canada_producers),
+                'metadata': canada_data.get('metadata', {})
             }
         }
     }
@@ -145,7 +179,7 @@ def main():
     output_file = save_unified_data(unified_producers, combined_metadata)
     
     # Print analysis
-    analyze_unified_dataset(quebec_data, us_data, unified_producers)
+    analyze_unified_dataset(quebec_data, us_data, canada_data, unified_producers)
     
     print(f"\n✅ Unified producer data saved to: {output_file}")
     print(f"📄 Ready for pipeline processing with scripts 02-12")

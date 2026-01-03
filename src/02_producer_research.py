@@ -5,24 +5,40 @@ Unified Producer Research Pipeline
 Efficient single-script pipeline that combines classification, web search, geolocation, 
 and enrichment with early exit logic to minimize API costs.
 
-Pipeline:
+PURPOSE: Producer Research & Enrichment - Classify, validate, and enrich producer data
+
+INPUTS:
+- data/01_unified_producers.jsonl (unified producer records)
+- data/enriched_producers_cache.jsonl (existing cache, if any)
+- data/producer_geolocations_cache.jsonl (existing geolocation cache, if any)
+
+OUTPUTS:
+- data/enriched_producers_cache.jsonl (enriched wine producer data + early exits)
+- data/producer_geolocations_cache.jsonl (geolocation cache for all producers)
+
+DEPENDENCIES:
+- OPENAI_API_KEY environment variable
+- OpenAI API (gpt-5.2 model with web_search tool)
+- Optional: GOOGLE_MAPS_API_KEY for enhanced geocoding
+- Nominatim/OpenStreetMap API for geocoding
+
+USAGE:
+# Test with limited producers
+uv run src/02_producer_research.py --limit 10
+
+# Full processing with confirmation
+uv run src/02_producer_research.py --yes
+
+# Custom threading and delay
+uv run src/02_producer_research.py --threads 5 --delay 0.5 --yes
+
+FUNCTIONALITY:
 1. Check enrichment cache → Skip if exists  
 2. Run classifier/search → Get classification
 3. Check is_wine_producer() → Early exit if not wine
 4. Geolocate wine producer → Add location data
 5. Run full enrichment → Save complete data
 6. Save early exits to cache → Prevent re-processing
-
-INPUTS:
-- data/01_unified_producers.jsonl (from 01_producer_fetch.py)
-- data/enriched_producers_cache.jsonl (existing cache, if any)
-- data/producer_geolocations_cache.jsonl (existing geolocation cache, if any)
-- OpenAI API (for classification and enrichment)
-- Web search APIs (via OpenAI web_search tool)
-
-OUTPUTS:
-- data/enriched_producers_cache.jsonl (enriched wine producer data + early exits)
-- data/producer_geolocations_cache.jsonl (geolocation cache for all producers)
 """
 
 import json

@@ -1,9 +1,38 @@
 #!/usr/bin/env python3
 """
-VIVC Index Builder
+VIVC Grape Varieties Index Builder
 
-Creates a markdown index from the grape varieties data,
-organized by species and berry color with links to VIVC.
+Creates bilingual markdown indices (English/French) from grape variety data,
+organized by species and berry color with comprehensive links to VIVC,
+interactive maps, and research articles.
+
+PURPOSE: VIVC Index Generation - Create comprehensive grape variety reference
+
+INPUTS:
+- data/grape_variety_mapping.jsonl (via GrapeVarietiesModel - grape variety data)
+
+OUTPUTS:
+- docs/en/varieties/index.md (English VIVC index)
+- docs/fr/varieties/index.md (French VIVC index) 
+
+DEPENDENCIES:
+- includes.grape_varieties.GrapeVarietiesModel for variety data access
+
+USAGE:
+# Generate VIVC indices
+uv run src/build_vivc_index.py
+
+# Custom output location
+uv run src/build_vivc_index.py --output docs/en/varieties/custom-index.md
+
+FUNCTIONALITY:
+- Loads grape variety data from GrapeVarietiesModel
+- Organizes varieties by species (Vinifera vs Non-vinifera) and berry color
+- Creates dynamic VIVC links with variety-specific labels
+- Generates producer map links with variety filtering
+- Includes research article links when available
+- Produces bilingual indices with localized content
+- Provides comprehensive statistics and VIVC match rates
 """
 
 import argparse

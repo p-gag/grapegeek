@@ -2,8 +2,39 @@
 """
 VIVC Assignment Script
 
-Assigns VIVC passport data to grape varieties using GPT-powered search with React tool calling.
-Uses a tool calling loop where GPT can search VIVC dynamically.
+Assigns VIVC passport data to grape varieties using GPT-powered search with React 
+tool calling for dynamic VIVC database queries.
+
+PURPOSE: VIVC Data Assignment - Assign passport data to grape varieties using AI search
+
+INPUTS:
+- data/grape_variety_mapping.jsonl (via GrapeVarietiesModel)
+
+OUTPUTS:
+- data/grape_variety_mapping.jsonl (updated with VIVC assignments and passport data)
+
+DEPENDENCIES:
+- OPENAI_API_KEY environment variable
+- OpenAI API (gpt-5 model)
+- includes.vivc_client for VIVC database search
+- includes.grape_varieties.GrapeVarietiesModel
+
+USAGE:
+# Test with 5 varieties
+uv run src/vivc_assign.py --limit 5
+
+# Process all unprocessed varieties
+uv run src/vivc_assign.py
+
+# Reprocess varieties previously marked as not found
+uv run src/vivc_assign.py --reprocess-not-found
+
+FUNCTIONALITY:
+- Uses React tool calling loop where GPT can search VIVC database dynamically
+- Specialized for cold-climate hybrids grown in northeastern North America
+- Searches with multiple strategies: exact name, wildcard patterns, aliases
+- Fetches full passport data when VIVC number found
+- Updates variety records with assignment status: found/not_found/error/skipped_not_grape
 """
 
 import argparse
@@ -25,28 +56,22 @@ from includes.vivc_client import search_cultivar, get_passport_data, VarietySear
 class VIVCAssigner:
     """Assigns VIVC passport data to grape varieties using GPT with tool calling."""
     
-    def __init__(self, data_dir: str = "data"):
+    def __init__(self, data_dir: str = "data", reprocess_not_found: bool = False):
         self.data_dir = Path(data_dir)
         self.varieties_model = GrapeVarietiesModel(data_dir)
         self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
-        self.output_file = self.data_dir / "grape_varieties_enriched.jsonl"
-        self.processed_varieties = self._load_processed_varieties()
+        self.reprocess_not_found = reprocess_not_found
     
-    def _load_processed_varieties(self) -> set:
-        """Load already processed variety names from existing output file."""
-        processed = set()
-        
-        if self.output_file.exists():
-            try:
-                with open(self.output_file, 'r', encoding='utf-8') as f:
-                    for line in f:
-                        if line.strip():
-                            data = json.loads(line)
-                            processed.add(data.get('name'))
-            except Exception as e:
-                print(f"⚠️  Warning: Could not load existing data: {e}")
-        
-        return processed
+    def update_variety_in_model(self, variety_name: str, vivc_data: dict, status: str):
+        """Update a variety's VIVC data in the model and save to file."""
+        variety = self.varieties_model.get_variety(variety_name)
+        if variety:
+            variety.vivc = vivc_data
+            variety.vivc_assignment_status = status
+            # Save the entire model back to JSONL
+            self.varieties_model.save_jsonl()
+            return True
+        return False
         
     def search_vivc_tool(self, search_term: str) -> str:
         """Tool function for VIVC search that GPT can call."""
@@ -226,16 +251,14 @@ If you cannot find it after reasonable attempts, respond with "NOT_FOUND"."""
         print(f"  ❌ Max iterations reached")
         return None
 
-    def enrich_variety(self, variety: GrapeVariety) -> GrapeVariety:
-        """Enrich a single variety with VIVC data."""
+    def enrich_variety(self, variety: GrapeVariety) -> bool:
+        """Enrich a single variety with VIVC data and update the model."""
         print(f"🔍 Processing: {variety.name}")
         
-        # Start with the existing variety data
-        enriched_data = variety.to_dict()
-        
         if not variety.grape:
-            enriched_data['vivc_assignment_status'] = "skipped_not_grape"
-            return enriched_data
+            self.update_variety_in_model(variety.name, None, "skipped_not_grape")
+            print(f"  ⏭️  Skipped (not a grape variety)")
+            return True
         
         try:
             vivc_number = self.find_vivc_for_variety(variety)
@@ -243,76 +266,59 @@ If you cannot find it after reasonable attempts, respond with "NOT_FOUND"."""
             if vivc_number:
                 print(f"  📋 Fetching passport data...")
                 passport_data = get_passport_data(vivc_number)
-                enriched_data['vivc'] = passport_data.to_dict()
-                enriched_data['vivc_assignment_status'] = "found"
+                self.update_variety_in_model(variety.name, passport_data.to_dict(), "found")
                 print(f"  ✅ Successfully enriched {variety.name}")
+                return True
             else:
-                enriched_data['vivc_assignment_status'] = "not_found"
-                enriched_data['vivc'] = None
+                self.update_variety_in_model(variety.name, None, "not_found")
                 print(f"  ❌ Could not find VIVC for {variety.name}")
+                return True
                 
         except Exception as e:
-            enriched_data['vivc_assignment_status'] = "error"
-            enriched_data['vivc'] = None
+            self.update_variety_in_model(variety.name, None, "error")
             print(f"  ⚠️  Error enriching {variety.name}: {e}")
-        
-        # Return an object that can be serialized
-        return enriched_data
+            return False
 
-    def process_all_varieties(self, limit: Optional[int] = None) -> List[Dict]:
+    def process_all_varieties(self, limit: Optional[int] = None) -> int:
         """Process all grape varieties."""
         all_varieties = self.varieties_model.get_grape_varieties()
         
-        # Filter out already processed varieties first
-        grape_varieties = [v for v in all_varieties if v.name not in self.processed_varieties]
+        # By default, skip varieties with not_found/error status unless reprocessing
+        if not self.reprocess_not_found:
+            grape_varieties = [v for v in all_varieties 
+                             if not (hasattr(v, 'vivc_assignment_status') and 
+                                     v.vivc_assignment_status in ['not_found', 'error', 'found'])]
+        else:
+            grape_varieties = all_varieties
         
-        # Apply limit to unprocessed varieties only
+        # Apply limit to varieties to process
         if limit:
             grape_varieties = grape_varieties[:limit]
         
         total_varieties = len(all_varieties)
-        processed_count = len(self.processed_varieties)
         to_process = len(grape_varieties)
         
-        print(f"🚀 Total varieties: {total_varieties}, Already processed: {processed_count}, To process: {to_process}")
+        print(f"🚀 Total varieties: {total_varieties}, To process: {to_process}")
         
-        enriched_varieties = []
+        processed_count = 0
         
         for i, variety in enumerate(grape_varieties, 1):
             print(f"\n[{i}/{to_process}] ")
-            enriched = self.enrich_variety(variety)
-            if enriched is not None:  # Should always be not None now
-                enriched_varieties.append(enriched)
-                # Save immediately after each result
-                self._save_single_variety(enriched)
+            if self.enrich_variety(variety):
+                processed_count += 1
         
-        return enriched_varieties
+        return processed_count
 
-    def _save_single_variety(self, variety: Dict):
-        """Save a single variety immediately to JSONL."""
-        with open(self.output_file, 'a', encoding='utf-8') as f:
-            f.write(json.dumps(variety, ensure_ascii=False) + '\n')
-
-    def save_enriched_varieties(self, enriched_varieties: List[Dict]):
-        """Save enriched varieties to JSONL (append mode)."""
-        if not enriched_varieties:
-            print(f"\n💾 No new varieties to save")
-            return
-            
-        print(f"\n💾 Appending {len(enriched_varieties)} varieties to {self.output_file}")
-        
-        with open(self.output_file, 'a', encoding='utf-8') as f:
-            for variety in enriched_varieties:
-                f.write(json.dumps(variety, ensure_ascii=False) + '\n')
-
-    def get_stats(self, enriched_varieties: List[Dict]) -> Dict[str, int]:
-        """Get statistics about the enrichment process."""
+    def get_stats(self) -> Dict[str, int]:
+        """Get statistics about all varieties in the model."""
+        all_varieties = self.varieties_model.get_all_varieties()
         stats = {
-            "total": len(enriched_varieties),
-            "found": len([v for v in enriched_varieties if v.get('vivc_assignment_status') == "found"]),
-            "not_found": len([v for v in enriched_varieties if v.get('vivc_assignment_status') == "not_found"]),
-            "error": len([v for v in enriched_varieties if v.get('vivc_assignment_status') == "error"]),
-            "skipped": len([v for v in enriched_varieties if v.get('vivc_assignment_status') == "skipped_not_grape"])
+            "total": len(all_varieties),
+            "found": len([v for v in all_varieties if hasattr(v, 'vivc_assignment_status') and v.vivc_assignment_status == "found"]),
+            "not_found": len([v for v in all_varieties if hasattr(v, 'vivc_assignment_status') and v.vivc_assignment_status == "not_found"]),
+            "error": len([v for v in all_varieties if hasattr(v, 'vivc_assignment_status') and v.vivc_assignment_status == "error"]),
+            "skipped": len([v for v in all_varieties if hasattr(v, 'vivc_assignment_status') and v.vivc_assignment_status == "skipped_not_grape"]),
+            "unprocessed": len([v for v in all_varieties if not hasattr(v, 'vivc_assignment_status') or v.vivc_assignment_status is None])
         }
         return stats
 
@@ -335,6 +341,12 @@ Examples:
         help="Limit number of varieties to process (for testing)"
     )
     
+    parser.add_argument(
+        "--reprocess-not-found",
+        action="store_true",
+        help="Reprocess varieties with not_found status (default: skip them)"
+    )
+    
     args = parser.parse_args()
     
     # Check for OpenAI API key
@@ -343,20 +355,21 @@ Examples:
         sys.exit(1)
     
     try:
-        assigner = VIVCAssigner()
-        enriched_varieties = assigner.process_all_varieties(args.limit)
-        # Results are saved individually, so no need to batch save
+        assigner = VIVCAssigner(reprocess_not_found=args.reprocess_not_found)
+        processed_count = assigner.process_all_varieties(args.limit)
         
         # Show statistics
-        stats = assigner.get_stats(enriched_varieties)
+        stats = assigner.get_stats()
         print(f"\n📊 Results:")
-        print(f"  Total processed: {stats['total']}")
+        print(f"  Varieties processed this run: {processed_count}")
+        print(f"  Total varieties: {stats['total']}")
         print(f"  VIVC found: {stats['found']}")
         print(f"  Not found: {stats['not_found']}")
         print(f"  Errors: {stats['error']}")
         print(f"  Skipped: {stats['skipped']}")
+        print(f"  Unprocessed: {stats['unprocessed']}")
         
-        success_rate = stats['found'] / (stats['total'] - stats['skipped']) * 100 if stats['total'] > stats['skipped'] else 0
+        success_rate = stats['found'] / (stats['total'] - stats['skipped'] - stats['unprocessed']) * 100 if (stats['total'] - stats['skipped'] - stats['unprocessed']) > 0 else 0
         print(f"  Success rate: {success_rate:.1f}%")
         
     except Exception as e:

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
-Create Final Normalized Wine Producers Dataset
+Final Normalized Wine Producers Dataset Creator
 
-Merges unified producer data with search cache and geolocation cache,
-filters to wine-related producers using verified_wine_producer attribute,
-and applies grape variety and wine type normalization in a single step.
+Merges and normalizes wine producer data from multiple sources with grape 
+variety and wine type normalization. Creates the final production dataset
+used by all output generation scripts.
+
+PURPOSE: Final Dataset Creation - Merge, filter, and normalize wine producer data
 
 INPUTS:
 - data/01_unified_producers.jsonl (base producer data)
@@ -14,7 +16,22 @@ INPUTS:
 - data/wine_type_mapping.yaml (wine type normalization mappings)
 
 OUTPUTS:
-- data/05_wine_producers_final_normalized.jsonl (merged + filtered + normalized dataset)
+- data/05_wine_producers_final_normalized.jsonl (final production dataset)
+
+DEPENDENCIES:
+- includes.grape_varieties.GrapeVarietiesModel for variety normalization
+
+USAGE:
+# Generate final normalized dataset
+uv run src/05_data_final_normalized.py
+
+FUNCTIONALITY:
+- Merges unified producer data with enrichment and geolocation caches
+- Filters to verified wine producers using verified_wine_producer attribute
+- Applies grape variety normalization using GrapeVarietiesModel
+- Normalizes wine types using mapping rules
+- Generates comprehensive quality statistics and coverage analysis
+- Creates single source of truth dataset for all output generation
 """
 
 import json

@@ -1,9 +1,37 @@
 #!/usr/bin/env python3
 """
-Wine Producer Dataset Statistics Generator
+Dataset Statistics Generator for Wine Producers
 
-Generates comprehensive statistics about the wine producer dataset
-for social media posts, reports, and marketing content.
+Analyzes the final normalized wine producer dataset to generate comprehensive 
+statistics for reports, social media posts, and performance tracking.
+
+PURPOSE: Statistics Generation - Analyze final dataset for insights and reporting
+
+INPUTS:
+- data/05_wine_producers_final_normalized.jsonl (final production dataset)
+
+OUTPUTS:
+- dataset_statistics.txt (detailed statistics summary)
+- Console output with comprehensive analysis and social media posts
+
+DEPENDENCIES:
+- None (analyzes final normalized dataset)
+
+USAGE:
+# Generate comprehensive statistics
+uv run src/11_generate_stats.py
+
+# Include full grape varieties list
+uv run src/11_generate_stats.py --varieties
+
+FUNCTIONALITY:
+- Analyzes geographic coverage across US states and Canadian provinces
+- Counts total producers, wines, and estimated bottles
+- Identifies unique grape varieties and wine types
+- Tracks digital presence (websites, social media accounts)
+- Generates bilingual social media post content (English/French)
+- Provides comprehensive dataset quality metrics
+- Creates detailed text report for reference
 """
 
 import json
@@ -13,7 +41,7 @@ from typing import Dict, List, Set
 
 def load_producer_data() -> List[Dict]:
     """Load the final wine producer dataset."""
-    input_file = Path("data/09_wine_producers_normalized.jsonl")
+    input_file = Path("data/05_wine_producers_final_normalized.jsonl")
     
     if not input_file.exists():
         print(f"❌ Input file not found: {input_file}")

@@ -1,9 +1,32 @@
 #!/usr/bin/env python3
 """
-Convert Final2 Wine Producers to GeoJSON with Normalization
+GeoJSON Output Generator for Wine Producers
 
-Converts the verified wine producers final2 dataset to GeoJSON format 
-with normalized grape varieties and wine types for enhanced filtering.
+Converts the final normalized wine producer dataset to GeoJSON format for 
+interactive map visualization with geographic filtering and variety analysis.
+
+PURPOSE: GeoJSON Export - Convert final dataset to interactive map format
+
+INPUTS:
+- data/05_wine_producers_final_normalized.jsonl (final production dataset)
+
+OUTPUTS:
+- docs/assets/data/wine-producers-final.geojson (interactive map data)
+
+DEPENDENCIES:
+- None (uses normalized data from final dataset)
+
+USAGE:
+# Generate GeoJSON for interactive map
+uv run src/10_output_geojson.py
+
+FUNCTIONALITY:
+- Converts normalized wine producer data to GeoJSON format
+- Includes wine data with pre-normalized grape varieties and wine types
+- Generates comprehensive metadata and statistics
+- Creates feature properties for interactive map filtering
+- Provides location coverage analysis and variety statistics
+- Outputs ready-to-use map data for MkDocs site
 """
 
 import json

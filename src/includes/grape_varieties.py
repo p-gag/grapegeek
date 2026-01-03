@@ -66,8 +66,12 @@ class GrapeVariety:
         return asdict(self)
     
     def to_jsonl_entry(self) -> str:
-        """Convert to JSONL format."""
-        return json.dumps(self.to_dict(), ensure_ascii=False)
+        """Convert to JSONL format, excluding null notes field."""
+        data = self.to_dict()
+        # Remove notes field if it's None
+        if 'notes' in data and data['notes'] is None:
+            del data['notes']
+        return json.dumps(data, ensure_ascii=False)
 
 
 class GrapeVarietiesModel:
@@ -176,32 +180,69 @@ class GrapeVarietiesModel:
         # Then check aliases
         return self._alias_to_variety.get(input_lower)
     
-    def search_varieties(self, query: str) -> List[str]:
-        """Search for varieties by partial name match.
+    def search_varieties(self, query: str, limit: int = 10, max_distance: int = 3) -> List[str]:
+        """Search for varieties by edit distance (fuzzy matching).
         
         Args:
             query: Search query
+            limit: Maximum number of unique grape varieties to return
+            max_distance: Maximum edit distance to consider a match
             
         Returns:
-            List of matching variety names
+            List of matching variety names, sorted by edit distance (best matches first)
         """
         query_lower = query.lower().strip()
-        matches = []
+        if not query_lower:
+            return []
+        
+        variety_scores = []
+        seen_varieties = set()
         
         for variety_name in self.varieties:
-            # Check variety name
-            if query_lower in variety_name.lower():
-                matches.append(variety_name)
+            if variety_name in seen_varieties:
                 continue
+                
+            best_distance = float('inf')
+            
+            # Check variety name
+            distance = self._edit_distance(query_lower, variety_name.lower())
+            best_distance = min(best_distance, distance)
             
             # Check aliases
             variety = self.varieties[variety_name]
             for alias in variety.aliases:
-                if query_lower in alias.lower():
-                    matches.append(variety_name)
-                    break
+                alias_distance = self._edit_distance(query_lower, alias.lower())
+                best_distance = min(best_distance, alias_distance)
+            
+            # Only include if within max distance
+            if best_distance <= max_distance:
+                variety_scores.append((variety_name, best_distance))
+                seen_varieties.add(variety_name)
         
-        return sorted(list(set(matches)))
+        # Sort by distance (best matches first) and limit results
+        variety_scores.sort(key=lambda x: x[1])
+        return [variety_name for variety_name, _ in variety_scores[:limit]]
+    
+    def _edit_distance(self, s1: str, s2: str) -> int:
+        """Calculate edit distance (Levenshtein distance) between two strings."""
+        if len(s1) < len(s2):
+            return self._edit_distance(s2, s1)
+        
+        if len(s2) == 0:
+            return len(s1)
+        
+        previous_row = list(range(len(s2) + 1))
+        for i, c1 in enumerate(s1):
+            current_row = [i + 1]
+            for j, c2 in enumerate(s2):
+                # Cost of insertions, deletions and substitutions
+                insertions = previous_row[j + 1] + 1
+                deletions = current_row[j] + 1
+                substitutions = previous_row[j] + (c1 != c2)
+                current_row.append(min(insertions, deletions, substitutions))
+            previous_row = current_row
+        
+        return previous_row[-1]
     
     def get_aliases(self, variety_name: str) -> List[str]:
         """Get all aliases for a variety."""
@@ -288,19 +329,23 @@ class GrapeVarietiesModel:
                 
                 # Use the first variety as the base
                 primary_name, primary_variety = variety_list[0]
-                merged_aliases = set(primary_variety.aliases)
+                merged_aliases = set()
                 
-                # Add all names and aliases from other varieties
+                # Add all names and aliases from all varieties (including primary)
                 for name, variety in variety_list:
-                    # Add the variety name as an alias (normalize case for consistency)
-                    if name != primary_name:  # Don't add primary name as alias to itself
-                        merged_aliases.add(name.lower())
-                    merged_aliases.update(variety.aliases)
+                    # Add the variety name as an alias (normalize to lowercase)
+                    if name and name.strip():
+                        merged_aliases.add(name.lower().strip())
+                    
+                    # Add all existing aliases (normalize to lowercase)
+                    for alias in variety.aliases:
+                        if alias and alias.strip():
+                            merged_aliases.add(alias.lower().strip())
+                    
                     print(f"    - {name} (aliases: {len(variety.aliases)})")
                 
-                # Remove the primary name from aliases if it's there (including any case variations)
-                merged_aliases.discard(primary_name)
-                merged_aliases.discard(primary_name.lower())
+                # Convert to sorted list and remove empty strings
+                merged_aliases = sorted([alias for alias in merged_aliases if alias])
                 
                 # Create consolidated variety
                 consolidated_variety = GrapeVariety(
@@ -349,9 +394,9 @@ def normalize_variety_name(input_name: str) -> Optional[str]:
     return get_grape_varieties_model().normalize_variety_name(input_name)
 
 
-def search_varieties(query: str) -> List[str]:
+def search_varieties(query: str, limit: int = 10, max_distance: int = 3) -> List[str]:
     """Search for varieties using the global model."""
-    return get_grape_varieties_model().search_varieties(query)
+    return get_grape_varieties_model().search_varieties(query, limit, max_distance)
 
 
 def get_variety_aliases(variety_name: str) -> List[str]:
@@ -371,6 +416,8 @@ def main():
     # Search command
     search_parser = subparsers.add_parser('search', help='Search varieties')
     search_parser.add_argument('query', help='Search query')
+    search_parser.add_argument('--limit', type=int, default=10, help='Maximum number of varieties to return (default: 10)')
+    search_parser.add_argument('--max-distance', type=int, default=3, help='Maximum edit distance for matches (default: 3)')
     
     # Normalize command
     normalize_parser = subparsers.add_parser('normalize', help='Normalize variety name')
@@ -397,13 +444,13 @@ def main():
         model = get_grape_varieties_model()
         
         if args.command == 'search':
-            matches = model.search_varieties(args.query)
+            matches = model.search_varieties(args.query, args.limit, args.max_distance)
             if matches:
-                print(f"Found {len(matches)} matches for '{args.query}':")
+                print(f"Found {len(matches)} matches for '{args.query}' (max distance: {args.max_distance}):")
                 for match in matches:
                     print(f"  - {match}")
             else:
-                print(f"No matches found for '{args.query}'")
+                print(f"No matches found for '{args.query}' within distance {args.max_distance}")
         
         elif args.command == 'normalize':
             normalized = model.normalize_variety_name(args.name)

@@ -1,0 +1,37 @@
+WINE PRODUCER DATASET STATISTICS
+==================================================
+
+DETAILED STATS:
+Total producers: 1,486
+Geographic regions: 13
+Total wines: 17,320
+Grape varieties: 251
+Websites: 1424
+Social accounts: 2237
+
+SOCIAL MEDIA POSTS:
+--------------------
+
+ENGLISH:
+🍷 NORTH-EAST WINEGROWER RESEARCH 🗺️
+
+📍 9 US states and 4 Canadian provinces
+🍇 1,486 winegrowers researched
+🍾 17,320 wines catalogued  
+🌿 251 grape varieties
+🌐 1424 websites discovered
+📱 2237 social accounts identified
+
+#WineMapping #DataResearch #Winegrowers
+
+FRANÇAIS:
+🍷 RECHERCHE VIGNOBLES NORD-EST 🗺️
+
+📍 9 États américains et 4 provinces canadiennes
+🍇 1,486 vignobles recherchés
+🍾 17,320 vins catalogués  
+🌿 251 cépages
+🌐 1424 sites web découverts
+📱 2237 comptes sociaux identifiés
+
+#CartographieVin #RechercheData #Vignobles
