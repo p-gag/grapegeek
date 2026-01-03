@@ -21,13 +21,13 @@ DEPENDENCIES:
 
 USAGE:
 # Test with 5 varieties
-uv run src/vivc_assign.py --limit 5
+uv run src/04_vivc_assign.py --limit 5
 
 # Process all unprocessed varieties
-uv run src/vivc_assign.py
+uv run src/04_vivc_assign.py
 
 # Reprocess varieties previously marked as not found
-uv run src/vivc_assign.py --reprocess-not-found
+uv run src/04_vivc_assign.py --reprocess-not-found
 
 FUNCTIONALITY:
 - Uses React tool calling loop where GPT can search VIVC database dynamically
@@ -330,8 +330,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python src/vivc_assign.py --limit 5     # Process first 5 varieties
-  python src/vivc_assign.py               # Process all varieties
+  python src/04_vivc_assign.py --limit 5     # Process first 5 varieties
+  python src/04_vivc_assign.py               # Process all varieties
         """
     )
     

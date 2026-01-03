@@ -20,10 +20,10 @@ DEPENDENCIES:
 
 USAGE:
 # Generate VIVC indices
-uv run src/build_vivc_index.py
+uv run src/08_build_vivc_index.py
 
 # Custom output location
-uv run src/build_vivc_index.py --output docs/en/varieties/custom-index.md
+uv run src/08_build_vivc_index.py --output docs/en/varieties/custom-index.md
 
 FUNCTIONALITY:
 - Loads grape variety data from GrapeVarietiesModel
@@ -355,9 +355,9 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python src/build_vivc_index.py
-  python src/build_vivc_index.py --output docs/en/varieties/custom-index.md
-  python src/build_vivc_index.py --data-dir data
+  python src/08_build_vivc_index.py
+  python src/08_build_vivc_index.py --output docs/en/varieties/custom-index.md
+  python src/08_build_vivc_index.py --data-dir data
         """
     )
     

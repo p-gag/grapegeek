@@ -19,10 +19,10 @@ DEPENDENCIES:
 
 USAGE:
 # Generate comprehensive statistics
-uv run src/11_generate_stats.py
+uv run src/07_generate_stats.py
 
 # Include full grape varieties list
-uv run src/11_generate_stats.py --varieties
+uv run src/07_generate_stats.py --varieties
 
 FUNCTIONALITY:
 - Analyzes geographic coverage across US states and Canadian provinces

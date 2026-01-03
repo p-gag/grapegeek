@@ -24,13 +24,13 @@ DEPENDENCIES:
 
 USAGE:
 # Research specific provinces
-uv run src/canada_province_winery_researcher.py --province "NB,NL,NS,PE" --yes --threads 4
+uv run src/00_canada_province_winery_researcher.py --province "NB,NL,NS,PE" --yes --threads 4
 
 # Supplemental research building on existing data
-uv run src/canada_province_winery_researcher.py --province "NB,NL,NS,PE" --previous-list data/can/canada_province_wineries.jsonl --yes --threads 4
+uv run src/00_canada_province_winery_researcher.py --province "NB,NL,NS,PE" --previous-list data/can/canada_province_wineries.jsonl --yes --threads 4
 
 # Research all Canadian provinces  
-uv run src/canada_province_winery_researcher.py --all-provinces --yes
+uv run src/00_canada_province_winery_researcher.py --all-provinces --yes
 
 FUNCTIONALITY:
 - Uses AI web search to discover wineries from tourism sites, wine associations, directories

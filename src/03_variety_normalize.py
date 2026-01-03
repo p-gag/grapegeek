@@ -21,13 +21,13 @@ DEPENDENCIES:
 
 USAGE:
 # Process up to 50 varieties
-uv run src/08_variety_normalize.py
+uv run src/03_variety_normalize.py
 
 # Custom batch size and multiple iterations
-uv run src/08_variety_normalize.py --limit 30 --iterations 3
+uv run src/03_variety_normalize.py --limit 30 --iterations 3
 
 # Dry run to see what would be processed
-uv run src/08_variety_normalize.py --dry-run
+uv run src/03_variety_normalize.py --dry-run
 
 FUNCTIONALITY:
 - Extracts unique cepage varieties from enriched producer data

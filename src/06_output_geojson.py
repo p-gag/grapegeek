@@ -18,7 +18,7 @@ DEPENDENCIES:
 
 USAGE:
 # Generate GeoJSON for interactive map
-uv run src/10_output_geojson.py
+uv run src/06_output_geojson.py
 
 FUNCTIONALITY:
 - Converts normalized wine producer data to GeoJSON format
