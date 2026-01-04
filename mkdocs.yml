@@ -43,6 +43,7 @@ nav:
   - Home: en/index.md
   - About: en/about.md
   - Grape Varieties: en/varieties/index.md
+  - Wine Regions: en/regions/index.md
   - Producer Map: en/producer-map.md
   - AI Usage: en/ai-usage.md
 
@@ -86,6 +87,7 @@ plugins:
             Home: Accueil
             About: À Propos
             Grape Varieties: Cépages
+            Wine Regions: Régions Vinicoles
             Producer Map: Carte des Vignobles
             AI Usage: Usage de l'IA
   - git-revision-date-localized:

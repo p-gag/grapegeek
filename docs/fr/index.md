@@ -16,6 +16,7 @@ hide:
 
 - **[Cépages](varieties/index.md)** - Base de données complète des cépages avec données VIVC, articles détaillés, et cartographie des producteurs
     - À venir (ou pas) : témoignages de producteurs et de vinificateurs, dans leurs propres mots, avec attribution complète
+- **[Régions vinicoles](regions/index.md)** - Statistiques régionales par province et état avec nombre de producteurs, analyse des cépages, et classification vinifera
 - **[Carte des producteurs](producer-map.md)** - Carte interactive des producteurs de vin avec filtre par cépage couvrant le Québec et le nord-est des États-Unis.
 - **[À propos](about.md)** - Découvrez la philosophie et l'approche du projet
 - **[Utilisation de l'IA](ai-usage.md)** - Transparence sur la manière dont l'IA est utilisée pour la recherche et la création de contenu

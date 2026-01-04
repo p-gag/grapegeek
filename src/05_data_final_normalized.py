@@ -220,24 +220,36 @@ def is_wine_producer(merged_producer: Dict) -> bool:
     return classification in wine_classifications
 
 
-def normalize_producer_wines(producer: Dict, grape_model: GrapeVarietiesModel, wine_type_mapping: Dict[str, Dict]) -> Dict:
-    """Normalize both grape varieties and wine types for a producer's wines."""
+def has_fruit_cepage(cepages: List) -> bool:
+    """Check if wine contains non-grape fruit in its cépages (after normalization)."""
+    if not isinstance(cepages, list):
+        return False
+    
+    for cepage in cepages:
+        if isinstance(cepage, str) and cepage.lower() == 'fruit':
+            return True
+    return False
+
+
+def normalize_producer_wines(producer: Dict, grape_model: GrapeVarietiesModel, wine_type_mapping: Dict[str, Dict]) -> tuple[Dict, int]:
+    """Normalize both grape varieties and wine types for a producer's wines, excluding non-grape wines."""
     normalized_producer = producer.copy()
     
     wines = producer.get('wines', [])
     if not isinstance(wines, list):
-        return normalized_producer
+        return normalized_producer, 0
     
     normalized_wines = []
+    excluded_wines = 0
     
     for wine in wines:
         if not isinstance(wine, dict):
             normalized_wines.append(wine)
             continue
-            
+        
         normalized_wine = wine.copy()
         
-        # Normalize grape varieties (cépages)
+        # Normalize grape varieties (cépages) first
         cepages = wine.get('cepages', [])
         if isinstance(cepages, list):
             normalized_cepages = []
@@ -248,6 +260,11 @@ def normalize_producer_wines(producer: Dict, grape_model: GrapeVarietiesModel, w
                 else:
                     normalized_cepages.append(cepage)
             normalized_wine['cepages'] = normalized_cepages
+            
+            # Check if wine contains fruit cépages AFTER normalization - exclude if it does
+            if has_fruit_cepage(normalized_cepages):
+                excluded_wines += 1
+                continue
         
         # Normalize wine type
         wine_type = wine.get('type')
@@ -258,7 +275,12 @@ def normalize_producer_wines(producer: Dict, grape_model: GrapeVarietiesModel, w
         normalized_wines.append(normalized_wine)
     
     normalized_producer['wines'] = normalized_wines
-    return normalized_producer
+    
+    # Log exclusions if any
+    if excluded_wines > 0:
+        print(f"  📋 {producer.get('business_name', 'Unknown')}: excluded {excluded_wines} fruit wine(s)")
+    
+    return normalized_producer, excluded_wines
 
 
 def analyze_coverage(producers: List[Dict], search_cache: Dict, geo_cache: Dict):
@@ -370,13 +392,15 @@ def create_final_normalized_dataset():
         'total_wines_with_cepages': 0,
         'total_cepages_normalized': 0,
         'total_wine_types_normalized': 0,
+        'total_fruit_wines_excluded': 0,
         'unique_varieties_global': set(),
         'unique_wine_types_global': set()
     }
     
     for producer in wine_producers:
-        normalized_producer = normalize_producer_wines(producer, grape_model, wine_type_mapping)
+        normalized_producer, excluded_count = normalize_producer_wines(producer, grape_model, wine_type_mapping)
         normalized_producers.append(normalized_producer)
+        normalization_stats['total_fruit_wines_excluded'] += excluded_count
         
         # Calculate normalization statistics
         wines = normalized_producer.get('wines', [])
@@ -442,6 +466,7 @@ def create_final_normalized_dataset():
     print(f"  Wines with cépages:          {normalization_stats['total_wines_with_cepages']}")
     print(f"  Total cépages normalized:    {normalization_stats['total_cepages_normalized']}")
     print(f"  Total wine types normalized: {normalization_stats['total_wine_types_normalized']}")
+    print(f"  🍎 Fruit wines excluded:     {normalization_stats['total_fruit_wines_excluded']}")
     print(f"  Unique grape varieties:      {len(normalization_stats['unique_varieties_global'])}")
     print(f"  Unique wine types:           {len(normalization_stats['unique_wine_types_global'])}")
     

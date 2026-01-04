@@ -14,6 +14,7 @@ hide:
 
 - **[Grape Varieties](varieties/index.md)** - Comprehensive database of grape varieties with VIVC passport data, detailed articles, and producer mapping
     - Coming soon (or not): Grower and winemaker stories in their own words, with full attribution
+- **[Wine Regions](regions/index.md)** - Regional statistics by province and state with producer counts, grape variety analysis, and vinifera classification
 - **[Producer Map](producer-map.md)** - Interactive map of wine producers with grape variety filtering covering Quebec and northeastern US states.
 - **[About](about.md)** - Learn about the project philosophy and approach
 - **[AI Usage](ai-usage.md)** - Transparency about how AI is used for research and content creation
