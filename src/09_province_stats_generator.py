@@ -89,6 +89,33 @@ class ProvinceStatsGenerator:
         species = vivc_data.get('species', '').upper()
         return 'VITIS VINIFERA' in species
     
+    def check_modern_grape(self, variety_name: str, stats: dict):
+        """Check if a grape variety is modern (crossed after 1980) and add to stats."""
+        variety = self.grape_model.get_variety(variety_name)
+        if not variety or not variety.vivc:
+            return
+        
+        vivc_data = variety.vivc
+        year_of_crossing = vivc_data.get('year_of_crossing')
+        
+        # Handle various year formats
+        if year_of_crossing:
+            try:
+                # Extract year if it's a string like "1980" or "1980s"
+                year_str = str(year_of_crossing).strip()
+                if year_str and year_str != '0':
+                    # Handle cases like "1980s", "1980-1985", etc.
+                    if 's' in year_str:
+                        year_str = year_str.replace('s', '')
+                    if '-' in year_str:
+                        year_str = year_str.split('-')[0]
+                    
+                    year = int(float(year_str))
+                    if year > 1980:
+                        stats['modern_grapes'][variety_name] = year
+            except (ValueError, TypeError):
+                pass  # Skip invalid year data
+    
     def analyze_province_data(self, producers: List[Dict], target_provinces: Set[str] = None) -> Dict[str, Dict]:
         """Analyze wine data by province."""
         province_stats = defaultdict(lambda: {
@@ -101,6 +128,7 @@ class ProvinceStatsGenerator:
             'non_vinifera_varieties': Counter(),
             'unknown_varieties': Counter(),
             'variety_wine_appearances': Counter(),
+            'modern_grapes': {},  # grape_name: crossing_year for varieties crossed after 1980
             'producers': []
         })
         
@@ -149,6 +177,9 @@ class ProvinceStatsGenerator:
                                     stats['non_vinifera_varieties'][variety] += 1
                                 else:
                                     stats['unknown_varieties'][variety] += 1
+                                
+                                # Check for modern grapes (crossed after 1980)
+                                self.check_modern_grape(variety, stats)
                         
         
         # Filter provinces by minimum producer count
@@ -178,12 +209,14 @@ class ProvinceStatsGenerator:
                 'producers': "Vignobles",
                 'wines_varieties': "Vins et Cépages", 
                 'wine_types': "Types de vins",
-                'variety_classification': "Classification des cépages",
+                'variety_classification': "Classification des cépages (par apparitions dans les vins)",
                 'popular_varieties': "Cépages populaires",
                 'total_producers': "Total des vignobles",
                 'producers_with_wines': "Vignobles avec vins catalogués", 
                 'total_wines': "Total des vins",
                 'unique_varieties': "Cépages uniques",
+                'vinifera_count': "Cépages vinifera utilisés",
+                'non_vinifera_count': "Cépages non-vinifera utilisés",
                 'unique_wine_types': "Types de vins uniques",
                 'avg_wines_producer': "Vins par vignoble (moyenne)",
                 'avg_varieties_producer': "Cépages par vignoble (moyenne)",
@@ -203,12 +236,14 @@ class ProvinceStatsGenerator:
                 'producers': "Producers", 
                 'wines_varieties': "Wines & Varieties",
                 'wine_types': "Wine Types",
-                'variety_classification': "Grape Variety Classification",
+                'variety_classification': "Grape Variety Classification (by wine appearances)",
                 'popular_varieties': "Popular Grape Varieties",
                 'total_producers': "Total Producers",
                 'producers_with_wines': "Producers with catalogued wines",
                 'total_wines': "Total Wines",
                 'unique_varieties': "Unique Grape Varieties",
+                'vinifera_count': "Vinifera varieties used",
+                'non_vinifera_count': "Non-vinifera varieties used",
                 'unique_wine_types': "Unique Wine Types", 
                 'avg_wines_producer': "Wines per Producer (avg)",
                 'avg_varieties_producer': "Varieties per Producer (avg)",
@@ -253,6 +288,8 @@ class ProvinceStatsGenerator:
             f"| {texts['producers_with_wines']} | {stats['producers_with_wines']:,} |",
             f"| {texts['total_wines']} | {stats['total_wines']:,} |",
             f"| {texts['unique_varieties']} | {len(stats['grape_varieties'])} |",
+            f"| {texts['vinifera_count']} | {len(stats['vinifera_varieties'])} |",
+            f"| {texts['non_vinifera_count']} | {len(stats['non_vinifera_varieties'])} |",
             f"| {texts['unique_wine_types']} | {len(stats['wine_types'])} |",
             f"| {texts['avg_wines_producer']} | {avg_wines:.1f} |",
             f"| {texts['avg_varieties_producer']} | {avg_varieties:.1f} |",
@@ -436,6 +473,81 @@ class ProvinceStatsGenerator:
         
         return "\n".join(lines)
 
+    def generate_cards_data(self, province_stats: Dict[str, Dict]):
+        """Generate JSON data file for Instagram cards."""
+        print(f"📊 Generating cards data file...")
+        
+        # Ensure cards directory exists
+        cards_dir = Path("docs/cards")
+        cards_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Collect data for sorting
+        region_data = []
+        for province, stats in province_stats.items():
+            # Calculate non-vinifera percentage
+            total_variety_classifications = (sum(stats['vinifera_varieties'].values()) + 
+                                           sum(stats['non_vinifera_varieties'].values()) + 
+                                           sum(stats['unknown_varieties'].values()))
+            non_vinifera_percent = (sum(stats['non_vinifera_varieties'].values()) / total_variety_classifications * 100) if total_variety_classifications > 0 else 0
+            
+            # Calculate hybrid wine count
+            hybrid_wine_count = round(stats['total_wines'] * (non_vinifera_percent / 100))
+            
+            region_data.append({
+                "name": province,
+                "non_vinifera_percentage": round(non_vinifera_percent, 1),
+                "hybrid_wine_count": hybrid_wine_count,
+                "non_vinifera_varieties_used": len(stats['non_vinifera_varieties']),
+                "total_wines": stats['total_wines'],
+                "total_producers": stats['producer_count']
+            })
+        
+        # Create sorted dictionaries
+        cards_data = {
+            "metadata": {
+                "generated_at": "2024-01-01",  # Will be updated when run
+                "total_regions": len(province_stats),
+                "total_producers": sum(stats['producer_count'] for stats in province_stats.values()),
+                "total_wines": sum(stats['total_wines'] for stats in province_stats.values())
+            },
+            "by_non_vinifera_percentage_in_wines": dict(
+                sorted([(r["name"], r["non_vinifera_percentage"]) for r in region_data], 
+                       key=lambda x: x[1], reverse=True)
+            ),
+            "by_hybrid_wine_count": dict(
+                sorted([(r["name"], r["hybrid_wine_count"]) for r in region_data], 
+                       key=lambda x: x[1], reverse=True)
+            ),
+            "by_non_vinifera_varieties_used": dict(
+                sorted([(r["name"], r["non_vinifera_varieties_used"]) for r in region_data], 
+                       key=lambda x: x[1], reverse=True)
+            ),
+            "by_total_wines": dict(
+                sorted([(r["name"], r["total_wines"]) for r in region_data], 
+                       key=lambda x: x[1], reverse=True)
+            ),
+            "by_total_producers": dict(
+                sorted([(r["name"], r["total_producers"]) for r in region_data], 
+                       key=lambda x: x[1], reverse=True)
+            )
+        }
+        
+        # Add modern grapes data separately (not sorted by count since it's qualitative data)
+        cards_data["modern_grapes_by_region"] = {}
+        for province, stats in province_stats.items():
+            if stats['modern_grapes']:
+                # Sort modern grapes by year (newest first)
+                sorted_modern_grapes = dict(sorted(stats['modern_grapes'].items(), key=lambda x: x[1], reverse=True))
+                cards_data["modern_grapes_by_region"][province] = sorted_modern_grapes
+        
+        # Write JSON file
+        output_file = cards_dir / "regions_data.json"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(cards_data, f, indent=2, ensure_ascii=False)
+        
+        print(f"   ✅ Cards data file generated: {output_file}")
+        return output_file
+
 
 def main():
     """Main function to generate per-province statistics."""
@@ -482,6 +594,9 @@ def main():
     
     # Generate index pages
     generator.generate_regions_index(province_stats)
+    
+    # Generate cards data file
+    generator.generate_cards_data(province_stats)
     
     # Summary
     total_producers = sum(stats['producer_count'] for stats in province_stats.values())

@@ -10,11 +10,13 @@
 | Producers with catalogued wines | 21 |
 | Total Wines | 204 |
 | Unique Grape Varieties | 33 |
+| Vinifera varieties used | 12 |
+| Non-vinifera varieties used | 20 |
 | Unique Wine Types | 10 |
 | Wines per Producer (avg) | 9.7 |
 | Varieties per Producer (avg) | 18.1 |
 
-## Grape Variety Classification
+## Grape Variety Classification (by wine appearances)
 
 | Classification | Percentage |
 |---------------|------------|

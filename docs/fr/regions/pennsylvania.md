@@ -10,11 +10,13 @@
 | Vignobles avec vins catalogués | 270 |
 | Total des vins | 3,413 |
 | Cépages uniques | 131 |
+| Cépages vinifera utilisés | 77 |
+| Cépages non-vinifera utilisés | 51 |
 | Types de vins uniques | 12 |
 | Vins par vignoble (moyenne) | 12.6 |
 | Cépages par vignoble (moyenne) | 11.2 |
 
-## Classification des cépages
+## Classification des cépages (par apparitions dans les vins)
 
 | Classification | Percentage |
 |---------------|------------|

@@ -71,6 +71,8 @@ plugins:
       fallback_to_default: true
       reconfigure_material: true
       reconfigure_search: true
+      use_alternate: true
+      default_changefreq: weekly
       ignoreRoutes:
         - assets/
       languages:
