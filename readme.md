@@ -2,7 +2,7 @@
 
 Welcome to **Grape Geek**! 🍇
 
-This repository contains the source code and content generation system for the [Grape Geek project](www.grapegeek.com).
+This repository contains the source code and content generation system for the [Grape Geek project](https://www.grapegeek.com).
 
 ## Quick Start
 
