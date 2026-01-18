@@ -13,7 +13,7 @@ Bienvenue sur **Grape Geek**! 🍇
 
 ### Comment j’utilise l’IA
 
-Ce site s’appuie fortement sur l’IA pour alimenter de la recherche web automatisée, l’extraction et la normalisation des données. Faire une recherche aussi vaste manuellement ne serait pas viable financièrement, mais avec la technologie actuelle, c’est possible et, je l’espère, profitable à l’avancement de la viticulture nordique.
+Ce site s’appuie fortement sur l’IA pour automatiser la recherche web, l’extraction et la normalisation des données. Faire une recherche aussi vaste manuellement ne serait pas viable financièrement, mais avec la technologie actuelle, c’est possible et, je l’espère, profitable à l’avancement de la viticulture nordique.
 
 Pour une transparence complète sur mon utilisation de l’IA, les outils et leurs limites, consultez la page [Utilisation de l’IA](/ai-usage/).
 
@@ -31,7 +31,7 @@ Je m’appelle Philippe Gagnon et, dans la vie de tous les jours, je suis direct
 
 Bref, je vis à la limite nord de la viticulture — mais une limite prometteuse. Ce micro‑vignoble expérimental a commencé par le test de 20 variétés. À l’époque, en magasinant ces plants, j’ai constaté à quel point les régions du Québec sont différentes et combien le savoir et l’expérience manquent dans mon coin. Le raisin est un fruit formidable à cultiver, et quand la génétique des raisins européens se croise avec des espèces locales, il se passe de belles choses! On obtient des fruits délicieux et faciles à cultiver.
 
-Ce projet d’évaluation des cépages a progressivement évolué : il ne s’agit plus seulement d’évaluer, mais aussi de se demander si telle qualité d’un plant de vigne ne pourrait pas être combinée à telle variété locale vigoureuse pour améliorer un autre aspect. L’obtention de nouveaux cépages est un processus très lent, et ce site est presque une thérapie pour moi en attendant la prochaine étape.
+Ce projet d’évaluation des cépages a progressivement évolué : il ne s’agit plus seulement d’évaluer, mais aussi de se demander si telle qualité d’un plant de vigne ne pourrait pas être combinée à telle variété locale "heureuse" pour améliorer un autre aspect. L’obtention de nouveaux cépages est un processus très lent, et ce site est presque une thérapie pour moi en attendant la prochaine étape.
 
 Ici, localement, je veux partager ces constats avec d’autres producteurs en climat froid, et plus largement, j’espère que ce site aidera à faire avancer la viticulture nordique pour toutes les personnes passionnées par la culture de la vigne en conditions difficiles.
 
