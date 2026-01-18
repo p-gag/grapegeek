@@ -1,0 +1,22 @@
+{
+  "grape": {
+    "name": "SAINT-CLICHE",
+    "vivc_number": null
+  },
+  "berry_skin_color": "BLANC",
+  "country_of_origin": "CANADA",
+  "species": "VITIS INTERSPECIFIC CROSSING",
+  "parent1": {
+    "name": "VANDAL-CLICHE", 
+    "vivc_number": null
+  },
+  "parent2": {
+    "name": "MARECHAL FOCH",
+    "vivc_number": null
+  },
+  "sex_of_flower": "HERMAPHRODITE",
+  "number_of_photos": "",
+  "year_of_crossing": "2003",
+  "synonyms": null,
+  "source": "grapegeek"
+}

@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-VIVC Assignment Script
+Portfolio Assignment Script
 
-Assigns VIVC passport data to grape varieties using GPT-powered search with React 
-tool calling for dynamic VIVC database queries.
+Assigns portfolio data to grape varieties using VIVC database search and local 
+grapegeek portfolio files for varieties not found in VIVC.
 
-PURPOSE: VIVC Data Assignment - Assign passport data to grape varieties using AI search
+PURPOSE: Portfolio Data Assignment - Assign passport data from VIVC or local sources
 
 INPUTS:
 - data/grape_variety_mapping.jsonl (via GrapeVarietiesModel)
+- data/portfolio/*.json (local grapegeek portfolio files)
 
 OUTPUTS:
-- data/grape_variety_mapping.jsonl (updated with VIVC assignments and passport data)
+- data/grape_variety_mapping.jsonl (updated with portfolio assignments and passport data)
 
 DEPENDENCIES:
 - OPENAI_API_KEY environment variable
@@ -21,13 +22,13 @@ DEPENDENCIES:
 
 USAGE:
 # Test with 5 varieties
-uv run src/04_vivc_assign.py --limit 5
+uv run src/04_portfolio_assign.py --limit 5
 
 # Process all unprocessed varieties
-uv run src/04_vivc_assign.py
+uv run src/04_portfolio_assign.py
 
 # Reprocess varieties previously marked as not found
-uv run src/04_vivc_assign.py --reprocess-not-found
+uv run src/04_portfolio_assign.py --reprocess-not-found
 
 FUNCTIONALITY:
 - Uses React tool calling loop where GPT can search VIVC database dynamically
@@ -58,20 +59,37 @@ class VIVCAssigner:
     
     def __init__(self, data_dir: str = "data", reprocess_not_found: bool = False):
         self.data_dir = Path(data_dir)
+        self.portfolio_dir = Path(data_dir) / "portfolio"
         self.varieties_model = GrapeVarietiesModel(data_dir)
         self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
         self.reprocess_not_found = reprocess_not_found
     
-    def update_variety_in_model(self, variety_name: str, vivc_data: dict, status: str):
-        """Update a variety's VIVC data in the model and save to file."""
+    def update_variety_in_model(self, variety_name: str, portfolio_data: dict, status: str):
+        """Update a variety's portfolio data in the model and save to file."""
         variety = self.varieties_model.get_variety(variety_name)
         if variety:
-            variety.vivc = vivc_data
+            variety.portfolio = portfolio_data
             variety.vivc_assignment_status = status
             # Save the entire model back to JSONL
             self.varieties_model.save_jsonl()
             return True
         return False
+    
+    def load_local_portfolio(self, variety_name: str) -> dict:
+        """Load portfolio data from local JSON files for grapegeek varieties."""
+        # Normalize the variety name to match file naming convention
+        filename = variety_name.lower().replace(" ", "_").replace("-", "_")
+        portfolio_file = self.portfolio_dir / f"{filename}.json"
+        
+        if portfolio_file.exists():
+            try:
+                import json
+                with open(portfolio_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                print(f"    ⚠️  Error loading {portfolio_file}: {e}")
+        
+        return None
         
     def search_vivc_tool(self, search_term: str) -> str:
         """Tool function for VIVC search that GPT can call."""
@@ -261,17 +279,25 @@ If you cannot find it after reasonable attempts, respond with "NOT_FOUND"."""
             return True
         
         try:
+            # First, try local portfolio files for grapegeek varieties
+            local_portfolio = self.load_local_portfolio(variety.name)
+            if local_portfolio:
+                self.update_variety_in_model(variety.name, local_portfolio, "found")
+                print(f"  ✅ Found local grapegeek portfolio for {variety.name}")
+                return True
+            
+            # Fall back to VIVC search
             vivc_number = self.find_vivc_for_variety(variety)
             
             if vivc_number:
                 print(f"  📋 Fetching passport data...")
                 passport_data = get_passport_data(vivc_number)
                 self.update_variety_in_model(variety.name, passport_data.to_dict(), "found")
-                print(f"  ✅ Successfully enriched {variety.name}")
+                print(f"  ✅ Successfully enriched {variety.name} from VIVC")
                 return True
             else:
                 self.update_variety_in_model(variety.name, None, "not_found")
-                print(f"  ❌ Could not find VIVC for {variety.name}")
+                print(f"  ❌ Could not find portfolio for {variety.name}")
                 return True
                 
         except Exception as e:

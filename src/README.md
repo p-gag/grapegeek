@@ -39,9 +39,9 @@ graph TD
     %% Step 3: Variety Processing (Manual Review Needed)
     D3A --> B3[03_variety_normalize.py]
     B3 --> D4[data/grape_variety_mapping.jsonl]
-    D4 --> B4[04_vivc_assign.py] 
+    D4 --> B4[04_portfolio_assign.py] 
     B4 --> D4
-    D4 --> B4B[VIVC Consolidation]
+    D4 --> B4B[Portfolio Consolidation]
     B4B --> D4
     
     %% Step 4: Final Dataset

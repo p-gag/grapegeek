@@ -8,7 +8,7 @@
   "by_non_vinifera_percentage_in_wines": {
     "New Brunswick": 94.9,
     "Vermont": 88.8,
-    "Quebec": 81.1,
+    "Quebec": 82.2,
     "Minnesota": 77.8,
     "Nova Scotia": 69.7,
     "Maine": 52.7,
@@ -23,7 +23,7 @@
   "by_hybrid_wine_count": {
     "Pennsylvania": 1208,
     "New York": 969,
-    "Quebec": 955,
+    "Quebec": 967,
     "Ohio": 892,
     "Michigan": 623,
     "Minnesota": 574,
@@ -37,7 +37,7 @@
   },
   "by_non_vinifera_varieties_used": {
     "New York": 65,
-    "Quebec": 55,
+    "Quebec": 58,
     "Ohio": 53,
     "Michigan": 52,
     "Pennsylvania": 51,
@@ -91,8 +91,10 @@
       "Marquette": 1989
     },
     "Quebec": {
+      "Saint-Cliche": 2003,
       "Floréal": 2002,
       "Itasca": 2002,
+      "Roland": 2001,
       "Véritage (TP1-1-12)": 1997,
       "Petite Pearl": 1996,
       "Crimson Pearl": 1996,

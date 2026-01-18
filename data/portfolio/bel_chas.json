@@ -1,0 +1,22 @@
+{
+  "grape": {
+    "name": "BEL-CHAS",
+    "vivc_number": null
+  },
+  "berry_skin_color": "BLANC",
+  "country_of_origin": "CANADA",
+  "species": "VITIS INTERSPECIFIC CROSSING", 
+  "parent1": {
+    "name": "UNKNOWN",
+    "vivc_number": null
+  },
+  "parent2": {
+    "name": "UNKNOWN",
+    "vivc_number": null
+  },
+  "sex_of_flower": "FEMALE",
+  "number_of_photos": "",
+  "year_of_crossing": "",
+  "synonyms": null,
+  "source": "grapegeek"
+}

@@ -11,7 +11,7 @@
 | Total Wines | 1,177 |
 | Unique Grape Varieties | 94 |
 | Vinifera varieties used | 32 |
-| Non-vinifera varieties used | 55 |
+| Non-vinifera varieties used | 58 |
 | Unique Wine Types | 11 |
 | Wines per Producer (avg) | 8.0 |
 | Varieties per Producer (avg) | 12.9 |
@@ -21,8 +21,8 @@
 | Classification | Percentage |
 |---------------|------------|
 | Vinifera (%) | 16.1% |
-| Non-vinifera (%) | 81.1% |
-| Unknown classification (%) | 2.7% |
+| Non-vinifera (%) | 82.2% |
+| Unknown classification (%) | 1.7% |
 
 ## Popular Grape Varieties
 
@@ -63,14 +63,14 @@
 | Cayuga White | 12 | 0.6% | Resistant |
 | Seyval Noir | 11 | 0.6% | Resistant |
 | Gewürztraminer | 11 | 0.6% | Vinifera |
-| Roland | 11 | 0.6% | Unknown |
+| Roland | 11 | 0.6% | Resistant |
 | Baltica | 10 | 0.5% | Resistant |
 | Muscat | 10 | 0.5% | Vinifera |
 | Chenin Blanc | 9 | 0.5% | Vinifera |
 | Léon Millot | 8 | 0.4% | Resistant |
 | Pionnier | 7 | 0.4% | Resistant |
 | Baco Noir | 7 | 0.4% | Resistant |
-| Bel-Chas | 6 | 0.3% | Unknown |
+| Bel-Chas | 6 | 0.3% | Resistant |
 | Regent | 6 | 0.3% | Vinifera |
 | Éona | 6 | 0.3% | Resistant |
 | Triomphe d'Alsace | 6 | 0.3% | Resistant |
@@ -78,7 +78,7 @@
 | Crimson Pearl | 5 | 0.3% | Resistant |
 | Gamaret | 4 | 0.2% | Vinifera |
 | Montréal Blues | 4 | 0.2% | Resistant |
-| Saint-Cliche | 3 | 0.2% | Unknown |
+| Saint-Cliche | 3 | 0.2% | Resistant |
 | DM-8521 | 3 | 0.2% | Resistant |
 | Syrah | 3 | 0.2% | Vinifera |
 | Pinot Meunier | 3 | 0.2% | Vinifera |

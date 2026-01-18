@@ -14,6 +14,7 @@
 - **Armalaga** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=612) | [map](/producer-map/?grape_variety=Armalaga)
 - **Aromella** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=22529) | [map](/producer-map/?grape_variety=Aromella)
 - **Aurore** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=784) | [map](/producer-map/?grape_variety=Aurore)
+- **Bel-Chas** (CANADA) [map](/producer-map/?grape_variety=Bel-Chas) | [research](research/bel_chas.md)
 - **Bianca** (HUNGARY) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=1321) | [map](/producer-map/?grape_variety=Bianca)
 - **Brianna** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23260) | [map](/producer-map/?grape_variety=Brianna) | [research](research/brianna.md)
 - **Cayuga White** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=2359) | [map](/producer-map/?grape_variety=Cayuga+White)
@@ -40,6 +41,8 @@
 - **Osceola Muscat** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23360) | [map](/producer-map/?grape_variety=Osceola+Muscat)
 - **Petite Amie** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=24123) | [map](/producer-map/?grape_variety=Petite+Amie)
 - **Prairie Star** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23087) | [map](/producer-map/?grape_variety=Prairie+Star) | [research](research/prairie_star.md)
+- **Roland** (CANADA) [map](/producer-map/?grape_variety=Roland) | [research](research/roland.md)
+- **Saint-Cliche** (CANADA) [map](/producer-map/?grape_variety=Saint-Cliche)
 - **Saint-Pépin** (USA) [vivc (st. pepin)](https://www.vivc.de/index.php?r=passport%2Fview&id=15767) | [map](/producer-map/?grape_variety=Saint-P%C3%A9pin) | [research](research/saint_pépin.md)
 - **Seyval Blanc** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=11558) | [map](/producer-map/?grape_variety=Seyval+Blanc) | [research](research/seyval_blanc.md)
 - **Shannon** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=26824) | [map](/producer-map/?grape_variety=Shannon)
@@ -291,7 +294,6 @@
 
 - **Alexander** [map](/producer-map/?grape_variety=Alexander) - *Synonymes: alexander*
 - **Amarone Blend** [map](/producer-map/?grape_variety=Amarone+Blend) - *Synonymes: amarone-style blend, corvina/corvinone/other typical amarone varieties (not explicitly listed on site), valpolicella-style varieties, amarone-style blend (varietals not specified), valpolicella-style varieties (e.g., corvina/corvinone) (not explicitly itemized)... (+2 de plus)*
-- **Bel-Chas** [map](/producer-map/?grape_variety=Bel-Chas) | [research](research/bel_chas.md) - *Synonymes: bel chas, bel-chas, belchas*
 - **Ciera** [map](/producer-map/?grape_variety=Ciera) - *Synonymes: ciera*
 - **Deer Garden** [map](/producer-map/?grape_variety=Deer+Garden) - *Synonymes: deer garden, deer garden (patented winehaven cultivar)*
 - **ES 10-18-14** [map](/producer-map/?grape_variety=ES+10-18-14) | [research](research/es_10_18_14.md) - *Synonymes: es-10-18-14, ELMER SWENSON 10-18-30*
@@ -305,9 +307,7 @@
 - **Muscadine** [map](/producer-map/?grape_variety=Muscadine) - *Synonymes: muscadine*
 - **Pinot Family (Unspecified)** [map](/producer-map/?grape_variety=Pinot+Family+%28Unspecified%29) - *Synonymes: not specified (likely pinot noir/pinot gris component), pinot (pinots unspecified)*
 - **Polaris** [map](/producer-map/?grape_variety=Polaris) - *Synonymes: polaris*
-- **Roland** [map](/producer-map/?grape_variety=Roland) | [research](research/roland.md) - *Synonymes: roland*
 - **Rubiana** [map](/producer-map/?grape_variety=Rubiana) - *Synonymes: rubiana*
-- **Saint-Cliche** [map](/producer-map/?grape_variety=Saint-Cliche) - *Synonymes: sainte-cliché, st-cliche*
 - **Tart Cherry** [map](/producer-map/?grape_variety=Tart+Cherry) - *Synonymes: montmorency (sour cherry), montmorency (tart cherry), sour cherry, tart cherry (prunus cerasus - fruit wine), tart cherry / tart fruit (fruit wine)... (+5 de plus)*
 - **Unknown** [map](/producer-map/?grape_variety=Unknown) - *Synonymes: assemblage de 10 cépages hybrides (non détaillés publiquement sur product page), assemblage à base de cépages du "le 1535" (vandal, eona, acadie), autre(s) cépage(s), autres, autres cépages blancs (non spécifiés)... (+665 de plus)*
 - **Vino Blanc** [map](/producer-map/?grape_variety=Vino+Blanc) - *Synonymes: vino blanc*
@@ -316,5 +316,5 @@
 
 *Index généré avec 267 cépages:*
 *- 126 cépages Vinifera*
-*- 119 cépages Non-vinifera*
-*- 22 cépages avec informations manquantes*
+*- 122 cépages Non-vinifera*
+*- 19 cépages avec informations manquantes*

@@ -77,20 +77,22 @@ def find_research_file(variety_name: str) -> str:
     return None
 
 
-def create_variety_links(variety_name: str, vivc_number: str, vivc_name: str = None) -> str:
+def create_variety_links(variety_name: str, vivc_number: str, vivc_name: str = None, portfolio_source: str = 'vivc') -> str:
     """Create all links for a variety: VIVC, map, and research."""
     links = []
     
-    # VIVC link with dynamic label
-    if vivc_name and variety_name.upper() != vivc_name.upper():
-        # Use "vivc (lowercase_vivc_name)" format when different
-        vivc_label = f"vivc ({vivc_name.lower()})"
-        vivc_link = f"[{vivc_label}](https://www.vivc.de/index.php?r=passport%2Fview&id={vivc_number})"
-    else:
-        # Use default "vivc" label when names are the same or no VIVC name
-        vivc_link = f"[vivc](https://www.vivc.de/index.php?r=passport%2Fview&id={vivc_number})"
-    
-    links.append(vivc_link)
+    # Only add VIVC link if it's NOT from grapegeek source and has valid vivc_number
+    if portfolio_source != 'grapegeek' and vivc_number and vivc_number.strip() and vivc_number != 'None':
+        # VIVC link with dynamic label
+        if vivc_name and variety_name.upper() != vivc_name.upper():
+            # Use "vivc (lowercase_vivc_name)" format when different
+            vivc_label = f"vivc ({vivc_name.lower()})"
+            vivc_link = f"[{vivc_label}](https://www.vivc.de/index.php?r=passport%2Fview&id={vivc_number})"
+        else:
+            # Use default "vivc" label when names are the same or no VIVC name
+            vivc_link = f"[vivc](https://www.vivc.de/index.php?r=passport%2Fview&id={vivc_number})"
+        
+        links.append(vivc_link)
     
     # Map link
     encoded_name = urllib.parse.quote_plus(variety_name)
@@ -135,7 +137,7 @@ def organize_varieties_by_category(varieties: List[Dict]) -> Dict:
     for variety in varieties:
         status = variety.get('vivc_assignment_status')
         
-        if status == 'not_found' or not variety.get('vivc'):
+        if status == 'not_found' or not variety.get('portfolio'):
             # Add to not found list
             organized['Missing Information'].append({
                 'name': variety.get('name', 'Unknown'),
@@ -147,12 +149,12 @@ def organize_varieties_by_category(varieties: List[Dict]) -> Dict:
         if not variety.get('grape', True):
             continue
             
-        vivc_data = variety.get('vivc', {})
-        if not vivc_data:
+        portfolio_data = variety.get('portfolio', {})
+        if not portfolio_data:
             continue
             
         # Extract species and berry color
-        species = vivc_data.get('species', 'Unknown Species')
+        species = portfolio_data.get('species', 'Unknown Species')
         if not species or species.strip() == '':
             # If species is missing, add to Missing Information
             organized['Missing Information'].append({
@@ -161,18 +163,21 @@ def organize_varieties_by_category(varieties: List[Dict]) -> Dict:
             })
             continue
         
-        berry_color = vivc_data.get('berry_skin_color', 'Unknown Color')
+        berry_color = portfolio_data.get('berry_skin_color', 'Unknown Color')
         if not berry_color or berry_color.strip() == '':
             berry_color = 'Unknown Color'
         
-        grape_info = vivc_data.get('grape', {})
+        grape_info = portfolio_data.get('grape', {})
         vivc_name = grape_info.get('name', variety.get('name', 'Unknown'))
         vivc_number = grape_info.get('vivc_number', '')
-        country = vivc_data.get('country_of_origin', 'Unknown Country')
+        country = portfolio_data.get('country_of_origin', 'Unknown Country')
         
         # Replace "UNITED STATES OF AMERICA" with "USA"
         if country == 'UNITED STATES OF AMERICA':
             country = 'USA'
+        
+        # Get portfolio source
+        portfolio_source = portfolio_data.get('source', 'unknown') if portfolio_data else 'unknown'
         
         variety_data = {
             'original_name': variety.get('name', 'Unknown'),
@@ -180,7 +185,8 @@ def organize_varieties_by_category(varieties: List[Dict]) -> Dict:
             'vivc_number': vivc_number,
             'country': country,
             'aliases': variety.get('aliases', []),
-            'species': species
+            'species': species,
+            'portfolio_source': portfolio_source
         }
         
         # Categorize by species
@@ -247,7 +253,7 @@ def generate_markdown_index(organized: Dict, language: str = "en") -> str:
         
         for variety in varieties:
             # Create all links (VIVC, map, research)
-            links = create_variety_links(variety['original_name'], variety['vivc_number'], variety['vivc_name'])
+            links = create_variety_links(variety['original_name'], variety['vivc_number'], variety['vivc_name'], variety.get('portfolio_source', 'vivc'))
             
             # Format entry with original name as primary
             entry = f"- **{variety['original_name']}** ({variety['country']}) {links}"
@@ -272,7 +278,7 @@ def generate_markdown_index(organized: Dict, language: str = "en") -> str:
         
         for variety in varieties:
             # Create all links (VIVC, map, research)
-            links = create_variety_links(variety['original_name'], variety['vivc_number'], variety['vivc_name'])
+            links = create_variety_links(variety['original_name'], variety['vivc_number'], variety['vivc_name'], variety.get('portfolio_source', 'vivc'))
             
             # Format entry with original name as primary
             entry = f"- **{variety['original_name']}** ({variety['country']}) {links}"

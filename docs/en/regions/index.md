@@ -8,7 +8,7 @@
 | **Pennsylvania** | 269 | 3,412 | 35.4% | [🗺️](/producer-map/?state=Pennsylvania) | [📊](pennsylvania) |
 | **Ohio** | 217 | 2,599 | 34.3% | [🗺️](/producer-map/?state=Ohio) | [📊](ohio) |
 | **Michigan** | 197 | 2,265 | 27.5% | [🗺️](/producer-map/?state=Michigan) | [📊](michigan) |
-| **Quebec** | 148 | 1,177 | 81.1% | [🗺️](/producer-map/?state=Quebec) | [📊](quebec) |
+| **Quebec** | 148 | 1,177 | 82.2% | [🗺️](/producer-map/?state=Quebec) | [📊](quebec) |
 | **Wisconsin** | 86 | 1,132 | 47.6% | [🗺️](/producer-map/?state=Wisconsin) | [📊](wisconsin) |
 | **Minnesota** | 71 | 738 | 77.8% | [🗺️](/producer-map/?state=Minnesota) | [📊](minnesota) |
 | **Vermont** | 27 | 201 | 88.8% | [🗺️](/producer-map/?state=Vermont) | [📊](vermont) |

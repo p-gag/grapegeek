@@ -53,12 +53,12 @@ class PassportData:
 
 @dataclass
 class GrapeVariety:
-    """Model for a grape variety with its aliases and VIVC data."""
+    """Model for a grape variety with its aliases and portfolio data."""
     name: str
     aliases: List[str]
     grape: bool = True  # True if it's a grape, False if fruit/other
-    vivc: Optional[Dict] = None  # VIVC passport data as dict
-    vivc_assignment_status: Optional[str] = None  # found, not_found, error, skipped_not_grape
+    portfolio: Optional[Dict] = None  # Portfolio passport data (replaces vivc)
+    vivc_assignment_status: Optional[str] = None  # Legacy status field
     notes: Optional[str] = None  # Additional notes
     
     def to_dict(self) -> Dict:
@@ -111,9 +111,9 @@ class GrapeVarietiesModel:
                         elif variety_data['aliases'] is None:
                             variety_data['aliases'] = []
                         
-                        # Handle VIVC data
-                        if 'vivc' not in variety_data:
-                            variety_data['vivc'] = None
+                        # Handle portfolio data (replaces vivc)
+                        if 'portfolio' not in variety_data:
+                            variety_data['portfolio'] = None
                         
                         # Handle VIVC assignment status
                         if 'vivc_assignment_status' not in variety_data:
@@ -304,8 +304,8 @@ class GrapeVarietiesModel:
             vivc_number = None
             
             # Extract VIVC number if available
-            if variety.vivc and isinstance(variety.vivc, dict):
-                grape_info = variety.vivc.get('grape', {})
+            if variety.portfolio and isinstance(variety.portfolio, dict):
+                grape_info = variety.portfolio.get('grape', {})
                 if isinstance(grape_info, dict):
                     vivc_number = grape_info.get('vivc_number')
             
@@ -352,7 +352,7 @@ class GrapeVarietiesModel:
                     name=primary_name,
                     aliases=sorted(list(merged_aliases)),
                     grape=primary_variety.grape,
-                    vivc=primary_variety.vivc,
+                    portfolio=primary_variety.portfolio,
                     vivc_assignment_status=primary_variety.vivc_assignment_status
                 )
                 

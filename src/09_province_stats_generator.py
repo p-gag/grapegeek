@@ -80,23 +80,23 @@ class ProvinceStatsGenerator:
         return producers
     
     def is_vinifera(self, variety_name: str) -> bool:
-        """Check if a grape variety is vinifera using VIVC data."""
+        """Check if a grape variety is vinifera using portfolio data."""
         variety = self.grape_model.get_variety(variety_name)
-        if not variety or not variety.vivc:
+        if not variety or not variety.portfolio:
             return None  # Unknown
         
-        vivc_data = variety.vivc
-        species = vivc_data.get('species', '').upper()
+        portfolio_data = variety.portfolio
+        species = portfolio_data.get('species', '').upper()
         return 'VITIS VINIFERA' in species
     
     def check_modern_grape(self, variety_name: str, stats: dict):
         """Check if a grape variety is modern (crossed after 1980) and add to stats."""
         variety = self.grape_model.get_variety(variety_name)
-        if not variety or not variety.vivc:
+        if not variety or not variety.portfolio:
             return
         
-        vivc_data = variety.vivc
-        year_of_crossing = vivc_data.get('year_of_crossing')
+        portfolio_data = variety.portfolio
+        year_of_crossing = portfolio_data.get('year_of_crossing')
         
         # Handle various year formats
         if year_of_crossing:

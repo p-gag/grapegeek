@@ -11,7 +11,7 @@
 | Total des vins | 1,177 |
 | Cépages uniques | 94 |
 | Cépages vinifera utilisés | 32 |
-| Cépages non-vinifera utilisés | 55 |
+| Cépages non-vinifera utilisés | 58 |
 | Types de vins uniques | 11 |
 | Vins par vignoble (moyenne) | 8.0 |
 | Cépages par vignoble (moyenne) | 12.9 |
@@ -21,8 +21,8 @@
 | Classification | Percentage |
 |---------------|------------|
 | Vinifera (%) | 16.1% |
-| Non-vinifera (%) | 81.1% |
-| Classification inconnue (%) | 2.7% |
+| Non-vinifera (%) | 82.2% |
+| Classification inconnue (%) | 1.7% |
 
 ## Cépages populaires
 
@@ -63,14 +63,14 @@
 | Cayuga White | 12 | 0.6% | Résistant |
 | Seyval Noir | 11 | 0.6% | Résistant |
 | Gewürztraminer | 11 | 0.6% | Vinifera |
-| Roland | 11 | 0.6% | Unknown |
+| Roland | 11 | 0.6% | Résistant |
 | Baltica | 10 | 0.5% | Résistant |
 | Muscat | 10 | 0.5% | Vinifera |
 | Chenin Blanc | 9 | 0.5% | Vinifera |
 | Léon Millot | 8 | 0.4% | Résistant |
 | Pionnier | 7 | 0.4% | Résistant |
 | Baco Noir | 7 | 0.4% | Résistant |
-| Bel-Chas | 6 | 0.3% | Unknown |
+| Bel-Chas | 6 | 0.3% | Résistant |
 | Regent | 6 | 0.3% | Vinifera |
 | Éona | 6 | 0.3% | Résistant |
 | Triomphe d'Alsace | 6 | 0.3% | Résistant |
@@ -78,7 +78,7 @@
 | Crimson Pearl | 5 | 0.3% | Résistant |
 | Gamaret | 4 | 0.2% | Vinifera |
 | Montréal Blues | 4 | 0.2% | Résistant |
-| Saint-Cliche | 3 | 0.2% | Unknown |
+| Saint-Cliche | 3 | 0.2% | Résistant |
 | DM-8521 | 3 | 0.2% | Résistant |
 | Syrah | 3 | 0.2% | Vinifera |
 | Pinot Meunier | 3 | 0.2% | Vinifera |
