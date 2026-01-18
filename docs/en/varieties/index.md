@@ -11,14 +11,17 @@
 - **Acadie Blanc** (CANADA) [vivc (l'acadie blanc)](https://www.vivc.de/index.php?r=passport%2Fview&id=17638) | [map](/producer-map/?grape_variety=Acadie+Blanc) | [research](research/acadie_blanc.md)
 - **Adalmiina** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23271) | [map](/producer-map/?grape_variety=Adalmiina) | [research](research/adalmiina.md)
 - **Aravelle** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23939) | [map](/producer-map/?grape_variety=Aravelle)
+- **Armalaga** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=612) | [map](/producer-map/?grape_variety=Armalaga)
 - **Aromella** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=22529) | [map](/producer-map/?grape_variety=Aromella)
 - **Aurore** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=784) | [map](/producer-map/?grape_variety=Aurore)
 - **Bianca** (HUNGARY) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=1321) | [map](/producer-map/?grape_variety=Bianca)
 - **Brianna** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23260) | [map](/producer-map/?grape_variety=Brianna) | [research](research/brianna.md)
 - **Cayuga White** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=2359) | [map](/producer-map/?grape_variety=Cayuga+White)
 - **Chardonel** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=16072) | [map](/producer-map/?grape_variety=Chardonel)
+- **Croton** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=3258) | [map](/producer-map/?grape_variety=Croton)
 - **Delisle** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23246) | [map](/producer-map/?grape_variety=Delisle)
 - **Diamond** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=3545) | [map](/producer-map/?grape_variety=Diamond)
+- **ES 2-3-17** (USA) [vivc (elmer swenson    2-  3- 17)](https://www.vivc.de/index.php?r=passport%2Fview&id=23268) | [map](/producer-map/?grape_variety=ES+2-3-17)
 - **Edelweiss** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=15763) | [map](/producer-map/?grape_variety=Edelweiss)
 - **Elvira** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=3886) | [map](/producer-map/?grape_variety=Elvira)
 - **Frontenac Blanc** (CANADA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=24585) | [map](/producer-map/?grape_variety=Frontenac+Blanc) | [research](research/frontenac_blanc.md)
@@ -87,10 +90,13 @@
 - **Jupiter** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=23947) | [map](/producer-map/?grape_variety=Jupiter)
 - **King of the North** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=26642) | [map](/producer-map/?grape_variety=King+of+the+North)
 - **Landot Noir** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=6740) | [map](/producer-map/?grape_variety=Landot+Noir)
+- **Lomanto** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=6892) | [map](/producer-map/?grape_variety=Lomanto)
 - **Lucie Kuhlmann** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=6918) | [map](/producer-map/?grape_variety=Lucie+Kuhlmann)
 - **Léon Millot** (FRANCE) [vivc (leon millot)](https://www.vivc.de/index.php?r=passport%2Fview&id=6806) | [map](/producer-map/?grape_variety=L%C3%A9on+Millot)
 - **Marquette** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=22714) | [map](/producer-map/?grape_variety=Marquette) | [research](research/marquette.md)
 - **Maréchal Foch** (FRANCE) [vivc (marechal foch)](https://www.vivc.de/index.php?r=passport%2Fview&id=7388) | [map](/producer-map/?grape_variety=Mar%C3%A9chal+Foch)
+- **Maréchal Joffre** (FRANCE) [vivc (marechal joffre)](https://www.vivc.de/index.php?r=passport%2Fview&id=7390) | [map](/producer-map/?grape_variety=Mar%C3%A9chal+Joffre)
+- **Mericadel** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=7649) | [map](/producer-map/?grape_variety=Mericadel)
 - **Montréal Blues** (USA) [vivc (montreal blues)](https://www.vivc.de/index.php?r=passport%2Fview&id=23853) | [map](/producer-map/?grape_variety=Montr%C3%A9al+Blues)
 - **New York Muscat** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=8528) | [map](/producer-map/?grape_variety=New+York+Muscat)
 - **Noiret** (USA) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=22523) | [map](/producer-map/?grape_variety=Noiret)
@@ -119,6 +125,7 @@
 
 ### ROSE
 
+- **Petit Milo** (SWITZERLAND) [vivc (petite milo)](https://www.vivc.de/index.php?r=passport%2Fview&id=27114) | [map](/producer-map/?grape_variety=Petit+Milo)
 - **Somerset** (USA) [vivc (somerset seedless)](https://www.vivc.de/index.php?r=passport%2Fview&id=20560) | [map](/producer-map/?grape_variety=Somerset)
 
 ### ROUGE
@@ -168,6 +175,7 @@
 - **Melon de Bourgogne** (FRANCE) [vivc (melon)](https://www.vivc.de/index.php?r=passport%2Fview&id=7615) | [map](/producer-map/?grape_variety=Melon+de+Bourgogne)
 - **Muscadelle** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=8182) | [map](/producer-map/?grape_variety=Muscadelle)
 - **Muscat** (GREECE) [vivc (muscat a petits grains blancs)](https://www.vivc.de/index.php?r=passport%2Fview&id=8193) | [map](/producer-map/?grape_variety=Muscat)
+- **Muscat Alexandria** (GREECE) [vivc (muscat of alexandria)](https://www.vivc.de/index.php?r=passport%2Fview&id=8241) | [map](/producer-map/?grape_variety=Muscat+Alexandria)
 - **Muscat Ottonel** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=8243) | [map](/producer-map/?grape_variety=Muscat+Ottonel)
 - **Müller-Thurgau** (GERMANY) [vivc (mueller thurgau weiss)](https://www.vivc.de/index.php?r=passport%2Fview&id=8141) | [map](/producer-map/?grape_variety=M%C3%BCller-Thurgau)
 - **Optima** (GERMANY) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=8791) | [map](/producer-map/?grape_variety=Optima)
@@ -215,6 +223,7 @@
 - **Arene** (ARMENIA) [vivc (areni sev)](https://www.vivc.de/index.php?r=passport%2Fview&id=576) | [map](/producer-map/?grape_variety=Arene)
 - **Barbera** (ITALY) [vivc (barbera nera)](https://www.vivc.de/index.php?r=passport%2Fview&id=974) | [map](/producer-map/?grape_variety=Barbera)
 - **Blaufränkisch** (SLOVENIA) [vivc (blaufraenkisch)](https://www.vivc.de/index.php?r=passport%2Fview&id=1459) | [map](/producer-map/?grape_variety=Blaufr%C3%A4nkisch)
+- **Cabernet Foch** (SWITZERLAND) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=26919) | [map](/producer-map/?grape_variety=Cabernet+Foch)
 - **Cabernet Franc** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=1927) | [map](/producer-map/?grape_variety=Cabernet+Franc)
 - **Cabernet Sauvignon** (FRANCE) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=1929) | [map](/producer-map/?grape_variety=Cabernet+Sauvignon)
 - **Carignan** (FRANCE) [vivc (carignan noir)](https://www.vivc.de/index.php?r=passport%2Fview&id=2098) | [map](/producer-map/?grape_variety=Carignan)
@@ -240,6 +249,7 @@
 - **Mourvèdre** (SPAIN) [vivc (monastrell)](https://www.vivc.de/index.php?r=passport%2Fview&id=7915) | [map](/producer-map/?grape_variety=Mourv%C3%A8dre)
 - **Nebbiolo** (ITALY) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=8417) | [map](/producer-map/?grape_variety=Nebbiolo)
 - **Nero d'Avola** (ITALY) [vivc (calabrese)](https://www.vivc.de/index.php?r=passport%2Fview&id=1986) | [map](/producer-map/?grape_variety=Nero+d%27Avola)
+- **Oseleta** (ITALY) [vivc](https://www.vivc.de/index.php?r=passport%2Fview&id=16537) | [map](/producer-map/?grape_variety=Oseleta)
 - **Petit Roja** (ITALY) [vivc (petit rouge)](https://www.vivc.de/index.php?r=passport%2Fview&id=9200) | [map](/producer-map/?grape_variety=Petit+Roja)
 - **Petit Verdot** (FRANCE) [vivc (verdot petit)](https://www.vivc.de/index.php?r=passport%2Fview&id=12974) | [map](/producer-map/?grape_variety=Petit+Verdot)
 - **Petite Sirah** (FRANCE) [vivc (durif)](https://www.vivc.de/index.php?r=passport%2Fview&id=3738) | [map](/producer-map/?grape_variety=Petite+Sirah)
@@ -287,10 +297,10 @@
 - **ES 10-18-14** [map](/producer-map/?grape_variety=ES+10-18-14) | [research](research/es_10_18_14.md) - *Aliases: es-10-18-14, ELMER SWENSON 10-18-30*
 - **ES 7-2-51** [map](/producer-map/?grape_variety=ES+7-2-51) - *Aliases: es 7-2-51, es 7-2-51 (elmer swenson selection / daughter of louise swenson), es-7-2-51, ELMER SWENSON 7-2-51*
 - **Everest** [map](/producer-map/?grape_variety=Everest) - *Aliases: everest*
-- **Fruit** [map](/producer-map/?grape_variety=Fruit) - *Aliases: apple, apple (blend of bittersweet and sweet apple varieties), apple (champagne apple), apple (cider base), apple (cider fruit)... (+490 more)*
+- **Fruit** [map](/producer-map/?grape_variety=Fruit) - *Aliases: apple, apple (blend of bittersweet and sweet apple varieties), apple (champagne apple), apple (cider base), apple (cider fruit)... (+538 more)*
 - **Frédérik** [map](/producer-map/?grape_variety=Fr%C3%A9d%C3%A9rik) - *Aliases: frederik, frédérik*
 - **Frédérik Blanc** [map](/producer-map/?grape_variety=Fr%C3%A9d%C3%A9rik+Blanc) - *Aliases: frederik blanc, frédérik blanc*
-- **Geneviève White 2** [map](/producer-map/?grape_variety=Genevi%C3%A8ve+White+2) - *Aliases: geneva white, geneva white 2, Geneva White*
+- **Geneviève White 2** [map](/producer-map/?grape_variety=Genevi%C3%A8ve+White+2) - *Aliases: geneva white, geneva white 2, Geneva White, Geneva White #2*
 - **Lambrusco** [map](/producer-map/?grape_variety=Lambrusco) - *Aliases: lambrusco, lambrusco (varieties), lambrusco (variety), lambrusco (various lambrusco clones), Lambrusco (unspecified cultivar)*
 - **Muscadine** [map](/producer-map/?grape_variety=Muscadine) - *Aliases: muscadine*
 - **Pinot Family (Unspecified)** [map](/producer-map/?grape_variety=Pinot+Family+%28Unspecified%29) - *Aliases: not specified (likely pinot noir/pinot gris component), pinot (pinots unspecified)*
@@ -299,12 +309,12 @@
 - **Rubiana** [map](/producer-map/?grape_variety=Rubiana) - *Aliases: rubiana*
 - **Saint-Cliche** [map](/producer-map/?grape_variety=Saint-Cliche) - *Aliases: sainte-cliché, st-cliche*
 - **Tart Cherry** [map](/producer-map/?grape_variety=Tart+Cherry) - *Aliases: montmorency (sour cherry), montmorency (tart cherry), sour cherry, tart cherry (prunus cerasus - fruit wine), tart cherry / tart fruit (fruit wine)... (+5 more)*
-- **Unknown** [map](/producer-map/?grape_variety=Unknown) - *Aliases: assemblage de 10 cépages hybrides (non détaillés publiquement sur product page), assemblage à base de cépages du "le 1535" (vandal, eona, acadie), autre(s) cépage(s), autres, autres cépages blancs (non spécifiés)... (+628 more)*
+- **Unknown** [map](/producer-map/?grape_variety=Unknown) - *Aliases: assemblage de 10 cépages hybrides (non détaillés publiquement sur product page), assemblage à base de cépages du "le 1535" (vandal, eona, acadie), autre(s) cépage(s), autres, autres cépages blancs (non spécifiés)... (+665 more)*
 - **Vino Blanc** [map](/producer-map/?grape_variety=Vino+Blanc) - *Aliases: vino blanc*
 
 ---
 
-*Generated index with 257 varieties:*
-*- 123 Vinifera varieties*
-*- 112 Non-vinifera varieties*
+*Generated index with 267 varieties:*
+*- 126 Vinifera varieties*
+*- 119 Non-vinifera varieties*
 *- 22 varieties with missing information*

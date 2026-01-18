@@ -1,12 +1,12 @@
 {
-  "fetch_date": "2026-01-02T17:37:23.657213",
-  "total_producers": 2673,
+  "fetch_date": "2026-01-15T14:26:36.253199",
+  "total_producers": 2675,
   "sources": {
     "quebec": {
       "count": 170,
       "metadata": {
         "source_url": "https://www.donneesquebec.ca/recherche/dataset/racj-alcool-fabricant/resource/6b143028-cb62-4f76-860c-6cf0eab8ea0b/download/racj-alcool-fabricant.json",
-        "fetch_date": "2026-01-02T17:37:14.955383",
+        "fetch_date": "2026-01-15T14:26:25.557350",
         "raw_record_count": 1100,
         "wine_record_count": 170,
         "filter_criteria": "Production artisanale de vin with 'VIN' category",
@@ -19,37 +19,37 @@
       "count": 2433,
       "metadata": {
         "source_url": "https://www.ttb.gov/media/81096/download",
-        "raw_record_count": 17862,
+        "raw_record_count": 17861,
         "northeastern_producers": 2433,
-        "excluded_non_wine": 982,
+        "excluded_non_wine": 981,
         "filter_criteria": "Northeastern US states: ['Minnesota', 'Wisconsin', 'Michigan', 'Ohio', 'Pennsylvania', 'New York', 'Vermont', 'New Hampshire', 'Maine']",
         "state_distribution": {
           "Maine": 52,
           "Michigan": 388,
           "Minnesota": 131,
           "New Hampshire": 59,
-          "New York": 651,
+          "New York": 652,
           "Ohio": 413,
-          "Pennsylvania": 499,
+          "Pennsylvania": 498,
           "Vermont": 71,
           "Wisconsin": 169
         }
       }
     },
     "canada_provinces": {
-      "count": 70,
+      "count": 72,
       "metadata": {
         "source_file": "data/can/canada_province_wineries.jsonl",
-        "fetch_date": "2026-01-02T17:37:23.654352",
+        "fetch_date": "2026-01-15T14:26:36.248452",
         "method": "file_load",
-        "lines_processed": 70,
-        "producers_loaded": 70,
+        "lines_processed": 72,
+        "producers_loaded": 72,
         "parsing_errors": 0,
         "provinces_found": 4,
         "province_breakdown": {
           "NB": 29,
           "NL": 5,
-          "NS": 26,
+          "NS": 28,
           "PE": 10
         }
       }

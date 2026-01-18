@@ -26,82 +26,82 @@
 
 ## Cépages populaires
 
-| Cépage | Apparitions dans les vins | Pourcentage |
-|-------------|----------|------------|
-| Chardonnay | 18 | 5.7% |
-| Riesling | 14 | 4.5% |
-| Maréchal Foch | 13 | 4.1% |
-| Unknown | 12 | 3.8% |
-| La Crescent | 12 | 3.8% |
-| Cabernet Sauvignon | 11 | 3.5% |
-| Marquette | 11 | 3.5% |
-| Cayuga White | 10 | 3.2% |
-| Frontenac Noir | 10 | 3.2% |
-| Pinot Noir | 9 | 2.9% |
-| Sauvignon Blanc | 9 | 2.9% |
-| Seyval Blanc | 9 | 2.9% |
-| Malbec | 8 | 2.5% |
-| Pinot Gris | 8 | 2.5% |
-| Niagara | 7 | 2.2% |
-| Gewürztraminer | 7 | 2.2% |
-| Primitivo | 7 | 2.2% |
-| Frontenac Gris | 6 | 1.9% |
-| Merlot | 6 | 1.9% |
-| Muscat | 6 | 1.9% |
-| Brianna | 5 | 1.6% |
-| Prairie Star | 5 | 1.6% |
-| Petite Pearl | 5 | 1.6% |
-| Itasca | 5 | 1.6% |
-| Noiret | 5 | 1.6% |
-| Viognier | 4 | 1.3% |
-| Chambourcin | 4 | 1.3% |
-| De Chaunac | 4 | 1.3% |
-| Sabrevois | 4 | 1.3% |
-| Vignoles | 4 | 1.3% |
-| Traminette | 4 | 1.3% |
-| Léon Millot | 4 | 1.3% |
-| Cabernet Franc | 4 | 1.3% |
-| Frontenac Blanc | 3 | 1.0% |
-| La Crosse | 3 | 1.0% |
-| Carménère | 3 | 1.0% |
-| Petit Verdot | 3 | 1.0% |
-| Syrah | 3 | 1.0% |
-| Acadie Blanc | 3 | 1.0% |
-| Sainte-Croix | 3 | 1.0% |
-| Elvira | 2 | 0.6% |
-| Orion | 2 | 0.6% |
-| Saint-Pépin | 2 | 0.6% |
-| Louise Swenson | 2 | 0.6% |
-| Vidal | 2 | 0.6% |
-| Landot Noir | 2 | 0.6% |
-| Tannat | 2 | 0.6% |
-| Sangiovese | 2 | 0.6% |
-| Amarone Blend | 2 | 0.6% |
-| Baco Noir | 1 | 0.3% |
-| Orange Muscat | 1 | 0.3% |
-| Crimson Pearl | 1 | 0.3% |
-| Corvina | 1 | 0.3% |
-| Rondinella | 1 | 0.3% |
-| Molinara | 1 | 0.3% |
-| Verdicchio | 1 | 0.3% |
-| Barbera | 1 | 0.3% |
-| Edelweiss | 1 | 0.3% |
-| Chancellor | 1 | 0.3% |
-| Steuben | 1 | 0.3% |
-| Petite Amie | 1 | 0.3% |
-| Colombard | 1 | 0.3% |
-| Nebbiolo | 1 | 0.3% |
-| Concord | 1 | 0.3% |
-| Diamond | 1 | 0.3% |
-| Aromella | 1 | 0.3% |
-| Petite Sirah | 1 | 0.3% |
-| Pinotage | 1 | 0.3% |
-| Montepulciano | 1 | 0.3% |
-| Tempranillo | 1 | 0.3% |
-| Valiant | 1 | 0.3% |
-| Albariño | 1 | 0.3% |
-| Sémillon | 1 | 0.3% |
-| Lambrusco | 1 | 0.3% |
+| Cépage | Apparitions dans les vins | Pourcentage | Classification |
+|-------------|----------|------------|------------|
+| Chardonnay | 18 | 5.7% | Vinifera |
+| Riesling | 14 | 4.5% | Vinifera |
+| Maréchal Foch | 13 | 4.1% | Résistant |
+| Unknown | 12 | 3.8% | Inconnu |
+| La Crescent | 12 | 3.8% | Résistant |
+| Cabernet Sauvignon | 11 | 3.5% | Vinifera |
+| Marquette | 11 | 3.5% | Résistant |
+| Cayuga White | 10 | 3.2% | Résistant |
+| Frontenac Noir | 10 | 3.2% | Résistant |
+| Pinot Noir | 9 | 2.9% | Vinifera |
+| Sauvignon Blanc | 9 | 2.9% | Vinifera |
+| Seyval Blanc | 9 | 2.9% | Résistant |
+| Malbec | 8 | 2.5% | Vinifera |
+| Pinot Gris | 8 | 2.5% | Vinifera |
+| Niagara | 7 | 2.2% | Résistant |
+| Gewürztraminer | 7 | 2.2% | Vinifera |
+| Primitivo | 7 | 2.2% | Vinifera |
+| Frontenac Gris | 6 | 1.9% | Résistant |
+| Merlot | 6 | 1.9% | Vinifera |
+| Muscat | 6 | 1.9% | Vinifera |
+| Brianna | 5 | 1.6% | Résistant |
+| Prairie Star | 5 | 1.6% | Résistant |
+| Petite Pearl | 5 | 1.6% | Résistant |
+| Itasca | 5 | 1.6% | Résistant |
+| Noiret | 5 | 1.6% | Résistant |
+| Viognier | 4 | 1.3% | Vinifera |
+| Chambourcin | 4 | 1.3% | Résistant |
+| De Chaunac | 4 | 1.3% | Résistant |
+| Sabrevois | 4 | 1.3% | Résistant |
+| Vignoles | 4 | 1.3% | Résistant |
+| Traminette | 4 | 1.3% | Résistant |
+| Léon Millot | 4 | 1.3% | Résistant |
+| Cabernet Franc | 4 | 1.3% | Vinifera |
+| Frontenac Blanc | 3 | 1.0% | Résistant |
+| La Crosse | 3 | 1.0% | Résistant |
+| Carménère | 3 | 1.0% | Vinifera |
+| Petit Verdot | 3 | 1.0% | Vinifera |
+| Syrah | 3 | 1.0% | Vinifera |
+| Acadie Blanc | 3 | 1.0% | Résistant |
+| Sainte-Croix | 3 | 1.0% | Résistant |
+| Elvira | 2 | 0.6% | Résistant |
+| Orion | 2 | 0.6% | Vinifera |
+| Saint-Pépin | 2 | 0.6% | Résistant |
+| Louise Swenson | 2 | 0.6% | Résistant |
+| Vidal | 2 | 0.6% | Résistant |
+| Landot Noir | 2 | 0.6% | Résistant |
+| Tannat | 2 | 0.6% | Vinifera |
+| Sangiovese | 2 | 0.6% | Vinifera |
+| Amarone Blend | 2 | 0.6% | Unknown |
+| Baco Noir | 1 | 0.3% | Résistant |
+| Orange Muscat | 1 | 0.3% | Vinifera |
+| Crimson Pearl | 1 | 0.3% | Résistant |
+| Corvina | 1 | 0.3% | Vinifera |
+| Rondinella | 1 | 0.3% | Vinifera |
+| Molinara | 1 | 0.3% | Vinifera |
+| Verdicchio | 1 | 0.3% | Vinifera |
+| Barbera | 1 | 0.3% | Vinifera |
+| Edelweiss | 1 | 0.3% | Résistant |
+| Chancellor | 1 | 0.3% | Résistant |
+| Steuben | 1 | 0.3% | Résistant |
+| Petite Amie | 1 | 0.3% | Résistant |
+| Colombard | 1 | 0.3% | Vinifera |
+| Nebbiolo | 1 | 0.3% | Vinifera |
+| Concord | 1 | 0.3% | Résistant |
+| Diamond | 1 | 0.3% | Résistant |
+| Aromella | 1 | 0.3% | Résistant |
+| Petite Sirah | 1 | 0.3% | Vinifera |
+| Pinotage | 1 | 0.3% | Vinifera |
+| Montepulciano | 1 | 0.3% | Vinifera |
+| Tempranillo | 1 | 0.3% | Vinifera |
+| Valiant | 1 | 0.3% | Résistant |
+| Albariño | 1 | 0.3% | Vinifera |
+| Sémillon | 1 | 0.3% | Vinifera |
+| Lambrusco | 1 | 0.3% | Unknown |
 
 ## Types de vins
 

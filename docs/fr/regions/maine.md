@@ -26,58 +26,58 @@
 
 ## Cépages populaires
 
-| Cépage | Apparitions dans les vins | Pourcentage |
-|-------------|----------|------------|
-| Marquette | 11 | 8.5% |
-| Frontenac Noir | 9 | 7.0% |
-| Unknown | 9 | 7.0% |
-| Chardonnay | 7 | 5.4% |
-| Riesling | 5 | 3.9% |
-| Sémillon | 5 | 3.9% |
-| Cabernet Sauvignon | 4 | 3.1% |
-| Merlot | 4 | 3.1% |
-| Edelweiss | 4 | 3.1% |
-| Maréchal Foch | 4 | 3.1% |
-| Frontenac Blanc | 4 | 3.1% |
-| Sabrevois | 4 | 3.1% |
-| Vidal | 3 | 2.3% |
-| Syrah | 3 | 2.3% |
-| Grenache | 3 | 2.3% |
-| Frontenac Gris | 3 | 2.3% |
-| Sauvignon Blanc | 3 | 2.3% |
-| Sainte-Croix | 3 | 2.3% |
-| Seyval Blanc | 2 | 1.6% |
-| Léon Millot | 2 | 1.6% |
-| Pinot Gris | 2 | 1.6% |
-| Acadie Blanc | 2 | 1.6% |
-| Albariño | 2 | 1.6% |
-| Pinot Noir | 2 | 1.6% |
-| Chancellor | 2 | 1.6% |
-| Elvira | 2 | 1.6% |
-| Itasca | 2 | 1.6% |
-| Fredonia | 1 | 0.8% |
-| King of the North | 1 | 0.8% |
-| Sangiovese | 1 | 0.8% |
-| Petite Sirah | 1 | 0.8% |
-| Mourvèdre | 1 | 0.8% |
-| Carignan | 1 | 0.8% |
-| De Chaunac | 1 | 0.8% |
-| Viognier | 1 | 0.8% |
-| Petit Verdot | 1 | 0.8% |
-| Tempranillo | 1 | 0.8% |
-| Teroldego | 1 | 0.8% |
-| Chenin Blanc | 1 | 0.8% |
-| Saint-Pépin | 1 | 0.8% |
-| La Crescent | 1 | 0.8% |
-| Pinot Blanc | 1 | 0.8% |
-| Cayuga White | 1 | 0.8% |
-| Dolcetto | 1 | 0.8% |
-| Nebbiolo | 1 | 0.8% |
-| Landot Noir | 1 | 0.8% |
-| St. Vincent | 1 | 0.8% |
-| Prairie Star | 1 | 0.8% |
-| Petite Pearl | 1 | 0.8% |
-| Somerset | 1 | 0.8% |
+| Cépage | Apparitions dans les vins | Pourcentage | Classification |
+|-------------|----------|------------|------------|
+| Marquette | 11 | 8.5% | Résistant |
+| Frontenac Noir | 9 | 7.0% | Résistant |
+| Unknown | 9 | 7.0% | Inconnu |
+| Chardonnay | 7 | 5.4% | Vinifera |
+| Riesling | 5 | 3.9% | Vinifera |
+| Sémillon | 5 | 3.9% | Vinifera |
+| Cabernet Sauvignon | 4 | 3.1% | Vinifera |
+| Merlot | 4 | 3.1% | Vinifera |
+| Edelweiss | 4 | 3.1% | Résistant |
+| Maréchal Foch | 4 | 3.1% | Résistant |
+| Frontenac Blanc | 4 | 3.1% | Résistant |
+| Sabrevois | 4 | 3.1% | Résistant |
+| Vidal | 3 | 2.3% | Résistant |
+| Syrah | 3 | 2.3% | Vinifera |
+| Grenache | 3 | 2.3% | Vinifera |
+| Frontenac Gris | 3 | 2.3% | Résistant |
+| Sauvignon Blanc | 3 | 2.3% | Vinifera |
+| Sainte-Croix | 3 | 2.3% | Résistant |
+| Seyval Blanc | 2 | 1.6% | Résistant |
+| Léon Millot | 2 | 1.6% | Résistant |
+| Pinot Gris | 2 | 1.6% | Vinifera |
+| Acadie Blanc | 2 | 1.6% | Résistant |
+| Albariño | 2 | 1.6% | Vinifera |
+| Pinot Noir | 2 | 1.6% | Vinifera |
+| Chancellor | 2 | 1.6% | Résistant |
+| Elvira | 2 | 1.6% | Résistant |
+| Itasca | 2 | 1.6% | Résistant |
+| Fredonia | 1 | 0.8% | Résistant |
+| King of the North | 1 | 0.8% | Résistant |
+| Sangiovese | 1 | 0.8% | Vinifera |
+| Petite Sirah | 1 | 0.8% | Vinifera |
+| Mourvèdre | 1 | 0.8% | Vinifera |
+| Carignan | 1 | 0.8% | Vinifera |
+| De Chaunac | 1 | 0.8% | Résistant |
+| Viognier | 1 | 0.8% | Vinifera |
+| Petit Verdot | 1 | 0.8% | Vinifera |
+| Tempranillo | 1 | 0.8% | Vinifera |
+| Teroldego | 1 | 0.8% | Vinifera |
+| Chenin Blanc | 1 | 0.8% | Vinifera |
+| Saint-Pépin | 1 | 0.8% | Résistant |
+| La Crescent | 1 | 0.8% | Résistant |
+| Pinot Blanc | 1 | 0.8% | Vinifera |
+| Cayuga White | 1 | 0.8% | Résistant |
+| Dolcetto | 1 | 0.8% | Vinifera |
+| Nebbiolo | 1 | 0.8% | Vinifera |
+| Landot Noir | 1 | 0.8% | Résistant |
+| St. Vincent | 1 | 0.8% | Résistant |
+| Prairie Star | 1 | 0.8% | Résistant |
+| Petite Pearl | 1 | 0.8% | Résistant |
+| Somerset | 1 | 0.8% | Résistant |
 
 ## Types de vins
 

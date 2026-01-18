@@ -6,73 +6,73 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Producers | 21 |
-| Producers with catalogued wines | 21 |
-| Total Wines | 204 |
+| Total Producers | 22 |
+| Producers with catalogued wines | 22 |
+| Total Wines | 220 |
 | Unique Grape Varieties | 33 |
 | Vinifera varieties used | 12 |
 | Non-vinifera varieties used | 20 |
 | Unique Wine Types | 10 |
-| Wines per Producer (avg) | 9.7 |
-| Varieties per Producer (avg) | 18.1 |
+| Wines per Producer (avg) | 10.0 |
+| Varieties per Producer (avg) | 17.7 |
 
 ## Grape Variety Classification (by wine appearances)
 
 | Classification | Percentage |
 |---------------|------------|
-| Vinifera (%) | 28.9% |
-| Non-vinifera (%) | 70.3% |
+| Vinifera (%) | 29.6% |
+| Non-vinifera (%) | 69.7% |
 | Unknown classification (%) | 0.8% |
 
 ## Popular Grape Varieties
 
-| Grape Variety | Wine Appearances | Percentage |
-|-------------|----------|------------|
-| Acadie Blanc | 62 | 16.3% |
-| Chardonnay | 43 | 11.3% |
-| Riesling | 28 | 7.3% |
-| New York Muscat | 26 | 6.8% |
-| Léon Millot | 23 | 6.0% |
-| Seyval Blanc | 20 | 5.2% |
-| Marquette | 19 | 5.0% |
-| Geisenheim (GM-31857) | 18 | 4.7% |
-| Vidal | 17 | 4.5% |
-| Lucie Kuhlmann | 15 | 3.9% |
-| Pinot Noir | 15 | 3.9% |
-| Maréchal Foch | 14 | 3.7% |
-| Baco Noir | 9 | 2.4% |
-| Castel | 8 | 2.1% |
-| Ortega | 8 | 2.1% |
-| Petite Pearl | 7 | 1.8% |
-| Petit Milo | 7 | 1.8% |
-| Osceola Muscat | 6 | 1.6% |
-| Frontenac Gris | 6 | 1.6% |
-| Pinot Meunier | 4 | 1.0% |
-| Pinot Gris | 3 | 0.8% |
-| Frontenac Noir | 3 | 0.8% |
-| Muscat | 3 | 0.8% |
-| Unknown | 3 | 0.8% |
-| Frontenac Blanc | 3 | 0.8% |
-| Cabernet Franc | 2 | 0.5% |
-| Triomphe d'Alsace | 2 | 0.5% |
-| Cayuga White | 2 | 0.5% |
-| De Chaunac | 1 | 0.3% |
-| Gamay | 1 | 0.3% |
-| Blaufränkisch | 1 | 0.3% |
-| Cabernet Foch | 1 | 0.3% |
-| Muscat Ottonel | 1 | 0.3% |
+| Grape Variety | Wine Appearances | Percentage | Classification |
+|-------------|----------|------------|------------|
+| Acadie Blanc | 63 | 16.2% | Resistant |
+| Chardonnay | 43 | 11.1% | Vinifera |
+| Riesling | 29 | 7.5% | Vinifera |
+| New York Muscat | 27 | 6.9% | Resistant |
+| Léon Millot | 23 | 5.9% | Resistant |
+| Seyval Blanc | 20 | 5.1% | Resistant |
+| Marquette | 19 | 4.9% | Resistant |
+| Geisenheim (GM-31857) | 18 | 4.6% | Resistant |
+| Vidal | 17 | 4.4% | Resistant |
+| Lucie Kuhlmann | 15 | 3.9% | Resistant |
+| Pinot Noir | 15 | 3.9% | Vinifera |
+| Maréchal Foch | 14 | 3.6% | Resistant |
+| Baco Noir | 9 | 2.3% | Resistant |
+| Castel | 8 | 2.1% | Resistant |
+| Ortega | 8 | 2.1% | Vinifera |
+| Petite Pearl | 7 | 1.8% | Resistant |
+| Petit Milo | 7 | 1.8% | Resistant |
+| Osceola Muscat | 6 | 1.5% | Resistant |
+| Frontenac Gris | 6 | 1.5% | Resistant |
+| Cabernet Franc | 4 | 1.0% | Vinifera |
+| Pinot Gris | 4 | 1.0% | Vinifera |
+| Pinot Meunier | 4 | 1.0% | Vinifera |
+| Frontenac Noir | 3 | 0.8% | Resistant |
+| Muscat | 3 | 0.8% | Vinifera |
+| Unknown | 3 | 0.8% | Unknown |
+| Frontenac Blanc | 3 | 0.8% | Resistant |
+| De Chaunac | 2 | 0.5% | Resistant |
+| Gamay | 2 | 0.5% | Vinifera |
+| Triomphe d'Alsace | 2 | 0.5% | Resistant |
+| Cayuga White | 2 | 0.5% | Resistant |
+| Blaufränkisch | 1 | 0.3% | Vinifera |
+| Cabernet Foch | 1 | 0.3% | Vinifera |
+| Muscat Ottonel | 1 | 0.3% | Vinifera |
 
 ## Wine Types
 
 | Wine Type | Count | Percentage |
 |-----------|-------|------------|
-| White | 82 | 40.2% |
-| Red | 48 | 23.5% |
-| Sparkling | 30 | 14.7% |
-| Rosé | 23 | 11.3% |
-| Fruit Wine | 8 | 3.9% |
-| Fortified | 4 | 2.0% |
-| Orange | 3 | 1.5% |
-| Other | 3 | 1.5% |
-| Dessert | 2 | 1.0% |
+| White | 88 | 40.0% |
+| Red | 52 | 23.6% |
+| Sparkling | 31 | 14.1% |
+| Rosé | 23 | 10.5% |
+| Fruit Wine | 10 | 4.5% |
+| Dessert | 4 | 1.8% |
+| Other | 4 | 1.8% |
+| Fortified | 4 | 1.8% |
+| Orange | 3 | 1.4% |
 | Wine Cocktail | 1 | 0.5% |

@@ -26,14 +26,14 @@
 
 ## Popular Grape Varieties
 
-| Grape Variety | Wine Appearances | Percentage |
-|-------------|----------|------------|
-| Gamay | 4 | 33.3% |
-| Chardonnay | 3 | 25.0% |
-| Maréchal Foch | 2 | 16.7% |
-| Seyval Blanc | 1 | 8.3% |
-| Acadie Blanc | 1 | 8.3% |
-| Ortega | 1 | 8.3% |
+| Grape Variety | Wine Appearances | Percentage | Classification |
+|-------------|----------|------------|------------|
+| Gamay | 4 | 33.3% | Vinifera |
+| Chardonnay | 3 | 25.0% | Vinifera |
+| Maréchal Foch | 2 | 16.7% | Resistant |
+| Seyval Blanc | 1 | 8.3% | Resistant |
+| Acadie Blanc | 1 | 8.3% | Resistant |
+| Ortega | 1 | 8.3% | Vinifera |
 
 ## Wine Types
 

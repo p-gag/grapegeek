@@ -26,14 +26,14 @@
 
 ## Cépages populaires
 
-| Cépage | Apparitions dans les vins | Pourcentage |
-|-------------|----------|------------|
-| Gamay | 4 | 33.3% |
-| Chardonnay | 3 | 25.0% |
-| Maréchal Foch | 2 | 16.7% |
-| Seyval Blanc | 1 | 8.3% |
-| Acadie Blanc | 1 | 8.3% |
-| Ortega | 1 | 8.3% |
+| Cépage | Apparitions dans les vins | Pourcentage | Classification |
+|-------------|----------|------------|------------|
+| Gamay | 4 | 33.3% | Vinifera |
+| Chardonnay | 3 | 25.0% | Vinifera |
+| Maréchal Foch | 2 | 16.7% | Résistant |
+| Seyval Blanc | 1 | 8.3% | Résistant |
+| Acadie Blanc | 1 | 8.3% | Résistant |
+| Ortega | 1 | 8.3% | Vinifera |
 
 ## Types de vins
 

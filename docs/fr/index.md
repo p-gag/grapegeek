@@ -1,44 +1,47 @@
 ---
-english_hash: 3d0fa9cc005613d9d80cd2836050471215d44cc2f464e992030c77070583f6d9
-translated_date: '2025-12-15'
+english_hash: 38d92e0c8f43db5af88d24369e8930dba34c4ad717b2f6e1b90871417a11c728
 hide:
-  - toc
+- toc
+translated_date: '2026-01-18'
 ---
 
 # Bienvenue sur Grape Geek! 🍇
 
-!!! info "🚧 En développement actif 🚧"
-    Ce site présente une base de données complète des cépages avec intégration VIVC et cartographie des producteurs du Québec et du nord-est des États-Unis. Du nouveau contenu et des améliorations sont ajoutés régulièrement. La version française a besoin de plus d'amour. **Certaines sections manquent encore de références** - l'objectif est d'améliorer le processus et de toutes les revisiter.
+**Grape Geek** est un projet dédié à mettre en lumière les cépages hybrides cultivés dans les climats froids du nord‑est des États‑Unis et de l’est du Canada. Ces cépages passent souvent sous le radar par rapport à leurs cousins vinifera bien connus.
 
-**Grape Geek** est un projet dédié à mettre en lumière les cépages hybrides cultivés dans les climats frisquets du nord-est des États‑Unis et de l’est du Canada. Ces raisins passent souvent sous le radar comparativement à leurs cousins vinifera plus connus.
+La collecte de données sur ce site commence par l’identification des vignerons; ensuite, des outils d’automatisation ont été mis en place pour recenser les vins produits et extraire les cépages utilisés. Voici quelques chiffres :
+
+📍 9 États américains et 4 provinces canadiennes  
+🍇 1 491 vignerons répertoriés  
+🍾 16 372 vins catalogués  
+🌿 249 cépages  
+🌐 1 428 sites web repérés  
+📱 2 238 comptes de médias sociaux identifiés
+
 
 ## Ce que vous trouverez ici
 
-- **[Cépages](varieties/index.md)** - Base de données complète des cépages avec données VIVC, articles détaillés, et cartographie des producteurs
-    - À venir (ou pas) : témoignages de producteurs et de vinificateurs, dans leurs propres mots, avec attribution complète
-- **[Régions vinicoles](regions/index.md)** - Statistiques régionales par province et état avec nombre de producteurs, analyse des cépages, et classification vinifera
-- **[Carte des producteurs](producer-map.md)** - Carte interactive des producteurs de vin avec filtre par cépage couvrant le Québec et le nord-est des États-Unis.
-- **[À propos](about.md)** - Découvrez la philosophie et l'approche du projet
-- **[Utilisation de l'IA](ai-usage.md)** - Transparence sur la manière dont l'IA est utilisée pour la recherche et la création de contenu
+- **[Cépages](varieties/index.md)** - Cépages identifiés avec les données de passeport VIVC lorsque disponibles, articles détaillés et cartographie des producteurs
+- **[Régions viticoles](regions/index.md)** - Statistiques régionales par province et par État avec nombre de producteurs et analyse des cépages
+- **[Carte des producteurs](producer-map.md)** - Carte interactive des producteurs de vin avec filtrage par cépage
+- **[À propos](about.md)** - Pour en savoir plus sur la philosophie et l’approche du projet
+- **[Utilisation de l’IA](ai-usage.md)** - Transparence sur la manière dont l’IA est utilisée pour la recherche et la création de contenu
 
-## 🥂 Spécial Nouvelle Année : Vins Mousseux du Québec
+## 🥂 Spécial du Jour de l’An : Vins mousseux du Québec
 
 !!! sparkles "Bonne Année! 🍾"
-    Célébrez la Nouvelle Année avec les meilleures bulles du Québec! Explorez notre [**Catalogue des Vins Mousseux du Québec**](../quebec_sparkling_wines_catalog.html) présentant 86 vins mousseux québécois avec informations détaillées des producteurs, notes de dégustation, et où les trouver.
+    Fêtez le Jour de l’An avec les plus belles bulles du Québec! Explorez notre [**Catalogue des vins mousseux du Québec**](../quebec_sparkling_wines_catalog.html) qui présente 86 vins mousseux québécois avec informations détaillées sur les producteurs, notes de dégustation et où les dénicher.
 
-## Contenu récent
+## Me joindre
 
-Ce site est un travail en cours présentant des recherches initiales avec citations et références. Même si j’ai fait de gros efforts d’attribution et de collecte d’expériences réelles auprès de producteurs, de vinificateurs et de chercheurs en viticulture de climat froid, il s’agit encore d’une première version imparfaite que je souhaite rendre plus rigoureuse avec le temps.
-
-## Restez en contact
-
-Suivez mon parcours en viticulture et mes expériences en climat froid :
+Le site s’intitule « grape geek »; si ça vous tente de jaser raisins, écrivez‑moi! Ça va me faire plaisir!
+Suivez mon parcours de culture de la vigne et mes expérimentations en viticulture de climat froid :
 
 - **Instagram :** [@phil.vigne](https://instagram.com/phil.vigne)
 - **Facebook :** [La Vigne de Métis](https://www.facebook.com/philippe.gagnon.54)
 
 ---
 
-*Ce contenu s’appuie sur des sources web variées, avec des citations (pas encore assez) pour vous permettre d’approfondir et de connecter avec la communauté. Je cherche toujours à m’améliorer, alors n’hésitez pas à envoyer vos commentaires via les comptes sociaux ci‑dessus.*
+*Ce contenu est le résultat de recherches à partir de sources web variées, avec des citations pour vous permettre d’approfondir et de connecter avec la communauté. Je cherche toujours à m’améliorer; n’hésitez pas à envoyer vos commentaires via les comptes ci‑dessus.*
 
 ---

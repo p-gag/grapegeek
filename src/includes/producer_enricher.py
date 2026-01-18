@@ -7,10 +7,46 @@ Performs deep research on wine producers for detailed wine information.
 """
 
 import json
+import re
 import threading
 import time
 from typing import Dict, Tuple
 import openai
+
+
+def clean_url(url_string):
+    """Extract clean URL from malformed markdown-containing strings."""
+    if not url_string or not isinstance(url_string, str):
+        return url_string
+    
+    # Pattern to extract the first URL from strings like:
+    # "https://example.com ([text](https://example.com))"
+    # or "https://example.com (domain.com)"
+    url_pattern = r'^(https?://[^\s\(]+)'
+    
+    match = re.match(url_pattern, url_string.strip())
+    if match:
+        return match.group(1)
+    
+    return url_string
+
+
+def clean_enrichment_urls(enrichment_data):
+    """Clean malformed URLs in enrichment data."""
+    if not isinstance(enrichment_data, dict):
+        return enrichment_data
+    
+    # Clean website URL
+    if 'website' in enrichment_data and enrichment_data['website']:
+        enrichment_data['website'] = clean_url(enrichment_data['website'])
+    
+    # Clean social media URLs (it's a list)
+    if 'social_media' in enrichment_data and isinstance(enrichment_data['social_media'], list):
+        for i, social_url in enumerate(enrichment_data['social_media']):
+            if social_url:
+                enrichment_data['social_media'][i] = clean_url(social_url)
+    
+    return enrichment_data
 
 
 def create_enrichment_prompt(producer: Dict) -> str:
@@ -120,6 +156,9 @@ def enrich_producer(producer: Dict, api_key: str, request_delay: float = 1.0,
         # Parse JSON response
         try:
             enrichment_data = json.loads(response.output_text)
+            
+            # Clean malformed URLs in the response
+            enrichment_data = clean_enrichment_urls(enrichment_data)
             
             # Ensure required fields exist
             required_fields = ['website', 'social_media', 'location', 'activities', 

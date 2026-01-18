@@ -5,17 +5,23 @@ hide:
 
 # Welcome to Grape Geek! 🍇
 
-!!! info "🚧 Under Active Development 🚧"
-    This site features a comprehensive grape variety database with VIVC integration and producer mapping across Quebec and northeastern US. New content and improvements are added regularly. La version française a besoin de plus d'amour. **Some content still lacks references** - the plan is to improve the process and revisit them all.
-
 **Grape Geek** is a project dedicated to shining a light on hybrid grape varieties grown in the chilly climates of the northeast US and eastern Canada. These grapes often fly under the radar compared to their well-known vinifera cousins.
+
+The data collection in this site starts by identifying winegrowers, then automation was built to research the wines produced and extract varieties used. Here are some stats:
+
+📍 9 US states and 4 Canadian provinces  
+🍇 1,491 winegrowers researched  
+🍾 16,372 wines catalogued  
+🌿 249 grape varieties  
+🌐 1,428 websites discovered  
+📱 2,238 social accounts identified
+
 
 ## What You'll Find Here
 
-- **[Grape Varieties](varieties/index.md)** - Comprehensive database of grape varieties with VIVC passport data, detailed articles, and producer mapping
-    - Coming soon (or not): Grower and winemaker stories in their own words, with full attribution
-- **[Wine Regions](regions/index.md)** - Regional statistics by province and state with producer counts, grape variety analysis, and vinifera classification
-- **[Producer Map](producer-map.md)** - Interactive map of wine producers with grape variety filtering covering Quebec and northeastern US states.
+- **[Grape Varieties](varieties/index.md)** - Grape varieties identified with VIVC passport data when available, detailed articles, and producer mapping
+- **[Wine Regions](regions/index.md)** - Regional statistics by province and state with producer counts and grape variety analysis
+- **[Producer Map](producer-map.md)** - Interactive map of wine producers with grape variety filtering
 - **[About](about.md)** - Learn about the project philosophy and approach
 - **[AI Usage](ai-usage.md)** - Transparency about how AI is used for research and content creation
 
@@ -24,12 +30,9 @@ hide:
 !!! sparkles "Bonne Année! 🍾"
     Ring in the New Year with Quebec's finest bubbles! Explore our comprehensive [**Quebec Sparkling Wine Catalog**](../quebec_sparkling_wines_catalog.html) featuring 86 Quebec sparkling wines with detailed producer information, tasting notes, and where to find them.
 
-## Latest Content
-
-This site is a work in progress featuring initial research with citations and references. While I've put significant effort into attribution and sourcing real experiences from growers, winemakers, and researchers in cold-climate viticulture, this is still an imperfect first version that I hope to make more rigorous over time.
-
 ## Connect
 
+The site is titled "grape geek" so if you want to talk grapes, reach out to me! It will be a pleasure!
 Follow my grape growing journey and cold-climate viticulture experiments:
 
 - **Instagram:** [@phil.vigne](https://instagram.com/phil.vigne)
@@ -37,6 +40,6 @@ Follow my grape growing journey and cold-climate viticulture experiments:
 
 ---
 
-*This content is researched from diverse web sources, with citations (not yet enough) so you can dive deeper and connect with the community. I’m always looking to improve, so feel free to send feedback through the social accounts above.*
+*This content is researched from diverse web sources, with citations so you can dive deeper and connect with the community. I’m always looking to improve, so feel free to send feedback through the social accounts above.*
 
 ---

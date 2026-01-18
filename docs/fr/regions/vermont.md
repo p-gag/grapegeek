@@ -26,51 +26,51 @@
 
 ## Cépages populaires
 
-| Cépage | Apparitions dans les vins | Pourcentage |
-|-------------|----------|------------|
-| Marquette | 37 | 14.9% |
-| Frontenac Noir | 31 | 12.4% |
-| La Crescent | 30 | 12.0% |
-| Frontenac Gris | 21 | 8.4% |
-| Frontenac Blanc | 12 | 4.8% |
-| Sainte-Croix | 11 | 4.4% |
-| Prairie Star | 8 | 3.2% |
-| Petite Pearl | 8 | 3.2% |
-| Louise Swenson | 6 | 2.4% |
-| Brianna | 6 | 2.4% |
-| Osceola Muscat | 6 | 2.4% |
-| Chardonnay | 5 | 2.0% |
-| Saint-Pépin | 5 | 2.0% |
-| Sabrevois | 5 | 2.0% |
-| Unknown | 5 | 2.0% |
-| Merlot | 4 | 1.6% |
-| Traminette | 4 | 1.6% |
-| Crimson Pearl | 4 | 1.6% |
-| Itasca | 4 | 1.6% |
-| Seyval Blanc | 4 | 1.6% |
-| Cabernet Sauvignon | 3 | 1.2% |
-| Riesling | 3 | 1.2% |
-| Vidal | 3 | 1.2% |
-| Cayuga White | 2 | 0.8% |
-| Swenson White | 2 | 0.8% |
-| Maréchal Foch | 2 | 0.8% |
-| La Crosse | 2 | 0.8% |
-| Pinot Blanc | 1 | 0.4% |
-| Aromella | 1 | 0.4% |
-| Noiret | 1 | 0.4% |
-| Cabernet Franc | 1 | 0.4% |
-| Acadie Blanc | 1 | 0.4% |
-| ES 7-2-51 | 1 | 0.4% |
-| Syrah | 1 | 0.4% |
-| Muscat | 1 | 0.4% |
-| Verona | 1 | 0.4% |
-| Gamay | 1 | 0.4% |
-| Pinot Gris | 1 | 0.4% |
-| Vignoles | 1 | 0.4% |
-| Léon Millot | 1 | 0.4% |
-| Baco Noir | 1 | 0.4% |
-| Pinot Noir | 1 | 0.4% |
-| Edelweiss | 1 | 0.4% |
+| Cépage | Apparitions dans les vins | Pourcentage | Classification |
+|-------------|----------|------------|------------|
+| Marquette | 37 | 14.9% | Résistant |
+| Frontenac Noir | 31 | 12.4% | Résistant |
+| La Crescent | 30 | 12.0% | Résistant |
+| Frontenac Gris | 21 | 8.4% | Résistant |
+| Frontenac Blanc | 12 | 4.8% | Résistant |
+| Sainte-Croix | 11 | 4.4% | Résistant |
+| Prairie Star | 8 | 3.2% | Résistant |
+| Petite Pearl | 8 | 3.2% | Résistant |
+| Louise Swenson | 6 | 2.4% | Résistant |
+| Brianna | 6 | 2.4% | Résistant |
+| Osceola Muscat | 6 | 2.4% | Résistant |
+| Chardonnay | 5 | 2.0% | Vinifera |
+| Saint-Pépin | 5 | 2.0% | Résistant |
+| Sabrevois | 5 | 2.0% | Résistant |
+| Unknown | 5 | 2.0% | Inconnu |
+| Merlot | 4 | 1.6% | Vinifera |
+| Traminette | 4 | 1.6% | Résistant |
+| Crimson Pearl | 4 | 1.6% | Résistant |
+| Itasca | 4 | 1.6% | Résistant |
+| Seyval Blanc | 4 | 1.6% | Résistant |
+| Cabernet Sauvignon | 3 | 1.2% | Vinifera |
+| Riesling | 3 | 1.2% | Vinifera |
+| Vidal | 3 | 1.2% | Résistant |
+| Cayuga White | 2 | 0.8% | Résistant |
+| Swenson White | 2 | 0.8% | Résistant |
+| Maréchal Foch | 2 | 0.8% | Résistant |
+| La Crosse | 2 | 0.8% | Résistant |
+| Pinot Blanc | 1 | 0.4% | Vinifera |
+| Aromella | 1 | 0.4% | Résistant |
+| Noiret | 1 | 0.4% | Résistant |
+| Cabernet Franc | 1 | 0.4% | Vinifera |
+| Acadie Blanc | 1 | 0.4% | Résistant |
+| ES 7-2-51 | 1 | 0.4% | Unknown |
+| Syrah | 1 | 0.4% | Vinifera |
+| Muscat | 1 | 0.4% | Vinifera |
+| Verona | 1 | 0.4% | Résistant |
+| Gamay | 1 | 0.4% | Vinifera |
+| Pinot Gris | 1 | 0.4% | Vinifera |
+| Vignoles | 1 | 0.4% | Résistant |
+| Léon Millot | 1 | 0.4% | Résistant |
+| Baco Noir | 1 | 0.4% | Résistant |
+| Pinot Noir | 1 | 0.4% | Vinifera |
+| Edelweiss | 1 | 0.4% | Résistant |
 
 ## Types de vins
 

@@ -129,7 +129,8 @@ class ProvinceStatsGenerator:
             'unknown_varieties': Counter(),
             'variety_wine_appearances': Counter(),
             'modern_grapes': {},  # grape_name: crossing_year for varieties crossed after 1980
-            'producers': []
+            'producers': [],
+            'producer_data': []  # Full producer data for detailed listings
         })
         
         for producer in producers:
@@ -144,6 +145,7 @@ class ProvinceStatsGenerator:
             stats = province_stats[state_province]
             stats['producer_count'] += 1
             stats['producers'].append(producer.get('business_name', 'Unknown'))
+            stats['producer_data'].append(producer)  # Store full producer data
             
             # Wine analysis
             wines = producer.get('wines', []) or []
@@ -228,6 +230,7 @@ class ProvinceStatsGenerator:
                 'percentage': "Pourcentage",
                 'wine_type': "Type de vin",
                 'count': "Nombre",
+                'non_vinifera_varieties': "Cépages non-vinifera",
             }
         else:
             texts = {
@@ -255,6 +258,7 @@ class ProvinceStatsGenerator:
                 'percentage': "Percentage",
                 'wine_type': "Wine Type",
                 'count': "Count",
+                'non_vinifera_varieties': "Non-vinifera Grape Varieties",
             }
         
         # Calculate averages and percentages
@@ -311,19 +315,33 @@ class ProvinceStatsGenerator:
         
         # Popular varieties section
         if stats['variety_wine_appearances']:
+            # Add classification text based on language
+            classification_text = "Classification" if language == "en" else "Classification"
+            
             lines.extend([
                 f"## {texts['popular_varieties']}",
                 "",
-                f"| {texts['variety']} | {texts['wine_appearances']} | {texts['percentage']} |",
-                f"|-------------|----------|------------|",
+                f"| {texts['variety']} | {texts['wine_appearances']} | {texts['percentage']} | {classification_text} |",
+                f"|-------------|----------|------------|------------|",
             ])
             
             total_wine_appearances = sum(stats['variety_wine_appearances'].values())
             for variety, appearances in stats['variety_wine_appearances'].most_common():
                 percentage = (appearances / total_wine_appearances * 100) if total_wine_appearances > 0 else 0
-                lines.append(f"| {variety} | {appearances} | {percentage:.1f}% |")
+                
+                # Determine classification
+                classification = "Unknown"
+                if variety in stats['vinifera_varieties']:
+                    classification = "Vinifera"
+                elif variety in stats['non_vinifera_varieties']:
+                    classification = "Resistant" if language == "en" else "Résistant"
+                elif variety == "Unknown":
+                    classification = "Unknown" if language == "en" else "Inconnu"
+                
+                lines.append(f"| {variety} | {appearances} | {percentage:.1f}% | {classification} |")
             
             lines.append("")
+        
         
         # Wine types section
         if stats['wine_types']:

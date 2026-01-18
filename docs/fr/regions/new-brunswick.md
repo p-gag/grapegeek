@@ -26,35 +26,35 @@
 
 ## Cépages populaires
 
-| Cépage | Apparitions dans les vins | Pourcentage |
-|-------------|----------|------------|
-| Frontenac Noir | 11 | 14.1% |
-| Marquette | 7 | 9.0% |
-| Frontenac Gris | 7 | 9.0% |
-| Maréchal Foch | 6 | 7.7% |
-| Frontenac Blanc | 5 | 6.4% |
-| Acadie Blanc | 5 | 6.4% |
-| Osceola Muscat | 5 | 6.4% |
-| Seyval Blanc | 4 | 5.1% |
-| Sabrevois | 4 | 5.1% |
-| Adalmiina | 4 | 5.1% |
-| ES 2-3-17 | 2 | 2.6% |
-| Prairie Star | 2 | 2.6% |
-| Louise Swenson | 2 | 2.6% |
-| Muscat | 1 | 1.3% |
-| Vidal | 1 | 1.3% |
-| Léon Millot | 1 | 1.3% |
-| Baco Noir | 1 | 1.3% |
-| Osceola | 1 | 1.3% |
-| Vandal-Cliche | 1 | 1.3% |
-| Crimson Pearl | 1 | 1.3% |
-| Petite Pearl | 1 | 1.3% |
-| Valiant | 1 | 1.3% |
-| Radisson | 1 | 1.3% |
-| Éona | 1 | 1.3% |
-| Merlot | 1 | 1.3% |
-| Cabernet Franc | 1 | 1.3% |
-| Pinot Noir | 1 | 1.3% |
+| Cépage | Apparitions dans les vins | Pourcentage | Classification |
+|-------------|----------|------------|------------|
+| Frontenac Noir | 11 | 14.1% | Résistant |
+| Marquette | 7 | 9.0% | Résistant |
+| Frontenac Gris | 7 | 9.0% | Résistant |
+| Maréchal Foch | 6 | 7.7% | Résistant |
+| Frontenac Blanc | 5 | 6.4% | Résistant |
+| Acadie Blanc | 5 | 6.4% | Résistant |
+| Osceola Muscat | 5 | 6.4% | Résistant |
+| Seyval Blanc | 4 | 5.1% | Résistant |
+| Sabrevois | 4 | 5.1% | Résistant |
+| Adalmiina | 4 | 5.1% | Résistant |
+| ES 2-3-17 | 2 | 2.6% | Résistant |
+| Prairie Star | 2 | 2.6% | Résistant |
+| Louise Swenson | 2 | 2.6% | Résistant |
+| Muscat | 1 | 1.3% | Vinifera |
+| Vidal | 1 | 1.3% | Résistant |
+| Léon Millot | 1 | 1.3% | Résistant |
+| Baco Noir | 1 | 1.3% | Résistant |
+| Osceola | 1 | 1.3% | Résistant |
+| Vandal-Cliche | 1 | 1.3% | Résistant |
+| Crimson Pearl | 1 | 1.3% | Résistant |
+| Petite Pearl | 1 | 1.3% | Résistant |
+| Valiant | 1 | 1.3% | Résistant |
+| Radisson | 1 | 1.3% | Résistant |
+| Éona | 1 | 1.3% | Résistant |
+| Merlot | 1 | 1.3% | Vinifera |
+| Cabernet Franc | 1 | 1.3% | Vinifera |
+| Pinot Noir | 1 | 1.3% | Vinifera |
 
 ## Types de vins
 
