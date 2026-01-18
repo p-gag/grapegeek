@@ -433,9 +433,7 @@ class ProvinceStatsGenerator:
                 'region': "Région",
                 'producers': "Vignobles", 
                 'wines': "Vins",
-                'non_vinifera': "Non-vinifera",
-                'map_link': "Carte",
-                'details': "Détails"
+                'non_vinifera': "Non-vinifera"
             }
         else:
             texts = {
@@ -444,9 +442,7 @@ class ProvinceStatsGenerator:
                 'region': "Region",
                 'producers': "Producers",
                 'wines': "Wines", 
-                'non_vinifera': "Non-vinifera",
-                'map_link': "Map",
-                'details': "Details"
+                'non_vinifera': "Non-vinifera"
             }
         
         lines = [
@@ -454,8 +450,8 @@ class ProvinceStatsGenerator:
             "",
             texts['subtitle'],
             "",
-            f"| {texts['region']} | {texts['producers']} | {texts['wines']} | {texts['non_vinifera']} | {texts['map_link']} | {texts['details']} |",
-            f"|----------|-----------|-------|-------------|-----|---------|"
+            f"| {texts['region']} | {texts['producers']} | {texts['wines']} | {texts['non_vinifera']} |",
+            f"|----------|-----------|-------|-------------|"
         ]
         
         # Sort provinces by producer count (descending)
@@ -470,14 +466,11 @@ class ProvinceStatsGenerator:
                                            sum(stats['unknown_varieties'].values()))
             non_vinifera_percent = (sum(stats['non_vinifera_varieties'].values()) / total_variety_classifications * 100) if total_variety_classifications > 0 else 0
             
-            # Create links
-            import urllib.parse
-            encoded_province = urllib.parse.quote_plus(province)
-            map_link = f"[🗺️](/producer-map/?state={encoded_province})"
-            details_link = f"[📊]({slug})"
+            # Create region link for first column
+            region_link = f"[{province}]({slug})"
             
             lines.append(
-                f"| **{province}** | {stats['producer_count']:,} | {stats['total_wines']:,} | {non_vinifera_percent:.1f}% | {map_link} | {details_link} |"
+                f"| {region_link} | {stats['producer_count']:,} | {stats['total_wines']:,} | {non_vinifera_percent:.1f}% |"
             )
         
         # Add totals
