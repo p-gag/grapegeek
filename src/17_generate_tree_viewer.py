@@ -795,7 +795,23 @@ class TreeViewerGenerator:
         }}
         
         
+        .mobile-warning {{
+            display: none;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #856404;
+            text-align: center;
+        }}
+
         @media (max-width: 768px) {{
+            .mobile-warning {{
+                display: block;
+            }}
+            
             body {{
                 flex-direction: column;
                 height: 100vh;
@@ -805,30 +821,66 @@ class TreeViewerGenerator:
                 width: 100%;
                 height: auto;
                 flex-shrink: 0;
-                max-height: 40vh;
+                max-height: 25vh;
                 overflow-y: auto;
+                padding: 10px;
             }}
             
             .controls {{
                 flex-direction: row;
                 flex-wrap: wrap;
+                gap: 5px;
             }}
             
             .display-options {{
                 flex-direction: row;
                 flex-wrap: wrap;
+                gap: 5px;
+            }}
+            
+            .display-options button {{
+                font-size: 12px;
+                padding: 4px 8px;
+            }}
+            
+            .species-legend {{
+                margin-top: 8px;
+                padding: 8px;
+                max-height: 120px;
+                overflow-y: auto;
+                font-size: 11px;
+            }}
+            
+            .species-legend h4 {{
+                font-size: 12px;
+                margin: 0 0 6px 0;
+            }}
+            
+            .legend-item {{
+                margin-bottom: 2px;
+            }}
+            
+            .legend-color {{
+                width: 12px;
+                height: 12px;
+                margin-right: 6px;
+            }}
+            
+            .instructions {{
+                font-size: 10px;
+                margin-top: 5px;
             }}
             
             .main-content {{
                 padding: 5px;
                 flex: 1;
-                min-height: 60vh;
+                min-height: 75vh;
                 display: flex;
                 flex-direction: column;
             }}
             
             .network-container {{
-                height: 60vh;
+                height: 75vh;
                 flex: 1;
             }}
         }}
@@ -842,6 +894,10 @@ class TreeViewerGenerator:
 <body>
     <div class="sidebar">
         <h1>🍇 Grape Family Trees</h1>
+        
+        <div class="mobile-warning">
+            📱 For best experience, please use desktop/tablet view
+        </div>
         
         <div class="controls">
             <select id="varietySelector" class="variety-selector">
