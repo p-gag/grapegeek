@@ -798,12 +798,15 @@ class TreeViewerGenerator:
         @media (max-width: 768px) {{
             body {{
                 flex-direction: column;
+                height: 100vh;
             }}
             
             .sidebar {{
                 width: 100%;
                 height: auto;
-                flex-shrink: 1;
+                flex-shrink: 0;
+                max-height: 40vh;
+                overflow-y: auto;
             }}
             
             .controls {{
@@ -818,6 +821,15 @@ class TreeViewerGenerator:
             
             .main-content {{
                 padding: 5px;
+                flex: 1;
+                min-height: 60vh;
+                display: flex;
+                flex-direction: column;
+            }}
+            
+            .network-container {{
+                height: 60vh;
+                flex: 1;
             }}
         }}
         
