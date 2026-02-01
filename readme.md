@@ -44,12 +44,14 @@ python normalization/normalize.py --all
 
 ### Site Management
 ```bash
-# Build complete site (indexes + translations + MkDocs)
-python utils/build.py --all
+# Test site locally
+uv run mkdocs serve
 
-# Individual site operations
-python utils/update_indexes.py   # Update variety indexes
-python utils/sync_french.py      # Sync French translations
+# Sync French translations
+uv run python sync_french.py
+
+# Manual site build (GitHub Actions handles deployment automatically)
+uv run mkdocs build
 ```
 
 ### Setup

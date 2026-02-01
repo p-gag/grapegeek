@@ -60,17 +60,21 @@ class GrapeVariety:
     portfolio: Optional[Dict] = None  # Portfolio passport data (replaces vivc)
     vivc_assignment_status: Optional[str] = None  # Legacy status field
     notes: Optional[str] = None  # Additional notes
+    no_wine: Optional[int] = None  # 1 if variety not referenced by any wine producers
     
     def to_dict(self) -> Dict:
         """Convert to dictionary format."""
         return asdict(self)
     
     def to_jsonl_entry(self) -> str:
-        """Convert to JSONL format, excluding null notes field."""
+        """Convert to JSONL format, excluding null fields."""
         data = self.to_dict()
         # Remove notes field if it's None
         if 'notes' in data and data['notes'] is None:
             del data['notes']
+        # Remove no_wine field if it's None
+        if 'no_wine' in data and data['no_wine'] is None:
+            del data['no_wine']
         return json.dumps(data, ensure_ascii=False)
 
 
@@ -122,6 +126,10 @@ class GrapeVarietiesModel:
                         # Handle notes field
                         if 'notes' not in variety_data:
                             variety_data['notes'] = None
+                        
+                        # Handle no_wine field
+                        if 'no_wine' not in variety_data:
+                            variety_data['no_wine'] = None
                         
                         variety = GrapeVariety(**variety_data)
                         

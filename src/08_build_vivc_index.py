@@ -54,6 +54,9 @@ def load_varieties_from_model(data_dir: str = "data") -> List[Dict]:
         varieties = []
         
         for variety in model.get_all_varieties():
+            # Skip varieties not used for wine (no_wine=1)
+            if variety.no_wine == 1:
+                continue
             # Convert GrapeVariety dataclass to dict format compatible with existing code
             variety_dict = variety.to_dict()
             varieties.append(variety_dict)
@@ -78,24 +81,15 @@ def find_research_file(variety_name: str) -> str:
 
 
 def create_variety_links(variety_name: str, vivc_number: str, vivc_name: str = None, portfolio_source: str = 'vivc') -> str:
-    """Create all links for a variety: VIVC, map, and research."""
+    """Create all links for a variety: tree, map, and research."""
     links = []
     
-    # Only add VIVC link if it's NOT from grapegeek source and has valid vivc_number
-    if portfolio_source != 'grapegeek' and vivc_number and vivc_number.strip() and vivc_number != 'None':
-        # VIVC link with dynamic label
-        if vivc_name and variety_name.upper() != vivc_name.upper():
-            # Use "vivc (lowercase_vivc_name)" format when different
-            vivc_label = f"vivc ({vivc_name.lower()})"
-            vivc_link = f"[{vivc_label}](https://www.vivc.de/index.php?r=passport%2Fview&id={vivc_number})"
-        else:
-            # Use default "vivc" label when names are the same or no VIVC name
-            vivc_link = f"[vivc](https://www.vivc.de/index.php?r=passport%2Fview&id={vivc_number})"
-        
-        links.append(vivc_link)
+    # Tree link (replaces VIVC link)
+    encoded_name = urllib.parse.quote_plus(variety_name)
+    tree_link = f"[tree](/grape-tree-viewer.html?variety={encoded_name})"
+    links.append(tree_link)
     
     # Map link
-    encoded_name = urllib.parse.quote_plus(variety_name)
     map_link = f"[map](/producer-map/?grape_variety={encoded_name})"
     links.append(map_link)
     
@@ -109,11 +103,15 @@ def create_variety_links(variety_name: str, vivc_number: str, vivc_name: str = N
 
 
 def create_missing_variety_links(variety_name: str) -> str:
-    """Create map and research links for varieties without VIVC data."""
+    """Create tree, map and research links for varieties without VIVC data."""
     links = []
     
-    # Map link
+    # Tree link
     encoded_name = urllib.parse.quote_plus(variety_name)
+    tree_link = f"[tree](/grape-tree-viewer.html?variety={encoded_name})"
+    links.append(tree_link)
+    
+    # Map link
     map_link = f"[map](/producer-map/?grape_variety={encoded_name})"
     links.append(map_link)
     

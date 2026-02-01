@@ -493,7 +493,58 @@ def create_final_normalized_dataset():
     print(f"   Output: {len(normalized_producers)} wine producers (normalized)")
     print(f"   File:   {output_file}")
     
+    # Flag grape varieties not referenced by any wine producers
+    print(f"\n🍇 Flagging unreferenced grape varieties...")
+    flag_unreferenced_varieties(normalized_producers, grape_model)
+    
     return output_file
+
+
+def flag_unreferenced_varieties(producers: List[Dict], grape_model: GrapeVarietiesModel):
+    """Flag grape varieties that are not referenced by any wine producers with no_wine=1."""
+    # Collect all referenced grape varieties from wine producers
+    referenced_varieties = set()
+    
+    for producer in producers:
+        wines = producer.get('wines', [])
+        if isinstance(wines, list):
+            for wine in wines:
+                if isinstance(wine, dict):
+                    cepages = wine.get('cepages', [])
+                    if isinstance(cepages, list):
+                        for cepage in cepages:
+                            if isinstance(cepage, str) and cepage.strip():
+                                referenced_varieties.add(cepage.strip())
+    
+    print(f"  📊 Found {len(referenced_varieties)} unique varieties referenced by wine producers")
+    
+    # Get all varieties from the model
+    all_varieties = grape_model.get_all_varieties()
+    unreferenced_count = 0
+    updated_count = 0
+    
+    for variety in all_varieties:
+        if variety.name not in referenced_varieties:
+            # This variety is not referenced by any wine producer
+            if variety.no_wine != 1:  # Only update if not already flagged
+                variety.no_wine = 1
+                updated_count += 1
+            unreferenced_count += 1
+        else:
+            # This variety is referenced, make sure no_wine is not set
+            if variety.no_wine == 1:
+                variety.no_wine = None  # Remove the flag if it was previously set
+                updated_count += 1
+    
+    print(f"  🚫 Found {unreferenced_count} varieties not referenced by wine producers")
+    print(f"  🔄 Updated {updated_count} variety records")
+    
+    if updated_count > 0:
+        # Save updated grape varieties model
+        grape_model.save_jsonl()
+        print(f"  💾 Updated grape varieties saved to {grape_model.jsonl_file}")
+    else:
+        print(f"  ✅ No updates needed - all variety flags are current")
 
 
 if __name__ == "__main__":
