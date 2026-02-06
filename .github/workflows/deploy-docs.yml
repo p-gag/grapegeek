@@ -48,10 +48,7 @@ jobs:
           npm install
 
       - name: Generate tree data
-        run: |
-          uv run src/18_generate_tree_data.py
-          # Ensure tree data is copied to React source for build
-          cp data/tree_data.json grape-tree-react/src/data/tree-data.json
+        run: uv run src/18_generate_tree_data.py
 
       - name: Build React app
         run: |
