@@ -9,6 +9,7 @@ const __dirname = dirname(__filename);
 
 // Source and destination paths
 const sourcePath = resolve(__dirname, 'src/data/tree-data.json');
+const publicPath = resolve(__dirname, 'public/tree-data.json');
 const destPath = resolve(__dirname, '../docs/family-trees/tree-data.json');
 
 try {
@@ -30,18 +31,28 @@ try {
     
     // Write empty data using sync methods
     import('fs').then(fs => {
+      mkdirSync(dirname(publicPath), { recursive: true });
+      fs.writeFileSync(publicPath, JSON.stringify(emptyData, null, 2));
       fs.writeFileSync(destPath, JSON.stringify(emptyData, null, 2));
-      console.log('📝 Created empty tree data file for development');
+      console.log('📝 Created empty tree data files for development');
+      console.log(`   Public: ${publicPath}`);
+      console.log(`   Docs: ${destPath}`);
     });
     
     process.exit(0);
   }
 
-  // Copy the file
+  // Copy the file to public directory for Vite
+  mkdirSync(dirname(publicPath), { recursive: true });
+  copyFileSync(sourcePath, publicPath);
+  
+  // Also copy to final destination for local testing
   copyFileSync(sourcePath, destPath);
+  
   console.log('✅ Tree data copied successfully');
   console.log(`   From: ${sourcePath}`);
-  console.log(`   To: ${destPath}`);
+  console.log(`   To public: ${publicPath}`);
+  console.log(`   To docs: ${destPath}`);
 
 } catch (error) {
   console.error('❌ Error copying tree data:', error.message);

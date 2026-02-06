@@ -48,12 +48,20 @@ jobs:
           npm install
 
       - name: Generate tree data
-        run: uv run src/18_generate_tree_data.py
+        run: |
+          uv run src/18_generate_tree_data.py
+          # Ensure tree data is copied to React source for build
+          cp data/tree_data.json grape-tree-react/src/data/tree-data.json
 
       - name: Build React app
         run: |
           cd grape-tree-react
           npm run build
+          
+      - name: Verify tree data exists
+        run: |
+          echo "Checking for tree data file:"
+          ls -la docs/family-trees/tree-data.json || echo "❌ tree-data.json not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
