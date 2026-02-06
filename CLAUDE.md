@@ -53,12 +53,113 @@ python src/11_generate_stats.py --varieties  # Include variety list
 # Install MkDocs dependencies
 pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
 
-# Test site locally
+# Test site locally (simple MkDocs only - no React app)
 mkdocs serve
 
 # Manual site build (GitHub Actions handles deployment automatically)
 mkdocs build
 ```
+
+### Local Testing Workflow (MkDocs + React Integration)
+The complete local testing workflow simulates the production GitHub Pages deployment structure:
+
+```bash
+# 1. Generate tree data for React app (if needed)
+uv run src/18_generate_tree_data.py
+
+# 2. Build React family trees app
+cd grape-tree-react
+npm run build    # This copies tree data and builds to ../docs/family-trees/
+cd ..
+
+# 3. Build MkDocs site
+mkdocs build     # Builds to site/ directory
+
+# 4. Copy React app to MkDocs build output
+cp -r docs/family-trees site/
+
+# 5. Start local test server (simulates GitHub Pages structure)
+python test-server.py
+
+# Server will be available at:
+# - Main site: http://localhost:8000 (MkDocs homepage)
+# - Family trees: http://localhost:8000/family-trees/ (React app)
+```
+
+**Quick rebuild workflow** (when making React changes):
+```bash
+cd grape-tree-react && npm run build && cd .. && cp -r docs/family-trees site/
+```
+
+**Test server features:**
+- Serves built MkDocs site (not markdown files) at root
+- Family trees React app at `/family-trees/` sub-path
+- Simulates exact production GitHub Pages deployment structure
+- SPA routing support for React app
+- Proper MIME types and static asset serving
+
+### React Family Trees App Development
+The family trees viewer is a standalone React app in the `grape-tree-react/` subdirectory:
+
+```bash
+# Install React app dependencies
+cd grape-tree-react
+npm install
+
+# Development server (React only, no MkDocs integration)
+npm run dev     # Runs on http://localhost:5173
+
+# Production build
+npm run build   # Builds to ../docs/family-trees/ with tree data copy
+
+# Data source: src/data/tree-data.json (copied from ../src/18_generate_tree_data.py output)
+```
+
+**React app architecture:**
+- **Data loading**: Client-side subgraph extraction from unified tree data
+- **Routing**: SPA with variety selection via dropdown
+- **Deployment**: Vite configured for `/family-trees/` sub-path
+- **Features**: Species coloring, duplicate parent mode, hover highlighting
+- **Flag display**: Uses flag-icons CSS library (cross-platform emoji alternative)
+
+**Key files:**
+- `grape-tree-react/src/App.jsx`: Main React Flow application
+- `grape-tree-react/src/components/GrapeNode.jsx`: Custom node component
+- `grape-tree-react/vite.config.js`: Vite build configuration for sub-path deployment
+- `grape-tree-react/copy-data.js`: Data copy script (runs during build)
+
+### Troubleshooting Local Testing
+
+**Common issues and solutions:**
+
+1. **"Address already in use" error:**
+   ```bash
+   lsof -ti:8000 | xargs kill -9  # Kill processes on port 8000
+   ```
+
+2. **Family tree shows empty graphs:**
+   - Check if tree data exists: `ls grape-tree-react/src/data/tree-data.json`
+   - Regenerate data: `uv run src/18_generate_tree_data.py`
+   - Rebuild React app: `cd grape-tree-react && npm run build`
+
+3. **React app not updating after changes:**
+   - Rebuild and copy: `cd grape-tree-react && npm run build && cd .. && cp -r docs/family-trees site/`
+
+4. **MkDocs site showing directory listing:**
+   - Ensure MkDocs is built: `mkdocs build`
+   - Check test server is serving from `site/` not `docs/`
+
+5. **Missing dependencies:**
+   ```bash
+   # React dependencies
+   cd grape-tree-react && npm install
+   
+   # Python dependencies  
+   uv sync
+   
+   # MkDocs dependencies
+   pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+   ```
 
 ### Dependencies
 ```bash

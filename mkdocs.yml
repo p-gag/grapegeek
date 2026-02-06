@@ -45,6 +45,7 @@ nav:
   - Grape Varieties: en/varieties/index.md
   - Wine Regions: en/regions/index.md
   - Producer Map: en/producer-map.md
+  - Family Trees: en/family-trees.md
   - AI Usage: en/ai-usage.md
 
 # Extensions
@@ -91,6 +92,7 @@ plugins:
             Grape Varieties: Cépages
             Wine Regions: Régions Vinicoles
             Producer Map: Carte des Vignobles
+            Family Trees: Arbres Généalogiques
             AI Usage: Usage de l'IA
   - git-revision-date-localized:
       enable_creation_date: true
@@ -111,7 +113,9 @@ extra:
 extra_css:
   - stylesheets/ai-banner.css
   - assets/css/wine-map.css
+  #- assets/css/grape-tree-viewer.css
 
 extra_javascript:
   - javascripts/ai-banner.js
-  - assets/js/wine-map.js 
+  - assets/js/wine-map.js
+  - assets/js/grape-tree-viewer.js 

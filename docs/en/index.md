@@ -22,6 +22,7 @@ The data collection in this site starts by identifying winegrowers, then automat
 - **[Grape Varieties](varieties/index.md)** - Grape varieties identified with VIVC passport data when available, detailed articles, and producer mapping
 - **[Wine Regions](regions/index.md)** - Regional statistics by province and state with producer counts and grape variety analysis
 - **[Producer Map](producer-map.md)** - Interactive map of wine producers with grape variety filtering
+- **[Family Trees](/family-trees/) 🆕** - Interactive genealogy viewer showing grape variety ancestry with species coloring and crossing analysis
 - **[About](about.md)** - Learn about the project philosophy and approach
 - **[AI Usage](ai-usage.md)** - Transparency about how AI is used for research and content creation
 

@@ -24,8 +24,9 @@ La collecte de données sur ce site commence par l’identification des vigneron
 - **[Cépages](varieties/index.md)** - Cépages identifiés avec les données de passeport VIVC lorsque disponibles, articles détaillés et cartographie des producteurs
 - **[Régions viticoles](regions/index.md)** - Statistiques régionales par province et par État avec nombre de producteurs et analyse des cépages
 - **[Carte des producteurs](producer-map.md)** - Carte interactive des producteurs de vin avec filtrage par cépage
-- **[À propos](about.md)** - Pour en savoir plus sur la philosophie et l’approche du projet
-- **[Utilisation de l’IA](ai-usage.md)** - Transparence sur la manière dont l’IA est utilisée pour la recherche et la création de contenu
+- **[Arbres Généalogiques](/family-trees/) 🆕** - Visualiseur de généalogie interactif montrant l'ascendance des cépages avec coloration par espèces et analyse des croisements
+- **[À propos](about.md)** - Pour en savoir plus sur la philosophie et l'approche du projet
+- **[Utilisation de l'IA](ai-usage.md)** - Transparence sur la manière dont l'IA est utilisée pour la recherche et la création de contenu
 
 ## 🥂 Spécial du Jour de l’An : Vins mousseux du Québec
 

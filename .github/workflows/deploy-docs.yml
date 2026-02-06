@@ -37,11 +37,32 @@ jobs:
       - name: Install dependencies with uv
         run: uv sync
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install React dependencies
+        run: |
+          cd grape-tree-react
+          npm install
+
+      - name: Generate tree data
+        run: uv run src/18_generate_tree_data.py
+
+      - name: Build React app
+        run: |
+          cd grape-tree-react
+          npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Build with MkDocs
         run: uv run mkdocs build --clean
+
+      - name: Copy React app to MkDocs build
+        run: cp -r docs/family-trees site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

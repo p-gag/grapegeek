@@ -86,7 +86,7 @@ def create_variety_links(variety_name: str, vivc_number: str, vivc_name: str = N
     
     # Tree link (replaces VIVC link)
     encoded_name = urllib.parse.quote_plus(variety_name)
-    tree_link = f"[tree](/grape-tree-viewer.html?variety={encoded_name})"
+    tree_link = f"[tree](/family-trees/?variety={encoded_name})"
     links.append(tree_link)
     
     # Map link
@@ -108,7 +108,7 @@ def create_missing_variety_links(variety_name: str) -> str:
     
     # Tree link
     encoded_name = urllib.parse.quote_plus(variety_name)
-    tree_link = f"[tree](/grape-tree-viewer.html?variety={encoded_name})"
+    tree_link = f"[tree](/family-trees/?variety={encoded_name})"
     links.append(tree_link)
     
     # Map link
