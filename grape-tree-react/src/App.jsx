@@ -451,7 +451,9 @@ const App = () => {
   }, []);
 
   const handleNodeMouseEnter = useCallback((event, node) => {
-    setHoveredNodeId(node.id);
+    if (node && node.id) {
+      setHoveredNodeId(node.id);
+    }
   }, []);
 
   const handleNodeMouseLeave = useCallback(() => {
