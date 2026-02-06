@@ -54,6 +54,7 @@ const App = () => {
   const [popupNode, setPopupNode] = useState(null);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
   const [hoveredNodeId, setHoveredNodeId] = useState(null);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [treeData, setTreeData] = useState({ varieties: [], nodes: [], edges: [] });
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
@@ -529,7 +530,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="sidebar">
+      <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
         <div style={{ 
           marginBottom: '15px', 
           paddingBottom: '10px', 
@@ -747,13 +748,15 @@ const App = () => {
               fitViewOptions={{ padding: 0.1, minZoom: 0.02, maxZoom: 3 }}
               minZoom={0.02}
               maxZoom={3}
-              nodesDraggable={true}
-              nodesConnectable={false}
-              elementsSelectable={true}
+              panOnScroll={false}
+              panOnScrollMode="free"
               panOnDrag={true}
               zoomOnScroll={true}
               zoomOnPinch={true}
-              panOnScroll={false}
+              preventScrolling={false}
+              nodesDraggable={true}
+              nodesConnectable={false}
+              elementsSelectable={true}
               zoomOnDoubleClick={false}
               selectNodesOnDrag={false}
               deleteKeyCode={null}
