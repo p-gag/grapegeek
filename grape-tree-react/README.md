@@ -1,6 +1,6 @@
-# Grape Tree Viewer - React Flow Test
+# Grape Family Trees - Interactive Genealogy Viewer
 
-A React Flow implementation for visualizing grape variety family trees with proper flag icon support.
+React Flow implementation for exploring grape variety ancestry with species coloring, crossing analysis, and mobile support.
 
 ## Setup
 
@@ -22,38 +22,35 @@ A React Flow implementation for visualizing grape variety family trees with prop
    npm run dev
    ```
 
-4. **Open browser:**
-   ```
-   http://localhost:3000
-   ```
+4. **Open browser:** http://localhost:5173
+
+## Production Build
+
+```bash
+npm run build  # Builds to ../docs/family-trees/ with data copy
+```
 
 ## Features
 
-- ✅ **Proper flag display**: Uses flag-icons CSS library with React components
-- ✅ **Interactive tree exploration**: Double-click nodes to explore different varieties
-- ✅ **Custom node styling**: Berry color backgrounds, species information
-- ✅ **Hierarchical layout**: Automatic positioning based on genealogy levels
-- ✅ **Responsive design**: Works on desktop and mobile
-- ✅ **Rich tooltips**: VIVC numbers, breeding info, parentage
+- 🧬 **Species coloring**: Recursive genetic composition with proportional color bars
+- 🌳 **Duplicate parent mode**: Crossing genealogy analysis with separate parent instances  
+- 🏁 **Cross-platform flags**: Flag-icons CSS library (works on Windows)
+- 📱 **Mobile responsive**: Touch gestures, adaptive layout, optimized for all screens
+- 🔗 **URL parameters**: Direct variety linking with `?variety=Name`
+- ✨ **Hover highlighting**: Blue connections and node scaling
+- 🎯 **Interactive exploration**: Click nodes to navigate variety relationships
 
 ## Architecture
 
-- **Data generation**: `../src/18_generate_tree_data.py` extracts tree data from JSONL files
-- **Custom nodes**: `src/components/GrapeNode.jsx` renders grape variety information
-- **Flag rendering**: Direct CSS class integration (no HTML parsing issues)
-- **Layout**: Hierarchical positioning based on genealogical levels
+- **Data**: Client-side subgraph extraction from unified JSON
+- **Components**: Custom GrapeNode with species bars, flags, and hover effects
+- **Layout**: Hierarchical positioning with level calculation
+- **Deployment**: Vite build configured for `/family-trees/` sub-path
 
-## Key Improvements over Vis.js
+## Key Files
 
-- 🎯 **Native HTML support**: React components render HTML naturally
-- 🏁 **Proper flags**: CSS flag icons work seamlessly in JSX
-- ⚡ **Better performance**: React's virtual DOM handles updates efficiently  
-- 🎨 **Modern styling**: CSS-in-JS and modern React patterns
-- 🔧 **Developer experience**: Better debugging and component inspection
-
-## Data Flow
-
-1. Python script (`18_generate_tree_data.py`) processes grape variety data
-2. Generates `src/data/tree-data.json` with React Flow compatible format
-3. React app imports JSON and renders interactive family trees
-4. Custom `GrapeNode` components display flags, colors, and metadata
+- `src/App.jsx` - Main React Flow app with species coloring logic
+- `src/components/GrapeNode.jsx` - Custom node with proportional species bars
+- `src/components/NodePopup.jsx` - Contextual variety information
+- `copy-data.js` - Build-time data copy script
+- `vite.config.js` - Sub-path deployment configuration
