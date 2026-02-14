@@ -46,7 +46,6 @@ const SPECIES_COLORS = {
 
 const App = () => {
   const [selectedVariety, setSelectedVariety] = useState('');
-  const [showFlags, setShowFlags] = useState(true);
   const [duplicateParents, setDuplicateParents] = useState(false);
   const [colorMode, setColorMode] = useState('species'); // 'berry' or 'species'
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -569,13 +568,6 @@ const App = () => {
               <option key={variety} value={variety}>{variety}</option>
             ))}
           </select>
-          
-          <button 
-            className={`toggle ${showFlags ? 'active' : ''}`}
-            onClick={() => setShowFlags(!showFlags)}
-          >
-            🏁 Country Flags
-          </button>
           
           <button 
             className={`toggle ${duplicateParents ? 'active' : ''}`}
