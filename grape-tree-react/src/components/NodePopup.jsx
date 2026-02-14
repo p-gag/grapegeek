@@ -12,7 +12,8 @@ const NodePopup = ({ node, isVisible, onClose, position }) => {
     sex,
     year_crossing,
     breeder,
-    speciesComposition
+    speciesComposition,
+    has_producers
   } = node.data;
 
   const getSexSymbol = (sex) => {
@@ -117,6 +118,27 @@ const NodePopup = ({ node, isVisible, onClose, position }) => {
                 onMouseOut={(e) => e.target.style.textDecoration = 'none'}
               >
                 {vivc_number}
+              </a>
+            </div>
+          )}
+          
+          {/* Where It Grows link - only show if producers are available */}
+          {has_producers && (
+            <div style={{ marginBottom: '6px' }}>
+              <strong>Where It Grows:</strong>{' '}
+              <a 
+                href={`https://grapegeek.com/producer-map/?grape_variety=${encodeURIComponent(label)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: '#007bff',
+                  textDecoration: 'none',
+                  borderBottom: '1px dotted #007bff'
+                }}
+                onMouseOver={(e) => e.target.style.textDecoration = 'underline'}
+                onMouseOut={(e) => e.target.style.textDecoration = 'none'}
+              >
+                Producer Map 🗺️
               </a>
             </div>
           )}

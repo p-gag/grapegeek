@@ -138,6 +138,36 @@ class TreeDataGenerator:
         self.varieties_model = GrapeVarietiesModel(data_dir)
         self.processed_varieties: Set[str] = set()
         self.variety_nodes: Dict[str, TreeNode] = {}
+        self.producer_varieties: Set[str] = set()
+        self._load_producer_varieties()
+    
+    def _load_producer_varieties(self):
+        """Load all grape varieties that are available from producers."""
+        producer_file = self.data_dir / "05_wine_producers_final_normalized.jsonl"
+        
+        if not producer_file.exists():
+            print(f"⚠️ Producer data not found at {producer_file}")
+            return
+        
+        print("🍷 Loading producer varieties...")
+        
+        with open(producer_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    producer = json.loads(line.strip())
+                    wines = producer.get('wines', [])
+                    
+                    for wine in wines:
+                        cepages = wine.get('cepages', [])
+                        if cepages:  # Only include wines with specified grape varieties
+                            for cepage in cepages:
+                                if cepage:  # Skip empty/null cepages
+                                    self.producer_varieties.add(cepage)
+                
+                except json.JSONDecodeError:
+                    continue
+        
+        print(f"📊 Found {len(self.producer_varieties)} unique varieties from producers")
     
     def _extract_portfolio_data(self, portfolio: dict) -> Dict[str, Any]:
         """Extract relevant data from portfolio for tree display."""
@@ -575,6 +605,7 @@ class TreeDataGenerator:
                     'sex': node.sex,
                     'breeder': node.breeder,
                     'year_crossing': node.year_crossing,
+                    'has_producers': node_name in self.producer_varieties,  # Check if variety is available from producers
                     'is_selected': False,  # Will be set by client
                     'is_duplicate': False  # Will be set by client
                 }

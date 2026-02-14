@@ -270,6 +270,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -291,6 +292,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -312,6 +314,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -333,6 +336,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -354,6 +358,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -375,6 +380,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1881",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -396,6 +402,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -417,6 +424,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -438,6 +446,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1802",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -459,6 +468,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -480,6 +490,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -501,6 +512,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1880",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -522,6 +534,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1925",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -543,6 +556,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1912",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -564,6 +578,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1870",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -585,6 +600,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -606,6 +622,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -627,6 +644,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -648,6 +666,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1885",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -669,6 +688,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -690,6 +710,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -711,6 +732,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1870",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -732,6 +754,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1860",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -753,6 +776,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1834",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -774,6 +798,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -795,6 +820,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1890",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -816,6 +842,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1871",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -837,6 +864,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -858,6 +886,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -879,6 +908,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -900,6 +930,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -921,6 +952,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -942,6 +974,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -963,6 +996,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -984,6 +1018,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1886",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1005,6 +1040,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1879",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1026,6 +1062,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1047,6 +1084,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1068,6 +1106,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1089,6 +1128,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1110,6 +1150,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1882",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1131,6 +1172,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1152,6 +1194,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1173,6 +1216,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1194,6 +1238,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1215,6 +1260,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1236,6 +1282,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1257,6 +1304,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1278,6 +1326,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1299,6 +1348,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1320,6 +1370,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1341,6 +1392,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1362,6 +1414,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1383,6 +1436,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": "1879",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1404,6 +1458,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1425,6 +1480,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1446,6 +1502,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1467,6 +1524,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1890",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1488,6 +1546,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1962",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1509,6 +1568,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1530,6 +1590,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1551,6 +1612,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1572,6 +1634,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1855",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1593,6 +1656,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1829",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1614,6 +1678,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1635,6 +1700,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1656,6 +1722,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1677,6 +1744,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1698,6 +1766,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1719,6 +1788,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1740,6 +1810,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1761,6 +1832,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1782,6 +1854,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1803,6 +1876,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1824,6 +1898,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1845,6 +1920,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1953",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1866,6 +1942,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1887,6 +1964,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1908,6 +1986,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1929,6 +2008,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1894",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1950,6 +2030,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1883",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1971,6 +2052,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -1992,6 +2074,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2013,6 +2096,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2034,6 +2118,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2055,6 +2140,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2076,6 +2162,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2097,6 +2184,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2118,6 +2206,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2139,6 +2228,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2160,6 +2250,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2181,6 +2272,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2202,6 +2294,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2223,6 +2316,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2244,6 +2338,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1869",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2265,6 +2360,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2286,6 +2382,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2307,6 +2404,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1917",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2328,6 +2426,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2349,6 +2448,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2370,6 +2470,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2391,6 +2492,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1908",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2412,6 +2514,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2433,6 +2536,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1870",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2454,6 +2558,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1855",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2475,6 +2580,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2496,6 +2602,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1899",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2517,6 +2624,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1856",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2538,6 +2646,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2559,6 +2668,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2580,6 +2690,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2601,6 +2712,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2622,6 +2734,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2643,6 +2756,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2664,6 +2778,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2685,6 +2800,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1961",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2706,6 +2822,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2727,6 +2844,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2748,6 +2866,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2769,6 +2888,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2790,6 +2910,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2811,6 +2932,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1995",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2832,6 +2954,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2853,6 +2976,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2874,6 +2998,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2895,6 +3020,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2916,6 +3042,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2937,6 +3064,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2958,6 +3086,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1886",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -2979,6 +3108,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1879",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3000,6 +3130,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1868",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3021,6 +3152,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3042,6 +3174,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1945",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3063,6 +3196,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3084,6 +3218,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3105,6 +3240,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3126,6 +3262,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3147,6 +3284,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3168,6 +3306,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3189,6 +3328,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1945",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3210,6 +3350,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3231,6 +3372,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3252,6 +3394,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1902",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3273,6 +3416,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1886",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3294,6 +3438,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3315,6 +3460,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3336,6 +3482,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1976",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3357,6 +3504,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1965",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3378,6 +3526,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3399,6 +3548,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3420,6 +3570,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3441,6 +3592,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3462,6 +3614,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3483,6 +3636,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3504,6 +3658,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3525,6 +3680,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3546,6 +3702,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1885",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3567,6 +3724,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3588,6 +3746,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3609,6 +3768,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3630,6 +3790,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3651,6 +3812,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3672,6 +3834,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3693,6 +3856,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3714,6 +3878,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3735,6 +3900,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1902",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3756,6 +3922,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3777,6 +3944,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1960",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3798,6 +3966,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3819,6 +3988,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3840,6 +4010,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3861,6 +4032,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3882,6 +4054,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3903,6 +4076,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3924,6 +4098,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1963",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3945,6 +4120,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3966,6 +4142,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -3987,6 +4164,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4008,6 +4186,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4029,6 +4208,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1983",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4050,6 +4230,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1965",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4071,6 +4252,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4092,6 +4274,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1915",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4113,6 +4296,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4134,6 +4318,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1855",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4155,6 +4340,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4176,6 +4362,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1921",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4197,6 +4384,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1855",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4218,6 +4406,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1911",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4239,6 +4428,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1870",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4260,6 +4450,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1857",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4281,6 +4472,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4302,6 +4494,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4323,6 +4516,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4344,6 +4538,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4365,6 +4560,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1911",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4386,6 +4582,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4407,6 +4604,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4428,6 +4626,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1893",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4449,6 +4648,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1840",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4470,6 +4670,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4491,6 +4692,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4512,6 +4714,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4533,6 +4736,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1946",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4554,6 +4758,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4575,6 +4780,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4596,6 +4802,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4617,6 +4824,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4638,6 +4846,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4659,6 +4868,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4680,6 +4890,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4701,6 +4912,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4722,6 +4934,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4743,6 +4956,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1953",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4764,6 +4978,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4785,6 +5000,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4806,6 +5022,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4827,6 +5044,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4848,6 +5066,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4869,6 +5088,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4890,6 +5110,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4911,6 +5132,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1970",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4932,6 +5154,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4953,6 +5176,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1925",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4974,6 +5198,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1916",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -4995,6 +5220,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1903",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5016,6 +5242,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1863",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5037,6 +5264,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5058,6 +5286,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5079,6 +5308,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "2001",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5100,6 +5330,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5121,6 +5352,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1996",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5142,6 +5374,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5163,6 +5396,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5184,6 +5418,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5205,6 +5440,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5226,6 +5462,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5247,6 +5484,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1858",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5268,6 +5506,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5289,6 +5528,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5310,6 +5550,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5331,6 +5572,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5352,6 +5594,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5373,6 +5616,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5394,6 +5638,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5415,6 +5660,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5436,6 +5682,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1974",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5457,6 +5704,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5478,6 +5726,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5499,6 +5748,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5520,6 +5770,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5541,6 +5792,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5562,6 +5814,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5583,6 +5836,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5604,6 +5858,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5625,6 +5880,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5646,6 +5902,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5667,6 +5924,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5688,6 +5946,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5709,6 +5968,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5730,6 +5990,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1955",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5751,6 +6012,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1931",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5772,6 +6034,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5793,6 +6056,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1929",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5814,6 +6078,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5835,6 +6100,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5856,6 +6122,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5877,6 +6144,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5898,6 +6166,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5919,6 +6188,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5940,6 +6210,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5961,6 +6232,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1929",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -5982,6 +6254,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6003,6 +6276,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1862",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6024,6 +6298,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6045,6 +6320,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6066,6 +6342,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6087,6 +6364,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6108,6 +6386,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6129,6 +6408,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "2002",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6150,6 +6430,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1984",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6171,6 +6452,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1964",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6192,6 +6474,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1933",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6213,6 +6496,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1883",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6234,6 +6518,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1845",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6255,6 +6540,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6276,6 +6562,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6297,6 +6584,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6318,6 +6606,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1958",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6339,6 +6628,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6360,6 +6650,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6381,6 +6672,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6402,6 +6694,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6423,6 +6716,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1974",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6444,6 +6738,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1916",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6465,6 +6760,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6486,6 +6782,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6507,6 +6804,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1845",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6528,6 +6826,7 @@
         "sex": "MALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6549,6 +6848,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6570,6 +6870,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6591,6 +6892,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1915",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6612,6 +6914,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1890",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6633,6 +6936,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1861",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6654,6 +6958,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6675,6 +6980,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1978",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6696,6 +7002,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6717,6 +7024,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1978",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6738,6 +7046,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1978",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6759,6 +7068,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6780,6 +7090,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6801,6 +7112,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1970",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6822,6 +7134,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6843,6 +7156,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6864,6 +7178,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6885,6 +7200,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6906,6 +7222,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1957",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6927,6 +7244,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1947",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6948,6 +7266,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6969,6 +7288,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -6990,6 +7310,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7011,6 +7332,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7032,6 +7354,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7053,6 +7376,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7074,6 +7398,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7095,6 +7420,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7116,6 +7442,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7137,6 +7464,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1944",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7158,6 +7486,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1928",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7179,6 +7508,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7200,6 +7530,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1927",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7221,6 +7552,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7242,6 +7574,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1842",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7263,6 +7596,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "2002",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7284,6 +7618,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7305,6 +7640,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7326,6 +7662,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7347,6 +7684,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1953",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7368,6 +7706,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1840",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7389,6 +7728,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1981",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7410,6 +7750,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7431,6 +7772,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7452,6 +7794,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7473,6 +7816,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7494,6 +7838,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1951",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7515,6 +7860,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7536,6 +7882,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7557,6 +7904,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1916",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7578,6 +7926,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1904",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7599,6 +7948,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1857",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7620,6 +7970,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1851",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7641,6 +7992,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7662,6 +8014,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7683,6 +8036,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7704,6 +8058,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7725,6 +8080,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1941",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7746,6 +8102,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7767,6 +8124,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7788,6 +8146,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7809,6 +8168,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7830,6 +8190,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7851,6 +8212,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7872,6 +8234,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7893,6 +8256,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1925",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7914,6 +8278,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1947",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7935,6 +8300,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7956,6 +8322,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1929",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7977,6 +8344,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -7998,6 +8366,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1988",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8019,6 +8388,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8040,6 +8410,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1982",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8061,6 +8432,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8082,6 +8454,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8103,6 +8476,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8124,6 +8498,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8145,6 +8520,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8166,6 +8542,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8187,6 +8564,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1893",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8208,6 +8586,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8229,6 +8608,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1883",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8250,6 +8630,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1855",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8271,6 +8652,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8292,6 +8674,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8313,6 +8696,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1980",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8334,6 +8718,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1911",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8355,6 +8740,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1911",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8376,6 +8762,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8397,6 +8784,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8418,6 +8806,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8439,6 +8828,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1989",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8460,6 +8850,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8481,6 +8872,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8502,6 +8894,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8523,6 +8916,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1964",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8544,6 +8938,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1925",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8565,6 +8960,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1939",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8586,6 +8982,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8607,6 +9004,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8628,6 +9026,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1913",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8649,6 +9048,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8670,6 +9070,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1961",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8691,6 +9092,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1965",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8712,6 +9114,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8733,6 +9136,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8754,6 +9158,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1893",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8775,6 +9180,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1885",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8796,6 +9202,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8817,6 +9224,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1898",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8838,6 +9246,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8859,6 +9268,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8880,6 +9290,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8901,6 +9312,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8922,6 +9334,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8943,6 +9356,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1939",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8964,6 +9378,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -8985,6 +9400,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9006,6 +9422,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9027,6 +9444,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9048,6 +9466,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1839",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9069,6 +9488,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9090,6 +9510,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9111,6 +9532,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9132,6 +9554,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1926",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9153,6 +9576,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1868",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9174,6 +9598,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1852",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9195,6 +9620,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1973",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9216,6 +9642,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9237,6 +9664,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9258,6 +9686,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9279,6 +9708,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1912",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9300,6 +9730,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9321,6 +9752,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9342,6 +9774,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9363,6 +9796,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9384,6 +9818,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1930",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9405,6 +9840,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9426,6 +9862,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1964",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9447,6 +9884,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1948",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9468,6 +9906,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1929",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9489,6 +9928,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9510,6 +9950,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1874",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9531,6 +9972,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9552,6 +9994,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9573,6 +10016,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9594,6 +10038,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9615,6 +10060,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9636,6 +10082,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9657,6 +10104,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9678,6 +10126,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9699,6 +10148,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9720,6 +10170,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1983",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9741,6 +10192,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9762,6 +10214,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9783,6 +10236,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": "1883",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9804,6 +10258,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1928",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9825,6 +10280,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1996",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9846,6 +10302,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9867,6 +10324,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9888,6 +10346,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9909,6 +10368,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9930,6 +10390,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9951,6 +10412,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9972,6 +10434,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -9993,6 +10456,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10014,6 +10478,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10035,6 +10500,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10056,6 +10522,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10077,6 +10544,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1925",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10098,6 +10566,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10119,6 +10588,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10140,6 +10610,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1980",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10161,6 +10632,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10182,6 +10654,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10203,6 +10676,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10224,6 +10698,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1967",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10245,6 +10720,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10266,6 +10742,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1964",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10287,6 +10764,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1935",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10308,6 +10786,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10329,6 +10808,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10350,6 +10830,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10371,6 +10852,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "2001",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10392,6 +10874,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10413,6 +10896,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10434,6 +10918,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10455,6 +10940,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10476,6 +10962,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10497,6 +10984,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1936",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10518,6 +11006,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10539,6 +11028,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10560,6 +11050,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "2003",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10581,6 +11072,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10602,6 +11094,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10623,6 +11116,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1916",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10644,6 +11138,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10665,6 +11160,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10686,6 +11182,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10707,6 +11204,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10728,6 +11226,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1936",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10749,6 +11248,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10770,6 +11270,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10791,6 +11292,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10812,6 +11314,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10833,6 +11336,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10854,6 +11358,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10875,6 +11380,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10896,6 +11402,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10917,6 +11424,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10938,6 +11446,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10959,6 +11468,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -10980,6 +11490,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1954",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11001,6 +11512,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1930",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11022,6 +11534,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11043,6 +11556,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11064,6 +11578,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11085,6 +11600,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11106,6 +11622,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11127,6 +11644,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11148,6 +11666,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1940",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11169,6 +11688,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11190,6 +11710,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11211,6 +11732,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11232,6 +11754,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11253,6 +11776,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11274,6 +11798,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11295,6 +11820,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11316,6 +11842,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11337,6 +11864,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11358,6 +11886,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11379,6 +11908,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11400,6 +11930,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11421,6 +11952,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1964",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11442,6 +11974,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11463,6 +11996,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11484,6 +12018,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1964",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11505,6 +12040,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11526,6 +12062,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1960",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11547,6 +12084,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11568,6 +12106,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1967",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11589,6 +12128,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1962",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11610,6 +12150,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11631,6 +12172,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11652,6 +12194,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1860",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11673,6 +12216,7 @@
         "sex": "FEMALE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11694,6 +12238,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11715,6 +12260,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11736,6 +12282,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11757,6 +12304,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11778,6 +12326,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11799,6 +12348,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1874",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11820,6 +12370,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11841,6 +12392,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1997",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11862,6 +12414,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11883,6 +12436,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11904,6 +12458,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11925,6 +12480,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1947",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11946,6 +12502,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11967,6 +12524,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -11988,6 +12546,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -12009,6 +12568,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1997",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -12030,6 +12590,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": null,
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -12051,6 +12612,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1922",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -12072,6 +12634,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1925",
+        "has_producers": true,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -12093,6 +12656,7 @@
         "sex": "HERMAPHRODITE",
         "breeder": null,
         "year_crossing": "1878",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
@@ -12114,6 +12678,7 @@
         "sex": null,
         "breeder": null,
         "year_crossing": "1843",
+        "has_producers": false,
         "is_selected": false,
         "is_duplicate": false
       }
