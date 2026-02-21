@@ -22,7 +22,7 @@ export default function WineList({ wines }: WineListProps) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex items-center gap-3 mb-6">
-        <WineIcon className="w-6 h-6 text-purple-600" />
+        <WineIcon className="w-6 h-6 text-brand" />
         <h2 className="text-2xl font-bold">Wines ({wines.length})</h2>
       </div>
 
@@ -30,7 +30,7 @@ export default function WineList({ wines }: WineListProps) {
         {wines.map((wine) => (
           <div
             key={wine.id}
-            className="border rounded-lg p-4 hover:border-purple-300 hover:shadow-sm transition"
+            className="border rounded-lg p-4 hover:border-brand-soft hover:shadow-sm transition"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
@@ -67,7 +67,7 @@ export default function WineList({ wines }: WineListProps) {
                 {/* Grape Varieties */}
                 {wine.grapes && wine.grapes.length > 0 && (
                   <div className="flex items-start gap-2 mt-3 pt-3 border-t">
-                    <Grape className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                    <Grape className="w-4 h-4 text-brand mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
                         Grape Varieties
@@ -77,7 +77,7 @@ export default function WineList({ wines }: WineListProps) {
                           <Link
                             key={index}
                             href={`/varieties/${encodeURIComponent(grape.variety_name)}`}
-                            className="text-sm px-2 py-1 bg-green-50 text-green-700 rounded hover:bg-green-100 transition"
+                            className="text-sm px-2 py-1 bg-purple-50 text-purple-700 rounded hover:bg-purple-100 transition"
                           >
                             {grape.variety_name}
                             {grape.percentage && ` (${grape.percentage}%)`}

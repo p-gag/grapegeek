@@ -11,11 +11,11 @@ export default function VarietyCard({ variety }: Props) {
 
   return (
     <Link href={`/varieties/${encodeURIComponent(variety.name)}`}>
-      <div className="bg-white rounded-lg shadow hover:shadow-xl transition-shadow p-6 h-full border-2 border-transparent hover:border-purple-200">
+      <div className="bg-white rounded-xl shadow-brand hover:shadow-brand-hover transition-all duration-200 p-6 h-full border-2 border-transparent hover:border-brand-soft">
         {/* Header */}
         <div className="flex items-start gap-3 mb-4">
           <div className="bg-purple-100 rounded-lg p-2 flex-shrink-0">
-            <Wine className="w-6 h-6 text-purple-600" />
+            <Wine className="w-6 h-6 text-brand" />
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="text-xl font-bold text-gray-900 mb-1 truncate">
@@ -68,7 +68,7 @@ export default function VarietyCard({ variety }: Props) {
           )}
 
           {winegrowers > 0 && (
-            <div className="flex items-center gap-2 text-sm text-purple-600 font-semibold mt-3">
+            <div className="flex items-center gap-2 text-sm text-brand font-semibold mt-3">
               <Users className="w-4 h-4 flex-shrink-0" />
               <span>{winegrowers} winegrower{winegrowers !== 1 ? 's' : ''}</span>
             </div>

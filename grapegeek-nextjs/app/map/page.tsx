@@ -12,7 +12,7 @@ const MapView = dynamic(() => import('@/components/map/MapView'), {
   loading: () => (
     <div className="flex items-center justify-center h-full bg-gray-50">
       <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand mx-auto mb-4"></div>
         <p className="text-gray-600">Loading map...</p>
       </div>
     </div>
@@ -130,7 +130,7 @@ function MapPageContent() {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-brand mx-auto mb-4"></div>
           <p className="text-gray-600 text-lg">Loading map data...</p>
         </div>
       </div>
@@ -146,7 +146,7 @@ function MapPageContent() {
           <p className="text-gray-600 mb-4">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
+            className="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-hover transition-colors"
           >
             Try Again
           </button>
@@ -183,7 +183,7 @@ export default function MapPage() {
     <Suspense fallback={
       <div className="flex items-center justify-center h-screen bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-brand mx-auto mb-4"></div>
           <p className="text-gray-600 text-lg">Loading...</p>
         </div>
       </div>

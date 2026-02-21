@@ -28,7 +28,7 @@ export default function TopVarietiesList({ varieties }: TopVarietiesListProps) {
               <div className="flex items-center justify-between mb-1">
                 <Link
                   href={`/varieties/${slug}`}
-                  className="text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors truncate"
+                  className="text-sm font-medium text-gray-900 hover:text-brand transition-colors truncate"
                 >
                   {variety.name}
                 </Link>
@@ -36,14 +36,14 @@ export default function TopVarietiesList({ varieties }: TopVarietiesListProps) {
                   <span className="text-xs text-gray-500">
                     {variety.winegrowers} {variety.winegrowers === 1 ? 'winegrower' : 'winegrowers'}
                   </span>
-                  <span className="text-sm font-semibold text-purple-600">
+                  <span className="text-sm font-semibold text-brand">
                     {variety.count} {variety.count === 1 ? 'wine' : 'wines'}
                   </span>
                 </div>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                 <div
-                  className="bg-purple-600 h-2 rounded-full transition-all duration-500"
+                  className="bg-brand h-2 rounded-full transition-all duration-500"
                   style={{ width: `${percentage}%` }}
                 />
               </div>

@@ -11,7 +11,7 @@ export default function WinegrowerCard({ winegrower }: WinegrowerCardProps) {
     <Link href={`/winegrowers/${winegrower.slug}`}>
       <div className="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white h-full flex flex-col">
         <div className="flex items-start gap-3 mb-3">
-          <Wine className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+          <Wine className="w-6 h-6 text-brand flex-shrink-0 mt-1" />
           <div className="flex-1 min-w-0">
             <h3 className="text-xl font-bold mb-1 text-gray-900 break-words">
               {winegrower.business_name}
@@ -29,7 +29,7 @@ export default function WinegrowerCard({ winegrower }: WinegrowerCardProps) {
 
         {winegrower.website && (
           <div className="mt-auto pt-3 border-t">
-            <div className="flex items-center gap-1 text-sm text-purple-600 hover:text-purple-700">
+            <div className="flex items-center gap-1 text-sm text-brand hover:text-brand-hover">
               <ExternalLink className="w-3 h-3" />
               <span className="truncate">Visit website</span>
             </div>
@@ -38,7 +38,7 @@ export default function WinegrowerCard({ winegrower }: WinegrowerCardProps) {
 
         {winegrower.classification && (
           <div className="mt-2">
-            <span className="inline-block px-2 py-1 text-xs bg-green-100 text-green-800 rounded">
+            <span className="inline-block px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">
               {winegrower.classification}
             </span>
           </div>

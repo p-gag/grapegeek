@@ -48,7 +48,7 @@ export default function WinegrowerFilters({
         {hasActiveFilters && (
           <button
             onClick={clearAllFilters}
-            className="ml-auto flex items-center gap-1 text-sm text-green-600 hover:underline"
+            className="ml-auto flex items-center gap-1 text-sm text-brand hover:underline"
           >
             <X className="w-4 h-4" />
             Clear all
@@ -65,7 +65,7 @@ export default function WinegrowerFilters({
             placeholder="Search by name or city..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           />
         </div>
 
@@ -77,7 +77,7 @@ export default function WinegrowerFilters({
               setFilterCountry(e.target.value);
               setFilterState(''); // Reset state when country changes
             }}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           >
             <option value="">All Countries</option>
             {countries.map(country => (
@@ -93,7 +93,7 @@ export default function WinegrowerFilters({
           <select
             value={filterState}
             onChange={(e) => setFilterState(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           >
             <option value="">All States/Provinces</option>
             {filteredStates.map(state => (

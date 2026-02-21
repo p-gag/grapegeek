@@ -22,14 +22,14 @@ export default function LocationMap({ winegrower }: LocationMapProps) {
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <div className="p-4 bg-gray-50 border-b flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <MapPin className="w-5 h-5 text-blue-600" />
+          <MapPin className="w-5 h-5 text-brand" />
           <h3 className="font-semibold">Location</h3>
         </div>
         <a
           href={linkUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 transition"
+          className="flex items-center gap-1 text-sm text-brand hover:text-brand-hover transition"
         >
           Open in Maps
           <ExternalLink className="w-4 h-4" />

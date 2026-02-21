@@ -18,7 +18,7 @@ export default function MarkerPopup({ marker, selectedVariety }: MarkerPopupProp
       <div className="mb-3">
         <Link
           href={`/winegrowers/${winegrowerSlug}`}
-          className="font-bold text-lg text-gray-900 hover:text-purple-600 transition-colors mb-1 block"
+          className="font-bold text-lg text-gray-900 hover:text-brand transition-colors mb-1 block"
           style={{ textDecoration: 'none' }}
         >
           {marker.name}
@@ -39,8 +39,8 @@ export default function MarkerPopup({ marker, selectedVariety }: MarkerPopupProp
                 href={`/varieties/${encodeURIComponent(variety)}`}
                 className={`inline-block px-2 py-1 text-xs rounded-full transition-all hover:ring-2 hover:ring-offset-1 ${
                   selectedVariety && variety === selectedVariety
-                    ? 'bg-green-600 text-white hover:bg-green-700 hover:ring-green-300'
-                    : 'bg-green-100 text-green-800 hover:bg-green-200 hover:ring-green-400'
+                    ? 'bg-brand text-white hover:bg-brand-hover hover:ring-brand-soft'
+                    : 'bg-purple-100 text-purple-800 hover:bg-purple-200 hover:ring-brand-soft'
                 }`}
                 style={{ textDecoration: 'none' }}
               >
@@ -62,7 +62,7 @@ export default function MarkerPopup({ marker, selectedVariety }: MarkerPopupProp
       <div className="pt-2 border-t border-gray-200">
         <Link
           href={`/winegrowers/${winegrowerSlug}`}
-          className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center gap-1"
+          className="text-sm text-brand hover:text-brand-hover font-medium flex items-center gap-1"
         >
           View Full Profile →
         </Link>

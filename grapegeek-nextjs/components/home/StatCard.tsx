@@ -11,9 +11,9 @@ interface StatCardProps {
 export default function StatCard({ icon, value, label, href }: StatCardProps) {
   return (
     <Link href={href} className="block group">
-      <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-white p-8 rounded-xl shadow-brand hover:shadow-brand-hover transition-all duration-300">
         <div className="flex flex-col items-center text-center">
-          <div className="text-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+          <div className="text-brand mb-4 group-hover:scale-110 transition-transform duration-300">
             {icon}
           </div>
           <p className="text-4xl font-bold text-gray-900 mb-2">

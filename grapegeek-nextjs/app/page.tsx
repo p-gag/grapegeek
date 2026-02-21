@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white py-20">
+      <section className="bg-gradient-to-br from-brand-dark to-brand text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             GrapeGeek
@@ -23,7 +23,7 @@ export default function HomePage() {
           <div className="flex gap-4 justify-center flex-wrap">
             <Link
               href="/map"
-              className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
+              className="bg-white text-brand px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors shadow-lg"
             >
               Explore Map
             </Link>
@@ -72,7 +72,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-[#F5F6FA] py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
             Explore Cold-Climate Viticulture

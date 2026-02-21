@@ -78,7 +78,7 @@ export default function WinegrowersIndex({ winegrowers, countries, states, stats
                 setFilterCountry('');
                 setFilterState('');
               }}
-              className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+              className="mt-4 px-4 py-2 bg-brand text-white rounded-lg hover:bg-brand-hover transition"
             >
               Clear Filters
             </button>

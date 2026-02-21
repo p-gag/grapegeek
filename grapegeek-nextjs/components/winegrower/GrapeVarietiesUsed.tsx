@@ -21,7 +21,7 @@ export default function GrapeVarietiesUsed({ wines }: GrapeVarietiesUsedProps) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex items-center gap-3 mb-6">
-        <Grape className="w-6 h-6 text-green-600" />
+        <Grape className="w-6 h-6 text-brand" />
         <h2 className="text-2xl font-bold">
           Grape Varieties Used ({uniqueVarieties.length})
         </h2>
@@ -37,7 +37,7 @@ export default function GrapeVarietiesUsed({ wines }: GrapeVarietiesUsedProps) {
           <Link
             key={variety}
             href={`/varieties/${encodeURIComponent(variety)}`}
-            className="px-4 py-3 bg-green-50 text-green-800 rounded-lg hover:bg-green-100 transition text-center font-medium border border-green-200 hover:border-green-300"
+            className="px-4 py-3 bg-purple-50 text-purple-800 rounded-lg hover:bg-purple-100 transition text-center font-medium border border-purple-200 hover:border-brand-soft"
           >
             {variety}
           </Link>

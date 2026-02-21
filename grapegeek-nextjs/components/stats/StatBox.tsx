@@ -10,9 +10,9 @@ export default function StatBox({ icon, value, label, subtext, size = 'default' 
   const isSmall = size === 'small';
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+    <div className="bg-white p-6 rounded-xl shadow-brand border border-gray-100">
       <div className="flex flex-col items-center text-center">
-        <div className={`text-purple-600 mb-3 ${isSmall ? '' : 'mb-4'}`}>
+        <div className={`text-brand mb-3 ${isSmall ? '' : 'mb-4'}`}>
           {icon}
         </div>
         <p className={`font-bold text-gray-900 mb-2 ${isSmall ? 'text-3xl' : 'text-4xl'}`}>

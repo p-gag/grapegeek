@@ -25,13 +25,13 @@ export default function TopStatesList({ data }: TopStatesListProps) {
             <div className="flex-1">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-sm font-medium text-gray-900">{state.name}</span>
-                <span className="text-sm font-semibold text-purple-600">
+                <span className="text-sm font-semibold text-brand">
                   {state.value.toLocaleString()}
                 </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                 <div
-                  className="bg-purple-600 h-2 rounded-full transition-all duration-500"
+                  className="bg-brand h-2 rounded-full transition-all duration-500"
                   style={{ width: `${percentage}%` }}
                 />
               </div>

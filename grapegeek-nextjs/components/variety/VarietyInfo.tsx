@@ -14,7 +14,7 @@ export default function VarietyInfo({ variety }: Props) {
       {/* Characteristics Card */}
       <div className="bg-white rounded-lg shadow-sm p-6">
         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-          <Dna className="w-6 h-6 text-purple-600" />
+          <Dna className="w-6 h-6 text-brand" />
           Characteristics
         </h2>
 
@@ -76,7 +76,7 @@ export default function VarietyInfo({ variety }: Props) {
       {hasParents && (
         <div className="bg-white rounded-lg shadow-sm p-6">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <Users className="w-6 h-6 text-purple-600" />
+            <Users className="w-6 h-6 text-brand" />
             Parentage
           </h2>
 
@@ -86,7 +86,7 @@ export default function VarietyInfo({ variety }: Props) {
                 <p className="text-sm text-gray-600 mb-1">Parent 1</p>
                 <Link
                   href={`/varieties/${encodeURIComponent(variety.parent1_name)}`}
-                  className="font-semibold text-purple-600 hover:text-purple-700 hover:underline transition-colors"
+                  className="font-semibold text-brand hover:text-brand-hover hover:underline transition-colors"
                 >
                   {variety.parent1_name}
                 </Link>
@@ -98,7 +98,7 @@ export default function VarietyInfo({ variety }: Props) {
                 <p className="text-sm text-gray-600 mb-1">Parent 2</p>
                 <Link
                   href={`/varieties/${encodeURIComponent(variety.parent2_name)}`}
-                  className="font-semibold text-purple-600 hover:text-purple-700 hover:underline transition-colors"
+                  className="font-semibold text-brand hover:text-brand-hover hover:underline transition-colors"
                 >
                   {variety.parent2_name}
                 </Link>

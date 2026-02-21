@@ -45,7 +45,7 @@ export default function VarietiesIndex({ varieties, stats }: Props) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-12">
+      <div className="bg-gradient-to-br from-brand-dark to-brand text-white py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-bold mb-4">Grape Varieties</h1>
           <p className="text-xl text-purple-100">
@@ -94,7 +94,7 @@ export default function VarietiesIndex({ varieties, stats }: Props) {
                 setFilterColor('')
                 setShowOnlyGrapes(false)
               }}
-              className="mt-4 text-purple-600 hover:underline"
+              className="mt-4 text-brand hover:underline"
             >
               Clear all filters
             </button>

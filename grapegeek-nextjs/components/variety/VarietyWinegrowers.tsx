@@ -33,7 +33,7 @@ export default function VarietyWinegrowers({ variety }: Props) {
     return (
       <div className="bg-white rounded-lg shadow-sm p-8">
         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-          <Factory className="w-6 h-6 text-purple-600" />
+          <Factory className="w-6 h-6 text-brand" />
           Winegrowers Using This Variety
         </h2>
         <div className="text-center py-12">
@@ -53,7 +53,7 @@ export default function VarietyWinegrowers({ variety }: Props) {
     <div className="bg-white rounded-lg shadow-sm p-6">
       <div className="mb-6">
         <h2 className="text-2xl font-bold flex items-center gap-2 mb-2">
-          <Factory className="w-6 h-6 text-purple-600" />
+          <Factory className="w-6 h-6 text-brand" />
           Winegrowers Using This Variety
         </h2>
         <p className="text-gray-600">
@@ -66,13 +66,13 @@ export default function VarietyWinegrowers({ variety }: Props) {
         {winegrowers.map((winegrower) => (
           <div
             key={winegrower.id}
-            className="border border-gray-200 rounded-lg p-4 hover:border-purple-300 hover:shadow-md transition-all"
+            className="border border-gray-200 rounded-lg p-4 hover:border-brand-soft hover:shadow-md transition-all"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <Link
                   href={`/winegrowers/${winegrower.slug}`}
-                  className="text-lg font-semibold text-purple-700 hover:text-purple-800 hover:underline transition-colors mb-2 inline-flex items-center gap-2"
+                  className="text-lg font-semibold text-brand hover:text-brand-hover hover:underline transition-colors mb-2 inline-flex items-center gap-2"
                 >
                   {winegrower.name}
                   <ExternalLink className="w-4 h-4" />
@@ -101,7 +101,7 @@ export default function VarietyWinegrowers({ variety }: Props) {
 
               <Link
                 href={`/winegrowers/${winegrower.slug}`}
-                className="flex-shrink-0 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
+                className="flex-shrink-0 px-4 py-2 bg-brand text-white rounded-lg hover:bg-brand-hover transition-colors text-sm font-medium"
               >
                 View Details
               </Link>
@@ -118,7 +118,7 @@ export default function VarietyWinegrowers({ variety }: Props) {
           </span>
           <Link
             href="/map"
-            className="flex items-center gap-1 text-purple-600 hover:text-purple-700 font-medium"
+            className="flex items-center gap-1 text-brand hover:text-brand font-medium"
           >
             <MapPin className="w-4 h-4" />
             View on Map

@@ -9,7 +9,7 @@ export default function VarietyHeader({ variety }: Props) {
   const winegrowers = variety.uses?.length || 0;
 
   return (
-    <div className="bg-gradient-to-br from-purple-700 via-purple-600 to-indigo-600 text-white">
+    <div className="bg-gradient-to-br from-brand-dark to-brand text-white">
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         {/* Title Row */}
         <div className="flex items-start gap-4 mb-8">

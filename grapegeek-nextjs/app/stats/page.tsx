@@ -121,7 +121,7 @@ export default function StatsPage() {
       </div>
 
       {/* Data Quality Section */}
-      <div className="mt-12 bg-gray-50 rounded-xl p-6">
+      <div className="mt-12 bg-[#F5F6FA] rounded-xl p-6">
         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
           <Database size={28} />
           Data Quality
@@ -129,7 +129,7 @@ export default function StatsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded-lg">
             <p className="text-gray-600 text-sm mb-1">Geolocation Coverage</p>
-            <p className="text-2xl font-bold text-green-600">
+            <p className="text-2xl font-bold text-brand">
               {Math.round((stats.geolocated_winegrowers / stats.total_winegrowers) * 100)}%
             </p>
             <p className="text-gray-500 text-xs mt-1">
@@ -138,7 +138,7 @@ export default function StatsPage() {
           </div>
           <div className="bg-white p-4 rounded-lg">
             <p className="text-gray-600 text-sm mb-1">Website Information</p>
-            <p className="text-2xl font-bold text-blue-600">
+            <p className="text-2xl font-bold text-brand-light">
               {Math.round((stats.winegrowers_with_websites / stats.total_winegrowers) * 100)}%
             </p>
             <p className="text-gray-500 text-xs mt-1">
@@ -147,7 +147,7 @@ export default function StatsPage() {
           </div>
           <div className="bg-white p-4 rounded-lg">
             <p className="text-gray-600 text-sm mb-1">True Grape Coverage</p>
-            <p className="text-2xl font-bold text-purple-600">
+            <p className="text-2xl font-bold text-brand">
               {Math.round((stats.true_grapes / stats.total_varieties) * 100)}%
             </p>
             <p className="text-gray-500 text-xs mt-1">
