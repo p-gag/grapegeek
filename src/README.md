@@ -59,21 +59,30 @@ graph TD
     %% Step 5: Outputs
     D7 --> B6[06_output_geojson.py]
     B6 --> D8[docs/assets/data/wine-producers-final.geojson]
-    
+
     D7 --> B7[07_generate_stats.py]
     B7 --> D10[dataset_statistics.txt]
-    
+
     D4 --> B8[08_build_vivc_index.py]
     B8 --> D9A[docs/en/varieties/index.md]
     B8 --> D9B[docs/fr/varieties/index.md]
-    
+
+    %% Step 6: Database Build
+    D7 --> B9[09_build_database.py]
+    D4 --> B9
+    B9 --> D11[data/grapegeek.db]
+
+    %% Step 7: Legacy React Map Data
+    D8 --> B10[19_generate_map_data.py]
+    B10 --> D12[grape-explorer-react/src/data/map-data.json]
+
     %% Styling
     classDef script fill:#e1f5fe
     classDef datafile fill:#f3e5f5
     classDef manual fill:#fff3e0
-    
-    class B0,B1,B2,B3,B4,B4B,B4C,B5,B6,B7,B8 script
-    class D1,D2,D2M,D3A,D3B,D4,D4D,D7,D8,D9A,D9B,D10 datafile
+
+    class B0,B1,B2,B3,B4,B4B,B4C,B5,B6,B7,B8,B9,B10 script
+    class D1,D2,D2M,D3A,D3B,D4,D4D,D7,D8,D9A,D9B,D10,D11,D12 datafile
     class B3,B4,B4B manual
 ```
 
@@ -109,7 +118,14 @@ uv run src/05_data_final_normalized.py
 # 7. Generate outputs
 uv run src/06_output_geojson.py
 uv run src/07_generate_stats.py
-uv run src/08_build_vivc_index.py  
+uv run src/08_build_vivc_index.py
+
+# 8. Build SQLite database (required for Next.js site)
+uv run src/09_build_database.py
+cp data/grapegeek.db grapegeek-nextjs/data/
+
+# 9. Generate legacy React map data (grape-explorer-react only, not Next.js)
+uv run src/19_generate_map_data.py
 ```
 
 ### Variety Updates Only
@@ -132,6 +148,9 @@ uv run src/04_vivc_assign.py --limit 5
 
 # Generate stats with varieties
 uv run src/07_generate_stats.py --varieties
+
+# Database: run tests (pytest tests/ once established)
+uv run pytest tests/
 ```
 
 ## 📁 Key Data Files
@@ -142,6 +161,7 @@ uv run src/07_generate_stats.py --varieties
 | `data/enriched_producers_cache.jsonl` | Enriched wine producer data | `02_producer_research.py` |
 | `data/grape_variety_mapping.jsonl` | **Central variety database** | `03_variety_normalize.py`, `04_vivc_assign.py` |
 | `data/05_wine_producers_final_normalized.jsonl` | **Final production dataset** | `05_data_final_normalized.py` |
+| `data/grapegeek.db` | **SQLite database for Next.js** | `09_build_database.py` |
 
 ## ⚠️ Important Notes
 
@@ -159,4 +179,8 @@ uv run src/07_generate_stats.py --varieties
 
 ---
 
-*For detailed script documentation, see individual script file headers.*
+## 🗄️ Database Access Layer
+
+`src/includes/database.py` provides type-safe Python access to `data/grapegeek.db`.
+
+See `src/DATABASE.md` for full API reference, dataclasses, and query examples.

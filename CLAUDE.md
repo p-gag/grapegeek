@@ -7,53 +7,34 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Running the Application
 ```bash
 # Generate a technical article for a grape variety
-python main.py grape <variety_name> --type technical
+uv run main.py grape <variety_name> --type technical
 
 # Generate and auto-publish a technical article to MkDocs site
-python main.py grape <variety_name> --type technical --publish
+uv run main.py grape <variety_name> --type technical --publish
 
 # Generate winemaking stories for a grape variety  
-python main.py grape <variety_name> --type story
+uv run main.py grape <variety_name> --type story
 
 # Sync all content to French site with smart change detection (varieties + main site files)
-python sync_french.py
+uv run sync_french.py
 
 # Dry run (show prompts without calling OpenAI)
-python main.py grape <variety_name> --dry-run
-python main.py region <region_name> --dry-run
+uv run main.py grape <variety_name> --dry-run
+uv run main.py region <region_name> --dry-run
 ```
 
 ### Wine Producer Pipeline
-```bash
-# 1. Fetch and unify Quebec + US producer data
-python src/01_producer_fetch.py
 
-# 2. Add geolocation data (optional - can run independently)
-python src/03_producer_geolocate.py
+See **`src/README.md`** for the full pipeline with commands, data flow diagram, and testing instructions.
 
-# 3. Unified research: classify + search + enrich with early exits (saves 80% cost)
-python src/12_unified_producer_research.py --limit 10  # Test with limit
-python src/12_unified_producer_research.py --yes      # Full run
-
-# 4. Normalize grape varieties (run as needed when new varieties found)
-python src/08_variety_normalize.py
-
-# 5. Apply normalizations to create final dataset
-python src/09_data_normalize_final.py
-
-# 6. Generate map data and statistics
-python src/10_output_geojson.py
-python src/11_generate_stats.py --varieties  # Include variety list
-
-# ⚠️  WARNING: Never change GPT models without explicit approval
-```
+⚠️ Never change GPT models without explicit approval.
 
 ### VIVC Photo Pipeline
 Downloads grape variety photos from VIVC with proper credit attribution and uploads to Google Cloud Storage.
 
 ```bash
 # Analyze credit distribution
-python analyze_photo_credit_distribution.py
+uv run analyze_photo_credit_distribution.py
 
 # Sync photos to GCS
 uv run src/08a_photo_sync_gcs.py --force
@@ -99,137 +80,12 @@ mkdocs serve
 mkdocs build
 ```
 
-### Local Testing Workflow (MkDocs + React Integration)
-The complete local testing workflow simulates the production GitHub Pages deployment structure:
-
-```bash
-# 1. Generate tree data for React app (if needed)
-uv run src/18_generate_tree_data.py
-
-# 1b. Generate map data for React app (if needed)
-uv run src/19_generate_map_data.py
-
-# 2. Build React family trees app
-cd grape-tree-react
-npm run build    # This copies tree data and builds to ../docs/family-trees/
-cd ..
-
-# 3. Build MkDocs site
-mkdocs build     # Builds to site/ directory
-
-# 4. Copy React app to MkDocs build output
-cp -r docs/family-trees site/
-
-# 5. Start local test server (simulates GitHub Pages structure)
-python test-server.py
-
-# Server will be available at:
-# - Main site: http://localhost:8000 (MkDocs homepage)
-# - Family trees: http://localhost:8000/family-trees/ (React app)
-```
-
-**Quick rebuild workflow** (when making React changes):
-```bash
-cd grape-tree-react && npm run build && cd .. && cp -r docs/family-trees site/
-```
-
-**Test server features:**
-- Serves built MkDocs site (not markdown files) at root
-- Family trees React app at `/family-trees/` sub-path
-- Simulates exact production GitHub Pages deployment structure
-- SPA routing support for React app
-- Proper MIME types and static asset serving
-
-### React Family Trees Integration ✅ COMPLETE
-The family tree functionality has been **fully integrated** into the main `grape-explorer-react` application following the map integration pattern.
-
-#### Main Application (grape-explorer-react/)
-```bash
-# Integrated React app with tree functionality
-cd grape-explorer-react
-npm run dev     # Runs on http://localhost:3000 or 3001 (auto-detects port)
-
-# Tree dependencies are installed:
-# - reactflow @reactflow/controls @reactflow/background
-# - flag-icons CSS library for country flags
-```
-
-#### ✅ Completed Integration Features
-- **✅ TreePreviewReactFlow**: Static preview on variety pages showing immediate family (parents/children)
-- **✅ TreePage**: Full interactive tree with left sidebar layout matching MapPage exactly
-- **✅ GrapeNode**: Custom React Flow node component with preserved original styling
-- **✅ NodePopup**: Click-to-show popup with detailed variety information
-- **✅ Route Integration**: `/tree?variety=Name` and `/variety/:slug/tree` routes
-- **✅ Navigation**: Proper back button handling to return to variety pages
-- **✅ Mobile Responsive**: Sidebar layout adapts to mobile (stacked layout)
-- **✅ Original Functionality Preserved**: Species coloring, duplicate parents mode, hover effects
-
-#### Legacy Reference (grape-tree-react/ - For Reference Only)
-```bash
-# Original standalone React app (kept for reference)
-cd grape-tree-react
-npm install && npm run dev     # Runs on http://localhost:5173
-```
-**Note**: The standalone app is no longer actively used but kept for reference.
-
-#### Data Generation (Current)
-```bash
-# Generate tree data for integrated system
-python src/18_generate_tree_data.py
-
-# Data is used by:
-# - grape-explorer-react/public/data/tree-data.json (main integration)
-# - grape-tree-react/src/data/tree-data.json (legacy reference)
-```
-
-#### Key Integrated Components
-- `grape-explorer-react/src/pages/TreePage.jsx`: Full tree page with 240px sidebar
-- `grape-explorer-react/src/components/TreePreviewReactFlow.jsx`: Tree preview component  
-- `grape-explorer-react/src/components/GrapeNode.jsx`: React Flow node with original styling
-- `grape-explorer-react/src/components/NodePopup.jsx`: Detailed variety information popup
-- `grape-explorer-react/public/data/tree-data.json`: Tree data source
-
-### Troubleshooting Local Testing
-
-**Common issues and solutions:**
-
-1. **"Address already in use" error:**
-   ```bash
-   lsof -ti:8000 | xargs kill -9  # Kill processes on port 8000
-   ```
-
-2. **Family tree shows empty graphs:**
-   - Check if tree data exists: `ls grape-tree-react/src/data/tree-data.json`
-   - Regenerate data: `uv run src/18_generate_tree_data.py`
-   - Rebuild React app: `cd grape-tree-react && npm run build`
-
-3. **React app not updating after changes:**
-   - Rebuild and copy: `cd grape-tree-react && npm run build && cd .. && cp -r docs/family-trees site/`
-
-4. **MkDocs site showing directory listing:**
-   - Ensure MkDocs is built: `mkdocs build`
-   - Check test server is serving from `site/` not `docs/`
-
-5. **Missing dependencies:**
-   ```bash
-   # React dependencies
-   cd grape-tree-react && npm install
-   
-   # Python dependencies  
-   uv sync
-   
-   # MkDocs dependencies
-   pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
-   ```
-
 ### Dependencies
 ```bash
-# Install dependencies using uv (preferred)
-uv sync
-
-# Or install with pip
-pip install -e .
+uv sync  # Install dependencies
 ```
+
+Always use `uv run <script>` to execute Python scripts. Never use `python` directly.
 
 ### Environment Setup
 - Requires `OPENAI_API_KEY` environment variable (uses OpenAI Responses API with web_search tools)
@@ -261,6 +117,10 @@ When changing code:
 2. Delete outdated content immediately
 3. Remove duplicates if information is repeated
 
+### Root Directory Policy
+
+Root contains named entry points only (`main.py`, `sync_french.py`). All other scripts go in `src/`. Tests go in `tests/` using pytest — no ad-hoc test scripts at root.
+
 ## Project Architecture
 
 ### Core Structure
@@ -271,6 +131,8 @@ This is an AI-powered content generation system for creating magazine-style arti
 - `src/grapegeek/base.py`: BaseGenerator class with shared OpenAI integration and file handling
 - `src/grapegeek/grape_article_generator.py`: GrapeArticleGenerator for variety-specific content
 - `src/grapegeek/region_researcher.py`: RegionResearcher for regional variety discovery
+- `src/includes/database.py`: Type-safe SQLite access layer (Producer, GrapeVariety, Wine dataclasses + FTS) — see `src/DATABASE.md`
+- `src/09_build_database.py`: Builds `data/grapegeek.db` from JSONL sources (required for Next.js)
 
 ### Prompt System Architecture
 The application uses a layered prompt system:
@@ -365,7 +227,7 @@ trade_association_url: "URL"
 
 ### Content Publishing Workflow
 1. **Generate and publish**: Use `main.py grape <variety> --type technical --publish` to auto-generate and publish to MkDocs site
-2. **Sync French content**: Run `python sync_french.py` to translate changed content to French site
+2. **Sync French content**: Run `uv run sync_french.py` to translate changed content to French site
 3. **Deploy**: Commit changes → GitHub Actions automatically builds and deploys MkDocs site
 
 **Auto-publish features:**
