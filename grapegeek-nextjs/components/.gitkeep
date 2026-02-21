@@ -1,0 +1,16 @@
+# Components Directory
+
+React components will be added here as needed.
+
+## Completed Components
+- [x] Header.tsx - Site navigation
+
+## Planned Components (Future Tasks)
+- [ ] ProducerCard.tsx - Producer display (Task #7)
+- [ ] VarietyCard.tsx - Variety display (Task #6)
+- [ ] WineList.tsx - Wine list component (Task #7)
+- [ ] Map.tsx - Leaflet map component (Task #8)
+- [ ] MapClient.tsx - Client-side map wrapper (Task #8)
+- [ ] SearchBar.tsx - Search component (Tasks #9-10)
+- [ ] VarietySearch.tsx - Variety search/filter (Task #9)
+- [ ] ProducerSearch.tsx - Producer search/filter (Task #10)

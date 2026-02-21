@@ -1,0 +1,4 @@
+# Data Directory
+
+The SQLite database `grapegeek.db` will be placed here during the build process.
+This file is NOT committed to git - it's generated from JSONL sources.
