@@ -1,23 +1,28 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface SectionNavProps {
   hasPhotos?: boolean;
+  locale: Locale;
 }
 
-export default function SectionNav({ hasPhotos = false }: SectionNavProps) {
+export default function SectionNav({ hasPhotos = false, locale }: SectionNavProps) {
+  const t = createTranslator(locale);
   const [activeSection, setActiveSection] = useState('overview');
 
   const sections = useMemo(() => {
     return [
-      { id: 'overview', label: 'Overview', icon: '🍇' },
-      { id: 'map', label: 'Map', icon: '🗺️' },
-      { id: 'tree', label: 'Family Tree', icon: '🌳' },
-      { id: 'production', label: 'Production', icon: '📊' },
-      { id: 'research', label: 'Research', icon: '📚' },
+      { id: 'overview', label: t('variety.sectionNav.overview'), icon: '🍇' },
+      { id: 'map', label: t('variety.sectionNav.map'), icon: '🗺️' },
+      { id: 'tree', label: t('variety.sectionNav.tree'), icon: '🌳' },
+      { id: 'production', label: t('variety.sectionNav.production'), icon: '📊' },
+      { id: 'research', label: t('variety.sectionNav.research'), icon: '📚' },
     ];
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

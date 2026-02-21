@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Locale } from '@/lib/i18n/config';
 
 interface VarietyUsage {
   name: string;
@@ -8,9 +9,10 @@ interface VarietyUsage {
 
 interface TopVarietiesListProps {
   varieties: VarietyUsage[];
+  locale?: Locale;
 }
 
-export default function TopVarietiesList({ varieties }: TopVarietiesListProps) {
+export default function TopVarietiesList({ varieties, locale = 'en' }: TopVarietiesListProps) {
   const maxValue = varieties[0]?.count || 1;
 
   return (
@@ -27,7 +29,7 @@ export default function TopVarietiesList({ varieties }: TopVarietiesListProps) {
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1">
                 <Link
-                  href={`/varieties/${slug}`}
+                  href={`/${locale}/varieties/${encodeURIComponent(variety.name)}`}
                   className="text-sm font-medium text-gray-900 hover:text-brand transition-colors truncate"
                 >
                   {variety.name}

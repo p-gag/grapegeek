@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import type { GrapeVariety } from '@/lib/types';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface GrapeInfoProps {
   variety: GrapeVariety & {
@@ -13,9 +15,12 @@ interface GrapeInfoProps {
     wine_styles?: string[];
     ripening_season?: string;
   };
+  locale: Locale;
 }
 
-export default function GrapeInfo({ variety }: GrapeInfoProps) {
+export default function GrapeInfo({ variety, locale }: GrapeInfoProps) {
+  const t = createTranslator(locale);
+
   // Get parent names
   const parents: string[] = [];
   if (variety.parent1_name) parents.push(variety.parent1_name);
@@ -31,7 +36,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
         {/* Bred */}
         {(variety.year_of_crossing || variety.breeder) && (
           <div className="detail-row">
-            <span className="detail-label">Bred</span>
+            <span className="detail-label">{t('variety.info.bred')}</span>
             <span className="detail-value">
               {variety.year_of_crossing && `${variety.year_of_crossing} `}
               {variety.breeder && `by ${variety.breeder}`}
@@ -42,12 +47,12 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
         {/* Parents */}
         {parents.length > 0 && (
           <div className="detail-row">
-            <span className="detail-label">Parents</span>
+            <span className="detail-label">{t('variety.info.parents')}</span>
             <span className="detail-value">
               {parents.map((parent, index) => (
                 <span key={parent}>
                   <Link
-                    href={`/varieties/${encodeURIComponent(parent)}`}
+                    href={`/${locale}/varieties/${encodeURIComponent(parent)}`}
                     className="parent-link"
                   >
                     {parent}
@@ -62,7 +67,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
         {/* Species */}
         {variety.species && (
           <div className="detail-row">
-            <span className="detail-label">Species</span>
+            <span className="detail-label">{t('variety.info.species')}</span>
             <span className="detail-value">{variety.species}</span>
           </div>
         )}
@@ -70,7 +75,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
         {/* Berry Skin Color */}
         {variety.berry_skin_color && (
           <div className="detail-row">
-            <span className="detail-label">Berry Color</span>
+            <span className="detail-label">{t('variety.info.berryColor')}</span>
             <span className="detail-value">{variety.berry_skin_color}</span>
           </div>
         )}
@@ -78,7 +83,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
         {/* Known for */}
         {variety.known_for && (
           <div className="detail-row">
-            <span className="detail-label">Known for</span>
+            <span className="detail-label">{t('variety.info.knownFor')}</span>
             <span className="detail-value">{variety.known_for}</span>
           </div>
         )}
@@ -86,7 +91,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
         {/* Country of Origin */}
         {variety.country_of_origin && (
           <div className="detail-row">
-            <span className="detail-label">Origin</span>
+            <span className="detail-label">{t('variety.info.origin')}</span>
             <span className="detail-value">{variety.country_of_origin}</span>
           </div>
         )}
@@ -94,7 +99,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
         {/* VIVC Number */}
         {variety.vivc_number && (
           <div className="detail-row">
-            <span className="detail-label">VIVC Number</span>
+            <span className="detail-label">{t('variety.info.vivcNumber')}</span>
             <span className="detail-value">
               <a
                 href={`http://www.vivc.de/index.php?r=passport%2Fview&id=${variety.vivc_number}`}
@@ -111,7 +116,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
 
       {/* Quick Stats Card */}
       <div className="quick-stats-card">
-        <h4>Quick Stats</h4>
+        <h4>{t('variety.info.quickStats')}</h4>
 
         {/* VIVC Link Button */}
         {variety.vivc_number && (
@@ -123,7 +128,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
           >
             <span className="vivc-icon">🔗</span>
             <span className="vivc-text">
-              <strong>View on VIVC</strong>
+              <strong>{t('variety.info.viewOnVivc')}</strong>
               <small>Vitis International Variety Catalogue</small>
             </span>
             <span className="vivc-arrow">→</span>
@@ -136,7 +141,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
             <div className="stat-icon">🍷</div>
             <div className="stat-content">
               <span className="stat-number">{producerCount}</span>
-              <span className="stat-label">North American Winegrowers</span>
+              <span className="stat-label">{t('variety.info.winegrowers')}</span>
             </div>
           </div>
 
@@ -146,7 +151,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
               <div className="stat-icon">🌡️</div>
               <div className="stat-content">
                 <span className="stat-number">{variety.hardiness}</span>
-                <span className="stat-label">Cold Hardiness</span>
+                <span className="stat-label">{t('variety.info.coldHardiness')}</span>
               </div>
             </div>
           )}
@@ -157,7 +162,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
               <div className="stat-icon">🍷</div>
               <div className="stat-content">
                 <span className="stat-number">{variety.wine_styles.length}</span>
-                <span className="stat-label">Wine Styles</span>
+                <span className="stat-label">{t('variety.info.wineStyles')}</span>
                 <span className="stat-detail">{variety.wine_styles.join(', ')}</span>
               </div>
             </div>
@@ -169,7 +174,7 @@ export default function GrapeInfo({ variety }: GrapeInfoProps) {
               <div className="stat-icon">🗓️</div>
               <div className="stat-content">
                 <span className="stat-number">{variety.ripening_season}</span>
-                <span className="stat-label">Ripening Season</span>
+                <span className="stat-label">{t('variety.info.ripeningSeasons')}</span>
               </div>
             </div>
           )}

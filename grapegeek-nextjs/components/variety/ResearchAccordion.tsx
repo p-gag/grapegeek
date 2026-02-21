@@ -1,30 +1,33 @@
 'use client';
 
 import type { GrapeVariety } from '@/lib/types';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface ResearchAccordionProps {
   variety: GrapeVariety;
+  locale: Locale;
 }
 
-export default function ResearchAccordion({ variety }: ResearchAccordionProps) {
+export default function ResearchAccordion({ variety, locale }: ResearchAccordionProps) {
+  const t = createTranslator(locale);
+
   return (
     <div className="research-accordion">
       <div className="section-header">
-        <h2>📚 Technical Research</h2>
-        <p>Comprehensive grape variety analysis</p>
+        <h2>📚 {t('variety.research.title')}</h2>
+        <p>{t('variety.research.subtitle')}</p>
       </div>
 
       {/* Coming Soon Placeholder */}
       <div className="coming-soon">
         <div className="coming-soon-icon">🔬</div>
-        <h3>Research Content Coming Soon</h3>
+        <h3>{t('variety.research.comingSoonTitle')}</h3>
         <p>
-          We&apos;re working on comprehensive technical research for {variety.name}, including viticulture characteristics,
-          winemaking notes, academic citations, and historical information.
+          {t('variety.research.comingSoonText', { variety: variety.name })}
         </p>
         <p style={{ fontSize: '0.9rem', fontStyle: 'italic', marginTop: '1rem' }}>
-          This section will include detailed analysis with citations from academic sources, industry publications,
-          and grower reports.
+          {t('variety.research.comingSoonSubtext')}
         </p>
       </div>
     </div>

@@ -22,7 +22,11 @@ const TreePageContent = dynamic(() => import('@/components/tree/TreePageContent'
   )
 });
 
-function TreePageInner() {
+interface PageProps {
+  params: { locale: string };
+}
+
+function TreePageInner({ locale }: { locale: string }) {
   const searchParams = useSearchParams();
   const variety = searchParams.get('variety');
 
@@ -36,7 +40,7 @@ function TreePageInner() {
           No variety specified
         </p>
         <Link
-          href="/varieties"
+          href={`/${locale}/varieties`}
           style={{
             display: 'inline-block',
             padding: '0.75rem 1.5rem',
@@ -52,13 +56,14 @@ function TreePageInner() {
     );
   }
 
-  return <TreePageContent initialVariety={variety} />;
+  return <TreePageContent initialVariety={variety} locale={locale} />;
 }
 
-export default function TreePage() {
+export default function TreePage({ params }: PageProps) {
+  const { locale } = params;
   return (
     <Suspense fallback={<div style={{ padding: '4rem 2rem', textAlign: 'center' }}>Loading...</div>}>
-      <TreePageInner />
+      <TreePageInner locale={locale} />
     </Suspense>
   );
 }

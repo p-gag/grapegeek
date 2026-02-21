@@ -1,16 +1,20 @@
 import { GrapeVariety } from '@/lib/types'
 import Link from 'next/link'
 import { Wine, MapPin, Users } from 'lucide-react'
+import type { Locale } from '@/lib/i18n/config'
+import { createTranslator } from '@/lib/i18n/translate'
 
 interface Props {
   variety: GrapeVariety
+  locale: Locale
 }
 
-export default function VarietyCard({ variety }: Props) {
+export default function VarietyCard({ variety, locale }: Props) {
+  const t = createTranslator(locale)
   const winegrowers = variety.uses?.length || 0
 
   return (
-    <Link href={`/varieties/${encodeURIComponent(variety.name)}`}>
+    <Link href={`/${locale}/varieties/${encodeURIComponent(variety.name)}`}>
       <div className="bg-white rounded-xl shadow-brand hover:shadow-brand-hover transition-all duration-200 p-6 h-full border-2 border-transparent hover:border-brand-soft">
         {/* Header */}
         <div className="flex items-start gap-3 mb-4">
@@ -23,7 +27,7 @@ export default function VarietyCard({ variety }: Props) {
             </h3>
             {variety.aliases.length > 0 && (
               <p className="text-sm text-gray-500 truncate">
-                Also: {variety.aliases[0]}
+                {t('varieties.card.also')} {variety.aliases[0]}
                 {variety.aliases.length > 1 && ` +${variety.aliases.length - 1}`}
               </p>
             )}
@@ -34,14 +38,14 @@ export default function VarietyCard({ variety }: Props) {
         <div className="space-y-2">
           {variety.species && (
             <div className="flex items-center gap-2 text-sm text-gray-600">
-              <span className="font-semibold">Species:</span>
+              <span className="font-semibold">{t('varieties.card.species')}</span>
               <span className="truncate">{variety.species}</span>
             </div>
           )}
 
           {variety.berry_skin_color && (
             <div className="flex items-center gap-2 text-sm text-gray-600">
-              <span className="font-semibold">Color:</span>
+              <span className="font-semibold">{t('varieties.card.color')}</span>
               <span className={`px-2 py-0.5 rounded text-xs font-medium ${
                 variety.berry_skin_color.toLowerCase().includes('white') ||
                 variety.berry_skin_color.toLowerCase().includes('blanc')
@@ -70,7 +74,7 @@ export default function VarietyCard({ variety }: Props) {
           {winegrowers > 0 && (
             <div className="flex items-center gap-2 text-sm text-brand font-semibold mt-3">
               <Users className="w-4 h-4 flex-shrink-0" />
-              <span>{winegrowers} winegrower{winegrowers !== 1 ? 's' : ''}</span>
+              <span>{t('varieties.card.winegrowers', { count: winegrowers })}</span>
             </div>
           )}
         </div>
@@ -79,12 +83,12 @@ export default function VarietyCard({ variety }: Props) {
         <div className="mt-4 pt-4 border-t border-gray-100 flex gap-2">
           {variety.is_grape && (
             <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-              True Grape
+              {t('varieties.card.trueGrape')}
             </span>
           )}
           {variety.vivc_number && (
             <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-              VIVC #{variety.vivc_number}
+              {t('varieties.card.vivc', { number: variety.vivc_number })}
             </span>
           )}
         </div>

@@ -4,13 +4,17 @@ import { useState, useMemo } from 'react'
 import { GrapeVariety, DatabaseStats } from '@/lib/types'
 import VarietyCard from './VarietyCard'
 import VarietyFilters from './VarietyFilters'
+import type { Locale } from '@/lib/i18n/config'
+import { createTranslator } from '@/lib/i18n/translate'
 
 interface Props {
   varieties: GrapeVariety[]
   stats: DatabaseStats
+  locale: Locale
 }
 
-export default function VarietiesIndex({ varieties, stats }: Props) {
+export default function VarietiesIndex({ varieties, stats, locale }: Props) {
+  const t = createTranslator(locale)
   const [searchQuery, setSearchQuery] = useState('')
   const [filterSpecies, setFilterSpecies] = useState('')
   const [filterColor, setFilterColor] = useState('')
@@ -47,9 +51,9 @@ export default function VarietiesIndex({ varieties, stats }: Props) {
       {/* Header */}
       <div className="bg-gradient-to-br from-brand-dark to-brand text-white py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">Grape Varieties</h1>
+          <h1 className="text-5xl font-bold mb-4">{t('varieties.title')}</h1>
           <p className="text-xl text-purple-100">
-            Browse {stats.total_varieties} cold-climate grape varieties
+            {t('varieties.subtitle', { count: stats.total_varieties })}
           </p>
         </div>
       </div>
@@ -66,12 +70,13 @@ export default function VarietiesIndex({ varieties, stats }: Props) {
           showOnlyGrapes={showOnlyGrapes}
           setShowOnlyGrapes={setShowOnlyGrapes}
           stats={stats}
+          locale={locale}
         />
 
         {/* Results count */}
         <div className="mb-6">
           <p className="text-gray-600">
-            Showing {filteredVarieties.length} of {varieties.length} varieties
+            {t('varieties.showing', { filtered: filteredVarieties.length, total: varieties.length })}
           </p>
         </div>
 
@@ -79,13 +84,13 @@ export default function VarietiesIndex({ varieties, stats }: Props) {
         {filteredVarieties.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredVarieties.map(variety => (
-              <VarietyCard key={variety.id} variety={variety} />
+              <VarietyCard key={variety.id} variety={variety} locale={locale} />
             ))}
           </div>
         ) : (
           <div className="text-center py-12">
             <p className="text-gray-500 text-lg">
-              No varieties found matching your criteria.
+              {t('varieties.noResults')}
             </p>
             <button
               onClick={() => {
@@ -96,7 +101,7 @@ export default function VarietiesIndex({ varieties, stats }: Props) {
               }}
               className="mt-4 text-brand hover:underline"
             >
-              Clear all filters
+              {t('varieties.clearFilters')}
             </button>
           </div>
         )}

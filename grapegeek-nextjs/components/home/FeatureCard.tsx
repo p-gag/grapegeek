@@ -5,9 +5,10 @@ interface FeatureCardProps {
   description: string;
   href: string;
   icon: React.ReactNode;
+  exploreLabel?: string;
 }
 
-export default function FeatureCard({ title, description, href, icon }: FeatureCardProps) {
+export default function FeatureCard({ title, description, href, icon, exploreLabel = 'Explore →' }: FeatureCardProps) {
   return (
     <Link href={href} className="block group">
       <div className="bg-white p-8 rounded-xl shadow-brand hover:shadow-brand-hover transition-all duration-300 h-full">
@@ -21,7 +22,7 @@ export default function FeatureCard({ title, description, href, icon }: FeatureC
           {description}
         </p>
         <div className="mt-4 text-brand font-semibold group-hover:translate-x-2 transition-transform inline-block">
-          Explore →
+          {exploreLabel}
         </div>
       </div>
     </Link>

@@ -4,7 +4,12 @@ import type { Metadata } from 'next';
 import WinegrowerMap from '@/components/winegrower/WinegrowerMap';
 import WinegrowerVarieties from '@/components/winegrower/WinegrowerVarieties';
 import DataDisclaimer from '@/components/variety/DataDisclaimer';
-import Link from 'next/link';
+import { type Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
+
+interface Props {
+  params: { locale: Locale; slug: string };
+}
 
 // Static generation: pre-render all winegrower pages at build time
 export async function generateStaticParams() {
@@ -18,13 +23,14 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const t = createTranslator(params.locale);
   const db = getDatabase();
   const winegrower = db.getWinegrowerBySlug(params.slug, true);
 
   if (!winegrower) {
     return {
-      title: 'Winegrower Not Found | GrapeGeek',
-      description: 'The requested winegrower could not be found.'
+      title: `${t('winegrower.notFound.title')} | GrapeGeek`,
+      description: t('winegrower.notFound.text'),
     };
   }
 
@@ -34,11 +40,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${winegrower.business_name} - ${winegrower.city}, ${winegrower.state_province} | GrapeGeek`,
     description: description,
+    alternates: {
+      languages: {
+        en: `https://grapegeek.com/en/winegrowers/${params.slug}`,
+        fr: `https://grapegeek.com/fr/winegrowers/${params.slug}`,
+      },
+    },
   };
-}
-
-interface Props {
-  params: { slug: string };
 }
 
 const getDomainFavicon = (url: string) => {
@@ -69,6 +77,7 @@ const getSocialIcon = (url: string) => {
 };
 
 export default function WinegrowerDetailPage({ params }: Props) {
+  const { locale } = params;
   const db = getDatabase();
   const winegrower = db.getWinegrowerBySlug(params.slug, true);
 
@@ -113,6 +122,7 @@ export default function WinegrowerDetailPage({ params }: Props) {
                 className="contact-link website-link"
               >
                 {getDomainFavicon(winegrower.website) ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={getDomainFavicon(winegrower.website) || undefined}
                     alt="Website icon"
@@ -152,12 +162,13 @@ export default function WinegrowerDetailPage({ params }: Props) {
           <WinegrowerVarieties
             winegrower={winegrower}
             varietyPhotos={Object.fromEntries(varietyPhotos)}
+            locale={locale}
           />
         </div>
       </div>
 
       {/* Footer: Data Disclaimer */}
-      <DataDisclaimer type="producer" />
+      <DataDisclaimer type="producer" locale={locale} />
     </div>
   );
 }

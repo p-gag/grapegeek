@@ -102,11 +102,6 @@ function MapPageContent() {
       );
     }
 
-    if (filters.open_for_visits) {
-      // Note: For now we'll skip this filter as open_for_visits is not in MapMarker
-      // Can be added later if needed
-    }
-
     return filtered;
   }, [allMarkers, filters]);
 

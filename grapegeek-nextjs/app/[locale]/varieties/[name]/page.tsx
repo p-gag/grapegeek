@@ -9,6 +9,12 @@ import ResearchAccordion from '@/components/variety/ResearchAccordion';
 import SectionNav from '@/components/variety/SectionNav';
 import DataDisclaimer from '@/components/variety/DataDisclaimer';
 import ProductionStats from '@/components/variety/ProductionStats';
+import { type Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
+
+interface Props {
+  params: { locale: Locale; name: string };
+}
 
 // Static generation: pre-render all variety pages at build time
 export async function generateStaticParams() {
@@ -22,36 +28,41 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const t = createTranslator(params.locale);
   const db = getDatabase();
   const varietyName = decodeURIComponent(params.name);
   const variety = db.getVariety(varietyName, true);
 
   if (!variety) {
     return {
-      title: 'Variety Not Found | GrapeGeek',
-      description: 'The requested grape variety could not be found.'
+      title: `${t('variety.notFound.title')} | GrapeGeek`,
+      description: t('variety.notFound.text'),
     };
   }
 
   const usageCount = variety.uses?.length || 0;
   const description = [
     variety.name,
-    variety.species ? `is a ${variety.species} grape variety` : 'grape variety',
-    variety.berry_skin_color ? `with ${variety.berry_skin_color} berries` : '',
+    variety.species ? `is a ${variety.species} ${t('variety.grapeVariety')}` : t('variety.grapeVariety'),
+    variety.berry_skin_color ? t('variety.withBerries', { color: variety.berry_skin_color }) : '',
     usageCount > 0 ? `Used by ${usageCount} winegrower${usageCount !== 1 ? 's' : ''} in North America.` : ''
   ].filter(Boolean).join(' ');
 
   return {
-    title: `${variety.name} - Grape Variety | GrapeGeek`,
+    title: `${variety.name} - ${t('variety.grapeVariety')} | GrapeGeek`,
     description: description,
+    alternates: {
+      languages: {
+        en: `https://grapegeek.com/en/varieties/${encodeURIComponent(varietyName)}`,
+        fr: `https://grapegeek.com/fr/varieties/${encodeURIComponent(varietyName)}`,
+      },
+    },
   };
 }
 
-interface Props {
-  params: { name: string };
-}
-
 export default function VarietyDetailPage({ params }: Props) {
+  const { locale } = params;
+  const t = createTranslator(locale);
   const db = getDatabase();
   const varietyName = decodeURIComponent(params.name);
   const variety = db.getVariety(varietyName, true);
@@ -73,46 +84,46 @@ export default function VarietyDetailPage({ params }: Props) {
           <div className="variety-hero-header">
             <h1 className="variety-title">{variety.name}</h1>
             <p className="variety-tagline">
-              {variety.species && `${variety.species} grape variety`}
-              {variety.berry_skin_color && ` with ${variety.berry_skin_color} berries`}
+              {variety.species && `${variety.species} ${t('variety.grapeVariety')}`}
+              {variety.berry_skin_color && ` ${t('variety.withBerries', { color: variety.berry_skin_color })}`}
             </p>
           </div>
 
           <div className="variety-hero-grid">
             {hasPhotos ? (
-              <GrapePhotos variety={variety} />
+              <GrapePhotos variety={variety} locale={locale} />
             ) : (
               <div className="grape-photos grape-photos-missing">
                 <div className="missing-photo-container">
                   <div className="missing-photo-icon">🍇</div>
                   <div className="missing-photo-text">
-                    <h3>No Photo Available</h3>
-                    <p>Photo for this variety is not yet in our collection</p>
+                    <h3>{t('variety.noPhoto')}</h3>
+                    <p>{t('variety.noPhotoText')}</p>
                   </div>
                 </div>
               </div>
             )}
-            <GrapeInfo variety={variety} />
+            <GrapeInfo variety={variety} locale={locale} />
           </div>
         </div>
       </section>
 
       {/* Sticky Section Navigation */}
-      <SectionNav hasPhotos={hasPhotos} />
+      <SectionNav hasPhotos={hasPhotos} locale={locale} />
 
       {/* Map and Tree Adaptive Layout */}
       <div className="adaptive-previews-container">
         {/* Map Preview Section */}
         <section id="map" className="section-preview adaptive-preview">
           <div className="section-content">
-            <MapPreview variety={variety} />
+            <MapPreview variety={variety} locale={locale} />
           </div>
         </section>
 
         {/* Family Tree Preview Section */}
         <section id="tree" className="section-preview adaptive-preview">
           <div className="section-content">
-            <TreePreviewReactFlow variety={variety} />
+            <TreePreviewReactFlow variety={variety} locale={locale} />
           </div>
         </section>
       </div>
@@ -123,6 +134,7 @@ export default function VarietyDetailPage({ params }: Props) {
           <ProductionStats
             varietyName={variety.name}
             stats={productionStats}
+            locale={locale}
           />
         </div>
       </section>
@@ -130,7 +142,7 @@ export default function VarietyDetailPage({ params }: Props) {
       {/* Research Section */}
       <section id="research" className="section-research">
         <div className="section-content">
-          <ResearchAccordion variety={variety} />
+          <ResearchAccordion variety={variety} locale={locale} />
         </div>
       </section>
 
@@ -144,10 +156,10 @@ export default function VarietyDetailPage({ params }: Props) {
 
               return (
                 <p key={index} className="credits-text">
-                  <strong>Photo Credits:</strong> {photoType} - {credits}
+                  <strong>{t('variety.photoCredits')}</strong> {photoType} - {credits}
                   {photo.vivc_url && (
                     <>
-                      {' '}Source:{' '}
+                      {' '}{t('variety.source')}{' '}
                       <a href="http://www.vivc.de" target="_blank" rel="noopener noreferrer">
                         VIVC
                       </a>
@@ -159,6 +171,9 @@ export default function VarietyDetailPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* Footer: Data Disclaimer */}
+      <DataDisclaimer type="variety" locale={locale} />
     </div>
   );
 }

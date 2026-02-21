@@ -2,6 +2,8 @@
 
 import { Search, Filter, X } from 'lucide-react'
 import { DatabaseStats } from '@/lib/types'
+import type { Locale } from '@/lib/i18n/config'
+import { createTranslator } from '@/lib/i18n/translate'
 
 interface Props {
   searchQuery: string
@@ -13,6 +15,7 @@ interface Props {
   showOnlyGrapes: boolean
   setShowOnlyGrapes: (show: boolean) => void
   stats: DatabaseStats
+  locale: Locale
 }
 
 export default function VarietyFilters({
@@ -24,8 +27,10 @@ export default function VarietyFilters({
   setFilterColor,
   showOnlyGrapes,
   setShowOnlyGrapes,
-  stats
+  stats,
+  locale
 }: Props) {
+  const t = createTranslator(locale)
   const hasActiveFilters = searchQuery || filterSpecies || filterColor || showOnlyGrapes
 
   const clearAllFilters = () => {
@@ -39,14 +44,14 @@ export default function VarietyFilters({
     <div className="bg-white rounded-lg shadow p-6 mb-8">
       <div className="flex items-center gap-2 mb-4">
         <Filter className="w-5 h-5 text-gray-600" />
-        <h2 className="text-lg font-semibold">Filter Varieties</h2>
+        <h2 className="text-lg font-semibold">{t('varieties.filter.title')}</h2>
         {hasActiveFilters && (
           <button
             onClick={clearAllFilters}
             className="ml-auto flex items-center gap-1 text-sm text-brand hover:underline"
           >
             <X className="w-4 h-4" />
-            Clear all
+            {t('varieties.filter.clearAll')}
           </button>
         )}
       </div>
@@ -57,7 +62,7 @@ export default function VarietyFilters({
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
-            placeholder="Search varieties..."
+            placeholder={t('varieties.filter.search')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
@@ -71,7 +76,7 @@ export default function VarietyFilters({
             onChange={(e) => setFilterSpecies(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           >
-            <option value="">All Species</option>
+            <option value="">{t('varieties.filter.allSpecies')}</option>
             {Object.entries(stats.species)
               .sort((a, b) => b[1] - a[1])
               .map(([species, count]) => (
@@ -89,7 +94,7 @@ export default function VarietyFilters({
             onChange={(e) => setFilterColor(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           >
-            <option value="">All Colors</option>
+            <option value="">{t('varieties.filter.allColors')}</option>
             {Object.entries(stats.berry_colors)
               .sort((a, b) => b[1] - a[1])
               .map(([color, count]) => (
@@ -110,7 +115,7 @@ export default function VarietyFilters({
               className="w-4 h-4 text-brand rounded focus:ring-brand"
             />
             <span className="text-sm text-gray-700">
-              True grapes only ({stats.true_grapes})
+              {t('varieties.filter.trueGrapesOnly', { count: stats.true_grapes })}
             </span>
           </label>
         </div>

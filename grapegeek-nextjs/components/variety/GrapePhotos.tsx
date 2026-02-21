@@ -1,14 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import type { GrapeVariety } from '@/lib/types';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface GrapePhotosProps {
   variety: GrapeVariety;
+  locale: Locale;
 }
 
-export default function GrapePhotos({ variety }: GrapePhotosProps) {
+export default function GrapePhotos({ variety, locale }: GrapePhotosProps) {
+  const t = createTranslator(locale);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   // Check if photos exist
@@ -79,12 +82,12 @@ export default function GrapePhotos({ variety }: GrapePhotosProps) {
             title={photoCredits}
             onClick={handlePhotoCreditsClick}
           >
-            Photo credit
+            {t('variety.photoCredit')}
           </a>
 
           {/* Expand button */}
           <button className="expand-btn" onClick={handleViewFullSize}>
-            🔍 View Full Size
+            🔍 {t('variety.viewFullSize')}
           </button>
         </div>
       </div>
@@ -111,7 +114,7 @@ export default function GrapePhotos({ variety }: GrapePhotosProps) {
             />
             <div className="photo-fullscreen-info">
               <div className="photo-fullscreen-credits">
-                Photo: {photoCredits}
+                {t('variety.photoCredit')}: {photoCredits}
               </div>
             </div>
           </div>

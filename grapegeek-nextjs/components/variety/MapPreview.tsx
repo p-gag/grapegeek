@@ -1,12 +1,14 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import type { GrapeVariety, MapMarker } from '@/lib/types';
+import type { GrapeVariety } from '@/lib/types';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface MapPreviewProps {
   variety: GrapeVariety;
+  locale: Locale;
 }
 
 // Create the entire map component dynamically to avoid SSR issues with hooks
@@ -22,12 +24,14 @@ const DynamicMapView = dynamic(
   }
 );
 
-export default function MapPreview({ variety }: MapPreviewProps) {
+export default function MapPreview({ variety, locale }: MapPreviewProps) {
+  const t = createTranslator(locale);
+
   return (
     <div className="preview-section">
       <div className="preview-header">
-        <h2>🗺️ Where It Grows</h2>
-        <p>Wineries and vineyards growing {variety.name} across North America</p>
+        <h2>🗺️ {t('variety.map.title')}</h2>
+        <p>{t('variety.map.subtitle', { variety: variety.name })}</p>
       </div>
 
       <div className="map-preview-container">
@@ -35,17 +39,17 @@ export default function MapPreview({ variety }: MapPreviewProps) {
           <DynamicMapView variety={variety} />
 
           <div className="map-invitation">
-            <div className="invitation-text">Explore interactive winegrower map</div>
+            <div className="invitation-text">{t('variety.map.explore')}</div>
             <div className="invitation-arrow">→</div>
           </div>
         </div>
 
         <Link
-          href={`/map?variety=${encodeURIComponent(variety.name)}`}
+          href={`/${locale}/map?variety=${encodeURIComponent(variety.name)}`}
           className="map-overlay-button"
-          aria-label="Open interactive map"
+          aria-label={t('variety.map.openMap')}
         >
-          <span className="sr-only">Open Interactive Map</span>
+          <span className="sr-only">{t('variety.map.openMap')}</span>
         </Link>
       </div>
     </div>

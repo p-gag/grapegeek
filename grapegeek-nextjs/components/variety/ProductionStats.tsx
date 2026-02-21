@@ -1,17 +1,22 @@
 import type { VarietyProductionStats } from '@/lib/types';
 import Link from 'next/link';
 import { slugify } from '@/lib/utils';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface ProductionStatsProps {
   varietyName: string;
   stats: VarietyProductionStats | null;
+  locale: Locale;
 }
 
-export default function ProductionStats({ varietyName, stats }: ProductionStatsProps) {
+export default function ProductionStats({ varietyName, stats, locale }: ProductionStatsProps) {
+  const t = createTranslator(locale);
+
   if (!stats) {
     return (
       <div className="production-stats-empty">
-        <p>Production statistics not available for this variety.</p>
+        <p>{t('variety.production.notAvailable')}</p>
       </div>
     );
   }
@@ -22,30 +27,30 @@ export default function ProductionStats({ varietyName, stats }: ProductionStatsP
   if (varietal_stats.total_wines === 0) {
     return (
       <div className="production-stats-empty">
-        <p>No production data available yet for this variety.</p>
+        <p>{t('variety.production.noData')}</p>
       </div>
     );
   }
 
   return (
     <div className="production-stats">
-      <h2 className="section-title">Production & Usage Statistics</h2>
+      <h2 className="section-title">{t('variety.production.title')}</h2>
       <p className="section-description">
-        Based on {varietal_stats.total_wines} wine{varietal_stats.total_wines !== 1 ? 's' : ''} from our database of North American producers.
+        {t('variety.production.basedOn', { count: varietal_stats.total_wines })}
       </p>
 
       {/* Varietal vs Blended */}
       <div className="stat-card">
-        <h3 className="stat-card-title">🍷 Varietal vs Blended Usage</h3>
+        <h3 className="stat-card-title">🍷 {t('variety.production.varieVsBlended')}</h3>
         <div className="stat-grid">
           <div className="stat-item">
             <div className="stat-number">{varietal_stats.varietal_count}</div>
-            <div className="stat-label">Single-Varietal Wines</div>
+            <div className="stat-label">{t('variety.production.singleVarietal')}</div>
             <div className="stat-detail">{varietal_stats.varietal_percentage}%</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">{varietal_stats.blended_count}</div>
-            <div className="stat-label">Blended Wines</div>
+            <div className="stat-label">{t('variety.production.blended')}</div>
             <div className="stat-detail">{(100 - varietal_stats.varietal_percentage).toFixed(1)}%</div>
           </div>
         </div>
@@ -54,22 +59,22 @@ export default function ProductionStats({ varietyName, stats }: ProductionStatsP
       {/* Variety Relationships */}
       {(common_blends.length > 0 || planted_neighbors.length > 0) && (
         <div className="stat-card">
-          <h3 className="stat-card-title">🔗 Variety Relationships</h3>
+          <h3 className="stat-card-title">🔗 {t('variety.production.relationships')}</h3>
           <p className="stat-card-description">
-            Varieties commonly associated with {varietyName}
+            {t('variety.production.relationshipsDesc', { variety: varietyName })}
           </p>
 
           <div className="variety-relationships-grid">
             {/* Blend Partners */}
             {common_blends.length > 0 && (
               <div className="variety-relationship-section">
-                <h4 className="variety-relationship-subtitle">🔀 Blend Partners</h4>
-                <p className="variety-relationship-note">Co-occurrence in wines (not actual blend ratios)</p>
+                <h4 className="variety-relationship-subtitle">🔀 {t('variety.production.blendPartners')}</h4>
+                <p className="variety-relationship-note">{t('variety.production.blendPartnersNote')}</p>
                 <div className="variety-bars-compact">
                   {common_blends.map((blend, i) => (
                     <div key={i} className="variety-bar-row-compact">
                       <Link
-                        href={`/varieties/${encodeURIComponent(blend.variety_name)}`}
+                        href={`/${locale}/varieties/${encodeURIComponent(blend.variety_name)}`}
                         className="variety-bar-name-compact"
                       >
                         {blend.variety_name}
@@ -92,13 +97,13 @@ export default function ProductionStats({ varietyName, stats }: ProductionStatsP
             {/* Planted Neighbors */}
             {planted_neighbors.length > 0 && (
               <div className="variety-relationship-section">
-                <h4 className="variety-relationship-subtitle">🌱 Planted Neighbors</h4>
-                <p className="variety-relationship-note">Grown at same winegrowers</p>
+                <h4 className="variety-relationship-subtitle">🌱 {t('variety.production.plantedNeighbors')}</h4>
+                <p className="variety-relationship-note">{t('variety.production.plantedNeighborsNote')}</p>
                 <div className="variety-bars-compact">
                   {planted_neighbors.map((neighbor, i) => (
                     <div key={i} className="variety-bar-row-compact">
                       <Link
-                        href={`/varieties/${encodeURIComponent(neighbor.variety_name)}`}
+                        href={`/${locale}/varieties/${encodeURIComponent(neighbor.variety_name)}`}
                         className="variety-bar-name-compact"
                       >
                         {neighbor.variety_name}
@@ -124,25 +129,25 @@ export default function ProductionStats({ varietyName, stats }: ProductionStatsP
       {/* Top Winegrowers */}
       {top_producers.length > 0 && (
         <div className="stat-card">
-          <h3 className="stat-card-title">🍷 Top Winegrowers</h3>
+          <h3 className="stat-card-title">🍷 {t('variety.production.topWinegrowers')}</h3>
           <p className="stat-card-description">
-            Winegrowers with highest usage of {varietyName} (minimum 3 wines)
+            {t('variety.production.topWinegrowersDesc', { variety: varietyName })}
           </p>
           <div className="table-container">
             <table className="stats-table">
               <thead>
                 <tr>
-                  <th>Winegrower</th>
-                  <th>Location</th>
-                  <th>Wines</th>
-                  <th>Usage %</th>
+                  <th>{t('variety.production.tableWinegrower')}</th>
+                  <th>{t('variety.production.tableLocation')}</th>
+                  <th>{t('variety.production.tableWines')}</th>
+                  <th>{t('variety.production.tableUsage')}</th>
                 </tr>
               </thead>
               <tbody>
                 {top_producers.map((producer, i) => (
                   <tr key={i}>
                     <td>
-                      <Link href={`/winegrowers/${slugify(producer.business_name)}`}>
+                      <Link href={`/${locale}/winegrowers/${slugify(producer.business_name)}`}>
                         {producer.business_name}
                       </Link>
                     </td>
@@ -156,38 +161,6 @@ export default function ProductionStats({ varietyName, stats }: ProductionStatsP
           </div>
         </div>
       )}
-
-      {/* Geographic Distribution - TODO: Uncomment when region pages are ready */}
-      {/* {geographic_distribution.length > 0 && (
-        <div className="stat-card">
-          <h3 className="stat-card-title">📍 Geographic Distribution</h3>
-          <p className="stat-card-description">
-            Where {varietyName} is most popular
-          </p>
-          <div className="table-container">
-            <table className="stats-table">
-              <thead>
-                <tr>
-                  <th>Region</th>
-                  <th>Producers</th>
-                  <th>Wines</th>
-                  <th>% of Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {geographic_distribution.map((region, i) => (
-                  <tr key={i}>
-                    <td>{region.state_province}, {region.country}</td>
-                    <td>{region.producer_count}</td>
-                    <td>{region.wine_count}</td>
-                    <td>{region.percentage}%</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 }

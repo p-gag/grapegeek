@@ -13,6 +13,7 @@ import 'reactflow/dist/style.css';
 import GrapeNode from '../tree/GrapeNode';
 import { useTreeData } from '@/hooks/useTreeData';
 import type { GrapeVariety } from '@/lib/types';
+import type { Locale } from '@/lib/i18n/config';
 
 const nodeTypes = {
   grapeNode: GrapeNode
@@ -20,9 +21,10 @@ const nodeTypes = {
 
 interface TreePreviewContentProps {
   variety: GrapeVariety;
+  locale: Locale;
 }
 
-const TreePreviewContent = ({ variety }: TreePreviewContentProps) => {
+const TreePreviewContent = ({ variety, locale }: TreePreviewContentProps) => {
   const router = useRouter();
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -102,7 +104,7 @@ const TreePreviewContent = ({ variety }: TreePreviewContentProps) => {
   }, [setHoveredNodeId]);
 
   const handleOpenFullTree = () => {
-    router.push(`/tree?variety=${encodeURIComponent(variety.name)}`);
+    router.push(`/${locale}/tree?variety=${encodeURIComponent(variety.name)}`);
   };
 
   if (loading) {
@@ -208,12 +210,13 @@ const TreePreviewContent = ({ variety }: TreePreviewContentProps) => {
 
 interface TreePreviewReactFlowProps {
   variety: GrapeVariety;
+  locale: Locale;
 }
 
-const TreePreviewReactFlow = ({ variety }: TreePreviewReactFlowProps) => {
+const TreePreviewReactFlow = ({ variety, locale }: TreePreviewReactFlowProps) => {
   return (
     <ReactFlowProvider>
-      <TreePreviewContent variety={variety} />
+      <TreePreviewContent variety={variety} locale={locale} />
     </ReactFlowProvider>
   );
 };

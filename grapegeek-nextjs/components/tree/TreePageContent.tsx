@@ -35,9 +35,10 @@ const SPECIES_COLORS: { [key: string]: string } = {
 
 interface TreePageContentInnerProps {
   initialVariety: string;
+  locale: string;
 }
 
-function TreePageContentInner({ initialVariety }: TreePageContentInnerProps) {
+function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerProps) {
   const router = useRouter();
   const [duplicateParents, setDuplicateParents] = useState(true);
   const [colorMode, setColorMode] = useState<'species' | 'berry'>('species');
@@ -200,7 +201,7 @@ function TreePageContentInner({ initialVariety }: TreePageContentInnerProps) {
         overflowY: 'auto'
       }}>
         <Link
-          href={`/varieties/${encodeURIComponent(initialVariety)}`}
+          href={`/${locale}/varieties/${encodeURIComponent(initialVariety)}`}
           style={{
             display: 'inline-block',
             marginBottom: '20px',
@@ -389,10 +390,15 @@ function TreePageContentInner({ initialVariety }: TreePageContentInnerProps) {
   );
 }
 
-export default function TreePageContent(props: TreePageContentInnerProps) {
+interface TreePageContentProps {
+  initialVariety: string;
+  locale?: string;
+}
+
+export default function TreePageContent({ initialVariety, locale = 'en' }: TreePageContentProps) {
   return (
     <ReactFlowProvider>
-      <TreePageContentInner {...props} />
+      <TreePageContentInner initialVariety={initialVariety} locale={locale} />
     </ReactFlowProvider>
   );
 }

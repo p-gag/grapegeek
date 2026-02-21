@@ -12,13 +12,13 @@ export default function VarietyNotFound() {
         </p>
         <div className="flex flex-col gap-3">
           <Link
-            href="/varieties"
+            href="/en/varieties"
             className="px-6 py-3 bg-brand text-white rounded-lg hover:bg-brand-hover transition-colors font-medium"
           >
             Browse All Varieties
           </Link>
           <Link
-            href="/"
+            href="/en/"
             className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
           >
             Go Home

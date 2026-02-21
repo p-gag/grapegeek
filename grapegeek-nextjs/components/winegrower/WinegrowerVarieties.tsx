@@ -2,17 +2,21 @@
 
 import { useRouter } from 'next/navigation';
 import type { Winegrower } from '@/lib/types';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface WinegrowerVarietiesProps {
   winegrower: Winegrower;
   varietyPhotos?: { [varietyName: string]: string };
+  locale: Locale;
 }
 
-export default function WinegrowerVarieties({ winegrower, varietyPhotos = {} }: WinegrowerVarietiesProps) {
+export default function WinegrowerVarieties({ winegrower, varietyPhotos = {}, locale }: WinegrowerVarietiesProps) {
+  const t = createTranslator(locale);
   const router = useRouter();
 
   const handleVarietyClick = (varietyName: string) => {
-    router.push(`/varieties/${encodeURIComponent(varietyName)}`);
+    router.push(`/${locale}/varieties/${encodeURIComponent(varietyName)}`);
   };
 
   const getVarietyImage = (varietyName: string) => {
@@ -38,7 +42,7 @@ export default function WinegrowerVarieties({ winegrower, varietyPhotos = {} }: 
       <div className="winegrower-varieties-empty">
         <div className="empty-state">
           <div className="empty-icon">🍇</div>
-          <p>No grape varieties listed for this winegrower</p>
+          <p>{t('winegrower.varieties.empty')}</p>
         </div>
       </div>
     );
@@ -46,7 +50,7 @@ export default function WinegrowerVarieties({ winegrower, varietyPhotos = {} }: 
 
   return (
     <div className="winegrower-varieties-compact">
-      <h3 className="varieties-title">Grape Varieties Grown Here</h3>
+      <h3 className="varieties-title">{t('winegrower.varieties.title')}</h3>
 
       <div className="varieties-grid-compact">
         {varieties.map((variety, index) => (
@@ -71,7 +75,7 @@ export default function WinegrowerVarieties({ winegrower, varietyPhotos = {} }: 
                 ) : (
                   <div className="variety-photo-placeholder">
                     <div className="placeholder-icon">🍇</div>
-                    <div className="placeholder-text">No photo available</div>
+                    <div className="placeholder-text">{t('winegrower.varieties.noPhoto')}</div>
                   </div>
                 )}
               </div>
