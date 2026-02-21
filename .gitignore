@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+!grapegeek-nextjs/lib/  # Exception: Next.js app lib directory should be committed
 lib64/
 parts/
 sdist/
@@ -34,6 +35,15 @@ ENV/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Secrets directory - ALL sensitive credentials go here (NEVER COMMIT!)
+.secrets/
+.secrets/**
+
+# Google Cloud credentials - legacy patterns (keep for safety)
+gcs-credentials.json
+**/gcs-*.json
+service-account*.json
 
 # IDE
 .vscode/
@@ -64,6 +74,14 @@ docs/family-trees/
 # Logs
 *.log
 logs/
+
+# SQLite database (build-time generated, not committed)
+data/grapegeek.db
+data/grapegeek.db-*
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
 
 test-ignore/
 data-legacy/

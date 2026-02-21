@@ -74,11 +74,26 @@ class VarietySearchResult:
     berry_skin_color: Optional[str] = None
     country_of_origin: Optional[str] = None
     passport_url: Optional[str] = None
-    
+
     def to_dict(self) -> dict:
         """Convert to dictionary format."""
         return asdict(self)
-    
+
+    def to_json(self, indent: int = 2) -> str:
+        """Convert to JSON format."""
+        return json.dumps(self.to_dict(), indent=indent)
+
+
+@dataclass
+class PhotoCredit:
+    """Photo credit information from VIVC foto2 modal."""
+    note: Optional[str] = None  # The usage note (e.g., "Please note: This photo can be reproduced...")
+    credit: Optional[str] = None  # The actual credit (e.g., "Ursula Brühl, Julius Kühn-Institut...")
+
+    def to_dict(self) -> dict:
+        """Convert to dictionary format."""
+        return asdict(self)
+
     def to_json(self, indent: int = 2) -> str:
         """Convert to JSON format."""
         return json.dumps(self.to_dict(), indent=indent)
@@ -133,12 +148,16 @@ class VIVCCache:
 _cache = VIVCCache()
 
 
-def fetch_url(url: str) -> str:
-    """Fetch URL with caching and throttling.
-    
+def fetch_url(url: str, max_retries: int = 3, retry_delay: float = 10.0, delay: float = 3.0, progressive_delay: bool = True) -> str:
+    """Fetch URL with caching, throttling, and retry logic.
+
     Args:
         url: URL to fetch
-        
+        max_retries: Maximum number of retry attempts for timeouts/504 errors
+        retry_delay: Base delay in seconds between retries (increases with each retry)
+        delay: Delay in seconds before making request (default: 3.0, only applies to non-cached)
+        progressive_delay: If True, increase delay exponentially on timeouts (default: True)
+
     Returns:
         Raw HTML content or error message
     """
@@ -146,34 +165,66 @@ def fetch_url(url: str) -> str:
     cached_content = _cache.get(url)
     if cached_content:
         return cached_content
-    
-    # Throttle: wait 1 second before making any HTTP request
-    time.sleep(1)
-    
-    try:
-        response = requests.get(url, timeout=30)
-        
-        # Check for HTTP errors
-        if response.status_code == 404:
-            return f"❌ Page not found (404): {url}"
-        elif response.status_code != 200:
-            return f"❌ HTTP Error {response.status_code}: {url}"
-        
-        content = response.text
-        
-        # Cache successful responses
-        _cache.set(url, content)
-        
-        return content
-        
-    except requests.exceptions.Timeout:
-        return f"❌ Timeout error: {url}"
-    except requests.exceptions.ConnectionError:
-        return f"❌ Connection error: {url}"
-    except requests.exceptions.RequestException as e:
-        return f"❌ Request error: {e}"
-    except Exception as e:
-        return f"❌ Unexpected error: {e}"
+
+    # Making actual request - inform user and throttle
+    print(f"   → VIVC request (not cached), waiting {delay}s...")
+    time.sleep(delay)
+
+    last_error = None
+
+    for attempt in range(max_retries):
+        try:
+            # Increase timeout progressively for slow VIVC server
+            timeout = 60 if not progressive_delay else 60 + (attempt * 30)
+            response = requests.get(url, timeout=timeout)
+
+            # Check for HTTP errors
+            if response.status_code == 404:
+                return f"❌ Page not found (404): {url}"
+            elif response.status_code == 504:
+                # Gateway timeout - retry with exponential backoff
+                last_error = f"Gateway timeout (504)"
+                if attempt < max_retries - 1:
+                    wait_time = retry_delay * (2 ** attempt) if progressive_delay else retry_delay * (attempt + 1)
+                    print(f"   ⚠️  {last_error}, retrying in {wait_time:.1f}s (attempt {attempt + 1}/{max_retries})...")
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    return f"❌ Gateway timeout (504) after {max_retries} attempts: {url}"
+            elif response.status_code != 200:
+                return f"❌ HTTP Error {response.status_code}: {url}"
+
+            content = response.text
+
+            # Cache successful responses
+            _cache.set(url, content)
+
+            return content
+
+        except requests.exceptions.Timeout:
+            last_error = "Request timeout"
+            if attempt < max_retries - 1:
+                wait_time = retry_delay * (2 ** attempt) if progressive_delay else retry_delay * (attempt + 1)
+                print(f"   ⚠️  {last_error}, retrying in {wait_time:.1f}s (attempt {attempt + 1}/{max_retries})...")
+                time.sleep(wait_time)
+                continue
+            else:
+                return f"❌ Timeout error after {max_retries} attempts: {url}"
+        except requests.exceptions.ConnectionError:
+            last_error = "Connection error"
+            if attempt < max_retries - 1:
+                wait_time = retry_delay * (2 ** attempt) if progressive_delay else retry_delay * (attempt + 1)
+                print(f"   ⚠️  {last_error}, retrying in {wait_time:.1f}s (attempt {attempt + 1}/{max_retries})...")
+                time.sleep(wait_time)
+                continue
+            else:
+                return f"❌ Connection error after {max_retries} attempts: {url}"
+        except requests.exceptions.RequestException as e:
+            return f"❌ Request error: {e}"
+        except Exception as e:
+            return f"❌ Unexpected error: {e}"
+
+    return f"❌ Failed after {max_retries} attempts: {last_error}"
 
 
 def fetch_search_results(variety_name: str) -> str:
@@ -374,22 +425,189 @@ def search_cultivar(variety_name: str) -> List[VarietySearchResult]:
 
 def get_passport_data(vivc_number: str) -> PassportData:
     """Get passport data for a VIVC number.
-    
+
     Args:
         vivc_number: VIVC catalog number
-        
+
     Returns:
         PassportData object with structured information
-        
+
     Raises:
         ValueError: If unable to fetch or parse data
     """
     html_content = fetch_passport_page(vivc_number)
-    
+
     if html_content.startswith("❌"):
         raise ValueError(html_content)
-    
+
     return parse_passport_html(html_content)
+
+
+def extract_photo_credits(vivc_number: str, photo_id: str, delay: float = 3.0) -> Optional[PhotoCredit]:
+    """Extract photo credits from VIVC foto2 modal.
+
+    When you click a photo on VIVC, it calls showFoto2(photo_id, vivc_id) which loads
+    a modal via AJAX from: index.php?r=datasheet/foto2&id={photo_id}&kennnr={vivc_id}
+
+    This modal contains the photo credit text like:
+    "Please note: This photo can be reproduced. Please quote the source as indicated below:
+     Ursula Brühl, Julius Kühn-Institut (JKI)..."
+
+    OR for external photos:
+    "Note: For the reproduction of external photos, please contact the indicated source
+     for permission: Tom Plocher, Plocher-Vines LLC..."
+
+    Args:
+        vivc_number: VIVC catalog number (kennnr parameter)
+        photo_id: Photo ID from the onclick handler
+        delay: Delay before making request (default: 3.0)
+
+    Returns:
+        PhotoCredit object with note and credit fields, or None if not found or error occurred
+    """
+    foto2_url = f"https://www.vivc.de/index.php?r=datasheet/foto2&id={photo_id}&kennnr={vivc_number}"
+
+    try:
+        html_content = fetch_url(foto2_url, delay=delay)
+
+        if html_content.startswith("❌"):
+            return None
+
+        soup = BeautifulSoup(html_content, 'html.parser')
+        text = soup.get_text()
+
+        # Look for credit text patterns
+        lines = [line.strip() for line in text.split('\n') if line.strip()]
+
+        note_line = None
+        credit_line = None
+
+        for i, line in enumerate(lines):
+            # Look for the "Please note" or "Note:" usage text
+            if ('reproduced' in line.lower() or 'reproduction' in line.lower()) and \
+               ('quote' in line.lower() or 'contact' in line.lower() or 'permission' in line.lower()):
+                # Found the note line
+                note_line = line
+
+                # The credit source is usually 2-4 lines after the note
+                for j in range(i + 1, min(len(lines), i + 6)):
+                    potential_credit = lines[j]
+                    # Skip empty lines and generic text
+                    if not potential_credit or potential_credit in ['Please note:', 'Note:']:
+                        continue
+                    # Look for patterns like name/institution with address
+                    if any(indicator in potential_credit for indicator in [
+                        'Julius Kühn', 'JKI', 'Brühl', 'Geilweilerhof',  # JKI credits
+                        ',', 'LLC', 'USA', 'Institute', 'University'      # General institution indicators
+                    ]):
+                        credit_line = potential_credit
+                        break
+
+                if note_line and credit_line:
+                    return PhotoCredit(note=note_line, credit=credit_line)
+
+        # If we didn't find it with the above logic, try a simpler approach
+        # Look for text that looks like a source attribution
+        text_lower = text.lower()
+        if 'external photo' in text_lower or 'reproduction of external' in text_lower:
+            # This is an external photo - try to extract both parts
+            for i, line in enumerate(lines):
+                if 'external' in line.lower() and 'permission' in line.lower():
+                    note_line = line
+                    # Next substantial line should be the source
+                    for j in range(i + 1, min(len(lines), i + 6)):
+                        if lines[j] and ',' in lines[j] and len(lines[j]) > 20:
+                            credit_line = lines[j]
+                            break
+                    if note_line and credit_line:
+                        return PhotoCredit(note=note_line, credit=credit_line)
+
+        # No credits found
+        return None
+
+    except Exception as e:
+        return None
+
+
+def extract_photo_ids_from_photoview(vivc_number: str) -> List[tuple[str, str, str]]:
+    """Extract photo IDs from photoviewresult page.
+
+    Parses the photoviewresult page to find all photo IDs from onclick handlers
+    like: onclick="showFoto2(12774,'17638',1)"
+
+    Args:
+        vivc_number: VIVC catalog number
+
+    Returns:
+        List of (photo_id, photo_type, photo_url) tuples
+    """
+    photoview_url = f"https://www.vivc.de/index.php?r=passport/photoviewresult&id={vivc_number}"
+
+    try:
+        html_content = fetch_url(photoview_url)
+
+        if html_content.startswith("❌"):
+            return []
+
+        soup = BeautifulSoup(html_content, 'html.parser')
+        photos = []
+
+        # Find all img tags with onclick handlers
+        img_tags = soup.find_all('img', onclick=True)
+
+        for img in img_tags:
+            onclick = img.get('onclick', '')
+            if 'showFoto2' in onclick:
+                # Extract photo ID from showFoto2(12774,'17638',1)
+                match = re.search(r'showFoto2\((\d+),', onclick)
+                if match:
+                    photo_id = match.group(1)
+                    photo_url = img.get('src', '')
+
+                    # Try to get photo type from surrounding context
+                    photo_type = "Unknown"
+                    panel = img.find_parent('div', class_='panel-body')
+                    if panel:
+                        panel_parent = panel.find_parent('div', class_='panel2')
+                        if panel_parent:
+                            title_elem = panel_parent.find('h4', class_='panel-title')
+                            if title_elem:
+                                title_text = title_elem.get_text()
+                                if 'Category:' in title_text:
+                                    photo_type = title_text.split('Category:')[-1].strip()
+
+                    photos.append((photo_id, photo_type, photo_url))
+
+        return photos
+
+    except Exception as e:
+        return []
+
+
+def get_photo_credit_for_variety(vivc_number: str, delay: float = 3.0) -> Optional[PhotoCredit]:
+    """Get photo credit for the first available photo of a variety.
+
+    This is a convenience function that:
+    1. Fetches the photoviewresult page
+    2. Extracts the first photo ID
+    3. Fetches the foto2 modal for that photo
+    4. Extracts the credit text
+
+    Args:
+        vivc_number: VIVC catalog number
+        delay: Delay before making requests (default: 3.0)
+
+    Returns:
+        PhotoCredit object with note and credit fields, or None if not found
+    """
+    photos = extract_photo_ids_from_photoview(vivc_number)
+
+    if not photos:
+        return None
+
+    # Get credits for the first photo
+    photo_id, photo_type, photo_url = photos[0]
+    return extract_photo_credits(vivc_number, photo_id, delay=delay)
 
 
 def main():

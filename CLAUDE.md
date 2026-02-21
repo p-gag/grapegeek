@@ -48,7 +48,46 @@ python src/11_generate_stats.py --varieties  # Include variety list
 # ⚠️  WARNING: Never change GPT models without explicit approval
 ```
 
-### MkDocs Site Management
+### VIVC Photo Pipeline
+Downloads grape variety photos from VIVC with proper credit attribution and uploads to Google Cloud Storage.
+
+```bash
+# Analyze credit distribution
+python analyze_photo_credit_distribution.py
+
+# Sync photos to GCS
+uv run src/08a_photo_sync_gcs.py --force
+uv run src/08a_photo_sync_gcs.py --vivc 17638  # Specific variety
+```
+
+**Features:**
+- Extracts credits from JavaScript-loaded foto2 modals
+- Verifies against whitelist (6 JKI/VIVC formats + Tom Plocher)
+- Cache-aware, incremental saving, progressive delays
+- ⚠️ **Visible warnings** for unknown external sources
+
+**📖 See [PHOTO_CREDITS_NOTES.md](photos_to_clean/docs/PHOTO_CREDITS_NOTES.md) for technical details, credit formats, and troubleshooting.**
+
+### Next.js Site Development (New)
+```bash
+# Development server
+cd grapegeek-nextjs
+npm run dev              # Start dev server at http://localhost:3000
+
+# Production build
+npm run build            # Build static site to ./out/
+npx serve out            # Preview production build
+
+# Verification
+./verify-setup.sh        # Run all setup verification checks
+
+# Prerequisites: Database must be built first
+cd ..
+uv run src/09_build_database.py
+cp data/grapegeek.db grapegeek-nextjs/data/
+```
+
+### MkDocs Site Management (Legacy)
 ```bash
 # Install MkDocs dependencies
 pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
@@ -66,6 +105,9 @@ The complete local testing workflow simulates the production GitHub Pages deploy
 ```bash
 # 1. Generate tree data for React app (if needed)
 uv run src/18_generate_tree_data.py
+
+# 1b. Generate map data for React app (if needed)
+uv run src/19_generate_map_data.py
 
 # 2. Build React family trees app
 cd grape-tree-react
@@ -98,35 +140,54 @@ cd grape-tree-react && npm run build && cd .. && cp -r docs/family-trees site/
 - SPA routing support for React app
 - Proper MIME types and static asset serving
 
-### React Family Trees App Development
-The family trees viewer is a standalone React app in the `grape-tree-react/` subdirectory:
+### React Family Trees Integration ✅ COMPLETE
+The family tree functionality has been **fully integrated** into the main `grape-explorer-react` application following the map integration pattern.
 
+#### Main Application (grape-explorer-react/)
 ```bash
-# Install React app dependencies
-cd grape-tree-react
-npm install
+# Integrated React app with tree functionality
+cd grape-explorer-react
+npm run dev     # Runs on http://localhost:3000 or 3001 (auto-detects port)
 
-# Development server (React only, no MkDocs integration)
-npm run dev     # Runs on http://localhost:5173
-
-# Production build
-npm run build   # Builds to ../docs/family-trees/ with tree data copy
-
-# Data source: src/data/tree-data.json (copied from ../src/18_generate_tree_data.py output)
+# Tree dependencies are installed:
+# - reactflow @reactflow/controls @reactflow/background
+# - flag-icons CSS library for country flags
 ```
 
-**React app architecture:**
-- **Data loading**: Client-side subgraph extraction from unified tree data
-- **Routing**: SPA with variety selection via dropdown
-- **Deployment**: Vite configured for `/family-trees/` sub-path
-- **Features**: Species coloring, duplicate parent mode, hover highlighting
-- **Flag display**: Uses flag-icons CSS library (cross-platform emoji alternative)
+#### ✅ Completed Integration Features
+- **✅ TreePreviewReactFlow**: Static preview on variety pages showing immediate family (parents/children)
+- **✅ TreePage**: Full interactive tree with left sidebar layout matching MapPage exactly
+- **✅ GrapeNode**: Custom React Flow node component with preserved original styling
+- **✅ NodePopup**: Click-to-show popup with detailed variety information
+- **✅ Route Integration**: `/tree?variety=Name` and `/variety/:slug/tree` routes
+- **✅ Navigation**: Proper back button handling to return to variety pages
+- **✅ Mobile Responsive**: Sidebar layout adapts to mobile (stacked layout)
+- **✅ Original Functionality Preserved**: Species coloring, duplicate parents mode, hover effects
 
-**Key files:**
-- `grape-tree-react/src/App.jsx`: Main React Flow application
-- `grape-tree-react/src/components/GrapeNode.jsx`: Custom node component
-- `grape-tree-react/vite.config.js`: Vite build configuration for sub-path deployment
-- `grape-tree-react/copy-data.js`: Data copy script (runs during build)
+#### Legacy Reference (grape-tree-react/ - For Reference Only)
+```bash
+# Original standalone React app (kept for reference)
+cd grape-tree-react
+npm install && npm run dev     # Runs on http://localhost:5173
+```
+**Note**: The standalone app is no longer actively used but kept for reference.
+
+#### Data Generation (Current)
+```bash
+# Generate tree data for integrated system
+python src/18_generate_tree_data.py
+
+# Data is used by:
+# - grape-explorer-react/public/data/tree-data.json (main integration)
+# - grape-tree-react/src/data/tree-data.json (legacy reference)
+```
+
+#### Key Integrated Components
+- `grape-explorer-react/src/pages/TreePage.jsx`: Full tree page with 240px sidebar
+- `grape-explorer-react/src/components/TreePreviewReactFlow.jsx`: Tree preview component  
+- `grape-explorer-react/src/components/GrapeNode.jsx`: React Flow node with original styling
+- `grape-explorer-react/src/components/NodePopup.jsx`: Detailed variety information popup
+- `grape-explorer-react/public/data/tree-data.json`: Tree data source
 
 ### Troubleshooting Local Testing
 
@@ -173,6 +234,32 @@ pip install -e .
 ### Environment Setup
 - Requires `OPENAI_API_KEY` environment variable (uses OpenAI Responses API with web_search tools)
 - Uses `.env` file for environment variables
+
+## Documentation Standards
+
+### Value Conciseness
+
+**Use minimum words. Remove redundancy.**
+
+### Don't Repeat Yourself (DRY)
+
+**Every piece of information should exist in exactly one place.**
+
+- One concept → One location → Link to it
+- Don't duplicate information across files
+- Don't repeat information in different sections
+- Link to canonical source instead
+
+When information exists elsewhere, link to it:
+- ✅ "See `src/PHOTO_PIPELINE_USAGE.md`"
+- ❌ Copy-paste the pipeline section
+
+### Keep Docs Updated
+
+When changing code:
+1. Update the relevant section in CLAUDE.md or the linked doc
+2. Delete outdated content immediately
+3. Remove duplicates if information is repeated
 
 ## Project Architecture
 
@@ -221,6 +308,27 @@ The application uses a layered prompt system:
   - `a-propos.md`: French about page (À propos)
   - `varietes/index.md`: French grape varieties section
   - `usage-ia.md`: AI transparency page (French)
+
+### Photo Sync Pipeline
+VIVC grape photos are synced to Google Cloud Storage for use on the website:
+- **Script**: `src/08a_photo_sync_gcs.py` - Downloads photos from VIVC, uploads to GCS
+- **When**: After VIVC consolidation, before database generation
+- **Default behavior**: Only processes varieties without photos (safe, resumable)
+- **Rate limiting**: 3 seconds between VIVC requests (respectful, configurable)
+- **Storage**: `gs://grapegeek-data/photos/varieties/vivc/`
+- **Usage guide**: See `src/PHOTO_PIPELINE_USAGE.md` for complete documentation
+- **GCS setup**: See `infrastructure/GCP.md`
+
+```bash
+# Default: Process varieties missing photos with "Cluster in the field" photos
+uv run src/08a_photo_sync_gcs.py
+
+# Force reprocess all varieties (including those with photos)
+uv run src/08a_photo_sync_gcs.py --force
+
+# Override to download multiple photo types
+uv run src/08a_photo_sync_gcs.py --photo-types "Cluster in the field,Mature leaf"
+```
 
 ### Variety Context System
 Each grape variety can have a context file at `prompts/grapes/articles/{variety_name}.md` with YAML frontmatter:

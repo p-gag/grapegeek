@@ -39,11 +39,16 @@ graph TD
     %% Step 3: Variety Processing (Manual Review Needed)
     D3A --> B3[03_variety_normalize.py]
     B3 --> D4[data/grape_variety_mapping.jsonl]
-    D4 --> B4[04_portfolio_assign.py] 
+    D4 --> B4[04_vivc_assign.py]
     B4 --> D4
     D4 --> B4B[Portfolio Consolidation]
     B4B --> D4
-    
+
+    %% Step 4a: Photo Sync (NEW)
+    D4 --> B4C[08a_photo_sync_gcs.py]
+    B4C --> D4D[GCS Photos]
+    B4C --> D4
+
     %% Step 4: Final Dataset
     D2 --> B5[05_data_final_normalized.py]
     D3A --> B5
@@ -67,8 +72,8 @@ graph TD
     classDef datafile fill:#f3e5f5
     classDef manual fill:#fff3e0
     
-    class B0,B1,B2,B3,B4,B4B,B5,B6,B7,B8 script
-    class D1,D2,D2M,D3A,D3B,D4,D7,D8,D9A,D9B,D10 datafile
+    class B0,B1,B2,B3,B4,B4B,B4C,B5,B6,B7,B8 script
+    class D1,D2,D2M,D3A,D3B,D4,D4D,D7,D8,D9A,D9B,D10 datafile
     class B3,B4,B4B manual
 ```
 
@@ -93,6 +98,10 @@ uv run src/04_vivc_assign.py --limit 10
 
 # 5. Consolidate VIVC duplicates (CRITICAL)
 uv run src/includes/grape_varieties.py consolidate
+
+# 5a. Sync VIVC photos to GCS (NEW - optional but recommended)
+# Default: only processes varieties without photos, "Cluster in the field" photos only
+uv run src/08a_photo_sync_gcs.py
 
 # 6. Generate final dataset
 uv run src/05_data_final_normalized.py

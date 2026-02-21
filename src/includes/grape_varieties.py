@@ -52,6 +52,27 @@ class PassportData:
 
 
 @dataclass
+class PhotoInfo:
+    """Information about a variety photo."""
+    photo_type: str
+    filename: str
+    local_path: str
+    credits: str
+    image_url: str
+    download_url: str
+    
+    def to_dict(self) -> Dict:
+        return {
+            'photo_type': self.photo_type,
+            'filename': self.filename,
+            'local_path': self.local_path,
+            'credits': self.credits,
+            'image_url': self.image_url,
+            'download_url': self.download_url
+        }
+
+
+@dataclass
 class GrapeVariety:
     """Model for a grape variety with its aliases and portfolio data."""
     name: str
@@ -76,6 +97,53 @@ class GrapeVariety:
         if 'no_wine' in data and data['no_wine'] is None:
             del data['no_wine']
         return json.dumps(data, ensure_ascii=False)
+    
+    def get_vivc_number(self) -> Optional[str]:
+        """Get VIVC number from portfolio data."""
+        if self.portfolio and isinstance(self.portfolio, dict):
+            grape_info = self.portfolio.get('grape', {})
+            if isinstance(grape_info, dict):
+                return grape_info.get('vivc_number')
+        return None
+    
+    def get_photos(self) -> List[PhotoInfo]:
+        """Get photos as PhotoInfo objects."""
+        photos = []
+        if self.portfolio and isinstance(self.portfolio, dict):
+            photo_data = self.portfolio.get('photos', [])
+            for photo in photo_data:
+                if isinstance(photo, dict):
+                    photos.append(PhotoInfo(
+                        photo_type=photo.get('photo_type', ''),
+                        filename=photo.get('filename', ''),
+                        local_path=photo.get('local_path', ''),
+                        credits=photo.get('credits', ''),
+                        image_url=photo.get('image_url', ''),
+                        download_url=photo.get('download_url', '')
+                    ))
+        return photos
+    
+    def add_photo(self, photo: PhotoInfo) -> None:
+        """Add or update a photo in the variety."""
+        if not self.portfolio:
+            self.portfolio = {}
+        if 'photos' not in self.portfolio:
+            self.portfolio['photos'] = []
+
+        # Check if photo already exists (by image_url) and update it
+        photo_dict = photo.to_dict()
+        for i, existing_photo in enumerate(self.portfolio['photos']):
+            if isinstance(existing_photo, dict) and existing_photo.get('image_url') == photo.image_url:
+                # Update existing photo (e.g., to refresh credits)
+                self.portfolio['photos'][i] = photo_dict
+                return
+
+        # Photo doesn't exist, add it
+        self.portfolio['photos'].append(photo_dict)
+    
+    def has_photos(self) -> bool:
+        """Check if variety has any photos."""
+        return bool(self.get_photos())
 
 
 class GrapeVarietiesModel:
