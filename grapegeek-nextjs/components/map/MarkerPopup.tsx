@@ -3,13 +3,17 @@
 import Link from 'next/link';
 import { MapMarker } from '@/lib/types';
 import { slugify } from '@/lib/utils';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface MarkerPopupProps {
   marker: MapMarker;
   selectedVariety?: string;
+  locale?: Locale;
 }
 
-export default function MarkerPopup({ marker, selectedVariety }: MarkerPopupProps) {
+export default function MarkerPopup({ marker, selectedVariety, locale = 'en' }: MarkerPopupProps) {
+  const t = createTranslator(locale);
   const winegrowerSlug = slugify(marker.name);
 
   return (
@@ -17,7 +21,7 @@ export default function MarkerPopup({ marker, selectedVariety }: MarkerPopupProp
       {/* Header */}
       <div className="mb-3">
         <Link
-          href={`/winegrowers/${winegrowerSlug}`}
+          href={`/${locale}/winegrowers/${winegrowerSlug}`}
           className="font-bold text-lg text-gray-900 hover:text-brand transition-colors mb-1 block"
           style={{ textDecoration: 'none' }}
         >
@@ -36,7 +40,7 @@ export default function MarkerPopup({ marker, selectedVariety }: MarkerPopupProp
             {marker.varieties.map((variety, index) => (
               <Link
                 key={`${variety}-${index}`}
-                href={`/varieties/${encodeURIComponent(variety)}`}
+                href={`/${locale}/varieties/${encodeURIComponent(variety)}`}
                 className={`inline-block px-2 py-1 text-xs rounded-full transition-all hover:ring-2 hover:ring-offset-1 ${
                   selectedVariety && variety === selectedVariety
                     ? 'bg-brand text-white hover:bg-brand-hover hover:ring-brand-soft'
@@ -54,17 +58,17 @@ export default function MarkerPopup({ marker, selectedVariety }: MarkerPopupProp
       {/* Wine Types */}
       {marker.wine_types && marker.wine_types.length > 0 && (
         <div className="text-sm text-gray-700 mb-3">
-          <strong>Types:</strong> {marker.wine_types.join(', ')}
+          <strong>{t('map.popup.types')}</strong> {marker.wine_types.join(', ')}
         </div>
       )}
 
       {/* View Profile Link */}
       <div className="pt-2 border-t border-gray-200">
         <Link
-          href={`/winegrowers/${winegrowerSlug}`}
+          href={`/${locale}/winegrowers/${winegrowerSlug}`}
           className="text-sm text-brand hover:text-brand-hover font-medium flex items-center gap-1"
         >
-          View Full Profile →
+          {t('map.popup.viewProfile')}
         </Link>
       </div>
     </div>

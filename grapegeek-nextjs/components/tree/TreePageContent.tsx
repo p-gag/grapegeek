@@ -17,6 +17,7 @@ import GrapeNode from './GrapeNode';
 import NodePopup from './NodePopup';
 import { useTreeData } from '@/hooks/useTreeData';
 import Link from 'next/link';
+import { createTranslator } from '@/lib/i18n/translate';
 
 const nodeTypes = {
   grapeNode: GrapeNode,
@@ -39,6 +40,7 @@ interface TreePageContentInnerProps {
 }
 
 function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerProps) {
+  const t = createTranslator(locale as any);
   const router = useRouter();
   const [duplicateParents, setDuplicateParents] = useState(true);
   const [colorMode, setColorMode] = useState<'species' | 'berry'>('species');
@@ -166,7 +168,7 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
         color: '#666',
         fontSize: '18px'
       }}>
-        Loading grape variety data...
+        {t('tree.loadingData')}
       </div>
     );
   }
@@ -184,7 +186,7 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
         padding: '20px',
         textAlign: 'center'
       }}>
-        <div style={{ marginBottom: '10px' }}>❌ Error loading data</div>
+        <div style={{ marginBottom: '10px' }}>❌ {t('tree.error')}</div>
         <div style={{ fontSize: '14px', color: '#666' }}>{error}</div>
       </div>
     );
@@ -210,12 +212,12 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
             fontSize: '14px'
           }}
         >
-          ← Back to {initialVariety}
+          {t('tree.backTo', { variety: initialVariety })}
         </Link>
 
-        <h1 style={{ fontSize: '24px', marginBottom: '10px' }}>🍇 Grape Family Trees</h1>
+        <h1 style={{ fontSize: '24px', marginBottom: '10px' }}>🍇 {t('tree.subtitle')}</h1>
         <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
-          Interactive Grape Variety Explorer
+          {t('tree.subtitleDesc') || 'Interactive Grape Variety Explorer'}
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '15px' }}>
@@ -231,10 +233,10 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
             }}
             onClick={() => setDuplicateParents(!duplicateParents)}
           >
-            🌳 {duplicateParents ? 'Merged' : 'Duplicate'} Parents
+            🌳 {duplicateParents ? t('tree.mergedParents') : t('tree.duplicateParents')}
           </button>
 
-          <div style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '14px' }}>Color Mode:</div>
+          <div style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '14px' }}>{t('tree.colorMode')}</div>
           <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontSize: '14px' }}>
             <input
               type="radio"
@@ -243,7 +245,7 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
               checked={colorMode === 'berry'}
               onChange={(e) => setColorMode(e.target.value as 'berry' | 'species')}
             />
-            🍇 Berry Colors
+            🍇 {t('tree.berryColors')}
           </label>
           <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontSize: '14px' }}>
             <input
@@ -385,6 +387,7 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
         isVisible={!!popupNode}
         onClose={handlePopupClose}
         position={popupPosition}
+        locale={locale as any}
       />
     </div>
   );

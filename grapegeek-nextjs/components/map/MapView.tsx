@@ -7,6 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import { MapMarker } from '@/lib/types';
 import MarkerPopup from './MarkerPopup';
 import RegionOverlay from './RegionOverlay';
+import type { Locale } from '@/lib/i18n/config';
 
 // Fix default marker icons for Next.js
 // Create custom icons
@@ -40,9 +41,10 @@ interface MapViewProps {
   markers: MapMarker[];
   indexedRegions?: Array<{ state_province: string; country: string }>;
   showRegions?: boolean;
+  locale?: Locale;
 }
 
-export default function MapView({ markers, indexedRegions = [], showRegions = true }: MapViewProps) {
+export default function MapView({ markers, indexedRegions = [], showRegions = true, locale = 'en' }: MapViewProps) {
   return (
     <MapContainer
         center={[45.0, -85.0]}
@@ -72,7 +74,7 @@ export default function MapView({ markers, indexedRegions = [], showRegions = tr
             minWidth={320}
             className="winegrower-popup"
           >
-            <MarkerPopup marker={marker} />
+            <MarkerPopup marker={marker} locale={locale} />
           </Popup>
         </Marker>
       ))}

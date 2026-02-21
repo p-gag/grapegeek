@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface NodeData {
   label: string;
@@ -19,9 +21,11 @@ interface NodePopupProps {
   isVisible: boolean;
   onClose: () => void;
   position: { x: number; y: number };
+  locale?: Locale;
 }
 
-const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, position }) => {
+const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, position, locale = 'en' }) => {
+  const t = createTranslator(locale);
   if (!isVisible || !node) return null;
 
   const {
@@ -117,7 +121,7 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
           paddingBottom: '8px'
         }}>
           <Link
-            href={`/varieties/${encodeURIComponent(label)}`}
+            href={`/${locale}/varieties/${encodeURIComponent(label)}`}
             style={{
               color: '#667eea',
               textDecoration: 'none'
@@ -133,7 +137,7 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
         <div>
           {vivc_number && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>VIVC:</strong>{' '}
+              <strong>{t('tree.popup.vivc')}</strong>{' '}
               <a
                 href={`https://www.vivc.de/index.php?r=passport%2Fview&id=${vivc_number}`}
                 target="_blank"
@@ -153,43 +157,43 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
 
           {species && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>Species:</strong> {species}
+              <strong>{t('tree.popup.species')}</strong> {species}
             </div>
           )}
 
           {speciesPercentages && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>Composition:</strong> {speciesPercentages}
+              <strong>{t('tree.popup.composition')}</strong> {speciesPercentages}
             </div>
           )}
 
           {berry_color && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>Berry:</strong> {getBerryEmoji(berry_color)} {berry_color}
+              <strong>{t('tree.popup.berry')}</strong> {getBerryEmoji(berry_color)} {berry_color}
             </div>
           )}
 
           {country && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>Origin:</strong> {country}
+              <strong>{t('tree.popup.origin')}</strong> {country}
             </div>
           )}
 
           {sex && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>Sex:</strong> {getSexSymbol(sex)} {sex}
+              <strong>{t('tree.popup.sex')}</strong> {getSexSymbol(sex)} {sex}
             </div>
           )}
 
           {year_crossing && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>Year:</strong> {year_crossing}
+              <strong>{t('tree.popup.year')}</strong> {year_crossing}
             </div>
           )}
 
           {breeder && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>Breeder:</strong> {breeder}
+              <strong>{t('tree.popup.breeder')}</strong> {breeder}
             </div>
           )}
         </div>
@@ -201,7 +205,7 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
           borderTop: '1px solid #e9ecef'
         }}>
           <Link
-            href={`/varieties/${encodeURIComponent(label)}`}
+            href={`/${locale}/varieties/${encodeURIComponent(label)}`}
             style={{
               fontSize: '14px',
               color: '#667eea',
@@ -214,7 +218,7 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
             onMouseOver={(e) => (e.currentTarget.style.color = '#5a67d8')}
             onMouseOut={(e) => (e.currentTarget.style.color = '#667eea')}
           >
-            View Full Profile →
+            {t('tree.popup.viewProfile')}
           </Link>
         </div>
       </div>

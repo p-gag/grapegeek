@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 interface Filters {
   variety: string;
@@ -26,6 +28,7 @@ interface MapSidebarProps {
   currentVariety?: string;
   showRegions: boolean;
   onToggleRegions: (show: boolean) => void;
+  locale: Locale;
 }
 
 export default function MapSidebar({
@@ -37,14 +40,15 @@ export default function MapSidebar({
   filteredCount,
   currentVariety,
   showRegions,
-  onToggleRegions
+  onToggleRegions,
+  locale
 }: MapSidebarProps) {
+  const t = createTranslator(locale);
   const router = useRouter();
 
   const handleBackClick = () => {
     if (currentVariety) {
-      const varietySlug = currentVariety.toLowerCase().replace(/\s+/g, '-');
-      router.push(`/variety/${varietySlug}`);
+      router.push(`/${locale}/varieties/${encodeURIComponent(currentVariety)}`);
     } else {
       router.back();
     }
@@ -54,8 +58,8 @@ export default function MapSidebar({
     <div className="w-80 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
       {/* Breadcrumb Navigation */}
       <div className="p-4 border-b border-gray-200 bg-gray-50 flex items-center gap-2 text-sm">
-        <Link href="/" className="text-brand hover:text-brand-hover transition-colors">
-          🍇 GrapeGeek
+        <Link href={`/${locale}/`} className="text-brand hover:text-brand-hover transition-colors">
+          🍇 {t('nav.home')}
         </Link>
         <span className="text-gray-400">›</span>
         {currentVariety && (
@@ -69,20 +73,20 @@ export default function MapSidebar({
             <span className="text-gray-400">›</span>
           </>
         )}
-        <span className="text-gray-700 font-medium">Map</span>
+        <span className="text-gray-700 font-medium">{t('map.breadcrumb.map')}</span>
       </div>
 
       {/* Header */}
       <div className="p-6 border-b border-gray-200">
         <h1 className="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-          🗺 Winegrower Map
+          🗺 {t('map.title')}
         </h1>
         <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
           <div className="text-3xl font-bold text-brand">{filteredCount}</div>
-          <div className="text-sm text-gray-600">of {totalCount} winegrowers</div>
+          <div className="text-sm text-gray-600">{t('map.winegrowers.of', { total: totalCount })}</div>
           {currentVariety && (
             <div className="text-xs text-gray-500 mt-1">
-              growing <strong>{currentVariety}</strong>
+              {t('map.winegrowers.growing', { variety: currentVariety })}
             </div>
           )}
         </div>
@@ -90,12 +94,12 @@ export default function MapSidebar({
 
       {/* Filters Section */}
       <div className="p-6 flex-1">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Filters</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('map.filters.title')}</h3>
 
         {/* Variety Filter */}
         <div className="mb-4">
           <label htmlFor="variety-filter" className="block text-sm font-medium text-gray-700 mb-2">
-            Grape Variety:
+            {t('map.filters.variety')}
           </label>
           <select
             id="variety-filter"
@@ -103,7 +107,7 @@ export default function MapSidebar({
             onChange={(e) => updateFilter('variety', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           >
-            <option value="">All varieties</option>
+            <option value="">{t('map.filters.allVarieties')}</option>
             {filterOptions.varieties.map(variety => (
               <option key={variety} value={variety}>{variety}</option>
             ))}
@@ -113,7 +117,7 @@ export default function MapSidebar({
         {/* Wine Type Filter */}
         <div className="mb-4">
           <label htmlFor="wine-type-filter" className="block text-sm font-medium text-gray-700 mb-2">
-            Wine Type:
+            {t('map.filters.wineType')}
           </label>
           <select
             id="wine-type-filter"
@@ -121,7 +125,7 @@ export default function MapSidebar({
             onChange={(e) => updateFilter('wine_type', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           >
-            <option value="">All wine types</option>
+            <option value="">{t('map.filters.allWineTypes')}</option>
             {filterOptions.wine_types.map(type => (
               <option key={type} value={type}>{type}</option>
             ))}
@@ -131,7 +135,7 @@ export default function MapSidebar({
         {/* State/Province Filter */}
         <div className="mb-4">
           <label htmlFor="state-filter" className="block text-sm font-medium text-gray-700 mb-2">
-            State/Province:
+            {t('map.filters.state')}
           </label>
           <select
             id="state-filter"
@@ -139,7 +143,7 @@ export default function MapSidebar({
             onChange={(e) => updateFilter('state', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent"
           >
-            <option value="">All states/provinces</option>
+            <option value="">{t('map.filters.allStates')}</option>
             {filterOptions.states_provinces.map(state => (
               <option key={state} value={state}>{state}</option>
             ))}
@@ -156,7 +160,7 @@ export default function MapSidebar({
               className="w-4 h-4 accent-brand border-gray-300 rounded focus:ring-brand cursor-pointer"
             />
             <span className="text-sm text-gray-700 flex items-center gap-2">
-              Show indexed regions
+              {t('map.filters.showRegions')}
               <span className="inline-block w-3 h-3 rounded-sm bg-brand-soft opacity-50"></span>
             </span>
           </label>
@@ -167,21 +171,21 @@ export default function MapSidebar({
           onClick={clearFilters}
           className="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors font-medium"
         >
-          Clear All Filters
+          {t('map.filters.clearAll')}
         </button>
       </div>
 
       {/* Legend */}
       <div className="p-6 border-t border-gray-200 bg-gray-50">
-        <h3 className="text-sm font-semibold text-gray-900 mb-3">Legend</h3>
+        <h3 className="text-sm font-semibold text-gray-900 mb-3">{t('map.legend.title')}</h3>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#6FAF8F] border-2 border-white shadow-md"></div>
-            <span className="text-sm text-gray-700">Open for visits</span>
+            <span className="text-sm text-gray-700">{t('map.legend.openForVisits')}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-yellow-500 border-2 border-white shadow-md"></div>
-            <span className="text-sm text-gray-700">Not open for visits</span>
+            <span className="text-sm text-gray-700">{t('map.legend.notOpen')}</span>
           </div>
         </div>
       </div>

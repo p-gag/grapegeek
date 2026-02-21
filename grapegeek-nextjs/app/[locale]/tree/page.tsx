@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { createTranslator } from '@/lib/i18n/translate';
 
 // Dynamically import the tree content to avoid SSR issues with ReactFlow
 const TreePageContent = dynamic(() => import('@/components/tree/TreePageContent'), {
@@ -27,6 +28,7 @@ interface PageProps {
 }
 
 function TreePageInner({ locale }: { locale: string }) {
+  const t = createTranslator(locale as any);
   const searchParams = useSearchParams();
   const variety = searchParams.get('variety');
 
@@ -34,10 +36,10 @@ function TreePageInner({ locale }: { locale: string }) {
     return (
       <div style={{ padding: '4rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-          🌳 Family Tree Browser
+          🌳 {t('tree.title')}
         </h1>
         <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '2rem' }}>
-          No variety specified
+          {t('tree.noVariety')}
         </p>
         <Link
           href={`/${locale}/varieties`}
@@ -50,7 +52,7 @@ function TreePageInner({ locale }: { locale: string }) {
             textDecoration: 'none'
           }}
         >
-          ← Browse Varieties
+          {t('tree.browseVarieties')}
         </Link>
       </div>
     );
@@ -62,7 +64,7 @@ function TreePageInner({ locale }: { locale: string }) {
 export default function TreePage({ params }: PageProps) {
   const { locale } = params;
   return (
-    <Suspense fallback={<div style={{ padding: '4rem 2rem', textAlign: 'center' }}>Loading...</div>}>
+    <Suspense fallback={<div style={{ padding: '4rem 2rem', textAlign: 'center' }}>{createTranslator(locale as any)('tree.loading')}</div>}>
       <TreePageInner locale={locale} />
     </Suspense>
   );

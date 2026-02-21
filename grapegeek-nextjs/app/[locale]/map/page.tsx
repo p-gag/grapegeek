@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import MapSidebar from '@/components/map/MapSidebar';
 import { MapMarker } from '@/lib/types';
+import type { Locale } from '@/lib/i18n/config';
+import { createTranslator } from '@/lib/i18n/translate';
 
 // Dynamic import to avoid SSR issues with Leaflet
 const MapView = dynamic(() => import('@/components/map/MapView'), {
@@ -32,7 +34,8 @@ interface Filters {
   open_for_visits: string;
 }
 
-function MapPageContent() {
+function MapPageContent({ locale }: { locale: Locale }) {
+  const t = createTranslator(locale);
   const searchParams = useSearchParams();
 
   const [allMarkers, setAllMarkers] = useState<MapMarker[]>([]);
@@ -126,7 +129,7 @@ function MapPageContent() {
       <div className="flex items-center justify-center h-screen bg-gray-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-brand mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg">Loading map data...</p>
+          <p className="text-gray-600 text-lg">{t('map.loadingData')}</p>
         </div>
       </div>
     );
@@ -137,13 +140,13 @@ function MapPageContent() {
       <div className="flex items-center justify-center h-screen bg-gray-50">
         <div className="text-center max-w-md">
           <div className="text-red-600 text-6xl mb-4">⚠</div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Map Loading Error</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">{t('map.error.title')}</h3>
           <p className="text-gray-600 mb-4">{error}</p>
           <button
             onClick={() => window.location.reload()}
             className="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-hover transition-colors"
           >
-            Try Again
+            {t('map.error.tryAgain')}
           </button>
         </div>
       </div>
@@ -163,27 +166,30 @@ function MapPageContent() {
         currentVariety={filters.variety}
         showRegions={showRegions}
         onToggleRegions={setShowRegions}
+        locale={locale}
       />
 
       {/* Map */}
       <div className="flex-1">
-        <MapView markers={filteredMarkers} indexedRegions={indexedRegions} showRegions={showRegions} />
+        <MapView markers={filteredMarkers} indexedRegions={indexedRegions} showRegions={showRegions} locale={locale} />
       </div>
     </div>
   );
 }
 
-export default function MapPage() {
+export default function MapPage({ params }: { params: { locale: Locale } }) {
+  const { locale } = params;
+  const t = createTranslator(locale);
   return (
     <Suspense fallback={
       <div className="flex items-center justify-center h-screen bg-gray-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-brand mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg">Loading...</p>
+          <p className="text-gray-600 text-lg">{t('map.loadingGeneral')}</p>
         </div>
       </div>
     }>
-      <MapPageContent />
+      <MapPageContent locale={locale} />
     </Suspense>
   );
 }
