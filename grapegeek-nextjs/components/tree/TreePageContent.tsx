@@ -17,6 +17,7 @@ import GrapeNode from './GrapeNode';
 import NodePopup from './NodePopup';
 import { useTreeData } from '@/hooks/useTreeData';
 import Link from 'next/link';
+import { slugify } from '@/lib/utils';
 import { createTranslator } from '@/lib/i18n/translate';
 
 const nodeTypes = {
@@ -203,7 +204,7 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
         overflowY: 'auto'
       }}>
         <Link
-          href={`/${locale}/varieties/${encodeURIComponent(initialVariety)}`}
+          href={`/${locale}/varieties/${slugify(initialVariety)}`}
           style={{
             display: 'inline-block',
             marginBottom: '20px',

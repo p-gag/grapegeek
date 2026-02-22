@@ -1,5 +1,6 @@
 import { GrapeVariety } from '@/lib/types'
 import Link from 'next/link'
+import { slugify } from '@/lib/utils'
 import { Wine, MapPin, Users } from 'lucide-react'
 import type { Locale } from '@/lib/i18n/config'
 import { createTranslator } from '@/lib/i18n/translate'
@@ -14,7 +15,7 @@ export default function VarietyCard({ variety, locale }: Props) {
   const winegrowers = variety.uses?.length || 0
 
   return (
-    <Link href={`/${locale}/varieties/${encodeURIComponent(variety.name)}`}>
+    <Link href={`/${locale}/varieties/${slugify(variety.name)}`}>
       <div className="bg-white rounded-xl shadow-brand hover:shadow-brand-hover transition-all duration-200 p-6 h-full border-2 border-transparent hover:border-brand-soft">
         {/* Header */}
         <div className="flex items-start gap-3 mb-4">

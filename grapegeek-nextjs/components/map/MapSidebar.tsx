@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { slugify } from '@/lib/utils';
 import Link from 'next/link';
 import type { Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
@@ -48,7 +49,7 @@ export default function MapSidebar({
 
   const handleBackClick = () => {
     if (currentVariety) {
-      router.push(`/${locale}/varieties/${encodeURIComponent(currentVariety)}`);
+      router.push(`/${locale}/varieties/${slugify(currentVariety)}`);
     } else {
       router.back();
     }

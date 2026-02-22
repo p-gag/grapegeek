@@ -1,5 +1,6 @@
 import { GrapeVariety } from '@/lib/types';
 import Link from 'next/link';
+import { slugify } from '@/lib/utils';
 import { Users, Dna, MapPin, Calendar, Droplet } from 'lucide-react';
 
 interface Props {
@@ -85,7 +86,7 @@ export default function VarietyInfo({ variety }: Props) {
               <div>
                 <p className="text-sm text-gray-600 mb-1">Parent 1</p>
                 <Link
-                  href={`/varieties/${encodeURIComponent(variety.parent1_name)}`}
+                  href={`/varieties/${slugify(variety.parent1_name)}`}
                   className="font-semibold text-brand hover:text-brand-hover hover:underline transition-colors"
                 >
                   {variety.parent1_name}
@@ -97,7 +98,7 @@ export default function VarietyInfo({ variety }: Props) {
               <div>
                 <p className="text-sm text-gray-600 mb-1">Parent 2</p>
                 <Link
-                  href={`/varieties/${encodeURIComponent(variety.parent2_name)}`}
+                  href={`/varieties/${slugify(variety.parent2_name)}`}
                   className="font-semibold text-brand hover:text-brand-hover hover:underline transition-colors"
                 >
                   {variety.parent2_name}

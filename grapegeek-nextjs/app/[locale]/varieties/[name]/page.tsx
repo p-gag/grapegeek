@@ -10,6 +10,7 @@ import SectionNav from '@/components/variety/SectionNav';
 import ProductionStats from '@/components/variety/ProductionStats';
 import { type Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
+import { slugify } from '@/lib/utils';
 
 interface Props {
   params: { locale: Locale; name: string };
@@ -18,19 +19,14 @@ interface Props {
 // Static generation: pre-render all variety pages at build time
 export async function generateStaticParams() {
   const db = getDatabase();
-  const names = db.getAllVarietyNames();
-
-  return names.map((name) => ({
-    name,
-  }));
+  return db.getAllVarietySlugs().map((slug) => ({ name: slug }));
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = createTranslator(params.locale);
   const db = getDatabase();
-  const varietyName = params.name;
-  const variety = db.getVariety(varietyName, true);
+  const variety = db.getVarietyBySlug(params.name, true);
 
   if (!variety) {
     return {
@@ -52,8 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: description,
     alternates: {
       languages: {
-        en: `https://grapegeek.com/en/varieties/${encodeURIComponent(varietyName)}`,
-        fr: `https://grapegeek.com/fr/varieties/${encodeURIComponent(varietyName)}`,
+        en: `https://grapegeek.com/en/varieties/${params.name}`,
+        fr: `https://grapegeek.com/fr/varieties/${params.name}`,
       },
     },
   };
@@ -63,8 +59,7 @@ export default function VarietyDetailPage({ params }: Props) {
   const { locale } = params;
   const t = createTranslator(locale);
   const db = getDatabase();
-  const varietyName = params.name;
-  const variety = db.getVariety(varietyName, true);
+  const variety = db.getVarietyBySlug(params.name, true);
 
   if (!variety) {
     notFound();

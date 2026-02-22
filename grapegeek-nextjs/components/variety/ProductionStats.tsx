@@ -74,7 +74,7 @@ export default function ProductionStats({ varietyName, stats, locale }: Producti
                   {common_blends.map((blend, i) => (
                     <div key={i} className="variety-bar-row-compact">
                       <Link
-                        href={`/${locale}/varieties/${encodeURIComponent(blend.variety_name)}`}
+                        href={`/${locale}/varieties/${slugify(blend.variety_name)}`}
                         className="variety-bar-name-compact"
                       >
                         {blend.variety_name}
@@ -103,7 +103,7 @@ export default function ProductionStats({ varietyName, stats, locale }: Producti
                   {planted_neighbors.map((neighbor, i) => (
                     <div key={i} className="variety-bar-row-compact">
                       <Link
-                        href={`/${locale}/varieties/${encodeURIComponent(neighbor.variety_name)}`}
+                        href={`/${locale}/varieties/${slugify(neighbor.variety_name)}`}
                         className="variety-bar-name-compact"
                       >
                         {neighbor.variety_name}

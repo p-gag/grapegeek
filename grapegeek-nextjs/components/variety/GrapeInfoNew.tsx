@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { slugify } from '@/lib/utils';
 import type { GrapeVariety } from '@/lib/types';
 import type { Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
@@ -52,7 +53,7 @@ export default function GrapeInfo({ variety, locale }: GrapeInfoProps) {
               {parents.map((parent, index) => (
                 <span key={parent}>
                   <Link
-                    href={`/${locale}/varieties/${encodeURIComponent(parent)}`}
+                    href={`/${locale}/varieties/${slugify(parent)}`}
                     className="parent-link"
                   >
                     {parent}

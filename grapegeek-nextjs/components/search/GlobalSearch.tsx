@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Fuse from 'fuse.js';
 import { MapPin, Search, X } from 'lucide-react';
 import type { SearchItem, SearchVarietyItem, SearchWinegrowerItem } from '@/lib/types';
+import { slugify } from '@/lib/utils';
 
 export type { SearchItem };
 
@@ -181,7 +182,7 @@ export default function GlobalSearch({ items, locale, placeholder = 'Search vari
   // ── Navigation ───────────────────────────────────────────────────────────
   const navigate = useCallback((item: SearchItem) => {
     const href = item.type === 'variety'
-      ? `/${locale}/varieties/${encodeURIComponent(item.name)}`
+      ? `/${locale}/varieties/${slugify(item.name)}`
       : `/${locale}/winegrowers/${item.slug}`;
     router.push(href);
     setQuery('');

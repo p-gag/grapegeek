@@ -1,6 +1,7 @@
 import { Wine } from '@/lib/types';
 import { Grape } from 'lucide-react';
 import Link from 'next/link';
+import { slugify } from '@/lib/utils';
 
 interface GrapeVarietiesUsedProps {
   wines: Wine[];
@@ -36,7 +37,7 @@ export default function GrapeVarietiesUsed({ wines }: GrapeVarietiesUsedProps) {
         {uniqueVarieties.map((variety) => (
           <Link
             key={variety}
-            href={`/varieties/${encodeURIComponent(variety)}`}
+            href={`/varieties/${slugify(variety)}`}
             className="px-4 py-3 bg-purple-50 text-purple-800 rounded-lg hover:bg-purple-100 transition text-center font-medium border border-purple-200 hover:border-brand-soft"
           >
             {variety}

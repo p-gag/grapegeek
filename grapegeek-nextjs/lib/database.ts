@@ -270,6 +270,31 @@ export class GrapeGeekDB {
   }
 
   /**
+   * Get all variety slugs (for SSG page generation)
+   */
+  getAllVarietySlugs(): string[] {
+    const rows = this.db.prepare(
+      'SELECT name FROM grape_varieties ORDER BY name'
+    ).all() as { name: string }[];
+
+    return rows.map(row => slugify(row.name));
+  }
+
+  /**
+   * Get variety by URL slug
+   */
+  getVarietyBySlug(slug: string, includeRelationships = false): GrapeVariety | null {
+    const rows = this.db.prepare(
+      'SELECT name FROM grape_varieties'
+    ).all() as { name: string }[];
+
+    const row = rows.find(r => slugify(r.name) === slug);
+    if (!row) return null;
+
+    return this.getVariety(row.name, includeRelationships);
+  }
+
+  /**
    * Get all varieties (basic info only)
    */
   getAllVarieties(includeRelationships = false): GrapeVariety[] {

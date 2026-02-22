@@ -40,7 +40,7 @@ export default function MarkerPopup({ marker, selectedVariety, locale = 'en' }: 
             {marker.varieties.map((variety, index) => (
               <Link
                 key={`${variety}-${index}`}
-                href={`/${locale}/varieties/${encodeURIComponent(variety)}`}
+                href={`/${locale}/varieties/${slugify(variety)}`}
                 className={`inline-block px-2 py-1 text-xs rounded-full transition-all hover:ring-2 hover:ring-offset-1 ${
                   selectedVariety && variety === selectedVariety
                     ? 'bg-brand text-white hover:bg-brand-hover hover:ring-brand-soft'

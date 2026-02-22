@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { slugify } from '@/lib/utils';
 import type { Winegrower } from '@/lib/types';
 import type { Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
@@ -16,7 +17,7 @@ export default function WinegrowerVarieties({ winegrower, varietyPhotos = {}, lo
   const router = useRouter();
 
   const handleVarietyClick = (varietyName: string) => {
-    router.push(`/${locale}/varieties/${encodeURIComponent(varietyName)}`);
+    router.push(`/${locale}/varieties/${slugify(varietyName)}`);
   };
 
   const getVarietyImage = (varietyName: string) => {

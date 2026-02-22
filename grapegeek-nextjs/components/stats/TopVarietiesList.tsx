@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { slugify } from '@/lib/utils';
 import type { Locale } from '@/lib/i18n/config';
 
 interface VarietyUsage {
@@ -19,7 +20,7 @@ export default function TopVarietiesList({ varieties, locale = 'en' }: TopVariet
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {varieties.map((variety, index) => {
         const percentage = (variety.count / maxValue) * 100;
-        const slug = variety.name.toLowerCase().replace(/\s+/g, '-');
+        
 
         return (
           <div key={variety.name} className="flex items-center gap-3">
@@ -29,7 +30,7 @@ export default function TopVarietiesList({ varieties, locale = 'en' }: TopVariet
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1">
                 <Link
-                  href={`/${locale}/varieties/${encodeURIComponent(variety.name)}`}
+                  href={`/${locale}/varieties/${slugify(variety.name)}`}
                   className="text-sm font-medium text-gray-900 hover:text-brand transition-colors truncate"
                 >
                   {variety.name}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { slugify } from '@/lib/utils';
 import type { Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
 
@@ -121,7 +122,7 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
           paddingBottom: '8px'
         }}>
           <Link
-            href={`/${locale}/varieties/${encodeURIComponent(label)}`}
+            href={`/${locale}/varieties/${slugify(label)}`}
             style={{
               color: '#667eea',
               textDecoration: 'none'
@@ -205,7 +206,7 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
           borderTop: '1px solid #e9ecef'
         }}>
           <Link
-            href={`/${locale}/varieties/${encodeURIComponent(label)}`}
+            href={`/${locale}/varieties/${slugify(label)}`}
             style={{
               fontSize: '14px',
               color: '#667eea',
