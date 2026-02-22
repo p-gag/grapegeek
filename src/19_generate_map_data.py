@@ -274,7 +274,7 @@ class MapDataGenerator:
             }
         }
     
-    def generate_data_file(self, output_path: str = "grape-explorer-react/src/data/map-data.json"):
+    def generate_data_file(self, output_path: str = "grapegeek-nextjs/public/data/map-data.json"):
         """Generate the JSON data file for React-Leaflet."""
         print("🔧 Generating map data...")
         
@@ -308,16 +308,16 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python src/19_generate_map_data.py                           # Generate to grape-explorer-react/src/data/map-data.json
+  python src/19_generate_map_data.py                           # Generate to grapegeek-nextjs/public/data/map-data.json
   python src/19_generate_map_data.py --output custom.json     # Custom output path
   python src/19_generate_map_data.py --geojson custom.geojson # Custom input GeoJSON
         """
     )
-    
+
     parser.add_argument(
-        "--output", 
-        default="grape-explorer-react/src/data/map-data.json",
-        help="Output JSON file path (default: grape-explorer-react/src/data/map-data.json)"
+        "--output",
+        default="grapegeek-nextjs/public/data/map-data.json",
+        help="Output JSON file path (default: grapegeek-nextjs/public/data/map-data.json)"
     )
     
     parser.add_argument(

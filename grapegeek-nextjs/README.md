@@ -4,7 +4,6 @@ Next.js SSG application for GrapeGeek - pre-rendered static site for better SEO 
 
 **Replaces:**
 - `docs/` - MkDocs site (legacy)
-- `grape-explorer-react/` - Client-side React SPA (legacy)
 
 ## Architecture
 

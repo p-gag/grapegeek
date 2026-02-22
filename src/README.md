@@ -72,9 +72,9 @@ graph TD
     D4 --> B9
     B9 --> D11[data/grapegeek.db]
 
-    %% Step 7: Legacy React Map Data
+    %% Step 7: Next.js Map Data
     D8 --> B10[19_generate_map_data.py]
-    B10 --> D12[grape-explorer-react/src/data/map-data.json]
+    B10 --> D12[grapegeek-nextjs/public/data/map-data.json]
 
     %% Styling
     classDef script fill:#e1f5fe
@@ -124,7 +124,7 @@ uv run src/08_build_vivc_index.py
 uv run src/09_build_database.py
 cp data/grapegeek.db grapegeek-nextjs/data/
 
-# 9. Generate legacy React map data (grape-explorer-react only, not Next.js)
+# 9. Generate map data for Next.js site
 uv run src/19_generate_map_data.py
 ```
 
