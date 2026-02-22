@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import '../globals.css'
 import 'flag-icons/css/flag-icons.min.css'
 import Header from '@/components/Header'
@@ -53,6 +54,13 @@ export default function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PG8SZ0458G"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PG8SZ0458G');`}
+        </Script>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link
           rel="stylesheet"

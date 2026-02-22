@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import '../globals.css'
 import 'flag-icons/css/flag-icons.min.css'
 import Header from '@/components/Header'
@@ -13,6 +14,13 @@ export default function RootLocaleLayout({ children }: { children: React.ReactNo
   return (
     <html lang={defaultLocale}>
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PG8SZ0458G"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PG8SZ0458G');`}
+        </Script>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
