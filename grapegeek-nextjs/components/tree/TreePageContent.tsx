@@ -45,6 +45,7 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
   const router = useRouter();
   const [duplicateParents, setDuplicateParents] = useState(true);
   const [colorMode, setColorMode] = useState<'species' | 'berry'>('species');
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [popupNode, setPopupNode] = useState<any>(null);
@@ -194,15 +195,80 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
   }
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
+      {/* Mobile top bar */}
+      <div className="md:hidden flex items-center justify-between px-4 py-2 bg-gray-100 border-b border-gray-300" style={{ flexShrink: 0 }}>
+        <Link
+          href={`/${locale}/varieties/${slugify(initialVariety)}`}
+          style={{ color: '#8B5CF6', textDecoration: 'none', fontSize: '14px' }}
+        >
+          ← {initialVariety}
+        </Link>
+        <button
+          onClick={() => setMobileOpen(true)}
+          style={{
+            background: '#8B5CF6',
+            color: 'white',
+            border: 'none',
+            borderRadius: '999px',
+            padding: '6px 14px',
+            fontSize: '13px',
+            fontWeight: 600,
+            cursor: 'pointer',
+          }}
+        >
+          ☰ Options
+        </button>
+      </div>
+
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div
+          onClick={() => setMobileOpen(false)}
+          className="md:hidden"
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 40 }}
+        />
+      )}
+
+      {/* Main row: sidebar + canvas */}
+      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+
       {/* Sidebar */}
-      <div style={{
-        width: '280px',
-        padding: '20px',
-        background: '#f8f9fa',
-        borderRight: '1px solid #dee2e6',
-        overflowY: 'auto'
-      }}>
+      <div
+        className={mobileOpen ? '' : 'hidden md:block'}
+        style={{
+          width: '280px',
+          padding: '20px',
+          background: '#f8f9fa',
+          borderRight: '1px solid #dee2e6',
+          overflowY: 'auto',
+          flexShrink: 0,
+          ...(mobileOpen ? {
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            zIndex: 50,
+            width: '280px',
+          } : {}),
+        }}
+      >
+        {/* Mobile close */}
+        <button
+          onClick={() => setMobileOpen(false)}
+          className="md:hidden"
+          style={{
+            float: 'right',
+            background: 'none',
+            border: 'none',
+            fontSize: '18px',
+            cursor: 'pointer',
+            color: '#666',
+            marginBottom: '8px',
+          }}
+        >
+          ✕
+        </button>
         <Link
           href={`/${locale}/varieties/${slugify(initialVariety)}`}
           style={{
@@ -336,7 +402,7 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
       </div>
 
       {/* Tree Canvas */}
-      <div style={{ flex: 1, position: 'relative' }}>
+      <div style={{ flex: 1, position: 'relative', minWidth: 0 }}>
         {nodes.length > 0 ? (
           <ReactFlow
             nodes={enhancedNodes}
@@ -381,6 +447,8 @@ function TreePageContentInner({ initialVariety, locale }: TreePageContentInnerPr
           </div>
         )}
       </div>
+
+      </div>{/* end main row */}
 
       {/* Node Popup */}
       <NodePopup

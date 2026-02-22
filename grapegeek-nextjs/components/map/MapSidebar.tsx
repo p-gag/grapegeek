@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { slugify } from '@/lib/utils';
 import Link from 'next/link';
@@ -46,6 +47,7 @@ export default function MapSidebar({
 }: MapSidebarProps) {
   const t = createTranslator(locale);
   const router = useRouter();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleBackClick = () => {
     if (currentVariety) {
@@ -55,8 +57,52 @@ export default function MapSidebar({
     }
   };
 
+  const activeFilterCount = [filters.variety, filters.wine_type, filters.state].filter(Boolean).length;
+
   return (
-    <div className="w-80 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
+    <>
+      {/* Mobile top bar (shown when sidebar is closed) */}
+      <div className="md:hidden flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 shrink-0">
+        <span className="text-sm font-medium text-gray-700">
+          🗺 {filteredCount} / {totalCount}
+          {currentVariety && <span className="text-gray-500"> · {currentVariety}</span>}
+        </span>
+        <button
+          onClick={() => setMobileOpen(true)}
+          className="flex items-center gap-1.5 text-sm font-medium text-brand"
+        >
+          ☰ {t('map.filters.title')}
+          {activeFilterCount > 0 && (
+            <span className="bg-brand text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+              {activeFilterCount}
+            </span>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/40 z-40"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      {/* Sidebar panel */}
+    <div className={`bg-white border-r border-gray-200 overflow-y-auto flex flex-col
+      md:relative md:w-80 md:flex
+      ${mobileOpen ? 'fixed inset-y-0 left-0 z-50 w-4/5 max-w-xs flex' : 'hidden md:flex'}`}>
+      {/* Mobile close button */}
+      <div className="md:hidden flex justify-end p-2 border-b border-gray-100">
+        <button
+          onClick={() => setMobileOpen(false)}
+          className="text-gray-500 hover:text-gray-700 p-1 rounded"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+      </div>
+
       {/* Breadcrumb Navigation */}
       <div className="p-4 border-b border-gray-200 bg-gray-50 flex items-center gap-2 text-sm">
         <Link href={`/${locale}/`} className="text-brand hover:text-brand-hover transition-colors">
@@ -191,5 +237,6 @@ export default function MapSidebar({
         </div>
       </div>
     </div>
+    </>
   );
 }

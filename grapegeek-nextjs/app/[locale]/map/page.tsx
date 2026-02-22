@@ -154,7 +154,7 @@ function MapPageContent({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex flex-col md:flex-row h-screen bg-gray-50">
       {/* Sidebar */}
       <MapSidebar
         filters={filters}
@@ -169,8 +169,8 @@ function MapPageContent({ locale }: { locale: Locale }) {
         locale={locale}
       />
 
-      {/* Map */}
-      <div className="flex-1">
+      {/* Map — isolation:isolate keeps Leaflet's z-index stack from bleeding over overlays */}
+      <div className="flex-1" style={{ isolation: 'isolate' }}>
         <MapView markers={filteredMarkers} indexedRegions={indexedRegions} showRegions={showRegions} locale={locale} />
       </div>
     </div>
