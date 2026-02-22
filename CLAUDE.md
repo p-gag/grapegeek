@@ -9,14 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Generate a technical article for a grape variety
 uv run main.py grape <variety_name> --type technical
 
-# Generate and auto-publish a technical article to MkDocs site
-uv run main.py grape <variety_name> --type technical --publish
-
-# Generate winemaking stories for a grape variety  
+# Generate winemaking stories for a grape variety
 uv run main.py grape <variety_name> --type story
-
-# Sync all content to French site with smart change detection (varieties + main site files)
-uv run sync_french.py
 
 # Dry run (show prompts without calling OpenAI)
 uv run main.py grape <variety_name> --dry-run
@@ -66,18 +60,6 @@ npx serve out            # Preview production build
 cd ..
 uv run src/09_build_database.py
 cp data/grapegeek.db grapegeek-nextjs/data/
-```
-
-### MkDocs Site Management (Legacy)
-```bash
-# Install MkDocs dependencies
-pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
-
-# Test site locally (simple MkDocs only - no React app)
-mkdocs serve
-
-# Manual site build (GitHub Actions handles deployment automatically)
-mkdocs build
 ```
 
 ### Dependencies

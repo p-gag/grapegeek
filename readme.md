@@ -42,18 +42,6 @@ python normalization/normalize.py --grapes
 python normalization/normalize.py --all
 ```
 
-### Site Management
-```bash
-# Test site locally
-uv run mkdocs serve
-
-# Sync French translations
-uv run python sync_french.py
-
-# Manual site build (GitHub Actions handles deployment automatically)
-uv run mkdocs build
-```
-
 ### Setup
 ```bash
 # Install dependencies using uv (preferred)
@@ -75,9 +63,6 @@ cp .env.example .env
 ### 📁 **normalization/** - Data Normalization  
 - Grape variety and wine type standardization
 
-### 📁 **utils/** - Site Management + Internationalization
-- French translation, index updates, site building
-
 ### 📁 **shared/** - Common utilities
 - Shared functionality and development tools
 
@@ -85,8 +70,6 @@ cp .env.example .env
 
 - **`CLAUDE.md`** - Developer guidance for Claude Code
 - **`README_NEW_STRUCTURE.md`** - Detailed structure documentation
-- See `docs/` for user-facing documentation
-
 ## Contributing
 
-This is a personal project focused on hybrid grapes in cold climates. See `docs/en/about.md` for the project philosophy and approach.
+This is a personal project focused on hybrid grapes in cold climates.

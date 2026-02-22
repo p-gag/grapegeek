@@ -58,14 +58,10 @@ graph TD
     
     %% Step 5: Outputs
     D7 --> B6[06_output_geojson.py]
-    B6 --> D8[docs/assets/data/wine-producers-final.geojson]
+    B6 --> D8[data/wine-producers-final.geojson]
 
     D7 --> B7[07_generate_stats.py]
     B7 --> D10[dataset_statistics.txt]
-
-    D4 --> B8[08_build_vivc_index.py]
-    B8 --> D9A[docs/en/varieties/index.md]
-    B8 --> D9B[docs/fr/varieties/index.md]
 
     %% Step 6: Database Build
     D7 --> B9[09_build_database.py]
@@ -82,7 +78,7 @@ graph TD
     classDef manual fill:#fff3e0
 
     class B0,B1,B2,B3,B4,B4B,B4C,B5,B6,B7,B8,B9,B10 script
-    class D1,D2,D2M,D3A,D3B,D4,D4D,D7,D8,D9A,D9B,D10,D11,D12 datafile
+    class D1,D2,D2M,D3A,D3B,D4,D4D,D7,D8,D10,D11,D12 datafile
     class B3,B4,B4B manual
 ```
 

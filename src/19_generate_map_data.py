@@ -8,7 +8,7 @@ Transforms existing GeoJSON data into React-optimized format with variety filter
 PURPOSE: Data Transformation - Generate map data for React-Leaflet consumption
 
 INPUTS:
-- docs/assets/data/wine-producers-final.geojson
+- data/wine-producers-final.geojson
 
 OUTPUTS:
 - grape-explorer-react/src/data/map-data.json (map data for React-Leaflet)
@@ -66,7 +66,7 @@ class MapDataGenerator:
         'SWITZERLAND': 'ch',
     }
     
-    def __init__(self, geojson_path: str = "docs/assets/data/wine-producers-final.geojson"):
+    def __init__(self, geojson_path: str = "data/wine-producers-final.geojson"):
         self.geojson_path = Path(geojson_path)
         self.raw_features = []
         self.processed_features: List[ProducerFeature] = []
@@ -322,8 +322,8 @@ Examples:
     
     parser.add_argument(
         "--geojson",
-        default="docs/assets/data/wine-producers-final.geojson",
-        help="Input GeoJSON file path (default: docs/assets/data/wine-producers-final.geojson)"
+        default="data/wine-producers-final.geojson",
+        help="Input GeoJSON file path (default: data/wine-producers-final.geojson)"
     )
     
     args = parser.parse_args()

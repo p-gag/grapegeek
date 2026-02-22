@@ -11,7 +11,7 @@ INPUTS:
 - data/05_wine_producers_final_normalized.jsonl (final production dataset)
 
 OUTPUTS:
-- docs/assets/data/wine-producers-final.geojson (interactive map data)
+- data/wine-producers-final.geojson (intermediate map data for 19_generate_map_data.py)
 
 DEPENDENCIES:
 - None (uses normalized data from final dataset)
@@ -26,7 +26,6 @@ FUNCTIONALITY:
 - Generates comprehensive metadata and statistics
 - Creates feature properties for interactive map filtering
 - Provides location coverage analysis and variety statistics
-- Outputs ready-to-use map data for MkDocs site
 """
 
 import json
@@ -43,7 +42,7 @@ from typing import Dict, List, Set
 def create_final_geojson():
     """Convert final3 wine producers dataset to GeoJSON."""
     input_file = Path("data/05_wine_producers_final_normalized.jsonl")
-    output_file = Path("docs/assets/data/wine-producers-final.geojson")
+    output_file = Path("data/wine-producers-final.geojson")
     
     if not input_file.exists():
         print(f"❌ Input file not found: {input_file}")
