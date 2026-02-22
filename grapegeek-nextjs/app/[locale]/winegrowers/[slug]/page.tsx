@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${winegrower.business_name} - ${winegrower.city}, ${winegrower.state_province} | GrapeGeek`,
     description: description,
     alternates: {
+      canonical: `https://grapegeek.com/${params.locale}/winegrowers/${params.slug}`,
       languages: {
         en: `https://grapegeek.com/en/winegrowers/${params.slug}`,
         fr: `https://grapegeek.com/fr/winegrowers/${params.slug}`,

@@ -13,10 +13,27 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
+  const { locale } = params;
   return {
-    title: 'GrapeGeek - North American Winegrower Database',
+    metadataBase: new URL('https://grapegeek.com'),
+    title: {
+      default: 'GrapeGeek - North American Winegrower Database',
+      template: '%s | GrapeGeek',
+    },
     description: 'Comprehensive database of winegrowers and grape varieties in northeastern North America',
-  }
+    openGraph: {
+      siteName: 'GrapeGeek',
+      locale: locale === 'fr' ? 'fr_CA' : 'en_CA',
+      type: 'website',
+    },
+    alternates: {
+      canonical: `https://grapegeek.com/${locale}/`,
+      languages: {
+        en: 'https://grapegeek.com/en/',
+        fr: 'https://grapegeek.com/fr/',
+      },
+    },
+  };
 }
 
 export default function LocaleLayout({
