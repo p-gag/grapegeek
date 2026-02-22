@@ -39,23 +39,6 @@ export default function ProductionStats({ varietyName, stats, locale }: Producti
         {t('variety.production.basedOn', { count: varietal_stats.total_wines })}
       </p>
 
-      {/* Varietal vs Blended */}
-      <div className="stat-card">
-        <h3 className="stat-card-title">🍷 {t('variety.production.varieVsBlended')}</h3>
-        <div className="stat-grid">
-          <div className="stat-item">
-            <div className="stat-number">{varietal_stats.varietal_count}</div>
-            <div className="stat-label">{t('variety.production.singleVarietal')}</div>
-            <div className="stat-detail">{varietal_stats.varietal_percentage}%</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">{varietal_stats.blended_count}</div>
-            <div className="stat-label">{t('variety.production.blended')}</div>
-            <div className="stat-detail">{(100 - varietal_stats.varietal_percentage).toFixed(1)}%</div>
-          </div>
-        </div>
-      </div>
-
       {/* Variety Relationships */}
       {(common_blends.length > 0 || planted_neighbors.length > 0) && (
         <div className="stat-card">
