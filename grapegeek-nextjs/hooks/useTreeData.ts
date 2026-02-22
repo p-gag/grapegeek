@@ -335,7 +335,7 @@ export const useTreeData = (initialVariety: string = '') => {
     const loadTreeData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/data/tree-data.json');
+        const response = await fetch('/api/tree-data');
         if (!response.ok) {
           throw new Error(`Failed to load tree data: ${response.status}`);
         }

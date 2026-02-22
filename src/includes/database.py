@@ -66,6 +66,9 @@ class GrapeVariety:
     species: Optional[str] = None
     parent1_name: Optional[str] = None
     parent2_name: Optional[str] = None
+    parent1_vivc_number: Optional[int] = None
+    parent2_vivc_number: Optional[int] = None
+    breeder: Optional[str] = None
     sex_of_flower: Optional[str] = None
     year_of_crossing: Optional[str] = None
     vivc_assignment_status: Optional[str] = None
@@ -586,6 +589,9 @@ class GrapeGeekDatabase:
             species=row['species'],
             parent1_name=row['parent1_name'],
             parent2_name=row['parent2_name'],
+            parent1_vivc_number=row['parent1_vivc_number'],
+            parent2_vivc_number=row['parent2_vivc_number'],
+            breeder=row['breeder'],
             sex_of_flower=row['sex_of_flower'],
             year_of_crossing=row['year_of_crossing'],
             vivc_assignment_status=row['vivc_assignment_status'],

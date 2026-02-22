@@ -52,6 +52,7 @@ export interface GrapeVariety {
   species?: string;
   parent1_name?: string;
   parent2_name?: string;
+  breeder?: string;
   sex_of_flower?: string;
   year_of_crossing?: string;
   vivc_assignment_status?: string;

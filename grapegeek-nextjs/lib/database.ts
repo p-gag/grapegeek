@@ -568,6 +568,131 @@ export class GrapeGeekDB {
   }
 
   // ========================================
+  // Tree data
+  // ========================================
+
+  private static COUNTRY_FLAGS: Record<string, string> = {
+    'CANADA': 'ca', 'USA': 'us', 'UNITED STATES': 'us', 'UNITED STATES OF AMERICA': 'us', 'US': 'us',
+    'FRANCE': 'fr', 'GERMANY': 'de', 'DEUTSCHE': 'de', 'ITALY': 'it', 'ITALIA': 'it',
+    'SPAIN': 'es', 'ESPAÑA': 'es', 'PORTUGAL': 'pt', 'AUSTRIA': 'at',
+    'SWITZERLAND': 'ch', 'SUISSE': 'ch', 'HUNGARY': 'hu', 'ROMANIA': 'ro', 'BULGARIA': 'bg',
+    'GREECE': 'gr', 'TURKEY': 'tr', 'GEORGIA': 'ge', 'MOLDOVA': 'md', 'UKRAINE': 'ua',
+    'RUSSIA': 'ru', 'RUSSIAN FEDERATION': 'ru', 'KAZAKHSTAN': 'kz', 'UZBEKISTAN': 'uz',
+    'ARMENIA': 'am', 'AZERBAIJAN': 'az', 'CROATIA': 'hr', 'SLOVENIA': 'si', 'SERBIA': 'rs',
+    'MONTENEGRO': 'me', 'BOSNIA AND HERZEGOVINA': 'ba', 'NORTH MACEDONIA': 'mk', 'ALBANIA': 'al',
+    'CYPRUS': 'cy', 'ISRAEL': 'il', 'LEBANON': 'lb', 'SYRIA': 'sy', 'EUROPE': 'eu',
+    'ALGERIA': 'dz', 'MOROCCO': 'ma', 'TUNISIA': 'tn', 'EGYPT': 'eg',
+    'CHINA': 'cn', 'JAPAN': 'jp', 'SOUTH KOREA': 'kr',
+    'AUSTRALIA': 'au', 'NEW ZEALAND': 'nz', 'SOUTH AFRICA': 'za',
+    'CHILE': 'cl', 'ARGENTINA': 'ar', 'BRAZIL': 'br', 'URUGUAY': 'uy',
+    'PERU': 'pe', 'COLOMBIA': 'co', 'VENEZUELA': 've',
+    'UNITED KINGDOM': 'gb', 'GREAT BRITAIN': 'gb', 'ENGLAND': 'gb', 'SCOTLAND': 'gb', 'WALES': 'gb',
+    'IRELAND': 'ie', 'NETHERLANDS': 'nl', 'BELGIUM': 'be', 'DENMARK': 'dk',
+    'SWEDEN': 'se', 'NORWAY': 'no', 'FINLAND': 'fi', 'POLAND': 'pl',
+    'CZECH REPUBLIC': 'cz', 'SLOVAKIA': 'sk', 'LITHUANIA': 'lt', 'LATVIA': 'lv', 'ESTONIA': 'ee'
+  };
+
+  /**
+   * Get tree data for the family tree viewer.
+   * Builds a graph of all varieties with parent-child edges resolved via VIVC numbers.
+   */
+  getTreeData(): { varieties: string[]; nodes: any[]; edges: any[]; country_flags: Record<string, string> } {
+    // 1. Varieties for dropdown (wine-producing grapes only)
+    const varietyRows = this.db.prepare(`
+      SELECT name FROM grape_varieties
+      WHERE no_wine != 1 AND is_grape = 1
+      ORDER BY name
+    `).all() as { name: string }[];
+    const varieties = varietyRows.map(r => r.name);
+
+    // 2. All varieties with metadata (for nodes)
+    const allRows = this.db.prepare(`
+      SELECT id, name, vivc_number, berry_skin_color, country_of_origin, species,
+             sex_of_flower, year_of_crossing, breeder,
+             parent1_vivc_number, parent2_vivc_number
+      FROM grape_varieties
+    `).all() as any[];
+
+    // 3. Varieties that have producers (for has_producers flag)
+    const producerVarietyRows = this.db.prepare(`
+      SELECT DISTINCT gv.name
+      FROM grape_varieties gv
+      JOIN wine_grapes wg ON wg.grape_variety_id = gv.id
+    `).all() as { name: string }[];
+    const producerVarieties = new Set(producerVarietyRows.map(r => r.name));
+
+    // 4. Build edges via VIVC number joins
+    const edgeRows = this.db.prepare(`
+      SELECT child.name as child_name, parent.name as parent_name
+      FROM grape_varieties child
+      JOIN grape_varieties parent ON child.parent1_vivc_number = parent.vivc_number
+      WHERE child.parent1_vivc_number IS NOT NULL
+      UNION
+      SELECT child.name as child_name, parent.name as parent_name
+      FROM grape_varieties child
+      JOIN grape_varieties parent ON child.parent2_vivc_number = parent.vivc_number
+      WHERE child.parent2_vivc_number IS NOT NULL
+    `).all() as { child_name: string; parent_name: string }[];
+
+    // Collect which varieties appear in edges (nodes in the graph)
+    const graphVarieties = new Set<string>();
+    const edges: any[] = [];
+    const edgeSet = new Set<string>();
+
+    edgeRows.forEach(row => {
+      const edgeKey = `${row.parent_name}->${row.child_name}`;
+      if (!edgeSet.has(edgeKey)) {
+        edgeSet.add(edgeKey);
+        edges.push({
+          id: edgeKey,
+          source: row.parent_name,
+          target: row.child_name,
+          type: 'default'
+        });
+        graphVarieties.add(row.parent_name);
+        graphVarieties.add(row.child_name);
+      }
+    });
+
+    // Also include varieties from dropdown that have no edges (isolated nodes)
+    varieties.forEach(v => graphVarieties.add(v));
+
+    // 5. Build nodes for all varieties in the graph
+    const rowsByName = new Map<string, any>();
+    allRows.forEach(row => rowsByName.set(row.name, row));
+
+    const nodes = Array.from(graphVarieties).map(name => {
+      const row = rowsByName.get(name);
+      return {
+        id: name,
+        type: 'grapeNode',
+        position: { x: 0, y: 0 },
+        data: {
+          label: name,
+          vivc_number: row?.vivc_number ?? null,
+          berry_color: row?.berry_skin_color?.toLowerCase() ?? null,
+          country: row?.country_of_origin ?? null,
+          country_code: GrapeGeekDB.COUNTRY_FLAGS[(row?.country_of_origin ?? '').toUpperCase()] ?? '',
+          species: row?.species ?? null,
+          sex: row?.sex_of_flower ?? null,
+          breeder: row?.breeder ?? null,
+          year_crossing: row?.year_of_crossing ?? null,
+          has_producers: producerVarieties.has(name),
+          is_selected: false,
+          is_duplicate: false
+        }
+      };
+    });
+
+    return {
+      varieties,
+      nodes,
+      edges,
+      country_flags: GrapeGeekDB.COUNTRY_FLAGS
+    };
+  }
+
+  // ========================================
   // Helper methods
   // ========================================
 
@@ -607,6 +732,7 @@ export class GrapeGeekDB {
       species: row.species,
       parent1_name: row.parent1_name,
       parent2_name: row.parent2_name,
+      breeder: row.breeder,
       sex_of_flower: row.sex_of_flower,
       year_of_crossing: row.year_of_crossing,
       vivc_assignment_status: row.vivc_assignment_status,

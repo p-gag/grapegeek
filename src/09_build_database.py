@@ -121,6 +121,9 @@ class DatabaseBuilder:
                 species TEXT,
                 parent1_name TEXT,
                 parent2_name TEXT,
+                parent1_vivc_number INTEGER,
+                parent2_vivc_number INTEGER,
+                breeder TEXT,
                 sex_of_flower TEXT,
                 year_of_crossing TEXT,
                 vivc_assignment_status TEXT,
@@ -278,28 +281,35 @@ class DatabaseBuilder:
                     if not country_of_origin:
                         country_of_origin = data.get('country_of_origin')
 
-                    # Get parent names from portfolio or top level
+                    # Get parent names and VIVC numbers from portfolio or top level
                     parent1_name = None
                     parent2_name = None
+                    parent1_vivc_number = None
+                    parent2_vivc_number = None
                     if isinstance(portfolio, dict):
                         parent1 = portfolio.get('parent1', {})
                         parent2 = portfolio.get('parent2', {})
                         if isinstance(parent1, dict):
                             parent1_name = parent1.get('name')
+                            parent1_vivc_number = parent1.get('vivc_number')
                         if isinstance(parent2, dict):
                             parent2_name = parent2.get('name')
+                            parent2_vivc_number = parent2.get('vivc_number')
                     if not parent1_name:
                         parent1_name = data.get('parent1_name')
                     if not parent2_name:
                         parent2_name = data.get('parent2_name')
 
+                    breeder = portfolio.get('breeder') if isinstance(portfolio, dict) else None
+
                     cursor = self.conn.execute("""
                         INSERT OR IGNORE INTO grape_varieties (
                             name, is_grape, vivc_number, berry_skin_color,
                             country_of_origin, species, parent1_name, parent2_name,
+                            parent1_vivc_number, parent2_vivc_number, breeder,
                             sex_of_flower, year_of_crossing, vivc_assignment_status,
                             no_wine, source
-                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """, (
                         name,
                         is_grape,
@@ -309,6 +319,9 @@ class DatabaseBuilder:
                         species,
                         parent1_name,
                         parent2_name,
+                        parent1_vivc_number,
+                        parent2_vivc_number,
+                        breeder,
                         portfolio.get('sex_of_flower') or data.get('sex_of_flower'),
                         portfolio.get('year_of_crossing') or data.get('year_of_crossing'),
                         data.get('vivc_assignment_status'),

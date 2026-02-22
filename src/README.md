@@ -60,7 +60,7 @@ graph TD
     D7 --> B7[07_generate_stats.py]
     B7 --> D10[dataset_statistics.txt]
 
-    %% Step 6: Database Build (map data served directly from DB at build time)
+    %% Step 6: Database Build (map + tree data served directly from DB at build time)
     D7 --> B9[09_build_database.py]
     D4 --> B9
     B9 --> D11[data/grapegeek.db]
