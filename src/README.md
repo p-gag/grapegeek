@@ -57,28 +57,21 @@ graph TD
     B5 --> D7[data/05_wine_producers_final_normalized.jsonl]
     
     %% Step 5: Outputs
-    D7 --> B6[06_output_geojson.py]
-    B6 --> D8[data/wine-producers-final.geojson]
-
     D7 --> B7[07_generate_stats.py]
     B7 --> D10[dataset_statistics.txt]
 
-    %% Step 6: Database Build
+    %% Step 6: Database Build (map data served directly from DB at build time)
     D7 --> B9[09_build_database.py]
     D4 --> B9
     B9 --> D11[data/grapegeek.db]
-
-    %% Step 7: Next.js Map Data
-    D8 --> B10[19_generate_map_data.py]
-    B10 --> D12[grapegeek-nextjs/public/data/map-data.json]
 
     %% Styling
     classDef script fill:#e1f5fe
     classDef datafile fill:#f3e5f5
     classDef manual fill:#fff3e0
 
-    class B0,B1,B2,B3,B4,B4B,B4C,B5,B6,B7,B8,B9,B10 script
-    class D1,D2,D2M,D3A,D3B,D4,D4D,D7,D8,D10,D11,D12 datafile
+    class B0,B1,B2,B3,B4,B4B,B4C,B5,B7,B9 script
+    class D1,D2,D2M,D3A,D3B,D4,D4D,D7,D10,D11 datafile
     class B3,B4,B4B manual
 ```
 
@@ -114,16 +107,12 @@ uv run src/08a_photo_sync_gcs.py
 uv run src/05_data_final_normalized.py
 
 # 7. Generate outputs
-uv run src/06_output_geojson.py
 uv run src/07_generate_stats.py
 uv run src/08_build_vivc_index.py
 
-# 8. Build SQLite database (required for Next.js site)
+# 8. Build SQLite database (required for Next.js site, map data served directly from DB)
 uv run src/09_build_database.py
 cp data/grapegeek.db grapegeek-nextjs/data/
-
-# 9. Generate map data for Next.js site
-uv run src/19_generate_map_data.py
 ```
 
 ### Variety Updates Only
@@ -173,7 +162,7 @@ uv run pytest tests/
 ### Pipeline Triggers
 1. **New region indexing** → Full pipeline (steps 0-8)
 2. **Re-running existing sources** → May find new producers/varieties
-3. **New variety discoveries** → Variety processing steps (3-6)
+3. **New variety discoveries** → Variety processing steps (3-7)
 
 ---
 

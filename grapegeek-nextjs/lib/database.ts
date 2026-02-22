@@ -15,7 +15,6 @@
 
 import Database from 'better-sqlite3';
 import path from 'path';
-import fs from 'fs';
 import { slugify } from './utils';
 import {
   Winegrower,
@@ -36,16 +35,6 @@ import {
 } from './types';
 
 const EXPECTED_SCHEMA_VERSION = 1;
-
-// Load map data JSON (contains winegrower-variety relationships)
-let mapDataCache: any = null;
-function getMapData() {
-  if (!mapDataCache) {
-    const mapDataPath = path.join(process.cwd(), 'public', 'data', 'map-data.json');
-    mapDataCache = JSON.parse(fs.readFileSync(mapDataPath, 'utf-8'));
-  }
-  return mapDataCache;
-}
 
 /**
  * Validate that database schema matches expected version

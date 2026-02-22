@@ -43,6 +43,18 @@ const winegrower = db.getWinegrower('slug', true);
 - All data embedded in static HTML
 - Database file lives in `data/grapegeek.db` (NOT committed to git)
 
+### Map Data Pipeline
+Map data is queried directly from the database at build time — no intermediate files.
+
+```
+grapegeek.db → api/map-data/route.ts (force-static) → static JSON → browser
+```
+
+- `db.getMapMarkers()` → `MapMarker[]` (permit_id, name, lat, lng, city, state_province, country, varieties, wine_types)
+- `db.getIndexedRegions()` → region overlay data (state_province, country)
+- Filter options (varieties, wine_types, states) built from markers at build time
+- Consumed by: `map/page.tsx` (full map), `MapPreviewLeaflet.tsx` (variety mini-maps)
+
 ### Full-Text Search
 - Uses SQLite FTS5 for search functionality
 - Available methods:

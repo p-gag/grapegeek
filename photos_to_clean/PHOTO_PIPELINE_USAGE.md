@@ -176,7 +176,6 @@ uv run src/05_data_final_normalized.py
 uv run src/09_build_database.py
 
 # 6. Generate outputs
-uv run src/06_output_geojson.py
 uv run src/07_generate_stats.py
 ```
 
