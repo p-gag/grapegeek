@@ -657,7 +657,7 @@ class TreeDataGenerator:
                 'type': 'default'
             })
     
-    def generate_data_file(self, output_path: str = "grape-tree-react/src/data/tree-data.json"):
+    def generate_data_file(self, output_path: str = "grapegeek-nextjs/public/data/tree-data.json"):
         """Generate the JSON data file for React Flow."""
         print("🔧 Generating tree data...")
         tree_data = self.generate_tree_data()
@@ -682,15 +682,15 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python src/18_generate_tree_data.py                           # Generate to grape-tree-react/src/data/tree-data.json
+  python src/18_generate_tree_data.py                           # Generate to grapegeek-nextjs/public/data/tree-data.json
   python src/18_generate_tree_data.py --output custom.json     # Custom output path
         """
     )
-    
+
     parser.add_argument(
-        "--output", 
-        default="grape-tree-react/src/data/tree-data.json",
-        help="Output JSON file path (default: grape-tree-react/src/data/tree-data.json)"
+        "--output",
+        default="grapegeek-nextjs/public/data/tree-data.json",
+        help="Output JSON file path (default: grapegeek-nextjs/public/data/tree-data.json)"
     )
     
     args = parser.parse_args()
