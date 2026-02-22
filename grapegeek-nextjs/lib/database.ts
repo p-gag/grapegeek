@@ -270,14 +270,21 @@ export class GrapeGeekDB {
   }
 
   /**
-   * Get all variety slugs (for SSG page generation)
+   * Get all variety slugs (for SSG page generation).
+   * Appends VIVC number when two varieties produce the same base slug.
    */
   getAllVarietySlugs(): string[] {
     const rows = this.db.prepare(
-      'SELECT name FROM grape_varieties ORDER BY name'
-    ).all() as { name: string }[];
+      'SELECT name, vivc_number FROM grape_varieties ORDER BY name'
+    ).all() as { name: string; vivc_number: number | null }[];
 
-    return rows.map(row => slugify(row.name));
+    const count: Record<string, number> = {};
+    rows.forEach(r => { const s = slugify(r.name); count[s] = (count[s] || 0) + 1; });
+
+    return rows.map(r => {
+      const s = slugify(r.name);
+      return count[s] > 1 ? `${s}-${r.vivc_number}` : s;
+    });
   }
 
   /**
@@ -285,10 +292,17 @@ export class GrapeGeekDB {
    */
   getVarietyBySlug(slug: string, includeRelationships = false): GrapeVariety | null {
     const rows = this.db.prepare(
-      'SELECT name FROM grape_varieties'
-    ).all() as { name: string }[];
+      'SELECT name, vivc_number FROM grape_varieties'
+    ).all() as { name: string; vivc_number: number | null }[];
 
-    const row = rows.find(r => slugify(r.name) === slug);
+    const count: Record<string, number> = {};
+    rows.forEach(r => { const s = slugify(r.name); count[s] = (count[s] || 0) + 1; });
+
+    const row = rows.find(r => {
+      const s = slugify(r.name);
+      const fullSlug = count[s] > 1 ? `${s}-${r.vivc_number}` : s;
+      return fullSlug === slug;
+    });
     if (!row) return null;
 
     return this.getVariety(row.name, includeRelationships);

@@ -47,6 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${variety.name} - ${t('variety.grapeVariety')} | GrapeGeek`,
     description: description,
     alternates: {
+      canonical: `https://grapegeek.com/${params.locale}/varieties/${params.name}`,
       languages: {
         en: `https://grapegeek.com/en/varieties/${params.name}`,
         fr: `https://grapegeek.com/fr/varieties/${params.name}`,
