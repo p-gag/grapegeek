@@ -103,6 +103,8 @@ uv run src/04_vivc_assign.py --limit 10
 
 # 5. Consolidate VIVC duplicates (CRITICAL)
 uv run src/includes/grape_varieties.py consolidate
+# TODO: "DIANA" (VIVC 3547) and "Diana" (VIVC 3550) survive as separate entries —
+#       normalization should deduplicate same-name varieties differing only by case.
 
 # 5a. Sync VIVC photos to GCS (NEW - optional but recommended)
 # Default: only processes varieties without photos, "Cluster in the field" photos only
