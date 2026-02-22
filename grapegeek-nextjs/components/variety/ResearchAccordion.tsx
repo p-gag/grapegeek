@@ -19,17 +19,9 @@ export default function ResearchAccordion({ variety, locale }: ResearchAccordion
         <p>{t('variety.research.subtitle')}</p>
       </div>
 
-      {/* Coming Soon Placeholder */}
-      <div className="coming-soon">
-        <div className="coming-soon-icon">🔬</div>
-        <h3>{t('variety.research.comingSoonTitle')}</h3>
-        <p>
-          {t('variety.research.comingSoonText', { variety: variety.name })}
-        </p>
-        <p style={{ fontSize: '0.9rem', fontStyle: 'italic', marginTop: '1rem' }}>
-          {t('variety.research.comingSoonSubtext')}
-        </p>
-      </div>
+      <p className="text-gray-500 italic text-sm mt-4 text-center">
+        {t('variety.research.comingSoonText', { variety: variety.name })}
+      </p>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { Wine, Map, BarChart3, Search } from 'lucide-react';
 import { getDatabase } from '@/lib/database';
-import StatCard from '@/components/home/StatCard';
-import FeatureCard from '@/components/home/FeatureCard';
+import GlobalSearch from '@/components/search/GlobalSearch';
+import NoScroll from '@/components/NoScroll';
 import type { Metadata } from 'next';
 import { type Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
+import type { SearchItem } from '@/lib/types';
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
   const t = createTranslator(params.locale);
@@ -19,103 +19,55 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
   const { locale } = params;
   const t = createTranslator(locale);
   const db = getDatabase();
-  const stats = db.getStats();
+  const searchData = db.getSearchData();
+
+  const searchItems: SearchItem[] = [
+    ...searchData.varieties,
+    ...searchData.winegrowers,
+  ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-dark to-brand text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            {t('home.hero.title')}
+    <>
+      <NoScroll />
+      {/* Fill the viewport below the sticky header (~65px = py-4 + content) */}
+      <section className="relative bg-gradient-to-b from-[#4a3570] to-[#7B56D1] flex flex-col items-center text-white px-4 overflow-hidden h-dvh">
+        {/* Dot texture */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: 'radial-gradient(circle at 25% 60%, white 1px, transparent 1px), radial-gradient(circle at 75% 30%, white 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+        }} />
+
+        {/* Top zone (smaller) — title anchored to bottom */}
+        <div className="relative flex-[2] flex flex-col items-center justify-end pb-8 w-full max-w-3xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-3">
+            GrapeGeek
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-purple-100">
+          <p className="text-purple-200 text-lg md:text-xl max-w-lg">
             {t('home.hero.subtitle')}
           </p>
-
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link
-              href={`/${locale}/map`}
-              className="bg-white text-brand px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors shadow-lg"
-            >
-              {t('home.hero.exploreMap')}
-            </Link>
-            <Link
-              href={`/${locale}/varieties`}
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
-            >
-              {t('home.hero.browseVarieties')}
-            </Link>
-          </div>
         </div>
-      </section>
 
-      {/* Stats Grid */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-          {t('home.stats.title')}
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <StatCard
-            icon={<Wine className="w-12 h-12" />}
-            value={stats.total_varieties}
-            label={t('home.stats.varieties')}
-            href={`/${locale}/varieties`}
-          />
-          <StatCard
-            icon={<Map className="w-12 h-12" />}
-            value={stats.total_winegrowers}
-            label={t('home.stats.winegrowers')}
-            href={`/${locale}/winegrowers`}
-          />
-          <StatCard
-            icon={<BarChart3 className="w-12 h-12" />}
-            value={Object.keys(stats.countries).length}
-            label={t('home.stats.countries')}
-            href={`/${locale}/stats`}
-          />
-          <StatCard
-            icon={<Search className="w-12 h-12" />}
-            value={stats.total_wines}
-            label={t('home.stats.wines')}
-            href={`/${locale}/stats`}
+        {/* Search — pinned at vertical midpoint */}
+        <div className="relative w-full max-w-3xl px-4">
+          <GlobalSearch
+            items={searchItems}
+            locale={locale}
+            placeholder={t('home.search.placeholder')}
+            labelVariety={t('home.search.tagVariety')}
+            labelWinegrower={t('home.search.tagWinegrower')}
           />
         </div>
-      </section>
 
-      {/* Features Section */}
-      <section className="bg-[#F5F6FA] py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            {t('home.features.title')}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FeatureCard
-              title={t('home.features.map.title')}
-              description={t('home.features.map.description')}
-              href={`/${locale}/map`}
-              icon={<Map className="w-12 h-12" />}
-              exploreLabel={t('home.features.explore')}
-            />
-            <FeatureCard
-              title={t('home.features.varieties.title')}
-              description={t('home.features.varieties.description')}
-              href={`/${locale}/varieties`}
-              icon={<Wine className="w-12 h-12" />}
-              exploreLabel={t('home.features.explore')}
-            />
-            <FeatureCard
-              title={t('home.features.stats.title')}
-              description={t('home.features.stats.description')}
-              href={`/${locale}/stats`}
-              icon={<BarChart3 className="w-12 h-12" />}
-              exploreLabel={t('home.features.explore')}
-            />
-          </div>
+        {/* Bottom zone (larger) — link anchored to top */}
+        <div className="relative flex-[3] flex flex-col items-center justify-start pt-8">
+          <Link
+            href={`/${locale}/map`}
+            className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white px-5 py-2 rounded-full transition-colors font-medium text-sm"
+          >
+            {t('home.hero.winegrowerMap')}
+          </Link>
         </div>
       </section>
-    </div>
+    </>
   );
 }

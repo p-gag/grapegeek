@@ -7,7 +7,6 @@ import MapPreview from '@/components/variety/MapPreview';
 import TreePreviewReactFlow from '@/components/variety/TreePreviewReactFlow';
 import ResearchAccordion from '@/components/variety/ResearchAccordion';
 import SectionNav from '@/components/variety/SectionNav';
-import DataDisclaimer from '@/components/variety/DataDisclaimer';
 import ProductionStats from '@/components/variety/ProductionStats';
 import { type Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
@@ -172,8 +171,6 @@ export default function VarietyDetailPage({ params }: Props) {
         </section>
       )}
 
-      {/* Footer: Data Disclaimer */}
-      <DataDisclaimer type="variety" locale={locale} />
     </div>
   );
 }

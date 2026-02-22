@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import WinegrowerMap from '@/components/winegrower/WinegrowerMap';
 import WinegrowerVarieties from '@/components/winegrower/WinegrowerVarieties';
-import DataDisclaimer from '@/components/variety/DataDisclaimer';
 import { type Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
 
@@ -167,8 +166,6 @@ export default function WinegrowerDetailPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Footer: Data Disclaimer */}
-      <DataDisclaimer type="producer" locale={locale} />
     </div>
   );
 }

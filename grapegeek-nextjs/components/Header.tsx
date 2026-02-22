@@ -32,23 +32,8 @@ export default function Header({ locale }: HeaderProps) {
 
           <ul className="flex items-center gap-6">
             <li>
-              <Link href={`/${locale}/varieties`} className="text-gray-700 hover:text-brand transition">
-                {t('nav.varieties')}
-              </Link>
-            </li>
-            <li>
-              <Link href={`/${locale}/winegrowers`} className="text-gray-700 hover:text-brand transition">
-                {t('nav.winegrowers')}
-              </Link>
-            </li>
-            <li>
               <Link href={`/${locale}/map`} className="text-gray-700 hover:text-brand transition">
                 {t('nav.map')}
-              </Link>
-            </li>
-            <li>
-              <Link href={`/${locale}/stats`} className="text-gray-700 hover:text-brand transition">
-                {t('nav.stats')}
               </Link>
             </li>
             <li>

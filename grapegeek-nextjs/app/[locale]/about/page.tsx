@@ -60,6 +60,16 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
         </section>
 
         <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-3">Data &amp; Statistics</h2>
+          <p className="text-gray-700 leading-relaxed">
+            Explore coverage, distribution by region, and variety usage on the{' '}
+            <Link href={`/${locale}/stats`} className="text-brand hover:underline font-medium">
+              statistics page
+            </Link>.
+          </p>
+        </section>
+
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-3">{t('about.summary.title')}</h2>
           <ul className="space-y-4">
             <li className="text-gray-700 leading-relaxed">
