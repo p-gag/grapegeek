@@ -1,6 +1,6 @@
 import { GrapeVariety } from '@/lib/types'
 import Link from 'next/link'
-import { slugify } from '@/lib/utils'
+import { slugify, simplifySpeciesName } from '@/lib/utils'
 import { Wine, MapPin, Users } from 'lucide-react'
 import type { Locale } from '@/lib/i18n/config'
 import { createTranslator } from '@/lib/i18n/translate'
@@ -40,7 +40,7 @@ export default function VarietyCard({ variety, locale }: Props) {
           {variety.species && (
             <div className="flex items-center gap-2 text-sm text-gray-600">
               <span className="font-semibold">{t('varieties.card.species')}</span>
-              <span className="truncate">{variety.species}</span>
+              <span className="truncate">{simplifySpeciesName(variety.species)}</span>
             </div>
           )}
 

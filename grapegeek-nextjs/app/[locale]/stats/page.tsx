@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getDatabase } from '@/lib/database';
+import { simplifySpeciesName } from '@/lib/utils';
 import { Grape, Wine, MapPin, Building2, Globe, Database } from 'lucide-react';
 import StatBox from '@/components/stats/StatBox';
 import ChartCard from '@/components/stats/ChartCard';
@@ -32,7 +33,7 @@ export default function StatsPage({ params }: { params: { locale: Locale } }) {
     .sort((a, b) => b.value - a.value);
 
   const speciesData = Object.entries(stats.species)
-    .map(([name, value]) => ({ name, value }))
+    .map(([name, value]) => ({ name: simplifySpeciesName(name), value }))
     .sort((a, b) => b.value - a.value);
 
   const berryColorData = Object.entries(stats.berry_colors)

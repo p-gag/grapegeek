@@ -1,14 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { slugify } from '@/lib/utils';
-import type { GrapeVariety } from '@/lib/types';
+import { slugify, simplifySpeciesName } from '@/lib/utils';
+import type { GrapeVariety, VarietyProductionStats } from '@/lib/types';
 import type { Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
 
 interface GrapeInfoProps {
   variety: GrapeVariety & {
-    // Optional fields that may not exist yet
     year_of_crossing?: number | string;
     breeder?: string;
     known_for?: string;
@@ -17,35 +16,45 @@ interface GrapeInfoProps {
     ripening_season?: string;
   };
   locale: Locale;
+  productionStats?: VarietyProductionStats | null;
 }
 
-export default function GrapeInfo({ variety, locale }: GrapeInfoProps) {
+export default function GrapeInfo({ variety, locale, productionStats }: GrapeInfoProps) {
   const t = createTranslator(locale);
 
-  // Get parent names
   const parents: string[] = [];
   if (variety.parent1_name) parents.push(variety.parent1_name);
   if (variety.parent2_name) parents.push(variety.parent2_name);
 
-  // Get producer count
   const producerCount = variety.uses?.length || 0;
+
+  const varietalStats = productionStats?.varietal_stats;
+  const hasWineStats = varietalStats && varietalStats.total_wines > 0;
+  const varietalPct = hasWineStats ? varietalStats.varietal_percentage : 0;
+  const blendedPct = hasWineStats ? 100 - varietalPct : 0;
+
+  const geoDist = productionStats?.geographic_distribution || [];
+  const topGeo = geoDist.slice(0, 5);
+  const maxGeoCount = topGeo.length > 0 ? topGeo[0].producer_count : 0;
 
   return (
     <div className="grape-info">
       {/* Key Details */}
       <div className="grape-details">
-        {/* Bred */}
-        {(variety.year_of_crossing || variety.breeder) && (
+        {variety.species && (
           <div className="detail-row">
-            <span className="detail-label">{t('variety.info.bred')}</span>
-            <span className="detail-value">
-              {variety.year_of_crossing && `${variety.year_of_crossing} `}
-              {variety.breeder && `by ${variety.breeder}`}
-            </span>
+            <span className="detail-label">{t('variety.info.species')}</span>
+            <span className="detail-value detail-value-italic">{simplifySpeciesName(variety.species)}</span>
           </div>
         )}
 
-        {/* Parents */}
+        {variety.berry_skin_color && (
+          <div className="detail-row">
+            <span className="detail-label">{t('variety.info.berryColor')}</span>
+            <span className="detail-value">{variety.berry_skin_color}</span>
+          </div>
+        )}
+
         {parents.length > 0 && (
           <div className="detail-row">
             <span className="detail-label">{t('variety.info.parents')}</span>
@@ -65,120 +74,110 @@ export default function GrapeInfo({ variety, locale }: GrapeInfoProps) {
           </div>
         )}
 
-        {/* Species */}
-        {variety.species && (
+        {(variety.year_of_crossing || variety.breeder) && (
           <div className="detail-row">
-            <span className="detail-label">{t('variety.info.species')}</span>
-            <span className="detail-value">{variety.species}</span>
+            <span className="detail-label">{t('variety.info.bred')}</span>
+            <span className="detail-value">
+              {variety.year_of_crossing && `${variety.year_of_crossing} `}
+              {variety.breeder && `by ${variety.breeder}`}
+            </span>
           </div>
         )}
 
-        {/* Berry Skin Color */}
-        {variety.berry_skin_color && (
-          <div className="detail-row">
-            <span className="detail-label">{t('variety.info.berryColor')}</span>
-            <span className="detail-value">{variety.berry_skin_color}</span>
-          </div>
-        )}
-
-        {/* Known for */}
-        {variety.known_for && (
-          <div className="detail-row">
-            <span className="detail-label">{t('variety.info.knownFor')}</span>
-            <span className="detail-value">{variety.known_for}</span>
-          </div>
-        )}
-
-        {/* Country of Origin */}
         {variety.country_of_origin && (
           <div className="detail-row">
             <span className="detail-label">{t('variety.info.origin')}</span>
             <span className="detail-value">{variety.country_of_origin}</span>
           </div>
         )}
-
-        {/* VIVC Number */}
-        {variety.vivc_number && (
-          <div className="detail-row">
-            <span className="detail-label">{t('variety.info.vivcNumber')}</span>
-            <span className="detail-value">
-              <a
-                href={`http://www.vivc.de/index.php?r=passport%2Fview&id=${variety.vivc_number}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="parent-link"
-              >
-                #{variety.vivc_number}
-              </a>
-            </span>
-          </div>
-        )}
       </div>
 
-      {/* Quick Stats Card */}
-      <div className="quick-stats-card">
-        <h4>{t('variety.info.quickStats')}</h4>
+      {/* VIVC Link */}
+      {variety.vivc_number && (
+        <a
+          href={`https://www.vivc.de/index.php?r=passport%2Fview&id=${variety.vivc_number}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="vivc-compact-link"
+        >
+          <span className="vivc-compact-text">
+            {t('variety.info.viewOnVivc')} <span className="vivc-compact-number">#{variety.vivc_number}</span>
+          </span>
+          <span className="vivc-compact-arrow">↗</span>
+        </a>
+      )}
 
-        {/* VIVC Link Button */}
-        {variety.vivc_number && (
-          <a
-            href={`http://www.vivc.de/index.php?r=passport%2Fview&id=${variety.vivc_number}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="vivc-link-button"
-          >
-            <span className="vivc-icon">🔗</span>
-            <span className="vivc-text">
-              <strong>{t('variety.info.viewOnVivc')}</strong>
-              <small>Vitis International Variety Catalogue</small>
-            </span>
-            <span className="vivc-arrow">→</span>
-          </a>
-        )}
-
-        <div className="stat-grid">
-          {/* Winegrower Count */}
-          <div className="stat-item">
-            <div className="stat-icon">🍷</div>
-            <div className="stat-content">
-              <span className="stat-number">{producerCount}</span>
-              <span className="stat-label">{t('variety.info.winegrowers')}</span>
+      {/* Stats side by side on desktop, stacked on mobile */}
+      <div className="info-stats-grid">
+        {/* Wine production stats — donut chart */}
+        {hasWineStats && (
+          <div className="info-stats-cell">
+            <div className="info-stats-header">
+              <span className="info-stats-number">{varietalStats.total_wines}</span>
+              <span className="info-stats-label">{t('variety.production.wines')}</span>
+            </div>
+            <div className="info-stats-body">
+              <div className="donut-chart-container">
+                <svg viewBox="0 0 100 100" className="donut-chart">
+                  <circle
+                    cx="50" cy="50" r="38"
+                    fill="none"
+                    stroke="#f59e0b"
+                    strokeWidth="12"
+                  />
+                  <circle
+                    cx="50" cy="50" r="38"
+                    fill="none"
+                    stroke="#8b5cf6"
+                    strokeWidth="12"
+                    strokeDasharray={`${varietalPct * 2.388} ${238.8 - varietalPct * 2.388}`}
+                    strokeDashoffset="59.7"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <div className="donut-center">
+                  <span className="donut-pct">{varietalPct.toFixed(0)}%</span>
+                  <span className="donut-sub">{t('variety.production.singleVarietal')}</span>
+                </div>
+              </div>
+              <div className="donut-legend">
+                <span className="donut-legend-item varietal-color">
+                  <span className="donut-legend-dot" style={{ background: '#8b5cf6' }} />
+                  {t('variety.production.singleVarietal')}
+                </span>
+                <span className="donut-legend-item blended-color">
+                  <span className="donut-legend-dot" style={{ background: '#f59e0b' }} />
+                  {t('variety.production.blended')}
+                </span>
+              </div>
             </div>
           </div>
+        )}
 
-          {/* Cold Hardiness */}
-          {variety.hardiness && (
-            <div className="stat-item">
-              <div className="stat-icon">🌡️</div>
-              <div className="stat-content">
-                <span className="stat-number">{variety.hardiness}</span>
-                <span className="stat-label">{t('variety.info.coldHardiness')}</span>
+        {/* Winegrowers with geographic breakdown */}
+        <div className="info-stats-cell">
+          <div className="info-stats-header">
+            <span className="info-stats-number">{producerCount}</span>
+            <span className="info-stats-label">{t('variety.info.winegrowers')}</span>
+          </div>
+          <div className="info-stats-body">
+            {topGeo.length > 0 && (
+              <div className="geo-bars">
+                {topGeo.map((geo) => (
+                  <div key={`${geo.state_province}-${geo.country}`} className="geo-bar-row">
+                    <span className="geo-bar-name">{geo.state_province}</span>
+                    <div className="geo-bar-track">
+                      <div
+                        className="geo-bar-fill"
+                        style={{ width: `${(geo.producer_count / maxGeoCount) * 100}%` }}
+                      />
+                    </div>
+                    <span className="geo-bar-count">{geo.producer_count}</span>
+                  </div>
+                ))}
               </div>
-            </div>
-          )}
-
-          {/* Wine Styles */}
-          {variety.wine_styles && variety.wine_styles.length > 0 && (
-            <div className="stat-item">
-              <div className="stat-icon">🍷</div>
-              <div className="stat-content">
-                <span className="stat-number">{variety.wine_styles.length}</span>
-                <span className="stat-label">{t('variety.info.wineStyles')}</span>
-                <span className="stat-detail">{variety.wine_styles.join(', ')}</span>
-              </div>
-            </div>
-          )}
-
-          {/* Ripening Season */}
-          {variety.ripening_season && (
-            <div className="stat-item">
-              <div className="stat-icon">🗓️</div>
-              <div className="stat-content">
-                <span className="stat-number">{variety.ripening_season}</span>
-                <span className="stat-label">{t('variety.info.ripeningSeasons')}</span>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

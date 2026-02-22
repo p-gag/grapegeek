@@ -1,6 +1,6 @@
 import { GrapeVariety } from '@/lib/types';
 import Link from 'next/link';
-import { slugify } from '@/lib/utils';
+import { slugify, simplifySpeciesName } from '@/lib/utils';
 import { Users, Dna, MapPin, Calendar, Droplet } from 'lucide-react';
 
 interface Props {
@@ -23,7 +23,7 @@ export default function VarietyInfo({ variety }: Props) {
           {variety.species && (
             <div className="border-b pb-3">
               <p className="text-sm text-gray-600 mb-1">Species</p>
-              <p className="font-semibold text-gray-900">{variety.species}</p>
+              <p className="font-semibold text-gray-900">{simplifySpeciesName(variety.species)}</p>
             </div>
           )}
 

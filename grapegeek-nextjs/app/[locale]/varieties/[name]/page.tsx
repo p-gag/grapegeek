@@ -10,7 +10,7 @@ import SectionNav from '@/components/variety/SectionNav';
 import ProductionStats from '@/components/variety/ProductionStats';
 import { type Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
-import { slugify } from '@/lib/utils';
+import { slugify, simplifySpeciesName } from '@/lib/utils';
 
 interface Props {
   params: { locale: Locale; name: string };
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const usageCount = variety.uses?.length || 0;
   const description = [
     variety.name,
-    variety.species ? `is a ${variety.species} ${t('variety.grapeVariety')}` : t('variety.grapeVariety'),
+    variety.species ? `is a ${simplifySpeciesName(variety.species)} ${t('variety.grapeVariety')}` : t('variety.grapeVariety'),
     variety.berry_skin_color ? t('variety.withBerries', { color: variety.berry_skin_color }) : '',
     usageCount > 0 ? `Used by ${usageCount} winegrower${usageCount !== 1 ? 's' : ''} in North America.` : ''
   ].filter(Boolean).join(' ');
@@ -79,7 +79,7 @@ export default function VarietyDetailPage({ params }: Props) {
           <div className="variety-hero-header">
             <h1 className="variety-title">{variety.name}</h1>
             <p className="variety-tagline">
-              {variety.species && `${variety.species} ${t('variety.grapeVariety')}`}
+              {variety.species && `${simplifySpeciesName(variety.species)} ${t('variety.grapeVariety')}`}
               {variety.berry_skin_color && ` ${t('variety.withBerries', { color: variety.berry_skin_color })}`}
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function VarietyDetailPage({ params }: Props) {
                 </div>
               </div>
             )}
-            <GrapeInfo variety={variety} locale={locale} />
+            <GrapeInfo variety={variety} locale={locale} productionStats={productionStats} />
           </div>
         </div>
       </section>

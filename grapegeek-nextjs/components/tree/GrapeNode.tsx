@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { Handle, Position } from 'reactflow';
+import { simplifySpeciesName } from '@/lib/utils';
 
 // Species color constants
 const SPECIES_COLORS: { [key: string]: string } = {
@@ -111,7 +112,7 @@ const GrapeNode = memo(({ data, isConnectable }: GrapeNodeProps) => {
   const createTooltip = () => {
     const details = [];
     if (data.vivc_number) details.push(`VIVC: ${data.vivc_number}`);
-    if (data.species) details.push(`Species: ${data.species}`);
+    if (data.species) details.push(`Species: ${simplifySpeciesName(data.species)}`);
     if (data.berry_color) details.push(`Berry: ${data.berry_color}`);
     if (data.country) details.push(`Origin: ${data.country}`);
     if (data.year_crossing) details.push(`Year: ${data.year_crossing}`);

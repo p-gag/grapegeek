@@ -378,18 +378,22 @@ body {
 .grape-info {
   background: var(--bg-card);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .grape-details {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .detail-row {
   display: flex;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--gray-100);
+  align-items: baseline;
 }
 
 .detail-row:last-child {
@@ -397,14 +401,22 @@ body {
 }
 
 .detail-label {
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
-  min-width: 120px;
+  min-width: 90px;
   flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .detail-value {
   color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.detail-value-italic {
+  font-style: italic;
 }
 
 .parent-link {
@@ -417,112 +429,221 @@ body {
   text-decoration: underline;
 }
 
-.quick-stats-card {
-  background: var(--gray-50);
-  border-radius: 8px;
-  padding: 1.5rem;
-  border-left: 4px solid var(--primary-blue);
-}
-
-.quick-stats-card h4 {
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-}
-
-/* VIVC Link Button */
-.vivc-link-button {
+/* VIVC compact link */
+.vivc-compact-link {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  background: rgba(107, 70, 193, 0.06);
+  border: 1px solid rgba(107, 70, 193, 0.2);
   border-radius: 8px;
   text-decoration: none;
-  color: white;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.vivc-link-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-.vivc-link-button .vivc-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-}
-
-.vivc-link-button .vivc-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  flex: 1;
-}
-
-.vivc-link-button .vivc-text strong {
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
-}
-
-.vivc-link-button .vivc-text small {
-  font-size: 0.75rem;
-  opacity: 0.9;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.vivc-link-button .vivc-arrow {
-  font-size: 1.25rem;
-  font-weight: bold;
-  transition: transform 0.2s ease;
-}
-
-.vivc-link-button:hover .vivc-arrow {
-  transform: translateX(4px);
-}
-
-.stat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.stat-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.stat-icon {
-  font-size: 1.2rem;
-  margin-top: 0.1rem;
-}
-
-.stat-content {
-  flex: 1;
-}
-
-.stat-number {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.stat-label {
-  display: block;
+  color: var(--brand-accent);
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.vivc-compact-link:hover {
+  background: rgba(107, 70, 193, 0.1);
+  border-color: rgba(107, 70, 193, 0.35);
+  color: var(--brand-primary);
+}
+
+.vivc-compact-text {
   font-weight: 500;
 }
 
-.stat-detail {
-  display: block;
-  font-size: 0.8rem;
+.vivc-compact-number {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.vivc-compact-arrow {
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.vivc-compact-link:hover .vivc-compact-arrow {
+  opacity: 1;
+}
+
+/* Stats grid — side by side on desktop, stacked on mobile */
+.info-stats-grid {
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+  align-items: stretch;
+}
+
+@media (max-width: 480px) {
+  .info-stats-grid {
+    flex-direction: column;
+  }
+}
+
+.info-stats-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.015);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 1rem 0.75rem;
+}
+
+.info-stats-cell .info-stats-header {
+  align-self: flex-start;
+}
+
+.info-stats-cell .info-stats-body {
+  flex: 1;
+}
+
+.info-stats-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.info-stats-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+}
+
+.info-stats-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.info-stats-label {
+  font-size: 0.75rem;
   color: var(--text-secondary);
-  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Donut chart */
+.donut-chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 120px;
+  margin: 0.25rem auto 0;
+}
+
+.donut-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: rotate(0deg);
+}
+
+.donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.donut-pct {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6d28d9;
+}
+
+.donut-sub {
+  display: block;
+  font-size: 0.55rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.donut-legend {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.donut-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.donut-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.varietal-color {
+  color: #6d28d9;
+}
+
+.blended-color {
+  color: #d97706;
+}
+
+/* Geographic breakdown bars */
+.geo-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.geo-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.geo-bar-name {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  min-width: 60px;
+  flex-shrink: 0;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.geo-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--gray-100);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.geo-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+  border-radius: 5px;
+  min-width: 4px;
+}
+
+.geo-bar-count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 20px;
+  text-align: right;
 }
 
 /* Section Navigation */

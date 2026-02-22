@@ -77,6 +77,11 @@ npm run build   # Static export
 npm test        # Run tests
 ```
 
+**Dev server rules:**
+- Never start the dev server — the user manages it
+- You may check if it's running on port 3000
+- `npm run build` is slow (full static export) — only run when explicitly requested, not for iteration
+
 **Database prep (required):**
 ```bash
 cd .. && uv run src/09_build_database.py && cp data/grapegeek.db grapegeek-nextjs/data/

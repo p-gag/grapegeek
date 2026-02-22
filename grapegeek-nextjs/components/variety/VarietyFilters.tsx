@@ -1,6 +1,7 @@
 'use client'
 
 import { Search, Filter, X } from 'lucide-react'
+import { simplifySpeciesName } from '@/lib/utils'
 import { DatabaseStats } from '@/lib/types'
 import type { Locale } from '@/lib/i18n/config'
 import { createTranslator } from '@/lib/i18n/translate'
@@ -81,7 +82,7 @@ export default function VarietyFilters({
               .sort((a, b) => b[1] - a[1])
               .map(([species, count]) => (
                 <option key={species} value={species}>
-                  {species} ({count})
+                  {simplifySpeciesName(species)} ({count})
                 </option>
               ))}
           </select>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { slugify } from '@/lib/utils';
+import { slugify, simplifySpeciesName } from '@/lib/utils';
 import type { Locale } from '@/lib/i18n/config';
 import { createTranslator } from '@/lib/i18n/translate';
 
@@ -158,7 +158,7 @@ const NodePopup: React.FC<NodePopupProps> = ({ node, isVisible, onClose, positio
 
           {species && (
             <div style={{ marginBottom: '6px' }}>
-              <strong>{t('tree.popup.species')}</strong> {species}
+              <strong>{t('tree.popup.species')}</strong> {simplifySpeciesName(species)}
             </div>
           )}
 

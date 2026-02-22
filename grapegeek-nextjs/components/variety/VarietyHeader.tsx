@@ -1,4 +1,5 @@
 import { GrapeVariety } from '@/lib/types';
+import { simplifySpeciesName } from '@/lib/utils';
 import { Wine, ExternalLink } from 'lucide-react';
 
 interface Props {
@@ -45,7 +46,7 @@ export default function VarietyHeader({ variety }: Props) {
           {variety.species && (
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <p className="text-purple-200 text-sm mb-1">Species</p>
-              <p className="text-xl font-semibold">{variety.species}</p>
+              <p className="text-xl font-semibold">{simplifySpeciesName(variety.species)}</p>
             </div>
           )}
           {variety.berry_skin_color && (

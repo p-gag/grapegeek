@@ -51,6 +51,33 @@ export function getWineTypeColor(type: string): string {
 }
 
 /**
+ * Simplify verbose botanical species names from VIVC.
+ * e.g. "VITIS VINIFERA LINNÉ SUBSP. SATIVA (DE CANDOLLE) HEGI" → "Vitis vinifera"
+ *      "VITIS INTERSPECIFIC CROSSING" → "Interspecific crossing"
+ *      "MUSCADINIA ROTUNDIFOLIA MICHAUX VAR. ROTUNDIFOLIA" → "Muscadinia rotundifolia"
+ */
+export function simplifySpeciesName(species: string): string {
+  if (!species) return species;
+
+  const upper = species.toUpperCase().trim();
+
+  // Handle crossing types
+  if (upper.includes('INTERSPECIFIC CROSSING')) return 'Interspecific crossing';
+  if (upper.includes('INTERGENERIC CROSSING')) return 'Intergeneric crossing';
+
+  // Extract genus (first word) and species epithet (second word)
+  const words = upper.split(/\s+/);
+  if (words.length >= 2) {
+    const genus = words[0].charAt(0) + words[0].slice(1).toLowerCase();
+    const epithet = words[1].toLowerCase();
+    return `${genus} ${epithet}`;
+  }
+
+  // Single word fallback
+  return species.charAt(0).toUpperCase() + species.slice(1).toLowerCase();
+}
+
+/**
  * Get color for species
  */
 export function getSpeciesColor(species: string): string {
