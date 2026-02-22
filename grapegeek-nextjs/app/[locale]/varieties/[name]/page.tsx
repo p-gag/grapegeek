@@ -21,7 +21,7 @@ export async function generateStaticParams() {
   const names = db.getAllVarietyNames();
 
   return names.map((name) => ({
-    name: encodeURIComponent(name),
+    name,
   }));
 }
 
@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = createTranslator(params.locale);
   const db = getDatabase();
-  const varietyName = decodeURIComponent(params.name);
+  const varietyName = params.name;
   const variety = db.getVariety(varietyName, true);
 
   if (!variety) {
@@ -63,7 +63,7 @@ export default function VarietyDetailPage({ params }: Props) {
   const { locale } = params;
   const t = createTranslator(locale);
   const db = getDatabase();
-  const varietyName = decodeURIComponent(params.name);
+  const varietyName = params.name;
   const variety = db.getVariety(varietyName, true);
 
   if (!variety) {
