@@ -26,6 +26,10 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
       locale: locale === 'fr' ? 'fr_CA' : 'en_CA',
       type: 'website',
     },
+    twitter: {
+      card: 'summary',
+      site: '@grapegeek',
+    },
     alternates: {
       canonical: `https://grapegeek.com/${locale}/`,
       languages: {

@@ -15,6 +15,34 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   };
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://grapegeek.com/#organization',
+      name: 'GrapeGeek',
+      url: 'https://grapegeek.com',
+      description: 'Comprehensive database of winegrowers and cold-climate grape varieties in northeastern North America.',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://grapegeek.com/#website',
+      url: 'https://grapegeek.com',
+      name: 'GrapeGeek',
+      publisher: { '@id': 'https://grapegeek.com/#organization' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://grapegeek.com/en/varieties?q={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  ],
+};
+
 export default function HomePage({ params }: { params: { locale: Locale } }) {
   const { locale } = params;
   const t = createTranslator(locale);
@@ -28,6 +56,10 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <NoScroll />
       {/* Fill the viewport below the sticky header (~65px = py-4 + content) */}
       <section className="relative bg-gradient-to-b from-[#4a3570] to-[#7B56D1] flex flex-col items-center text-white px-4 overflow-hidden h-dvh">

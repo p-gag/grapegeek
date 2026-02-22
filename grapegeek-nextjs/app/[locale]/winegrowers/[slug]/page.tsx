@@ -98,8 +98,32 @@ export default function WinegrowerDetailPage({ params }: Props) {
   const varietyPhotos = db.getVarietyPhotoThumbnails(varietyNames);
   db.close();
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Winery',
+    name: winegrower.business_name,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: winegrower.city,
+      addressRegion: winegrower.state_province,
+      addressCountry: winegrower.country,
+    },
+    ...(winegrower.website ? { url: winegrower.website } : {}),
+    ...(winegrower.latitude && winegrower.longitude ? {
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: winegrower.latitude,
+        longitude: winegrower.longitude,
+      },
+    } : {}),
+  };
+
   return (
     <div className="winegrower-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Page Header */}
       <div className="winegrower-header">
         <h1 className="winegrower-title">{winegrower.business_name}</h1>
