@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - new-site  # temporary: remove after testing
   workflow_dispatch:
 
 permissions:
